@@ -94,6 +94,7 @@ function reload() {
     watch('./scripts', 'js', 'nunjucks');
 
     watch('./hearth/media/css', 'styl', 'stylus');
+    watch('./hearth/media/css/carriers', 'styl', 'stylus');
     watch('./hearth/templates', 'html', 'nunjucks');
 
     // When the builder is updated, recompile the templates.
