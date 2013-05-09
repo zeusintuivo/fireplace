@@ -11,11 +11,11 @@
     "name": "Carrier Info",
     "orientation": ["portrait-primary"],
     "permissions": {
-        "mobileconnection": {"description": "To detect mobile connection information."}
+        "mobilenetwork": {"description": "To detect mobile connection information."}
     },
     "type": "privileged",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "messages": [
-        {"mobileconnection": "/index.html"}
+        {"mobilenetwork": "/index.html"}
     ]
 }

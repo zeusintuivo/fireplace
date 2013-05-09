@@ -6,6 +6,7 @@
     return;
   }
   var output = [];
+  output.push('<dt>lastKnownNetwork</dt><dd>' + conn.lastKnownNetwork + '</dd>');
   output.push('<dt>cardState</dt><dd>' + conn.cardState + '</dd>');
   output.push('<dt>data</dt><dd>' + conn.data + '</dd>');
   output.push('<dt>iccInfo.mcc</dt><dd>' + conn.iccInfo.mcc + '</dd>');
