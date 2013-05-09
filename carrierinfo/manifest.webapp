@@ -14,7 +14,7 @@
         "mobilenetwork": {"description": "To detect mobile connection information."}
     },
     "type": "privileged",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "messages": [
         {"mobilenetwork": "/index.html"}
     ]
