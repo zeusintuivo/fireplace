@@ -1,6 +1,6 @@
 /* This is a shared file between Fireplace and Transonic. */
 define('feed',
-    ['l10n', 'models', 'nunjucks', 'underscore', 'utils_local'], function(l10n, models, nunjucks, _, utils_local) {
+    ['l10n', 'models', 'nunjucks', 'utils_local'], function(l10n, models, nunjucks, utils_local) {
     'use strict';
     var gettext = l10n.gettext;
 
@@ -13,18 +13,17 @@ define('feed',
         'apps-for-chile': [gettext('App for Chile'), gettext('Apps for Chile')],
         'apps-for-china': [gettext('App for China'), gettext('Apps for China')],
         'apps-for-colombia': [gettext('App for Colombia'), gettext('Apps for Colombia')],
-        'apps-for-costa-rica': [gettext('App for Costa Rica'), gettext('Apps for Costa Rica')],
         'apps-for-croatia': [gettext('App for Croatia'), gettext('Apps for Croatia')],
-        'apps-for-czech-republic': [gettext('App for Czech Republic'), gettext('Apps for Czech Republic')],
+        'apps-for-czechoslovakia': [gettext('App for Czechoslovakia'), gettext('Apps for Czechoslovakia')],
         'apps-for-ecuador': [gettext('App for Ecuador'), gettext('Apps for Ecuador')],
+        'apps-for-education': [gettext('App for Education'), gettext('Apps for Education')],
         'apps-for-el-salvador': [gettext('App for El Salvador'), gettext('Apps for El Salvador')],
-        'apps-for-france': [gettext('App for France'), gettext('Apps for France')],
         'apps-for-germany': [gettext('App for Germany'), gettext('Apps for Germany')],
         'apps-for-greece': [gettext('App for Greece'), gettext('Apps for Greece')],
+        'apps-for-guatemala': [gettext('App for Guatemala'), gettext('Apps for Guatemala')],
         'apps-for-hungary': [gettext('App for Hungary'), gettext('Apps for Hungary')],
         'apps-for-india': [gettext('App for India'), gettext('Apps for India')],
         'apps-for-italy': [gettext('App for Italy'), gettext('Apps for Italy')],
-        'apps-for-japan': [gettext('App for Japan'), gettext('Apps for Japan')],
         'apps-for-macedonia': [gettext('App for Macedonia'), gettext('Apps for Macedonia')],
         'apps-for-mexico': [gettext('App for Mexico'), gettext('Apps for Mexico')],
         'apps-for-montenegro': [gettext('App for Montenegro'), gettext('Apps for Montenegro')],
@@ -39,26 +38,57 @@ define('feed',
         'apps-for-uruguay': [gettext('App for Uruguay'), gettext('Apps for Uruguay')],
         'apps-for-venezuela': [gettext('App for Venezuela'), gettext('Apps for Venezuela')],
         'arts-entertainment': [gettext('Arts & Entertainment'), gettext('Arts & Entertainment')],
-        'book': [gettext('Book'), gettext('Books')],
-        'creativity': [gettext('Creativity'), gettext('Creativity')],
+        'arts-entertainment-spotlight': [gettext('Arts & Entertainment Spotlight'), gettext('Arts & Entertainment Spotlight')],
+        'be-more-productive': [gettext('Be More Productive'), gettext('Be More Productive')],
+        'better-business': [gettext('Better Business'), gettext('Better Business')],
+        'book': [gettext('Book'), gettext('Book')],
+        'editors-pick': [gettext('Editors\' Pick'), gettext('Editors\' Picks')],
         'education': [gettext('Education'), gettext('Education')],
-        'games': [gettext('Game'), gettext('Games')],
-        'groundbreaking': [gettext('Groundbreaking'), gettext('Groundbreaking')],
+        'education-spotlight': [gettext('Education Spotlight'), gettext('Education Spotlight')],
+        'featured-app-for-work-business': [gettext('Featured App for Work & Business'), gettext('Featured Apps for Work & Business')],
+        'featured-camera-app': [gettext('Featured Camera App'), gettext('Featured Camera Apps')],
+        'featured-creativity-app': [gettext('Featured Creativity App'), gettext('Featured Creativity Apps')],
+        'featured-lifestyle-app': [gettext('Featured Lifestyle App'), gettext('Featured Lifestyle Apps')],
+        'featured-social-app': [gettext('Featured Social App'), gettext('Featured Social Apps')],
+        'for-music-lovers': [gettext('For Music Lovers'), gettext('For Music Lovers')],
+        'for-travelers': [gettext('For Travelers'), gettext('For Travelers')],
+        'games': [gettext('Games'), gettext('Games')],
+        'get-connected': [gettext('Get Connected'), gettext('Get Connected')],
+        'get-creative': [gettext('Get Creative'), gettext('Get Creative')],
+        'get-things-done': [gettext('Get Things Done'), gettext('Get Things Done')],
+        'getting-around': [gettext('Getting Around'), gettext('Getting Around')],
+        'great-game': [gettext('Great Game'), gettext('Great Games')],
+        'great-read': [gettext('Great Read'), gettext('Great Reads')],
+        'groundbreaking-app': [gettext('Groundbreaking App'), gettext('Groundbreaking Apps')],
         'health-fitness': [gettext('Health & Fitness'), gettext('Health & Fitness')],
+        'healthy-living': [gettext('Healthy Living'), gettext('Healthy Living')],
         'hidden-gem': [gettext('Hidden Gem'), gettext('Hidden Gems')],
+        'hot-game': [gettext('Hot Game'), gettext('Hot Game')],
+        'instant-fun': [gettext('Instant Fun!'), gettext('Instant Fun!')],
         'lifestyle': [gettext('Lifestyle'), gettext('Lifestyle')],
+        'lifestyle-culture': [gettext('Lifestyle & Culture'), gettext('Lifestyle & Culture')],
+        'live-healthy': [gettext('Live Healthy'), gettext('Live Healthy')],
+        'local-community-favorites': [gettext('Local Community Favorite'), gettext('Local Community Favorites')],
         'local-favorite': [gettext('Local Favorite'), gettext('Local Favorites')],
         'maps-navigation': [gettext('Maps & Navigation'), gettext('Maps & Navigation')],
+        'maps-navigation-spotlight': [gettext('Maps & Navigation Spotlight'), gettext('Maps & Navigation Spotlight')],
         'music': [gettext('Music'), gettext('Music')],
         'mystery-app': [gettext('Mystery App!'), gettext('Mystery Apps!')],
         'news-weather': [gettext('News & Weather'), gettext('News & Weather')],
+        'news-weather-spotlight': [gettext('News & Weather Spotlight'), gettext('News & Weather Spotlight')],
         'photo-video': [gettext('Photo & Video'), gettext('Photo & Video')],
+        'play-this-game-right-now': [gettext('Play This Game Right Now'), gettext('Play These Games Right Now')],
         'shopping': [gettext('Shopping'), gettext('Shopping')],
+        'smart-shopping-apps': [gettext('Smart Shopping App'), gettext('Smart Shopping Apps')],
         'social': [gettext('Social'), gettext('Social')],
         'sports': [gettext('Sports'), gettext('Sports')],
+        'staff-pick': [gettext('Staff Pick'), gettext('Staff Picks')],
+        'the-sporting-life': [gettext('The Sporting Life'), gettext('The Sporting Life')],
+        'todays-top-app': [gettext('Today\'s Top App'), gettext('Today\'s Top Apps')],
         'tools-time-savers': [gettext('Tools & Time Saver'), gettext('Tools & Time Savers')],
         'travel': [gettext('Travel'), gettext('Travel')],
-        'work-business': [gettext('Work & Business'), gettext('Work & Business')]
+        'travel-guide': [gettext('Travel Guide'), gettext('Travel Guides')],
+        'work-business': [gettext('Work & Business'), gettext('Work & Business')],
     };
 
     var BRAND_TYPES_CHOICES = utils_local.items(BRAND_TYPES);
@@ -70,7 +100,7 @@ define('feed',
 
     var BRAND_LAYOUTS_CHOICES = utils_local.items(BRAND_LAYOUTS);
 
-    var BRAND_COLORS = [
+    var BRAND_COLOR_CLASSES = [
         'ruby',
         'amber',
         'emerald',
@@ -110,42 +140,10 @@ define('feed',
         return BRAND_TYPES[item.type][0];
     }
 
-    function get_brand_color_class(brand) {
-        /*
-        Passed the JSON representation of an editorial brand, returns a random
-        CSS class to be used to colorify that brand's display.
-        */
-
-        function identifier(brand) {
-            // Generate a unique identifier from the brand.
-            var brand_id = brand.type;
-            _.each(brand.apps, function(app) {
-                brand_id += '_' + app.slug;
-            });
-            return brand_id;
-        }
-
-        function charcode_sum(str) {
-            // Sum the charcodes of each character in a passed string.
-            var sum = 0;
-            for(var i = 0, length = str.length; i < length; i++) {
-                sum += str.charCodeAt(i);
-            }
-            return sum;
-        }
-
-        function seeded_random(seed) {
-            // Generate a seeded random float between 0 and 1 using the passed
-            // integer as a seed.
-            var rand = Math.sin(seed++) * 10000;
-            return rand - Math.floor(rand);
-        }
-
-        var brand_id = identifier(brand);
-        var seed = charcode_sum(brand_id);
-        var random = seeded_random(seed);
-
-        return BRAND_COLORS[Math.floor(random * BRAND_COLORS.length)];
+    function get_brand_color_class() {
+        // Return random item from BRAND_COLOR_CLASSES array.
+        var seed = Math.floor(Math.random() * BRAND_COLOR_CLASSES.length);
+        return BRAND_COLOR_CLASSES[seed];
     }
 
     function group_apps(apps) {
