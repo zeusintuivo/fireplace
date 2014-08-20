@@ -3,65 +3,80 @@ define('feed',
     ['l10n', 'models', 'nunjucks', 'underscore', 'utils_local'], function(l10n, models, nunjucks, _, utils_local) {
     'use strict';
     var gettext = l10n.gettext;
+    var ngettext = l10n.ngettext;
 
-    var BRAND_TYPES = {
-        'apps-for-albania': [gettext('App for Albania'), gettext('Apps for Albania')],
-        'apps-for-argentina': [gettext('App for Argentina'), gettext('Apps for Argentina')],
-        'apps-for-bangladesh': [gettext('App for Bangladesh'), gettext('Apps for Bangladesh')],
-        'apps-for-brazil': [gettext('App for Brazil'), gettext('Apps for Brazil')],
-        'apps-for-bulgaria': [gettext('App for Bulgaria'), gettext('Apps for Bulgaria')],
-        'apps-for-chile': [gettext('App for Chile'), gettext('Apps for Chile')],
-        'apps-for-china': [gettext('App for China'), gettext('Apps for China')],
-        'apps-for-colombia': [gettext('App for Colombia'), gettext('Apps for Colombia')],
-        'apps-for-costa-rica': [gettext('App for Costa Rica'), gettext('Apps for Costa Rica')],
-        'apps-for-croatia': [gettext('App for Croatia'), gettext('Apps for Croatia')],
-        'apps-for-czech-republic': [gettext('App for Czech Republic'), gettext('Apps for Czech Republic')],
-        'apps-for-ecuador': [gettext('App for Ecuador'), gettext('Apps for Ecuador')],
-        'apps-for-el-salvador': [gettext('App for El Salvador'), gettext('Apps for El Salvador')],
-        'apps-for-france': [gettext('App for France'), gettext('Apps for France')],
-        'apps-for-germany': [gettext('App for Germany'), gettext('Apps for Germany')],
-        'apps-for-greece': [gettext('App for Greece'), gettext('Apps for Greece')],
-        'apps-for-hungary': [gettext('App for Hungary'), gettext('Apps for Hungary')],
-        'apps-for-india': [gettext('App for India'), gettext('Apps for India')],
-        'apps-for-italy': [gettext('App for Italy'), gettext('Apps for Italy')],
-        'apps-for-japan': [gettext('App for Japan'), gettext('Apps for Japan')],
-        'apps-for-macedonia': [gettext('App for Macedonia'), gettext('Apps for Macedonia')],
-        'apps-for-mexico': [gettext('App for Mexico'), gettext('Apps for Mexico')],
-        'apps-for-montenegro': [gettext('App for Montenegro'), gettext('Apps for Montenegro')],
-        'apps-for-nicaragua': [gettext('App for Nicaragua'), gettext('Apps for Nicaragua')],
-        'apps-for-panama': [gettext('App for Panama'), gettext('Apps for Panama')],
-        'apps-for-peru': [gettext('App for Peru'), gettext('Apps for Peru')],
-        'apps-for-poland': [gettext('App for Poland'), gettext('Apps for Poland')],
-        'apps-for-russia': [gettext('App for Russia'), gettext('Apps for Russia')],
-        'apps-for-serbia': [gettext('App for Serbia'), gettext('Apps for Serbia')],
-        'apps-for-south-africa': [gettext('App for South Africa'), gettext('Apps for South Africa')],
-        'apps-for-spain': [gettext('App for Spain'), gettext('Apps for Spain')],
-        'apps-for-uruguay': [gettext('App for Uruguay'), gettext('Apps for Uruguay')],
-        'apps-for-venezuela': [gettext('App for Venezuela'), gettext('Apps for Venezuela')],
-        'arts-entertainment': [gettext('Arts & Entertainment'), gettext('Arts & Entertainment')],
-        'book': [gettext('Book'), gettext('Books')],
-        'creativity': [gettext('Creativity'), gettext('Creativity')],
-        'education': [gettext('Education'), gettext('Education')],
-        'games': [gettext('Game'), gettext('Games')],
-        'groundbreaking': [gettext('Groundbreaking'), gettext('Groundbreaking')],
-        'health-fitness': [gettext('Health & Fitness'), gettext('Health & Fitness')],
-        'hidden-gem': [gettext('Hidden Gem'), gettext('Hidden Gems')],
-        'lifestyle': [gettext('Lifestyle'), gettext('Lifestyle')],
-        'local-favorite': [gettext('Local Favorite'), gettext('Local Favorites')],
-        'maps-navigation': [gettext('Maps & Navigation'), gettext('Maps & Navigation')],
-        'music': [gettext('Music'), gettext('Music')],
-        'mystery-app': [gettext('Mystery App!'), gettext('Mystery Apps!')],
-        'news-weather': [gettext('News & Weather'), gettext('News & Weather')],
-        'photo-video': [gettext('Photo & Video'), gettext('Photo & Video')],
-        'shopping': [gettext('Shopping'), gettext('Shopping')],
-        'social': [gettext('Social'), gettext('Social')],
-        'sports': [gettext('Sports'), gettext('Sports')],
-        'tools-time-savers': [gettext('Tools & Time Saver'), gettext('Tools & Time Savers')],
-        'travel': [gettext('Travel'), gettext('Travel')],
-        'work-business': [gettext('Work & Business'), gettext('Work & Business')]
-    };
+    /* Usage:
+     * get_brand_type() => return a one-dimensional array of the brand types.
+     * get_brand_type(type, 2) => return the brand name with its plural form if applicable.
+     */
+    function get_brand_type(cat, numApps) {
+        if (!arguments.length) {
+            cat = null;
+            numApps = 1;
+        }
+        var brand_types = {
+            'apps-for-albania': ngettext('App for Albania', 'Apps for Albania', {n: numApps}),
+            'apps-for-argentina': ngettext('App for Argentina', 'Apps for Argentina', {n: numApps}),
+            'apps-for-bangladesh': ngettext('App for Bangladesh', 'Apps for Bangladesh', {n: numApps}),
+            'apps-for-brazil': ngettext('App for Brazil', 'Apps for Brazil', {n: numApps}),
+            'apps-for-bulgaria': ngettext('App for Bulgaria', 'Apps for Bulgaria', {n: numApps}),
+            'apps-for-chile': ngettext('App for Chile', 'Apps for Chile', {n: numApps}),
+            'apps-for-china': ngettext('App for China', 'Apps for China', {n: numApps}),
+            'apps-for-colombia': ngettext('App for Colombia', 'Apps for Colombia', {n: numApps}),
+            'apps-for-costa-rica': ngettext('App for Costa Rica', 'Apps for Costa Rica', {n: numApps}),
+            'apps-for-croatia': ngettext('App for Croatia', 'Apps for Croatia', {n: numApps}),
+            'apps-for-czech-republic': ngettext('App for Czech Republic', 'Apps for Czech Republic', {n: numApps}),
+            'apps-for-ecuador': ngettext('App for Ecuador', 'Apps for Ecuador', {n: numApps}),
+            'apps-for-el-salvador': ngettext('App for El Salvador', 'Apps for El Salvador', {n: numApps}),
+            'apps-for-france': ngettext('App for France', 'Apps for France', {n: numApps}),
+            'apps-for-germany': ngettext('App for Germany', 'Apps for Germany', {n: numApps}),
+            'apps-for-greece': ngettext('App for Greece', 'Apps for Greece', {n: numApps}),
+            'apps-for-hungary': ngettext('App for Hungary', 'Apps for Hungary', {n: numApps}),
+            'apps-for-india': ngettext('App for India', 'Apps for India', {n: numApps}),
+            'apps-for-italy': ngettext('App for Italy', 'Apps for Italy', {n: numApps}),
+            'apps-for-japan': ngettext('App for Japan', 'Apps for Japan', {n: numApps}),
+            'apps-for-macedonia': ngettext('App for Macedonia', 'Apps for Macedonia', {n: numApps}),
+            'apps-for-mexico': ngettext('App for Mexico', 'Apps for Mexico', {n: numApps}),
+            'apps-for-montenegro': ngettext('App for Montenegro', 'Apps for Montenegro', {n: numApps}),
+            'apps-for-nicaragua': ngettext('App for Nicaragua', 'Apps for Nicaragua', {n: numApps}),
+            'apps-for-panama': ngettext('App for Panama', 'Apps for Panama', {n: numApps}),
+            'apps-for-peru': ngettext('App for Peru', 'Apps for Peru', {n: numApps}),
+            'apps-for-poland': ngettext('App for Poland', 'Apps for Poland', {n: numApps}),
+            'apps-for-russia': ngettext('App for Russia', 'Apps for Russia', {n: numApps}),
+            'apps-for-serbia': ngettext('App for Serbia', 'Apps for Serbia', {n: numApps}),
+            'apps-for-south-africa': ngettext('App for South Africa', 'Apps for South Africa', {n: numApps}),
+            'apps-for-spain': ngettext('App for Spain', 'Apps for Spain', {n: numApps}),
+            'apps-for-uruguay': ngettext('App for Uruguay', 'Apps for Uruguay', {n: numApps}),
+            'apps-for-venezuela': ngettext('App for Venezuela', 'Apps for Venezuela', {n: numApps}),
+            'arts-entertainment': ngettext('Arts & Entertainment', 'Arts & Entertainment', {n: numApps}),
+            'book': ngettext('Book', 'Books', {n: numApps}),
+            'creativity': ngettext('Creativity', 'Creativity', {n: numApps}),
+            'education': ngettext('Education', 'Education', {n: numApps}),
+            'games': ngettext('Game', 'Games', {n: numApps}),
+            'groundbreaking': ngettext('Groundbreaking', 'Groundbreaking', {n: numApps}),
+            'health-fitness': ngettext('Health & Fitness', 'Health & Fitness', {n: numApps}),
+            'hidden-gem': ngettext('Hidden Gem', 'Hidden Gems', {n: numApps}),
+            'lifestyle': ngettext('Lifestyle', 'Lifestyle', {n: numApps}),
+            'local-favorite': ngettext('Local Favorite', 'Local Favorites', {n: numApps}),
+            'maps-navigation': ngettext('Maps & Navigation', 'Maps & Navigation', {n: numApps}),
+            'music': ngettext('Music', 'Music', {n: numApps}),
+            'mystery-app': ngettext('Mystery App!', 'Mystery Apps!', {n: numApps}),
+            'news-weather': ngettext('News & Weather', 'News & Weather', {n: numApps}),
+            'photo-video': ngettext('Photo & Video', 'Photo & Video', {n: numApps}),
+            'shopping': ngettext('Shopping', 'Shopping', {n: numApps}),
+            'social': ngettext('Social', 'Social', {n: numApps}),
+            'sports': ngettext('Sports', 'Sports', {n: numApps}),
+            'tools-time-savers': ngettext('Tools & Time Saver', 'Tools & Time Savers', {n: numApps}),
+            'travel': ngettext('Travel', 'Travel', {n: numApps}),
+            'work-business': ngettext('Work & Business', 'Work & Business', {n: numApps})
+        };
+        if (cat) {
+            return brand_types[cat];
+        }
+        return Object.keys(brand_types);
+    }
 
-    var BRAND_TYPES_CHOICES = utils_local.items(BRAND_TYPES);
+    var BRAND_TYPES = get_brand_type();
 
     var BRAND_LAYOUTS = {
         'grid': gettext('Grid Layout'),
@@ -103,13 +118,6 @@ define('feed',
         'listing': gettext('Listing Collection'),
     };
 
-    function get_brand_name(item) {
-        if (item.apps.length > 1) {
-            return BRAND_TYPES[item.type][1];
-        }
-        return BRAND_TYPES[item.type][0];
-    }
-
     function get_brand_color_class(brand) {
         /*
         Passed the JSON representation of an editorial brand, returns a random
@@ -120,7 +128,7 @@ define('feed',
             // Generate a unique identifier from the brand.
             var brand_id = brand.type;
             _.each(brand.apps, function(app) {
-                brand_id += '_' + app.slug;
+                brand_id += '_' + app.slug
             });
             return brand_id;
         }
@@ -181,7 +189,6 @@ define('feed',
 
     return {
         BRAND_TYPES: BRAND_TYPES,
-        BRAND_TYPES_CHOICES: BRAND_TYPES_CHOICES,
         BRAND_LAYOUTS: BRAND_LAYOUTS,
         BRAND_LAYOUTS_CHOICES: BRAND_LAYOUTS_CHOICES,
         COLL_PROMO: COLL_PROMO,
@@ -199,7 +206,7 @@ define('feed',
         cast_collection: models('feed-collection').cast,
         cast_shelf: models('feed-shelf').cast,
         get_brand_color_class: get_brand_color_class,
-        get_brand_name: get_brand_name,
+        get_brand_type: get_brand_type,
         group_apps: group_apps,
         MAX_BRAND_APPS: MAX_BRAND_APPS,
     };
