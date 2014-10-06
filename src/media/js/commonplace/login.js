@@ -5,7 +5,6 @@ define('login',
     var console = log('login');
     var persona_def = defer.Deferred();
     var persona_loaded = persona_def.promise();
-
     var fxa_popup;
     var pending_logins = [];
 
@@ -71,6 +70,18 @@ define('login',
         return [x, y];
     }
 
+    function finishLogin(data) {
+        user.set_token(data.token, data.settings);
+        user.update_permissions(data.permissions);
+        user.update_apps(data.apps);
+        console.log('Login succeeded, preparing the app');
+        z.body.addClass('logged-in');
+        $('.loading-submit').removeClass('loading-submit');
+        z.page.trigger('reload_chrome').trigger('logged_in');
+        _.invoke(pending_logins, 'resolve');
+        pending_logins = [];
+    }
+
     function startLogin() {
         var w = 320;
         var h = 600;
@@ -107,17 +118,7 @@ define('login',
                     'state': settings.fxa_auth_state
                 };
                 z.page.trigger('before_login');
-                requests.post(urls.api.url('fxa-login'), data).done(function(data) {
-                    user.set_token(data.token, data.settings);
-                    user.update_permissions(data.permissions);
-                    user.update_apps(data.apps);
-                    console.log('Login succeeded, preparing the app');
-                    z.body.addClass('logged-in');
-                    $('.loading-submit').removeClass('loading-submit');
-                    z.page.trigger('reload_chrome').trigger('logged_in');
-                    _.invoke(pending_logins, 'resolve');
-                    pending_logins = [];
-                });
+                requests.post(urls.api.url('fxa-login'), data).done(finishLogin);
             }, false);
 
             var fxa_url;
@@ -152,6 +153,9 @@ define('login',
                 }
             }, 150);
 
+        } else if (capabilities.yulelogFxA()) {
+            // XXX target url
+            window.top.postMessage({type: 'fxa-request'}, "*");
         } else {
             persona_loaded.done(function() {
                 if (capabilities.persona()) {
@@ -292,9 +296,14 @@ define('login',
         // Wait on consumer_info promise, because it tells us whether fxa is
         // enabled. (FIXME bug 1038936).
         if (!capabilities.fallbackFxA()) {
-            // Try to load persona. This is used by persona native/fallback
-            // implementation, as well as fxa native.
-            loadPersona();
+            if (capabilities.yulelogFxA()) {
+                // XXX target url
+                window.top.postMessage({type: 'fxa-watch', email: user.get_setting('email') || ''}, '*');
+            } else {
+                // Try to load persona. This is used by persona native/fallback
+                // implementation, as well as fxa native.
+                loadPersona();
+            }
         } else {
             // Handle fallback FxA. It doesn't use navigator.id, so we don't
             // have anything to inject and can immediately add the
@@ -305,6 +314,20 @@ define('login',
         }
     });
 
+    if (capabilities.yulelogFxA()) {
+        window.addEventListener('message', function (msg) {
+            // XXX needs origin check
+            if (!msg.data || !msg.data.type) {
+                return;
+            }
+            console.log("fxa message " + JSON.stringify(msg.data));
+            if (msg.type === 'fxa-login') {
+                finishLogin(msg.assertion);
+            } else if (msg.type === 'fxa-logout') {
+                logOut();
+            }
+        });
+    }
     var fxa_auth_url_key = 'fxa_auth_url';
     function save_fxa_auth_url(url) {
         storage.setItem(fxa_auth_url_key, url);
