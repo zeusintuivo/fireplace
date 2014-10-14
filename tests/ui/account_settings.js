@@ -2,7 +2,7 @@ var helpers = require('../helpers');
 
 helpers.startCasper();
 
-casper.test.begin('Test account settings', {
+casper.test.begin('Test My Account', {
     test: function(test) {
 
         casper.waitForSelector('#splash-overlay.hide', function() {
@@ -11,7 +11,7 @@ casper.test.begin('Test account settings', {
 
         casper.waitForUrl(helpers.makeUrl('/settings'), function() {
             test.assertUrlMatch(/\/settings/);
-            test.assertTitle('Account Settings | Firefox Marketplace');
+            test.assertTitle('My Account | Firefox Marketplace');
             test.assertVisible('.account-settings .persona');
             test.assertSelectorHasText('.account-settings .persona', 'Sign In / Sign Up');
             test.assertNotVisible('.account-settings .logout');
@@ -23,7 +23,7 @@ casper.test.begin('Test account settings', {
 
         casper.waitForSelector('.account-settings .logout', function() {
             test.assertUrlMatch(/\/settings/);
-            test.assertTitle('Account Settings | Firefox Marketplace');
+            test.assertTitle('My Account | Firefox Marketplace');
             test.assertVisible('.account-settings .logout');
             test.assertSelectorHasText('.account-settings .logout', 'Sign Out');
             test.assertNotVisible('.account-settings .persona');

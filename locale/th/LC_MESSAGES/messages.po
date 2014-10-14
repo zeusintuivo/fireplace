@@ -299,7 +299,7 @@ msgid "Settings"
 msgstr "การตั้งค่า"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "แก้ไขการตั้งค่าบัญชี"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -655,7 +655,7 @@ msgid "Get Help"
 msgstr "รับความช่วยเหลือ"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "การตั้งค่าบัญชี"
 
 #: /templates/settings/main.html:10

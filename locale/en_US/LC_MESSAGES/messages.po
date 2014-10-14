@@ -300,8 +300,8 @@ msgid "Settings"
 msgstr "Settings"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
-msgstr "Edit Account Settings"
+msgid "Edit My Account"
+msgstr "Edit My Account"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
 msgid "Sign Out"
@@ -658,8 +658,8 @@ msgid "Get Help"
 msgstr "Get Help"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
-msgstr "Account Settings"
+msgid "My Account"
+msgstr "My Account"
 
 #: /templates/settings/main.html:10
 msgid "Email"

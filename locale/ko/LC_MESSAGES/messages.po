@@ -301,7 +301,7 @@ msgid "Settings"
 msgstr "설정"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "계정 설정 편집"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -657,7 +657,7 @@ msgid "Get Help"
 msgstr "도움 받기"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "계정 설정"
 
 #: /templates/settings/main.html:10

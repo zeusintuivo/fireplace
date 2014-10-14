@@ -334,7 +334,7 @@ msgid "Settings"
 msgstr "Параметры"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "Изменить параметры учётной записи"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -718,7 +718,7 @@ msgid "Get Help"
 msgstr "Получить помощь"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "Параметры учётной записи"
 
 #: /templates/settings/main.html:10

@@ -299,7 +299,7 @@ msgid "Settings"
 msgstr "设置"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "编辑帐户设置"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -655,7 +655,7 @@ msgid "Get Help"
 msgstr "获取帮助"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "帐号设置"
 
 #: /templates/settings/main.html:10

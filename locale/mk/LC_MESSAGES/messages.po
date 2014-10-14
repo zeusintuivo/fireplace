@@ -301,7 +301,7 @@ msgid "Settings"
 msgstr "Поставки"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "Уреди поставки на профил"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -659,7 +659,7 @@ msgid "Get Help"
 msgstr "Побарајте помош"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "Поставки на профил"
 
 #: /templates/settings/main.html:10

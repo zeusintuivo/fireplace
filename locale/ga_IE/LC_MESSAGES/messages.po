@@ -300,7 +300,7 @@ msgid "Settings"
 msgstr "Socruithe"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "Cuir Socruithe an Chuntais in Eagar"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -664,7 +664,7 @@ msgid "Get Help"
 msgstr "Cabhair"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "Socruithe Cuntais"
 
 #: /templates/settings/main.html:10

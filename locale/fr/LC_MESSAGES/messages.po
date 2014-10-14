@@ -306,7 +306,7 @@ msgid "Settings"
 msgstr "Paramètres"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "Modifier mes paramètres"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -664,7 +664,7 @@ msgid "Get Help"
 msgstr "Obtenir de l'aide"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "Paramètres du compte"
 
 #: /templates/settings/main.html:10

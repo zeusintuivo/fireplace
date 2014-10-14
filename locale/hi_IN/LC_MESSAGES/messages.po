@@ -299,7 +299,7 @@ msgid "Settings"
 msgstr "सेटिंग्स"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "अकाउंट सेटिंग संपादित करें"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -657,7 +657,7 @@ msgid "Get Help"
 msgstr "सहायता प्राप्त करें"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "अकाउंट सेटिंग्स"
 
 #: /templates/settings/main.html:10

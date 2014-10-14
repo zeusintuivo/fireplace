@@ -6,7 +6,7 @@
         <li>
           <a href="{{ url('settings') }}">
             <b>{{ user.get_setting('email') }}</b>
-            {{ _('Edit Account Settings') }}</a>
+            {{ _('Edit My Account') }}</a>
         </li>
         <li><a href="{{ url('purchases') }}">{{ _('My Apps') }}</a></li>
         {% if user.get_permission('developer') %}

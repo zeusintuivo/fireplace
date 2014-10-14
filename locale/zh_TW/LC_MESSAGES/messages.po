@@ -300,7 +300,7 @@ msgid "Settings"
 msgstr "選項"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "編輯帳戶設定"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -656,7 +656,7 @@ msgid "Get Help"
 msgstr "取得幫助"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "帳戶設定"
 
 #: /templates/settings/main.html:10

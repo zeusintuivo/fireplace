@@ -44,7 +44,7 @@ define('views/settings',
         $('.linefit').linefit(2);
 
         builder.z('type', 'root settings');
-        builder.z('title', gettext('Account Settings'));
+        builder.z('title', gettext('My Account'));
         builder.z('parent', urls.reverse('homepage'));
     };
 });

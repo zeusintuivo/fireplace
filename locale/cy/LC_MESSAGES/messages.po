@@ -301,7 +301,7 @@ msgid "Settings"
 msgstr "Gosodiadau"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "Golygu Gosodiadau'r Cyfrif"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -663,7 +663,7 @@ msgid "Get Help"
 msgstr "Cael Cymorh"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "Gosodiadau'r Cyfrif"
 
 #: /templates/settings/main.html:10

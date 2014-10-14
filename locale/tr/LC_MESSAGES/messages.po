@@ -303,7 +303,7 @@ msgid "Settings"
 msgstr "Ayarlar"
 
 #: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
+msgid "Edit My Account"
 msgstr "Hesap ayarlarını düzenle"
 
 #: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
@@ -662,7 +662,7 @@ msgid "Get Help"
 msgstr "Yardım alın"
 
 #: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
+msgid "My Account"
 msgstr "Hesap Ayarları"
 
 #: /templates/settings/main.html:10
