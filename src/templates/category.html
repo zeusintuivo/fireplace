@@ -1,47 +1,33 @@
-{% include '_macros/market_tile.html' %}
+{% include '_macros/app_tile.html' %}
 {% include '_macros/more_button.html' %}
-
-{% set source = category or 'all' %}
-
-{% set category_url = url('category', [category]) if category else url('homepage') %}
-
-{% set popular_url = category_url|urlparams(src='category-popular') %}
-{% set new_url = category_url|urlparams(sort='reviewed', src='category-new') %}
-
-{% set search_url = url('search')|urlparams(cat=category) if category else url('search') %}
-{% set search_url = search_url|urlparams(sort=sort) if sort == 'reviewed' else search_url %}
+{% include '_macros/sort_toggle.html' %}
 
 <section class="main">
-  <header class="category-header">
-    <h3 class="cat-{{ category }} cat-icon mobile-cat-header"
-        data-cat-slug="{{ category }}">
+  <div class="subheader cat-header desktop-cat-header">
+    <h1 class="category-header-icon cat-{{ category }} cat-icon">
       {{ category_name }}
-    </h3>
-    <h3 class="cat-{{ category }} cat-icon desktop-cat-header"
-        data-cat-slug="{{ category }}">
-      {{ category_name }}
-    </h3>
-  </header>
-  {% include "compatibility_filtering.html" %}
+      {% if not isWebsiteCategories %}
+        <a class="app-list-filters-expand-toggle" title="{{ _('Expand') }}"></a>
+      {% endif %}
+    </h1>
+    <div class="sort-toggle-container">
+      {{ category_sort_toggle(popularUrl, newUrl) }}
+    </div>
+  </div>
+  <div class="subheader sort-toggle-container mobile-cat-header">
+    {{ category_sort_toggle(popularUrl, newUrl) }}
+    {% if not isWebsiteCategories %}
+      <a class="app-list-filters-expand-toggle" title="{{ _('Expand') }}"></a>
+    {% endif %}
+  </div>
 </section>
 
-<section id="gallery" class="island main category gallery full c">
-{% defer (url=endpoint, pluck='objects', as='app', paginate='ol.listing') %}
-  {% set paginated = response.meta.total_count > response.meta.limit %}
-  {% if paginated %}
-    <header class="featured-header c">
-      <nav class="tabs">
-        <a{% if not sort %} class="active"{% endif %} href="{{ popular_url }}" data-preserve-scroll>{{ _('Popular') }}</a>
-        {# L10n: "New" should translate to mean "Recent". Choose the shortest (space constraints) #}
-        <a{% if sort == 'reviewed' %} class="active"{% endif %} href="{{ new_url }}" data-preserve-scroll>{{ _('New') }}</a>
-      </nav>
-      <a href="{{ search_url }}" class="view-all">{{ _('View All') }}</a>
-    </header>
-  {% endif %}
-  <ol class="container listing grid-if-desktop search-listing feed c">
-    {% for result in this %}
-      <li class="item result app c">
-        {{ market_tile(result, link=true, src=source + '-' + (sort or 'popular'), tray=False) }}
+<section class="category app-list-page main full">
+{% defer (url=endpoint, pluck='objects', as=getProductType, paginate='.app-list') %}
+  <ul class="app-list {{ 'paginated' if response.meta.next }}">
+    {% for app in this %}
+      <li class="item result app-list-app">
+        {{ app_tile(app, tray=True, alt_style=True, src=source) }}
       </li>
     {% endfor %}
 
@@ -49,13 +35,13 @@
     {% if response.meta.next %}
       {{ more_button(response.meta.next) }}
     {% endif %}
-  </ol>
+  </ul>
 {% placeholder %}
   <p class="spinner padded alt"></p>
 {% empty %}
-  <p class="no-results">
-    {{ _('No apps in this category') }}
-  </p>
+  <h1 class="no-results">
+    {{ _('No results found') }}
+  </h1>
 {% except %}
   <p class="no-results">
     {% if error == 400 or error == 404 %}

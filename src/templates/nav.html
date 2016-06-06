@@ -1,39 +1,105 @@
-{% include "_macros/act_tray.html" %}
+{% set addonsEnabled = settings.addonsEnabled %}
+{% set homescreensEnabled = settings.homescreensEnabled %}
 
-{% macro navtab(code, name, url) %}
-<li class="{{ code }}" data-tab="{{ code }}">
-  <a class="tab-link" href="{{ url }}">{{ name }}</a>
-</li>
-{% endmacro %}
+<nav id="navigation" class="global-nav">
 
-{# Actions drop-down (desktop) or settings toggle (mobile). #}
-{{ act_tray(true, is_settings) }}
+  {# Mobile (bottom) Nav Menu #}
+  <ul class="global-nav-menu" data-nav-active="">
+    <li>
+      <a class="global-nav-link" data-nav-type="apps"
+         href="{{ url('popular_apps') }}"><b></b>{{ _('Apps') }}</a>
+    </li>
+    {% if addonsEnabled %}
+      <li>
+        <a class="global-nav-link" data-nav-type="addons"
+           href="{{ url('addons') }}"><b></b>{{ _('Add-ons') }}</a>
+      </li>
+    {% endif %}
+    {% if homescreensEnabled %}
+      <li class="item-homescreens">
+        <a class="global-nav-link" data-nav-type="homescreens"
+           href="{{ url('homescreens') }}"><b></b>{{ _('Homescreens') }}</a>
+      </li>
+    {% endif %}
+    <li><a class="global-nav-link" data-nav-type="more"><b></b>{{ _('More') }}</a></li>
+  </ul>
 
-{# Navigation tabs (Home, New, Popular, Categories). #}
-{# Uses body[data-page-type] to set active styles on the navigation tabs. #}
-<ul class="navbar nav-mkt{% if not is_settings %} active{% endif %}">
-  {# Tab name must match route name. #}
-  {{ navtab('homepage', _('Home'), url('homepage')) }}
-  {{ navtab('new', _('New'), url('new')) }}
-  {{ navtab('popular', _('Popular'), url('popular')) }}
-  {% if logged_in and recommendations %}
-    {{ navtab('recommended', _('Recommended'), url('recommended')) }}
-  {% endif %}
-  <li class="categories" data-tab="categories">
-    <a class="tab-link mobile-cat-link" href="{{ url('categories') }}">{{ _('Categories') }}</a>
-    <a class="desktop-cat-link">{{ _('Categories') }}</a>
-    <div class="hovercats"></div>
-  </li>
-</ul>
+  {# Desktop Nav Menu #}
+  <div class="global-nav-menu-desktop">
+    <h1 class="site">
+      <a href="{{ url('homepage') }}" class="mkt-wordmark"><span>Firefox Marketplace</span></a>
+    </h1>
+    <ul>
+      <li><a class="home" href="/">{{ _('Home') }}</a></li>
+      <li><a class="popular" href="{{ url('popular_apps') }}">{{ _('Popular') }}</a></li>
+      <li><a class="new" href="{{ url('new_apps') }}">{{ _('New') }}</a></li>
+      <li class="nav--settings--logged-in nav-menu-recommended">
+        <a class="recommended" href="{{ url('recommended') }}">{{ _('Recommended Apps') }}</a>
+      </li>
+      <li><a class="nav-category-link">{{ _('Categories') }}</a></li>
+    </ul>
+    <a class="mkt-search-btn search-btn-desktop">{{ _('Search') }}</a>
+    <a class="persona register nav--settings--logged-out">{{ _('Register') }}</a>
+    <a class="persona nav--settings--logged-out">{{ _('Sign In') }}</a>
+    <a class="mkt-settings-btn nav--settings--logged-in">{{ _('Settings') }}</a>
+  </div>
+</nav>
 
-{# Settings tabs (My Account, My Apps, Help, Feedback). #}
-<ul class="navbar nav-settings{% if is_settings %} active{% endif %}">
-  {# Tab name must match route name. #}
-  {{ navtab('settings', _('My Account'), url('settings')) }}
-  {{ navtab('purchases', _('My Apps'), url('purchases')) }}
-  {{ navtab('feedback', _('Feedback'), url('feedback')) }}
-</ul>
+{# Mobile "More" Menu #}
+<div class="full-screen-overlay below more-menu-overlay">
+  <ul class="nav-more-menu">
+    <li data-page="home"><a href="/">{{ _('Home') }}</a></li>
+    <li data-page="apps"><a href="{{ url('popular_apps') }}">{{ _('Apps') }}</a></li>
+    {% if addonsEnabled %}
+      <li data-page="addons"><a href="{{ url('addons') }}">{{ _('Add-ons') }}</a></li>
+    {% endif %}
+    {% if homescreensEnabled %}
+      <li><a href="{{ url('homescreens') }}">{{ _('Homescreens') }}</a></li>
+    {% endif %}
 
-<div class="mkt-tray{% if is_settings %} active{% endif %}">
-  <a class="header-button icon back-to-marketplace" title="{{ _('Back to Marketplace') }}"></a>
+    <li class="overlay-divider"></li>
+
+    <li class="more-menu-register nav--settings--logged-out">
+      <a class="persona register">{{ _('Register') }}</a>
+    </li>
+    <li class="more-menu-sign-in nav--settings--logged-out">
+      <a class="persona">{{ _('Sign in') }}</a>
+    </li>
+    <li data-page="settings" class="more-menu-settings nav--settings--logged-in">
+      <a href="{{ url('settings') }}">{{ _('Settings') }}</a>
+    </li>
+    <li data-page="recommended" class="more-menu-recommended nav--settings--logged-in">
+      <a href="{{ url('recommended') }}">{{ _('Recommended Apps') }}</a>
+    </li>
+    <li data-page="purchases" class="more-menu-my-apps nav--settings--logged-in">
+      <a href="{{ url('purchases') }}">{{ _('My Apps') }}</a>
+    </li>
+    <li class="more-menu-sign-out nav--settings--logged-in"><a class="logout">{{ _('Sign out') }}</a></li>
+    {% if user.get_permission('developer') %}
+      <li><a href="/developers/submissions" rel="external">{{ _('My Submissions') }}</a></li>
+    {% endif %}
+    {% if user.get_permission('reviewer') %}
+      <li><a href="/reviewers/apps/queue/" rel="external">{{ _('Reviewer Tools') }}</a></li>
+    {% endif %}
+    {% if user.get_permission('lookup') %}
+      <li><a href="/lookup/" rel="external">{{ _('Lookup Tool') }}</a></li>
+    {% endif %}
+    {% if addonsEnabled %}
+      <li><a href="/content/addon" rel="external" target="_blank">{{ _('Add-on Tools') }}</a></li>
+    {% endif %}
+
+    <li class="overlay-divider"></li>
+
+    <li><a href="http://support.mozilla.org/products/firefox-os/marketplace" target="_blank">{{ _('Support') }}</a></li>
+    <li data-page="feedback" class="more-menu-feedback"><a href="{{ url('feedback') }}">{{ _('Feedback') }}</a></li>
+    <li>
+      <a href="https://wiki.mozilla.org/Marketplace/Contributing" target="_blank">{{ _('Get Involved') }}</a>
+    </li>
+    <li data-page="newsletter"><a href="{{ url('newsletter_signup') }}">{{ _('Newsletter Signup') }}</a></li>
+
+    <li class="overlay-divider"></li>
+
+    <li data-page="privacy"><a href="{{ url('privacy') }}">{{ _('Privacy Policy') }}</a></li>
+    <li data-page="terms"><a href="{{ url('terms') }}">{{ _('Terms of Use') }}</a></li>
+  </ul>
 </div>

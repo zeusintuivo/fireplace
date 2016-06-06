@@ -1,87 +1,82 @@
 define('newsletter',
-       ['capabilities', 'l10n', 'notification', 'requests', 'settings',
-        'storage', 'templates', 'underscore', 'urls', 'user', 'utils', 'z'],
-    function(caps, l10n, n, requests, settings, storage, nunjucks, _, urls, user, utils, z) {
+    ['core/capabilities', 'jquery', 'core/notification', 'core/nunjucks', 'core/requests', 'core/urls', 'core/user', 'user_helpers', 'core/utils', 'core/z'],
+    function(capabilities, $, notification, nunjucks, requests, urls, user, user_helpers, utils, z) {
     'use strict';
 
-    var gettext = l10n.gettext;
-    var notify = n.notification;
+    function context() {
+        return {
+            user_region: user_helpers.region('restofworld'),
+            user_email: user.get_setting('email'),
+            user_lang: utils.lang(),
+        };
+    }
 
-    // Marketplace newsletter supported languages.
-    var langs = ['en-US', 'pt-BR', 'es', 'pl'];
+    function renderFooter() {
+        return nunjucks.env.render('newsletter.html', context());
+    }
 
-    // Init newsletter signup checking system.
-    function init() {
-        // Toggle the conditions below if you want to test on Desktop.
-        if (!settings.newsletter_enabled || !user.logged_in() ||
-            langs.indexOf(navigator.language) == -1) {
+    function expandDetails($details) {
+        if (!$details.hasClass('expanded')) {
+            $details
+                .addClass('expanding')
+                .removeClass('collapsed')
+                .one('transitionend', function() {
+                    $details.addClass('expanded');
+                });
+            setTimeout(function() {
+                $details.removeClass('expanding');
+            }, 1);
+        }
+    }
+
+    z.body.on('focus', '#newsletter-footer .email', function() {
+        expandDetails($('.newsletter-details'));
+    }).on('click', '.newsletter-signup-button', function() {
+        expandDetails($(this).closest('form').find('.newsletter-details'));
+    }).on('submit', '.newsletter form', utils._pd(function() {
+        var $form = $(this);
+        var $success = $form.siblings('.success');
+        var $processing = $form.siblings('.processing');
+        var $invalid = $form.find(':invalid');
+        var data = utils.getVars($form.serialize());
+
+        $form.addClass('submitted-once');
+        if ($invalid.length) {
+            $form.find('.error-message-wrapper').remove();
+            $invalid.each(function(i, invalid) {
+                $(invalid).before(
+                    $('<div class="error-message-wrapper"/>').append(
+                        $('<div class="error-message"/>').append(
+                            $('<span/>').text(invalid.validationMessage))));
+            });
             return;
         }
-        // 72 hours (1000 x 60 x 60 x 72)
-        var timeDelta = 259200000;
-        var counter = storage.getItem('newscounter');
-        if (counter == 4) return;
 
-        var now = Date.now();
-        var storedTime = storage.getItem('newstimestamp');
-        var expired = true;
+        data.newsletter = 'marketplace-' + capabilities.device_platform();
 
-        // Counter expires in timeDelta milliseconds.
-        if (storedTime) {
-            storedTime = new Date(+storedTime);
-            expired = (now - storedTime) > timeDelta;
-        }
-
-        // Increment counter if not expired otherwise save the time and set to 1.
-        if (!counter || expired) {
-            storage.setItem('newstimestamp', now);
-            storage.setItem('newscounter', 1);
-        } else {
-            if (counter++ == 2) {
-                injectSignupForm();
-                storage.removeItem('newstimestamp');
-                storage.setItem('newscounter', 4);
-            } else {
-                storage.setItem('newscounter', counter);
-            }
-        }
-    }
-
-    // Handle newsletter signup form submit.
-    z.body.on('submit', '.news-signup-form', function(e) {
-        e.preventDefault();
-        var $signup = $('main').find('.newsletter');
-
-        var $this = $(this);
-        var data = {email: decodeURIComponent($this.serialize().split('=')[1])};
-
-        $signup.addClass('loading').find('.processing, .spinner').css('display', 'block');
+        $form.addClass('processing-hidden');
+        $processing.show();
 
         requests.post(urls.api.url('newsletter'), data).done(function() {
-            $signup.removeClass('loading').addClass('done')
-                                          .find('.processing').hide();
+            $form.remove();
+            $processing.remove();
+            $success.show();
+            z.win.one('navigating', function() {
+                // Once the success message is shown revert to the form after
+                // the user navigates away so it can be resubmitted.
+                $('#newsletter-footer').html(renderFooter());
+            });
         }).fail(function() {
-            $signup.removeClass('loading').find('.processing').hide();
-            notify({message: gettext('There was an error submitting your newsletter sign up request')});
+            $processing.remove();
+            $form.removeClass('processing-hidden');
+            notification.notification({
+                message: gettext('There was an error submitting your newsletter sign up request'),
+                negativeAction: true
+            });
         });
-    });
+    }));
 
-    function injectSignupForm() {
-        var $signup;
-        $('main').prepend(
-            nunjucks.env.render('user/newsletter.html', {email: user.get_setting('email')})
-        );
-
-        $signup = $('.newsletter');
-
-        function hideForm() {
-            $signup.hide();
-        }
-
-        $signup.find('.close').on('click', utils._pd(hideForm));
-        z.win.on('unloading', hideForm);
-    }
-
-    return {init: init};
-
+    return {
+        context: context,
+    };
 });

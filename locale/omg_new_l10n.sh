@@ -10,6 +10,12 @@
 # This script makes a lot of assumptions and has no error checking, so read it
 # over before you run it.
 #
+# You'll need to install both commonplace and uglify-js globally for this script
+# to work.  Try this:
+#
+#    npm install -g commonplace
+#    npm install -g uglify-js
+#
 # Questions?  Talk to clouserw.
 
 
@@ -85,8 +91,15 @@ if confirm "Merge new strings to .po files?"; then
     popd > /dev/null
 fi
 
-if confirm "Process your debug language?"; then
+if confirm "Process your debug languages?"; then
     podebug --rewrite=unicode locale/templates/LC_MESSAGES/messages.pot locale/dbg/LC_MESSAGES/messages.po
+    podebug --rewrite=flipped locale/templates/LC_MESSAGES/messages.pot locale/rtl/LC_MESSAGES/messages.po
+fi
+
+if confirm "Convert Cyrillic Serbian to Latin?"; then
+    pushd locale > /dev/null
+    msgfilter -i sr/LC_MESSAGES/messages.po -o sr_Latn/LC_MESSAGES/messages.po recode-sr-latin
+    popd > /dev/null
 fi
 
 if [ -z "$(git status --porcelain)" ]; then
@@ -113,7 +126,7 @@ updated.  Unless something unusual is happening, we do weekly pushes on
 Tuesdays so any strings committed by then will go live.  To give you an idea of
 the number of new strings I will calculate untranslated strings below.
 
-`./stats-po.sh`
+`./stats-po.sh .`
 
 Source files: $EMAIL_SOURCE
 
@@ -131,7 +144,7 @@ echo "$CHANGES"
 echo "-----------------------------------------------"
 
 # Uses sendmail so we can set a real From address
-if confirm "Do you want to send that to $LOCALIZERS?"; then
+if confirm "Do you want to send that to $EMAIL_TO?"; then
     echo "$CHANGES" | /usr/lib/sendmail -t
 fi
 

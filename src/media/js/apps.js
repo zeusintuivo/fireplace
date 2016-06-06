@@ -2,31 +2,40 @@
     Provides the apps module, a wrapper around navigator.mozApps
 */
 define('apps',
-    ['buckets', 'capabilities', 'defer', 'installer_direct', 'installer_iframe', 'l10n', 'log', 'nunjucks', 'settings', 'underscore', 'utils'],
-    function(buckets, capabilities, defer, installer_direct, installer_iframe, l10n, log, nunjucks, settings, _, utils) {
+    ['categories', 'core/capabilities', 'core/defer', 'installer_direct',
+     'installer_iframe', 'installer_mock', 'core/l10n', 'core/nunjucks',
+     'core/settings', 'underscore', 'core/urls', 'core/utils', 'core/z'],
+    function(categories, capabilities, defer, installer_direct,
+             installer_iframe, InstallerMock, l10n, nunjucks,
+             settings, _, urls, utils, z) {
     'use strict';
     var gettext = l10n.gettext;
-    var console = log('apps');
-    var iframed;
     var installer;
+    var installer_def = defer.Deferred();
 
-    /* Determine which installer to use.
-       If we are in an iframe (yulelog), invoke direct installer.
-       If we are packaged or directly in browser, invoke iframe installer that
-       uses the m.f.c origin.
-       The iframe installer does not work when we are in an iframe because
-       mozApps doesn't seem to work when double nested in iframes.
+    /*
+      Determine which installer to use.
+
+      We *need* to use https://m.f.c. origin to install apps.
+      - In the packaged app, protocol is app:, we need to use the iframe
+        installer to get the right origin.
+      - In the iframed app or browser, protocol is https:, we can use the
+        direct installer as the origin should already be the right one.
+      - When testing locally, the protocol is https: or http:, we also use the
+        direct installer, it makes things simpler to test.
     */
-    try {
-        iframed = window.self !== window.top;
-    } catch (e) {
-        iframed = true;
-    }
-    if (iframed) {
-        installer = installer_direct;
-    } else {
+    if (window.location.protocol === 'app:') {
         installer = installer_iframe;
         installer.initialize_iframe();
+        z.page.one('iframe-install-loaded', function() {
+            installer_def.resolve();
+        });
+    } else if (capabilities.phantom || settings.mockWebApps) {
+        installer = new InstallerMock();
+        installer_def.resolve();
+    } else {
+        installer = installer_direct;
+        installer_def.resolve();
     }
 
     function install(product, opt) {
@@ -37,16 +46,20 @@ define('apps',
 
            See also: https://developer.mozilla.org/docs/DOM/Apps.install
 
-           data -- optional dict to pass as navigator.apps.install(url, data, ...)
+           data -- optional dict to pass as navigator.apps.install(url, data)
            success -- optional callback for when app installation was successful
-           error -- optional callback for when app installation resulted in error
-           navigator -- something other than the global navigator, useful for testing
+           error -- optional callback for when app install resulted in error
+           navigator -- something other than global navigator, for testing
         */
         var def = defer.Deferred();
 
         // Bug 996150 for packaged Marketplace installing packaged apps.
         installer.install(product, opt).done(function(result, product) {
+            z.page.trigger('install-success', {slug: product.slug});
             def.resolve(result, product);
+            if (z.apps.indexOf(product.manifest_url) === -1) {
+                z.apps.push(product.manifest_url);
+            }
         }).fail(function(message, error) {
             def.reject(message, error);
         });
@@ -60,6 +73,14 @@ define('apps',
 
     function launch(manifestURL) {
         return installer.launch(manifestURL);
+    }
+
+    function checkForUpdate(manifestURL) {
+        return installer.checkForUpdate(manifestURL);
+    }
+
+    function applyUpdate(manifestURL) {
+        return installer.applyUpdate(manifestURL);
     }
 
     var COMPAT_REASONS = '__compat_reasons';
@@ -89,28 +110,91 @@ define('apps',
 
         var reasons = [];
         var device = capabilities.device_type();
-        if (product.payment_required && !capabilities.navPay && !settings.simulate_nav_pay) {
-            reasons.push(gettext('Your device does not support payments.'));
-        } else if (product.payment_required && !product.price) {
-            reasons.push(gettext('This app is unavailable for purchase in your region.'));
+        if (product.payment_required && !product.price) {
+            reasons.push(gettext('not available for your region'));
         }
-
-        if (!capabilities.webApps || (!capabilities.packagedWebApps && product.is_packaged)) {
-            reasons.push(gettext('Your browser or device is not web-app compatible.'));
-        } else if (!_.contains(product.device_types, device)) {
-            reasons.push(gettext('This app is unavailable for your platform.'));
+        if (!product.isWebsite && !capabilities.webApps ||
+            (!capabilities.packagedWebApps && product.is_packaged) ||
+            device !== 'firefoxos') {
+            reasons.push(gettext('not available for your platform'));
+        } else if (product.feature_compatibility === false) {
+            // If feature_compatibility is false (and not just null!), then it
+            // means the app requires features we don't have.
+            reasons.push(gettext('not compatible with your device'));
+        } else if (product.isAddon && !settings.addonsEnabled) {
+            // If we're dealing with an Addon but the setting is false, it
+            // means we're using an older version of Firefox OS or that we are
+            // in the browser and can't detect compatibility.
+            reasons.push(gettext('not compatible with your device'));
         }
 
         product[COMPAT_REASONS] = reasons.length ? reasons : undefined;
         return product[COMPAT_REASONS];
     }
-    nunjucks.require('globals').app_incompat = incompat;
+
+    function transform(product) {
+        if (product.__transformed) {
+            return product;
+        }
+        if (product.categories) {
+            // Transform categories to get a list of objects instead of a list
+            // of slugs, to be able to display the translated category names
+            // on the detail page.
+            product.categories = categories.filter(function(category) {
+                return product.categories.indexOf(category.slug) !== -1;
+            }).map(function(category) {
+                // If the product is a website reverse its proper URL.
+                if (product.url) {
+                    return _.extend({
+                        url: urls.reverse('category_websites', [category.slug])
+                    }, category);
+                }
+                return _.extend({
+                    url: urls.reverse('category', [category.slug])
+                }, category);
+            });
+        }
+
+        // Normalize content types.
+        if (product.url) {
+            product.isWebsite = true;
+            product.previews = [];
+            product.contentType = 'website';
+            product.key = product.id;
+        } else {
+            product.isApp = true;
+            product.isAddon = (
+              !!product.mini_manifest_url &&
+              product.mini_manifest_url.indexOf('/extension/') !== -1);
+            if (product.isAddon) {
+                product.is_packaged = true;
+                product.manifest_url = product.mini_manifest_url;
+                product.contentType = 'addon';
+            } else {
+                product.contentType = 'app';
+            }
+
+            product.short_name = product.name;
+            product.key = product.slug;
+        }
+        product.isLangpack = product.role == 'langpack';
+
+        product.__transformed = true;
+        return product;
+    }
 
     return {
+        applyUpdate: applyUpdate,
+        checkForUpdate: checkForUpdate,
         getInstalled: getInstalled,
-        launch: launch,
         incompat: incompat,
         install: install,
-        _use_compat_cache: function(val) {use_compat_cache = val;}
+        launch: launch,
+        promise: installer_def.promise(),
+        installer: installer,
+        transform: transform,
+        _use_compat_cache: function(val) {
+            use_compat_cache = val;
+        }
     };
 });

@@ -1,103 +1,38 @@
+# make install - getting an error? Run `npm install` first.
+#                The directive comes from mozilla/marketplace-gulp.
+install:
+	@echo "ERROR: Please run `npm install` before running `make install`".
+
+-include node_modules/marketplace-gulp/Makefile
+
+TEST_URL?='http://localhost:8675'
+
+package:
+	@node_modules/.bin/gulp package
+
+iframe_package:
+	@node_modules/.bin/gulp iframe_package
+
+.PHONY: package
+
 REPO = "fireplace"
 UUID = "e6a59937-29e4-456a-b636-b69afa8693b4"
-VERSION = `date "+%Y.%m.%d_%H.%M.%S"`
-VERSION_INT = $(shell date "+%Y%m%d%H%M%S")
-TMP = _tmp
-SHELL = /bin/bash
-CASPERJS_BIN ?= 'casperjs'
 
-# This is what Yulelog's iframe src points to.
 DOMAIN?=marketplace.firefox.com
-
-# This is what the app will be named on the device.
-NAME?=Marketplace
-
-# This is for `package` (choices: prod, stage, dev).
 SERVER?=prod
 
-# This is the origin of the package.
-ORIGIN?=app:\/\/packaged.marketplace.firefox.com
-
-compile:
-	commonplace compile
-
-test: clean compile
-	LC_ALL=en-US $(CASPERJS_BIN) test tests/ui/
-
-# Fireplace (real packaged app)
-package: clean
-	@rm -rf TMP
-	@rm -rf src/downloads/icons/*
-	@rm -rf src/downloads/screenshots/*
-	@rm -rf src/downloads/thumbnails/*
-	@mkdir -p TMP
-	@commonplace langpacks
-	@cp -r src TMP/src
-
-	@mv TMP/src/media/js/settings_package_$(SERVER).js TMP/src/media/js/settings_local_package.js
-	@rm -rf TMP/src/media/js/{settings_local_hosted.js,settings_package_*.js}
-
-	@pushd TMP && commonplace includes && popd
-
-	@# We have to have a temp file to work around a bug in Mac's version of sed :(
-	@sed -i'.bak' -e 's/"Marketplace"/"$(NAME)"/g' TMP/src/manifest.webapp
-	@sed -i'.bak' -e 's/marketplace\.firefox\.com/$(DOMAIN)/g' TMP/src/manifest.webapp
-	@sed -i'.bak' -e 's/{launch_path}/app.html/g' TMP/src/manifest.webapp
-	@sed -i'.bak' -e 's/{fireplace_origin}/$(ORIGIN)/g' TMP/src/manifest.webapp
-	@sed -i'.bak' -e 's/{fireplace_package_version}/$(VERSION_INT)/g' TMP/src/{manifest.webapp,media/js/include.js,app.html}
-
-	@rm -rf package/archives/latest_$(SERVER)
-	@mkdir -p package/archives/latest_$(SERVER)
-	@rm -f package/archives/latest_$(SERVER).zip
-
-	@pushd TMP/src && \
-		cat ../../package/files.txt | sed '/^#/ d' | zip -9 -r ../../package/archives/$(NAME)_$(SERVER)_$(VERSION_INT).zip -@ && \
-		popd
-	@echo "Created package: package/archives/$(NAME)_$(SERVER)_$(VERSION_INT).zip"
-	@cp package/archives/$(NAME)_$(SERVER)_$(VERSION_INT).zip package/archives/latest_$(SERVER).zip
-	@echo "Created package: package/archives/latest_$(SERVER).zip"
-
-	@pushd package/archives/latest_$(SERVER) && \
-		unzip ../latest_$(SERVER).zip && \
-		popd
-	@echo "Unzipped latest package: package/archives/latest_$(SERVER)/"
-
-	@rm -rf TMP
-package_prod:
-	make package
-package_stage:
-	SERVER='stage' NAME='Stage' DOMAIN='marketplace.allizom.org' \
-    ORIGIN='app:\/\/packaged.marketplace.allizom.org' make package
-package_dev:
-	SERVER='dev' NAME='Dev' DOMAIN='marketplace-dev.allizom.org' \
-    ORIGIN='app:\/\/packaged.marketplace-dev.allizom.org' make package
-package_feed_dev:
-	SERVER='dev' NAME='FeedDev' DOMAIN='marketplace-feed-dev.allizom.org' \
-    ORIGIN='app:\/\/packaged.marketplace-feed-dev.allizom.org' make package
-package_feed_stage:
-	SERVER='stage' NAME='FeedStage' DOMAIN='marketplace-feed.allizom.org' \
-    ORIGIN='app:\/\/packaged.marketplace-feed.allizom.org' make package
-package_feed_prod:
-	SERVER='prod' NAME='FeedProd' DOMAIN='marketplace.firefox.com' \
-    ORIGIN='app:\/\/packaged.marketplace-feed.firefox.com' make package
-package_altdev:
-	SERVER='altdev' NAME='AltDev' DOMAIN='marketplace-altdev.allizom.org' make package
-package_paymentsalt:
-	SERVER='paymentsalt' NAME='PaymentAlt' DOMAIN='payments-alt.allizom.org' \
-    ORIGIN='app:\/\/packaged.payments-alt.allizom.org' make package
-
+deploy:
+	git fetch && git reset --hard origin/master && npm install && make includes
 
 serve_package:
-	@open 'http://localhost:8676/app.html'
-	@pushd package/archives/latest_$(SERVER) && \
-		python -m SimpleHTTPServer 8676
+	@pushd package/builds/_$(SERVER) && \
+		python -m SimpleHTTPServer 9676
 serve_package_prod:
 	make serve_package
 serve_package_stage:
 	SERVER='stage' make serve_package
 serve_package_dev:
 	SERVER='dev' make serve_package
-
 
 submit_package:
 	@open 'https://'$(DOMAIN)'/developers/app/marketplace/status#upload-new-version'
@@ -108,7 +43,6 @@ submit_package_stage:
 submit_package_dev:
 	DOMAIN='marketplace-dev.allizom.org' make submit_package
 
-
 approve_package:
 	@open 'https://'$(DOMAIN)'/reviewers/apps/review/marketplace#review-actions'
 approve_package_prod:
@@ -117,32 +51,6 @@ approve_package_stage:
 	DOMAIN='marketplace.allizom.org' make approve_package
 approve_package_dev:
 	DOMAIN='marketplace-dev.allizom.org' make approve_package
-
-
-# Yulelog (iframe'd packaged app)
-log: clean
-	@mkdir -p TMP && cp -pR yulelog/* TMP/.
-	@# We have to have a temp file to work around a bug in Mac's version of sed :(
-	@sed -i'.bak' -e 's/marketplace\.firefox\.com/$(DOMAIN)/g' TMP/main.js
-	@sed -i'.bak' -e 's/{origin}/$(ORIGIN)/g' TMP/manifest.webapp
-	@sed -i'.bak' -e 's/{version}/$(VERSION_INT)/g' TMP/manifest.webapp
-	@rm -f TMP/README.md
-	@rm -f TMP/*.bak
-	@cd TMP && zip -q -r ../yulelog_$(NAME)_$(VERSION_INT).zip * && cd ../
-	@rm -rf TMP
-	@echo "Created file: yulelog_$(NAME)_$(VERSION_INT).zip"
-log_prod:
-	ORIGIN='marketplace.firefox.com' make log
-log_stage:
-	SERVER='stage' NAME='Stage' DOMAIN='marketplace.allizom.org' \
-	ORIGIN='packaged.marketplace.allizom.org' make log
-log_dev:
-	SERVER='dev' NAME='Dev' DOMAIN='marketplace-dev.allizom.org' \
-	ORIGIN='packaged.marketplace-dev.allizom.org' make log
-log_payments_alt:
-	SERVER='paymentsalt' NAME='PaymentsAlt' DOMAIN='payments-alt.allizom.org' \
-	ORIGIN='payments-alt.allizom.org' make log
-
 
 submit_log:
 	@open 'https://'$(DOMAIN)'/developers/app/marketplace/status#upload-new-version'
@@ -153,7 +61,6 @@ submit_log_stage:
 submit_log_dev:
 	DOMAIN='marketplace-dev.allizom.org' make submit_log
 
-
 approve_log:
 	@open 'https://'$(DOMAIN)'/reviewers/apps/review/marketplace#review-actions'
 approve_log_prod:
@@ -163,10 +70,35 @@ approve_log_stage:
 approve_log_dev:
 	DOMAIN='marketplace-dev.allizom.org' make approve_log
 
+log:
+	@echo "This command has been removed. Use 'make iframe_package' instead."
 
-clean:
-	commonplace clean
-	@rm -f tests/captures/*.png
+test-iframe-package:
+	rm -f package/iframe/bundle.js
+	make iframe_package
+	test -f package/iframe/bundle.js
+	cmp -s package/iframe/bundle.js package/builds/_iframe_prod/bundle.js
+	MKT_URL=testurl ./node_modules/.bin/mocha package/iframe/tests/*
 
-deploy:
-	git fetch && git reset --hard origin/master && npm install && make includes
+sherlocked:
+	sleep 10 && node sherlocked.js
+
+install-firefox:
+	curl -O http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/latest-31.0esr/linux-x86_64/en-US/firefox-31.8.0esr.tar.bz2
+	tar jxf firefox-31.8.0esr.tar.bz2
+
+VIRTUALENV_VERSION ?= '13.0.3'
+WEBQA_VENV ?= '.virtualenvs/webqa'
+WEBQA_TESTS ?= 'webqa-tests'
+
+uitest-webqa:
+	${WEBQA_VENV}/bin/py.test -r=fsxXR --verbose -n=5 --baseurl=${TEST_URL} --driver=firefox --destructive -m "not credentials and not action_chains" ${WEBQA_TESTS}/tests/desktop/consumer_pages
+
+install-webqa:
+	curl -O https://pypi.python.org/packages/source/v/virtualenv/virtualenv-${VIRTUALENV_VERSION}.tar.gz
+	tar xvfz virtualenv-${VIRTUALENV_VERSION}.tar.gz
+	test -d ${WEBQA_VENV} || virtualenv-${VIRTUALENV_VERSION}/virtualenv.py ${WEBQA_VENV}
+	${WEBQA_VENV}/bin/pip install -U pytest-timeout pytest-xdist
+	test -d ${WEBQA_TESTS}/.git || git clone --depth 1 https://github.com/mozilla/marketplace-tests/ ${WEBQA_TESTS}
+	git -C ${WEBQA_TESTS} pull
+	${WEBQA_VENV}/bin/pip install -Ur ${WEBQA_TESTS}/requirements.txt

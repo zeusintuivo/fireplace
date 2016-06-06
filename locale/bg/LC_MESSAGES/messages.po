@@ -2,1015 +2,1124 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AMO Fireplace\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01T16:27:09.976Z\n"
-"PO-Revision-Date: 2013-07-27 13:46+0200\n"
-"Last-Translator: Mihail Chilyashev <m@chilyashev.com>\n"
+"POT-Creation-Date: 2016-04-20T17:37:57.000Z\n"
+"PO-Revision-Date: 2015-08-19 19:14+0000\n"
+"Last-Translator: Стоян <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian (bg)\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1440011643.0\n"
 
-#: /templates/app_list.html:30
-msgid "No apps found"
+#: /templates/carrier.html:6 /media/js/views/carrier.js:14
+msgid "Free Carrier Apps"
 msgstr ""
 
-#: /templates/app_list.html:35
+#: /templates/carrier.html:8
+msgid "Your carrier offers these free apps. You can download them at no charge."
+msgstr ""
+
+#: /templates/carrier.html:30 /templates/carrier.html:35
 msgid "No apps found."
-msgstr ""
+msgstr "Не са открити приложения."
 
-#: /templates/app_list.html:37 /templates/category.html:63 /templates/user/purchases.html:38
+#: /templates/carrier.html:37 /templates/category.html:49 /templates/langpacks.html:41 /templates/product_list.html:48 /templates/purchases.html:35 /templates/addon/list.html:33
 msgid "An internal server error occurred. Please try again later."
 msgstr "Възникна вътрешна грешка. Моля, опитайте по-късно."
 
-#: /templates/compatibility_filtering.html:3
-msgid "Show"
-msgstr ""
+#: /templates/categories.html:3 /templates/categories.html:13 /templates/header.html:9 /templates/header.html:10 /templates/nav.html:38 /templates/app/index.html:176
+msgid "Categories"
+msgstr "Категории"
 
-#: /templates/compatibility_filtering.html:10
-msgid "All apps"
-msgstr ""
+#: /templates/category.html:9 /templates/category.html:19 /templates/product_list.html:9 /templates/product_list.html:14 /templates/search.html:9 /templates/search.html:16 /templates/purchases.html:7
+msgid "Expand"
+msgstr "Разгъване"
 
-#: /templates/compatibility_filtering.html:13
-msgid "Apps for My Device"
-msgstr ""
+#: /templates/category.html:42 /templates/search.html:72
+msgid "No results found"
+msgstr "Няма намерени резултати"
 
-#: /templates/compatibility_filtering.html:16
-msgid "Desktop Apps"
-msgstr ""
-
-#: /templates/compatibility_filtering.html:18
-msgid "Firefox OS Apps"
-msgstr ""
-
-#: /templates/compatibility_filtering.html:20
-msgid "Android Mobile Apps"
-msgstr ""
-
-#: /templates/compatibility_filtering.html:22
-msgid "Android Tablet Apps"
-msgstr ""
-
-#: /templates/category.html:33 /templates/nav.html:17
-msgid "Popular"
-msgstr "Известни"
-
-#. "New" should translate to mean "Recent". Choose the shortest (space constraints)
-#: /templates/category.html:35 /templates/nav.html:16
-msgid "New"
-msgstr "Нови"
-
-#: /templates/category.html:37
-msgid "View All"
-msgstr "Виж всички"
-
-#: /templates/category.html:56
-msgid "No apps in this category"
-msgstr "В тази категория няма приложения"
-
-#: /templates/category.html:61
+#: /templates/category.html:47
 msgid "The category you requested does not exist."
 msgstr "Категорията, която поискахте, не съществува."
 
-#: /templates/confirmation.html:0 /templates/detail/abuse.html:6 /templates/settings/feedback.html:6 /templates/settings/nav.html:12 /media/js/components.js:84 /media/js/components.js:85
-msgid "Close"
-msgstr "Затвори"
+#: /templates/feedback.html:5
+msgid "We want to hear from you!"
+msgstr "Искаме вашето мнение!"
 
-#: /templates/confirmation.html:3
-msgid "No"
-msgstr "Не"
+#: /templates/feedback.html:6
+msgid "Give us your feedback. Let us know whether we are awesome or buggy."
+msgstr "Дайте ни обратна връзка. Кажете ни, че сме чудесни или пък пълни с дефекти."
 
-#: /templates/confirmation.html:4
-msgid "Yes"
-msgstr "Да"
+#: /templates/feedback.html:7 /templates/addon/abuse.html:15 /templates/app/abuse.html:16
+msgid "Let us know..."
+msgstr "Разкажете ни…"
 
-#: /templates/fx-accounts-banner.html:2
-msgid "Firefox Accounts has arrived"
-msgstr ""
+#: /templates/feedback.html:11 /templates/newsletter.html:38 /templates/addon/abuse.html:20 /templates/app/abuse.html:21 /templates/ratings/add.html:35 /templates/ratings/flag.html:17
+#: /templates/website/issue.html:13
+msgid "Cancel"
+msgstr "Отказ"
 
-#: /templates/fx-accounts-banner.html:5
-msgid "Learn how to transfer your account"
-msgstr ""
+#: /templates/feedback.html:12
+msgid "Submit Feedback"
+msgstr "Изпращане на обратна връзка"
 
-#: /templates/fx-accounts-banner.html:8
-msgid "It's easy."
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:6
-msgid "Firefox Marketplace has transitioned to Firefox Accounts to manage your profile. Continue to complete the simple upgrade process."
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:11
-msgid "Continue"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:15 /templates/fx_accounts_popup.html:34
-msgid "Learn more"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:21
-msgid "Enter your email"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:27
-msgid "Valid email required"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:30
-msgid "Next"
-msgstr ""
-
-#: /templates/incompatible.html:1
-msgid "You must use Firefox to install Firefox apps."
-msgstr "Трябва да използвате Firefox, за да инсталирате Firefox приложения"
-
-#: /templates/incompatible.html:2
-msgid "Download"
-msgstr ""
-
-#: /templates/nav.html:15
-msgid "Home"
-msgstr ""
-
-#: /templates/nav.html:18 /media/js/views/recommended.js:12
-msgid "Recommended"
-msgstr ""
-
-#: /templates/nav.html:20 /templates/nav.html:21 /media/js/views/categories.js:9
-msgid "Categories"
-msgstr ""
-
-#: /templates/nav.html:29
-msgid "My Account"
-msgstr ""
-
-#: /templates/nav.html:30 /templates/footer.html:16 /templates/_macros/act_tray.html:10 /templates/user/purchases.html:43 /templates/user/purchases.html:10 /templates/user/purchases.html:30
-#: /templates/settings/nav.html:7 /media/js/views/purchases.js:13
-msgid "My Apps"
-msgstr "Моите приложения"
-
-#: /templates/nav.html:31 /templates/footer.html:6 /templates/_macros/act_tray.html:14 /templates/settings/feedback.html:5 /templates/settings/nav.html:8 /templates/settings/nav.html:11
-#: /media/js/views/feedback.js:61
+#: /templates/footer.html:6 /templates/header.html:46 /templates/nav.html:93 /media/js/views/feedback.js:50 /media/js/views/feedback.js:53
 msgid "Feedback"
 msgstr "Обратна връзка"
 
-#: /templates/nav.html:35
-msgid "Back to Marketplace"
-msgstr ""
-
-#: /templates/footer.html:2
-msgid "Develop Apps"
-msgstr "Разработвайте приложения"
-
-#: /templates/footer.html:5
-msgid "Developer Hub"
-msgstr "Център за разработчици"
-
-#: /templates/footer.html:8 /templates/footer.html:10
+#: /templates/footer.html:9 /templates/footer.html:13 /templates/footer.html:17 /templates/nav.html:92
 msgid "Support"
 msgstr "Поддръжка"
 
-#: /templates/footer.html:18 /templates/_macros/act_tray.html:12
+#: /templates/footer.html:20
+msgid "Develop Apps"
+msgstr "Разработвайте приложения"
+
+#: /templates/footer.html:21
+msgid "Develop Firefox OS Add-ons"
+msgstr ""
+
+#: /templates/footer.html:23 /templates/nav.html:78
 msgid "My Submissions"
 msgstr "Мои"
 
-#: /templates/footer.html:21 /templates/settings/main.html:42
+#: /templates/footer.html:26 /templates/nav.html:81
 msgid "Reviewer Tools"
 msgstr "Инструменти за рецензенти"
 
-#: /templates/footer.html:24
+#: /templates/footer.html:29 /templates/nav.html:84
 msgid "Lookup Tool"
 msgstr "Инструмент за търсене"
 
-#: /templates/footer.html:32
+#: /templates/footer.html:35
 msgid ""
 "Except where otherwise <a href=\"{legal_url}\" target=\"_blank\">noted</a>, content on this site is licensed under the <a href=\"{cc_url}\" target=\"_blank\">Creative Commons Attribution Share-"
 "Alike License v3.0</a> or any later version."
 msgstr ""
-"Освен ако не е изрично <a href=\"{legal_url}\" target=\"_blank\">казано</a>, съдържанието на този сайт е лицензирано под <a href=\"{cc_url}\" target=\"_blank\">Creative Commons Attribution Share-"
-"Alike License v3.0</a> или всяка следваща версия."
+"Освен ако не е изрично <a href=\"{legal_url}\" target=\"_blank\">упоменато</a>, съдържанието на тази страница е лицензирано под <a href=\"{cc_url}\" target=\"_blank\">Creative Commons Attribution "
+"Share-Alike License v3.0</a> или следваща версия."
 
-#: /templates/footer.html:37 /templates/privacy.html:2 /templates/detail/privacy.html:3 /templates/detail/receipt.html:57 /templates/user/newsletter.html:10 /templates/detail/main.html:188
-#: /templates/settings/feedback.html:30 /media/js/views/privacy.js:10 /media/js/views/app/privacy.js:10
+#: /templates/footer.html:40 /templates/nav.html:101 /templates/privacy.html:2 /templates/app/index.html:74 /templates/app/privacy.html:2 /media/js/views/privacy.js:9
 msgid "Privacy Policy"
 msgstr "Декларация за поверителност"
 
-#: /templates/footer.html:38 /templates/terms.html:2 /templates/settings/feedback.html:35 /media/js/views/terms.js:10
+#: /templates/footer.html:41 /templates/nav.html:102 /templates/terms.html:2 /media/js/views/terms.js:12
 msgid "Terms of Use"
 msgstr "Условия за ползване"
 
-#: /templates/footer.html:40
+#: /templates/footer.html:43
 msgid "Report Trademark Abuse"
-msgstr "Докладвай злоупотреба със запазена марка"
+msgstr "Докладване злоупотреба със запазена марка"
 
-#: /templates/nominate.html:1
-msgid "Nominate apps to be featured on Firefox Marketplace!"
+#: /templates/header.html:19 /templates/header.html:34
+msgid "Search Marketplace&hellip;"
 msgstr ""
 
-#: /templates/nominate.html:6
-msgid "Are you the developer or fan of an awesome app or collection of apps on Firefox Marketplace? Submit your nominations, and you may see them in a featured spot."
-msgstr ""
-
-#: /templates/nominate.html:9
-msgid "Learn more about <a href=\"{wiki_url}\">how apps are featured</a>."
-msgstr ""
-
-#: /templates/nominate.html:15
-msgid "Thanks for submitting your nomination."
-msgstr ""
-
-#: /templates/nominate.html:16
-msgid "Tell your friends!"
-msgstr ""
-
-#: /templates/nominate.html:17
-msgid "Tweet #FaveApps"
-msgstr ""
-
-#: /templates/nominate.html:18
-msgid "Submit another nomination"
-msgstr ""
-
-#: /templates/nominate.html:24
-msgid "Tell us which Marketplace apps you'd like to nominate for featuring"
-msgstr ""
-
-#: /templates/nominate.html:25
-msgid "Name of apps or Marketplace URLs"
-msgstr ""
-
-#: /templates/nominate.html:29
-msgid "Select a category for these apps"
-msgstr ""
-
-#: /templates/nominate.html:41
-msgid "In which regions would you like to see these apps featured?"
-msgstr ""
-
-#: /templates/nominate.html:54
-msgid "Tell us why these apps should be featured"
-msgstr ""
-
-#: /templates/nominate.html:60 /templates/nominate.html:61
-msgid "Your name"
-msgstr ""
-
-#: /templates/nominate.html:64
-msgid "Your email address"
-msgstr ""
-
-#: /templates/nominate.html:71 /templates/ratings/edit.html:22 /templates/ratings/write.html:20
-msgid "Submit"
-msgstr "Прати"
-
-#: /templates/header.html:3
-msgid "Back"
-msgstr "Назад"
-
-#: /templates/header.html:8 /templates/header.html:11
+#: /templates/header.html:21 /templates/nav.html:40
 msgid "Search"
-msgstr "Търси"
-
-#: /templates/header.html:13
-msgid "Clear"
-msgstr "Изчисти"
-
-#: /templates/header.html:18
-msgid "Sign In"
-msgstr "Вход"
-
-#. Please do your best to capture the essence of Scooby Doo.
-#: /templates/_macros/feed_item.html:20
-msgid "Not yet rated"
-msgstr "Все още неоценен"
-
-#: /templates/_macros/feed_item.html:105 /templates/_macros/feed_item.html:192
-msgid "View all apps"
 msgstr ""
 
-#. Please do your best to capture the essence of Scooby Doo.
-#: /templates/_macros/feed_item.html:253 /templates/_macros/feed_item.html:279
-msgid "Ruh roh! No apps here, Shaggy!"
-msgstr "Опа! Тук няма приложения!"
-
-#: /templates/_macros/act_tray.html:2
+#: /templates/header.html:44 /templates/nav.html:43 /templates/nav.html:68 /templates/settings.html:2 /media/js/views/settings.js:9
 msgid "Settings"
 msgstr "Настройки"
 
-#: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
-msgstr "Редактирай настройките на акаунта"
+#: /templates/header.html:45 /templates/nav.html:74 /templates/purchases.html:6 /media/js/views/purchases.js:9
+msgid "My Apps"
+msgstr "Моите приложения"
 
-#: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
+#: /templates/header.html:47
 msgid "Sign Out"
 msgstr "Изход"
 
-#. This app is unavailable for purchase.
-#: /templates/_macros/market_button.html:8
-msgid "Unavailable"
-msgstr "Неналично"
-
-#: /templates/_macros/market_button.html:10 /templates/_macros/market_tile.html:32
-msgid "Free"
-msgstr "Безплатно"
-
-#: /templates/_macros/market_button.html:21 /media/js/apps_buttons.js:252
-msgid "Open"
+#: /templates/fxos_only_banner.html:1
+msgid "These applications can only be installed on devices running Firefox OS."
 msgstr ""
 
-#: /templates/_macros/market_button.html:23 /media/js/apps_buttons.js:96 /media/js/apps_buttons.js:278
-msgid "Install"
-msgstr "Инсталиране"
+#: /templates/fxos_only_banner.html:2
+msgid "You may view the catalog but not be able to install or run these apps on your platform."
+msgstr ""
 
-#: /templates/_macros/more_button.html:2
+#: /templates/langpacks.html:34 /templates/langpacks.html:39
+msgid "No language packs found."
+msgstr "Няма езикови пакети."
+
+#: /templates/newsletter.html:3
+msgid "Sign up for our newsletter"
+msgstr "Абонирайте се за бюлетина"
+
+#: /templates/newsletter.html:5
+msgid "Get Firefox news! Sign up for our newsletter"
+msgstr "Четете новини за Firefox! Абонирайте се за бюлетина"
+
+#: /templates/newsletter.html:12 /templates/settings.html:13
+msgid "Email Address"
+msgstr "Електронен адрес"
+
+#: /templates/newsletter.html:13
+msgid "Email"
+msgstr "Адрес на ел. поща"
+
+#: /templates/newsletter.html:15 /templates/newsletter.html:37
+msgid "Sign me up"
+msgstr "Абониране"
+
+#: /templates/newsletter.html:18
+msgid "Preferred Language"
+msgstr ""
+
+#: /templates/newsletter.html:32
+msgid "I'm okay with Mozilla handling my info as explained in <a href=\"{privacy_policy_url}\" target=\"_blank\">this Privacy Policy</a>."
+msgstr "Съгласен съм Mozilla да борави с данните ми, както е обяснено в <a href=\"{privacy_policy_url}\" target=\"_blank\">тази Декларация за поверителност</a>."
+
+#: /templates/newsletter.html:44
+msgid "Thanks for signing up!"
+msgstr "Благодарим, че се абонирахте!"
+
+#: /templates/newsletter.html:45
+msgid "You'll receive an email from mozilla@e.mozilla.org, please check your inbox for your first email from us. If you don’t see it, check your spam filter."
+msgstr "Ще получите писмо от mozilla@e.mozilla.org, моля, проверете входящата си поща за първо писмо от нас. Ако там го няма проверете спам филтъра."
+
+#: /templates/marketplace-update.html:2
+msgid "An update to Marketplace is available."
+msgstr "Налично е обновяване на Marketplace."
+
+#: /templates/marketplace-update.html:4
+msgid "Download"
+msgstr "Изтегляне"
+
+#: /templates/product_list.html:41 /templates/product_list.html:46
+msgid "The list returned no results."
+msgstr ""
+
+#: /templates/nav.html:9 /templates/nav.html:51
+msgid "Apps"
+msgstr ""
+
+#: /templates/nav.html:14 /templates/nav.html:53 /templates/addon/list.html:5
+msgid "Add-ons"
+msgstr ""
+
+#: /templates/nav.html:20 /templates/nav.html:56
+msgid "Homescreens"
+msgstr ""
+
+#: /templates/nav.html:23
 msgid "More"
-msgstr "Още"
-
-#: /templates/credits.html:2 /media/js/views/credits.js:10
-msgid "Credits"
 msgstr ""
 
-#: /templates/_macros/rating.html:9
-msgid "by {author}"
-msgstr "от {author}"
+#: /templates/nav.html:32 /templates/nav.html:50
+msgid "Home"
+msgstr "Начало"
 
-#: /templates/_macros/rating.html:12
-msgid "for previous version {version}"
-msgstr "за предишна версия {version}"
+#: /templates/nav.html:33 /templates/_macros/sort_toggle.html:4 /templates/_macros/sort_toggle.html:11
+msgid "Popular"
+msgstr "Известни"
 
-#: /templates/_macros/rating.html:21
-msgid "Flagged for review"
-msgstr "Маркирано за преглед"
+#: /templates/nav.html:34 /templates/_macros/sort_toggle.html:5 /templates/_macros/sort_toggle.html:12
+msgid "New"
+msgstr "Нови"
 
-#: /templates/_macros/rating.html:27
-msgid "Edit"
-msgstr "Редактирай"
-
-#: /templates/_macros/rating.html:30
-msgid "Delete"
-msgstr "Изтрий"
-
-#: /templates/_macros/rating.html:33
-msgid "Report"
-msgstr "Докладвай"
-
-#: /templates/_macros/market_tile.html:42
-msgid "({n})"
-msgstr "({n})"
-
-#: /templates/_macros/market_tile.html:45 /templates/detail/main.html:135
-msgid "Review"
-msgid_plural "Reviews"
-msgstr[0] ""
-msgstr[1] ""
-
-#. "(0)" means "0 reviews."
-#: /templates/_macros/market_tile.html:49
-msgid "(0)"
-msgstr "(0)"
-
-#: /templates/_macros/market_tile.html:50
-msgid "Not yet reviewed"
+#: /templates/nav.html:36 /templates/nav.html:71 /media/js/views/recommended.js:15
+msgid "Recommended Apps"
 msgstr ""
 
-#: /templates/_macros/market_tile.html:62
-msgid "Works offline"
+#: /templates/nav.html:41 /templates/nav.html:62 /templates/purchases.html:42 /templates/settings.html:43
+msgid "Register"
+msgstr "Регистриране"
+
+#: /templates/nav.html:42 /templates/purchases.html:43 /templates/settings.html:44
+msgid "Sign In"
+msgstr "Вписване"
+
+#: /templates/nav.html:65
+msgid "Sign in"
 msgstr ""
 
-#: /templates/_macros/market_tile.html:111 /templates/_macros/market_tile.html:114
-msgid "{app_name} screenshot"
+#: /templates/nav.html:76
+msgid "Sign out"
 msgstr ""
 
-#: /templates/detail/abuse.html:5 /templates/detail/receipt.html:68 /templates/detail/main.html:199 /media/js/views/app/abuse.js:34
-msgid "Report Abuse"
-msgstr "Докладвай злоупотреба"
-
-#: /templates/detail/abuse.html:15
-msgid "Send Report"
-msgstr "Изпрати доклад"
-
-#. (es) Classificacao Indicativa.
-#: /templates/detail/content_ratings.html:5
-msgid "Content Rating"
-msgstr "Оценка на съдържанието"
-
-#. (es) Classificacao Indicativa.
-#: /templates/detail/content_ratings.html:77
-msgid "Content Rating Details"
-msgstr "Детайли за оценката на съдържанието"
-
-#: /templates/_macros/stars.html:5
-msgid "Rated {stars} out of {maxstars} stars"
-msgstr "Оценено с {stars} от {maxstars} звезди"
-
-#: /templates/detail/privacy.html:5 /templates/ratings/main.html:8
-msgid "Back to app"
-msgstr "Обратно към приложението"
-
-#: /templates/detail/privacy.html:11
-msgid "Loading Privacy Policy..."
-msgstr "Зареждане на декларацията за поверителност"
-
-#: /templates/detail/receipt.html:8
-msgid "Thank you for purchasing"
-msgstr "Благодарим за покупката ви"
-
-#: /templates/detail/receipt.html:18 /templates/detail/receipt.html:19 /templates/detail/main.html:16 /templates/detail/main.html:17 /media/js/views/app.js:63 /media/js/views/feed/feed_app.js:9
-#: /media/js/views/feed/feed_collection.js:9 /media/js/views/feed/feed_brand.js:9 /media/js/views/feed/feed_shelf.js:9
-msgid "Loading..."
-msgstr "Зареждане..."
-
-#: /templates/detail/receipt.html:40 /templates/detail/main.html:171
-msgid "Support Email"
-msgstr "Имейл за поддръжка"
-
-#: /templates/detail/receipt.html:46 /templates/detail/main.html:177
-msgid "Support Site"
-msgstr "Сайт за поддръжка"
-
-#: /templates/detail/receipt.html:51 /templates/detail/main.html:182
-msgid "Homepage"
-msgstr "Начална страница"
-
-#: /templates/detail/receipt.html:63 /templates/detail/main.html:194
-msgid "Statistics"
-msgstr "Статистики"
-
-#: /templates/errors/404.html:2 /templates/errors/fragment.html:1 /templates/user/purchases.html:37 /media/js/views/app.js:53
-msgid "Oh no!"
-msgstr "О, не!"
-
-#: /templates/errors/404.html:3
-msgid "The page you were looking for was not found."
-msgstr "Страницата, която търсите не бе намерена."
-
-#: /templates/_macros/feed_app_tile.html:16
-msgid "&mdash; {attribution}"
+#: /templates/nav.html:87
+msgid "Add-on Tools"
 msgstr ""
 
-#: /templates/search/main.html:15
+#: /templates/nav.html:95
+msgid "Get Involved"
+msgstr "Включете се"
+
+#: /templates/nav.html:97 /media/js/views/newsletter_signup.js:11
+msgid "Newsletter Signup"
+msgstr ""
+
+#: /templates/search.html:8
 msgid "<b>{n}</b> Result"
 msgid_plural "<b>{n}</b> Results"
 msgstr[0] "<b>{n}</b> резултат"
 msgstr[1] "<b>{n}</b> резултата"
 
-#: /templates/search/main.html:16 /templates/user/purchases.html:11
-msgid "Showing <b>1</b>&ndash;<b class=\"total-results\">{total}</b>"
-msgstr "Показване на <b>1</b>&ndash;<b class=\"total-results\">{total}</b>"
+#: /templates/search.html:12
+msgid "<b>\"{search_query}\"</b> returned {n} result"
+msgid_plural "<b>\"{search_query}\"</b> returned {n} results"
+msgstr[0] "<b>\"{search_query}\"</b> върна {n} резултат"
+msgstr[1] "<b>\"{search_query}\"</b> върна {n} резултата"
 
-#: /templates/search/main.html:19 /templates/user/purchases.html:13
-msgid "Expand"
-msgstr "Разгъни"
-
-#: /templates/search/main.html:37
-msgid "No results found"
-msgstr "Няма намерени резултати"
-
-#: /templates/search/main.html:42
+#: /templates/search.html:78
 msgid "No results found, try again later"
 msgstr "Няма намерени резултати, моля опитайте по-късно"
 
-#: /templates/errors/date-error.html:2
-msgid "System Date Incorrect"
-msgstr ""
-
-#: /templates/errors/date-error.html:3
-msgid "Sorry, your device clock appears to be set incorrectly."
-msgstr ""
-
-#: /templates/errors/date-error.html:4
-msgid "Please set today's date and time in your device settings to access the Marketplace."
-msgstr ""
-
-#: /templates/errors/date-error.html:5 /templates/errors/offline-error.html:4
-msgid "Try again"
-msgstr ""
-
-#: /templates/errors/offline-error.html:2
-msgid "Currently Offline"
-msgstr ""
-
-#: /templates/errors/offline-error.html:3
-msgid "Sorry, you need to be online to access the Marketplace."
-msgstr ""
-
-#: /templates/errors/pagination.html:1
-msgid "Error loading more"
-msgstr "Грешка при зареждането"
-
-#: /templates/errors/pagination.html:2
-msgid "Try Again"
-msgstr "Опитай отново"
-
-#: /templates/errors/fragment.html:2
-msgid "An error occurred."
-msgstr "Възникна грешна"
-
-#: /templates/ratings/edit.html:5 /templates/ratings/main.html:15 /media/js/views/app/ratings/edit.js:86
-msgid "Edit Review"
-msgstr "Редактирай отзива"
-
-#: /templates/ratings/edit.html:9 /templates/ratings/write.html:7
-msgid "Rate:"
-msgstr "Оценка:"
-
-#: /templates/ratings/edit.html:21 /templates/ratings/write.html:3 /templates/ratings/write.html:19 /templates/ratings/report.html:3 /templates/ratings/report.html:23
-#: /templates/user/newsletter.html:13
-msgid "Cancel"
-msgstr "Отказ"
-
-#: /templates/ratings/edit.html:25 /templates/ratings/write.html:23
-msgid "Only logged in users may edit reviews."
-msgstr "Само влезли потребители могат да редактират отзиви."
-
-#: /templates/ratings/main.html:6 /templates/detail/main.html:124 /media/js/views/app/ratings.js:16
-msgid "Reviews"
-msgstr "Отзиви"
-
-#: /templates/ratings/main.html:19 /templates/ratings/write.html:2 /templates/detail/main.html:154 /media/js/views/app/ratings/add.js:35
-msgid "Write a Review"
-msgstr "Напишете отзив"
-
-#: /templates/ratings/main.html:19 /templates/detail/main.html:154
-msgid "Sign in to Review"
-msgstr "Влезте, за да напишете отзив"
-
-#: /templates/ratings/rating.html:4 /media/js/views/app/ratings/rating.js:13
-msgid "App Review"
-msgstr "Мнение за приложението"
-
-#: /templates/ratings/report.html:2
-msgid "Please select a reason:"
-msgstr "Моля, изберете причина:"
-
-#: /templates/ratings/report.html:8
-msgid "Spam or otherwise non-review content"
-msgstr "Спам или друго незначимо съдържание"
-
-#: /templates/ratings/report.html:13
-msgid "Inappropriate language/dialog"
-msgstr "Неуместен език/диалог"
-
-#: /templates/ratings/report.html:18
-msgid "Misplaced bug report or support request"
-msgstr "Неуместен доклад за проблем или заявка за поддръжка"
-
-#: /templates/user/newsletter.html:3
-msgid "Get Firefox Marketplace news"
-msgstr "Получавайте новини от Firefox Marketplace"
-
-#: /templates/user/newsletter.html:8
-msgid "Sign up"
-msgstr "Записване"
-
-#: /templates/user/newsletter.html:15
-msgid "Signing up..."
-msgstr "Записване..."
-
-#: /templates/user/newsletter.html:18
-msgid "You were successfully signed up for the Marketplace newsletter!"
-msgstr "Вие успешно се записахте за бюлетина на Marketplace!"
-
-#: /templates/detail/main.html:44
-msgid "Installed!"
-msgstr "Инсталирано!"
-
-#: /templates/detail/main.html:47
-msgid "Launch this app from your <b>Applications</b> directory."
-msgstr "Стартирайте това приложение от вашата директория <b>Приложения</b>."
-
-#: /templates/detail/main.html:50
-msgid "Launch this app from your <b>Windows desktop</b> or <b>Start &#9658; All Programs</b>."
-msgstr "Стартирайте това приложение от вашия <b>Windows работен плот</b> или <b>Start &#9658; Всички програми</b>."
-
-#: /templates/detail/main.html:53
-msgid "Launch this app from your <b>dash</b>, <b>Application picker</b>, or <b>Applications menu</b>."
-msgstr "Стартирайте това приложение от вашето <b>табло</b>, <b></b> или <b>меню Приложения</b>"
-
-#: /templates/detail/main.html:68
-msgid "Updates"
-msgstr "Актуализации"
-
-#: /templates/detail/main.html:74 /templates/detail/main.html:91
-msgid "Less&hellip;"
-msgstr "По-малко&hellip;"
-
-#: /templates/detail/main.html:74 /templates/detail/main.html:91
-msgid "More&hellip;"
-msgstr "Повече&hellip;"
-
-#: /templates/detail/main.html:85 /media/js/feed.js:33
-msgid "Description"
-msgstr "Описание"
-
-#: /templates/detail/main.html:94
-msgid "Version"
-msgstr "Версия"
-
-#: /templates/detail/main.html:96
-msgid "Latest version: {version}"
-msgstr "Последна версия: {version}"
-
-#: /templates/detail/main.html:110
-msgid "Edit Listing"
-msgstr "Редактирай списъка"
-
-#: /templates/detail/main.html:113
-msgid "Approve / Reject"
-msgstr "Одобри / Откажи"
-
-#: /templates/detail/main.html:113
-msgid "Review History"
-msgstr "История на отзивите"
-
-#: /templates/detail/main.html:142
-msgid "App not yet reviewed"
-msgstr ""
-
-#: /templates/detail/main.html:150
-msgid "Edit Your Review"
-msgstr "Редактирайте вашия отзив"
-
-#: /templates/detail/main.html:210
-msgid "Premium version available"
-msgstr "Налична е премиум версия"
-
-#: /templates/user/purchases.html:48
+#: /templates/purchases.html:41
 msgid "You must be signed in to view your apps."
-msgstr "Трябва да влезете, за да виждате своите приложения"
+msgstr "Трябва да се впишете, за да виждате приложенията си."
 
-#: /templates/user/purchases.html:49
-msgid "Sign in / Sign up"
-msgstr "Вход / Регистрация"
-
-#: /templates/user/purchases.html:33
+#: /templates/purchases.html:30
 msgid "You have no apps"
-msgstr "Вие нямате приложения"
+msgstr "Нямате приложения"
 
-#: /templates/settings/feedback.html:16
-msgid "Send"
-msgstr "Изпрати"
+#: /templates/purchases.html:34 /templates/errors/fragment.html:1 /media/js/views/app.js:47
+msgid "Oh no!"
+msgstr "О, не!"
 
-#: /templates/settings/feedback.html:22 /templates/settings/feedback.html:24
-msgid "Get Help"
-msgstr "Получете помощ"
+#: /templates/settings.html:9
+msgid "General settings"
+msgstr "Общи настройки"
 
-#: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
-msgstr "Настройки на акаунта"
-
-#: /templates/settings/main.html:10
-msgid "Email"
-msgstr "Имейл"
-
-#: /templates/settings/main.html:19
+#: /templates/settings.html:18
 msgid "Display Name"
 msgstr "Име"
 
-#: /templates/settings/main.html:28
-msgid "Region"
-msgstr "Район"
+#: /templates/settings.html:26
+msgid "Recommendations"
+msgstr "Препоръчани"
 
-#: /templates/settings/main.html:37
+#: /templates/settings.html:30
+msgid "Yes, show me recommendations based on my installed apps. <a href=\"{url}\" target=\"_blank\">Learn more</a>"
+msgstr "Да, показвайте ми препоръки, въз основа на инсталираните ми приложения. <a href=\"{url}\" target=\"_blank\">Научете повече</a>"
+
+#: /templates/settings.html:42
 msgid "Save Changes"
 msgstr "Запази промените"
 
-#: /templates/settings/main.html:40
-msgid "Sign In / Sign Up"
-msgstr "Вход / Регистрация"
+#: /templates/settings.html:36
+msgid "Region"
+msgstr "Район"
 
-#: /templates/settings/nav.html:6
-msgid "Account"
-msgstr "Акаунт"
+#: /templates/usage.html:3 /media/js/views/usage.js:9
+msgid "App Statistics"
+msgstr "Статистика"
 
-#: /media/js/categories.js:7
+#: /templates/usage.html:10
+msgid "App usage statistics"
+msgstr "Статистика за използване"
+
+#: /templates/usage.html:11
+msgid "Not enough statistics to show."
+msgstr "Няма достатъчно статистика."
+
+#: /templates/_includes/carrier_apps_banner.html:2
+msgid "Your carrier offers some free apps."
+msgstr ""
+
+#. This is the link text for the carrier apps banner. "Your carrier offers some free apps. Get them now!"
+#: /templates/_includes/carrier_apps_banner.html:6
+msgid "Get them now!"
+msgstr ""
+
+#. (es) Classificacao Indicativa.
+#: /templates/_includes/content_ratings.html:5
+msgid "Content Rating"
+msgstr "Оценка на съдържанието"
+
+#. (es) Classificacao Indicativa. Rating as in content rating.
+#: /templates/_includes/content_ratings.html:45
+msgid "Rating Details"
+msgstr "Информация за оценката"
+
+#: /templates/_includes/post_install_message.html:2
+msgid "Installed!"
+msgstr "Инсталирано!"
+
+#: /templates/_includes/post_install_message.html:5
+msgid "Launch this app from your <b>Applications</b> directory."
+msgstr "Отворете приложението от папка <b>Приложения</b>."
+
+#: /templates/_includes/post_install_message.html:8
+msgid "Launch this app from your <b>Windows desktop</b> or <b>Start &#9658; All Programs</b>."
+msgstr "Стартирайте това приложение от вашия <b>Windows работен плот</b> или <b>Start &#9658; Всички програми</b>."
+
+#: /templates/_includes/post_install_message.html:11
+msgid "Launch this app from your <b>dash</b>, <b>Application picker</b>, or <b>Applications menu</b>."
+msgstr "Отворете приложението от вашето <b>табло</b>, <b>Избор на приложение</b> или меню <b>Приложения</b>."
+
+#: /templates/_includes/reviews_sidebar.html:9
+msgid "Edit your Review"
+msgstr "Редактирайте отзива"
+
+#: /templates/_includes/reviews_sidebar.html:11
+msgid "Edit your review"
+msgstr "Редактирайте отзива"
+
+#: /templates/_includes/reviews_sidebar.html:18
+msgid "Write a review"
+msgstr "Писане на отзив"
+
+#: /templates/_includes/reviews_sidebar.html:18
+msgid "Sign in to review"
+msgstr "Впишете се и оставете отзив"
+
+#: /templates/_includes/reviews_sidebar.html:26
+msgid "Read all reviews"
+msgstr "Четене на всички отзиви"
+
+#: /templates/addon/abuse.html:6
+msgid "Let us know if this add-on is doing something that isn't allowed in the <a href=\"{criteria_url}\" target=\"_blank\">review criteria</a> and should be removed from the Marketplace."
+msgstr ""
+
+#: /templates/addon/abuse.html:11
+msgid "Examples of issues to report here are if the add-on is completely broken, contains mature content, contains malware, etc. The add-on developer will not see your comments."
+msgstr ""
+
+#: /templates/addon/abuse.html:21 /templates/app/abuse.html:22
+msgid "Submit Report"
+msgstr "Изпращане на доклад"
+
+#: /templates/_includes/reviews_summary.html:9
+msgid "1 Review"
+msgid_plural "{numReviews} Reviews"
+msgstr[0] "1 отзив"
+msgstr[1] "{numReviews} отзива"
+
+#: /templates/addon/index.html:13 /templates/app/index.html:19 /templates/website/index.html:15
+msgid "Description"
+msgstr "Описание"
+
+#: /templates/addon/index.html:20 /templates/app/index.html:25 /templates/app/index.html:39 /templates/website/index.html:21
+msgid "View All"
+msgstr "Пълно описание"
+
+#: /templates/addon/index.html:25
+msgid "version: {version}"
+msgstr ""
+
+#: /templates/addon/index.html:26
+msgid "size: {size}"
+msgstr ""
+
+#: /templates/addon/index.html:29
+msgid "last updated: {date}"
+msgstr ""
+
+#: /templates/addon/index.html:36 /media/js/views/addon/abuse.js:36
+msgid "Report to Mozilla"
+msgstr ""
+
+#: /templates/addon/list.html:6
+msgid "Customize your device with powerful features."
+msgstr ""
+
+#: /templates/addon/list.html:26 /templates/addon/list.html:31
+msgid "No Firefox OS add-ons found."
+msgstr ""
+
+#: /templates/_macros/app_tile.html:108
+msgid "Review"
+msgid_plural "Reviews"
+msgstr[0] "отзив"
+msgstr[1] "отзива"
+
+#: /templates/_macros/app_tile.html:114
+msgid "Not yet reviewed"
+msgstr "Все още без отзиви"
+
+#: /templates/_macros/feed_app_tile.html:14
+msgid "&mdash; {attribution}"
+msgstr "&mdash; {attribution}"
+
+#: /templates/_macros/feed_item.html:82 /templates/_macros/feed_item.html:175
+msgid "View all"
+msgstr ""
+
+#: /templates/_macros/feed_websites.html:16
+msgid "Visit this top site!"
+msgstr ""
+
+#: /templates/_macros/feed_websites.html:50
+msgid "Show me another site"
+msgstr ""
+
+#: /templates/_macros/more_button.html:3
+msgid "Load more"
+msgstr "Още"
+
+#: /templates/_macros/review.html:14
+msgid "For previous version {version}"
+msgstr "За предната версия {version}"
+
+#: /templates/_macros/review.html:25 /templates/_macros/review.html:29
+msgid "Edit"
+msgstr "Редактиране"
+
+#: /templates/_macros/review.html:36
+msgid "Delete"
+msgstr "Изтриване"
+
+#: /templates/_macros/review.html:42
+msgid "Report"
+msgstr "Докладване"
+
+#: /templates/_macros/review.html:44
+msgid "Flagged for review"
+msgstr "Избрано за преглед"
+
+#: /templates/_macros/previews.html:42 /templates/_macros/previews.html:45
+msgid "{app_name} screenshot"
+msgstr "Екранна снимка на {app_name}"
+
+#: /templates/_macros/stars.html:5
+msgid "Rated {stars} out of {maxstars} stars"
+msgstr "Оценено с {stars} от {maxstars} звезди"
+
+#: /templates/app/abuse.html:5
+msgid "Need to report something?"
+msgstr "Искате да докладвате нещо?"
+
+#: /templates/app/abuse.html:7
+msgid "Let us know if this app is doing something that isn't allowed in the <a href=\"{criteria_url}\" target=\"_blank\">review criteria</a> and should be removed from the Marketplace."
+msgstr ""
+
+#: /templates/app/abuse.html:12
+msgid "Examples of issues to report here are if the app is broken, contains mature content, contains malware, etc. The app developer will not see your comments."
+msgstr ""
+
+#: /templates/app/index.html:35
+msgid "Updates"
+msgstr "Актуализации"
+
+#: /templates/app/index.html:46
+msgid "Last updated"
+msgstr "Последно обновяване"
+
+#: /templates/app/index.html:55
+msgid "Email Support"
+msgstr "Поддръжка по ел. поща"
+
+#: /templates/app/index.html:62
+msgid "Support Site"
+msgstr "Страница за поддръжка"
+
+#: /templates/app/index.html:68
+msgid "Homepage"
+msgstr "Начална страница"
+
+#: /templates/app/index.html:81
+msgid "Statistics"
+msgstr "Статистики"
+
+#: /templates/app/index.html:88
+msgid "Edit Listing"
+msgstr "Редактирай списъка"
+
+#: /templates/app/index.html:96
+msgid "Approve / Reject"
+msgstr "Одобри / Откажи"
+
+#: /templates/app/index.html:97
+msgid "Review History"
+msgstr "История на отзивите"
+
+#: /templates/app/index.html:114 /media/js/views/app/ratings.js:11
+msgid "Reviews"
+msgstr "Отзиви"
+
+#: /templates/app/index.html:125
+msgid "App not yet reviewed"
+msgstr "Приложението все още няма отзив"
+
+#: /templates/app/index.html:144
+msgid "Premium version available"
+msgstr "Налична е премиум версия"
+
+#: /templates/app/index.html:162
+msgid "More Information"
+msgstr "Повече информация"
+
+#: /templates/app/index.html:165
+msgid "Developer"
+msgstr "Разработчик"
+
+#: /templates/app/index.html:169
+msgid "Compatibility"
+msgstr ""
+
+#. delimiter to separate list of words (e.g., "eggs, ham, cheese").
+#: /templates/app/index.html:172 /templates/app/index.html:179
+msgid ","
+msgstr ","
+
+#: /templates/app/index.html:184
+msgid "File Size"
+msgstr "Размер на файла"
+
+#: /templates/app/index.html:189
+msgid "Most Recent Version"
+msgstr "Последна версия"
+
+#: /templates/app/index.html:207 /media/js/views/app/abuse.js:54
+msgid "Report Abuse"
+msgstr "Докладване злоупотреба"
+
+#: /templates/app/privacy.html:8
+msgid "Back to app"
+msgstr "Обратно към приложението"
+
+#: /templates/app/privacy.html:11
+msgid "Loading Privacy Policy..."
+msgstr "Зареждане на декларация за поверителност…"
+
+#: /templates/app/receipt.html:2
+msgid "Thank you for purchasing"
+msgstr "Благодарим за покупката ви"
+
+#: /templates/errors/404.html:2
+msgid "Content Not Found"
+msgstr ""
+
+#: /templates/errors/404.html:3
+msgid "Whoops! Something went wrong and you ended up here. Sorry!"
+msgstr ""
+
+#: /templates/errors/fragment.html:2
+msgid "An error occurred."
+msgstr "Възникна грешка."
+
+#: /templates/errors/pagination.html:2
+msgid "Try Again"
+msgstr "Нов опит"
+
+#: /templates/ratings/main.html:36
+msgid "This app has no reviews."
+msgstr "Това приложение няма отзиви."
+
+#: /templates/ratings/add.html:8 /templates/ratings/edit.html:4 /media/js/views/app/ratings/edit.js:15
+msgid "Edit Review"
+msgstr "Редактиране на отзив"
+
+#: /templates/ratings/add.html:8 /media/js/views/app/ratings/add.js:20
+msgid "Leave a Review"
+msgstr "Напишете отзив"
+
+#: /templates/ratings/add.html:10
+msgid "Please select a star rating."
+msgstr ""
+
+#: /templates/ratings/add.html:12
+msgid "Rate:"
+msgstr "Оценка:"
+
+#: /templates/ratings/add.html:23
+msgid ""
+"Please read the <a href=\"{url}\" target=\"_blank\">Review Guidelines</a> for more details about rating apps. Reviews that do not meet these guidelines may be removed by our moderation team without "
+"notice."
+msgstr ""
+
+#: /templates/ratings/add.html:28
+msgid "Tell us what you like about this app. Write like you’re telling a friend about your experience with the app. Give specific details, for example, What features did you like or dislike?"
+msgstr ""
+
+#: /templates/ratings/add.html:32
+msgid "Only users that are logged in may submit reviews."
+msgstr "Само вписани потребители могат да оставят отзиви."
+
+#: /templates/ratings/add.html:36
+msgid "Update Review"
+msgstr "Актуализиране на отзив"
+
+#: /templates/ratings/add.html:36
+msgid "Submit Review"
+msgstr "Изпращане на отзив"
+
+#: /templates/ratings/flag.html:3 /templates/ratings/flag.html:26
+msgid "Flag Review"
+msgstr "Докладване на отзив"
+
+#: /templates/ratings/flag.html:4
+msgid "See an issue with this review? Select a reason below."
+msgstr "Виждате проблем с този отзив? Изберете го по-долу."
+
+#: /templates/ratings/flag.html:7
+msgid "Spam or otherwise non-review content"
+msgstr "Спам или друго странично съдържание"
+
+#: /templates/ratings/flag.html:10
+msgid "Inappropriate language/dialog"
+msgstr "Неуместен език/диалог"
+
+#: /templates/ratings/flag.html:13
+msgid "Misplaced bug report or support request"
+msgstr "Неуместен доклад за проблем или заявка за поддръжка"
+
+#: /templates/ratings/rating.html:4 /media/js/views/app/ratings/rating.js:13
+msgid "App Review"
+msgstr "Отзив"
+
+#: /templates/website/index.html:34
+msgid "Explore more in {category_one} and {category_two}."
+msgstr ""
+
+#: /templates/website/index.html:38
+msgid "Explore more in {category}."
+msgstr ""
+
+#: /templates/website/index.html:47
+msgid "Is there something wrong or out-of-date with this website listing?"
+msgstr ""
+
+#: /templates/website/index.html:49 /templates/website/issue.html:14
+msgid "Report an issue"
+msgstr ""
+
+#: /templates/website/issue.html:5
+msgid "Let us know if something is missing from this website listing or its information should be updated."
+msgstr ""
+
+#: /templates/website/issue.html:6
+msgid "For information on show to report a copyright or trademark issue <a href=\"{url}\" target=\"_blank\">see here</a>."
+msgstr ""
+
+#: /templates/website/issue.html:8
+msgid "Describe the issue here. Please be specific."
+msgstr ""
+
+#: /media/js/categories.js:6
 msgid "Games"
 msgstr "Игри"
 
-#: /media/js/categories.js:8
-msgid "Books"
-msgstr "Книги"
+#: /media/js/categories.js:7
+msgid "Books & Comics"
+msgstr "Книги и комикси"
 
-#: /media/js/categories.js:9
+#: /media/js/categories.js:8
 msgid "Business"
 msgstr "Бизнес"
 
-#: /media/js/categories.js:10
+#: /media/js/categories.js:9
 msgid "Education"
 msgstr "Образование"
 
-#: /media/js/categories.js:11
+#: /media/js/categories.js:10
 msgid "Entertainment"
 msgstr "Развлечение"
+
+#: /media/js/categories.js:11
+msgid "Food & Drink"
+msgstr "Храна и напитки"
 
 #: /media/js/categories.js:12
 msgid "Health & Fitness"
 msgstr "Здраве и фитнес"
 
 #: /media/js/categories.js:13
-msgid "Lifestyle"
-msgstr "Лайфстайл"
+msgid "Humor"
+msgstr "Хумор"
 
 #: /media/js/categories.js:14
+msgid "Internet"
+msgstr "Интернет"
+
+#: /media/js/categories.js:15
+msgid "Kids"
+msgstr "Детски"
+
+#: /media/js/categories.js:16
+msgid "Lifestyle"
+msgstr "Стилен живот"
+
+#: /media/js/categories.js:17
 msgid "Maps & Navigation"
 msgstr "Карти и навигация"
 
-#: /media/js/categories.js:15
+#: /media/js/categories.js:18
 msgid "Music"
 msgstr "Музика"
 
-#: /media/js/categories.js:16
-msgid "News & Weather"
-msgstr "Новини и време"
+#: /media/js/categories.js:19
+msgid "News"
+msgstr "Новини"
 
-#: /media/js/categories.js:17
+#: /media/js/categories.js:20
+msgid "Personalization"
+msgstr "Персонализиране"
+
+#: /media/js/categories.js:21
 msgid "Photo & Video"
 msgstr "Снимки и видео"
 
-#: /media/js/categories.js:18
+#: /media/js/categories.js:22
 msgid "Productivity"
 msgstr "Продуктивност"
 
-#: /media/js/categories.js:19
+#: /media/js/categories.js:23
 msgid "Reference"
 msgstr "Справки"
 
-#: /media/js/categories.js:20
+#: /media/js/categories.js:24
+msgid "Science & Tech"
+msgstr "Наука и техника"
+
+#: /media/js/categories.js:25
 msgid "Shopping"
 msgstr "Пазаруване"
 
-#: /media/js/categories.js:21
+#: /media/js/categories.js:26
 msgid "Social"
 msgstr "Социални"
 
-#: /media/js/categories.js:22
+#: /media/js/categories.js:27
 msgid "Sports"
 msgstr "Спорт"
 
-#: /media/js/categories.js:23
+#: /media/js/categories.js:28
 msgid "Travel"
 msgstr "Пътуване"
 
-#: /media/js/categories.js:24
+#: /media/js/categories.js:29
 msgid "Utilities"
 msgstr "Практични"
 
-#: /media/js/apps.js:93
-msgid "Your device does not support payments."
-msgstr "Устройството ви не поддържа плащания."
+#: /media/js/categories.js:30
+msgid "Weather"
+msgstr "Времето"
 
-#: /media/js/apps.js:95
-msgid "This app is unavailable for purchase in your region."
-msgstr "Това приложение не е достъпно за покупка във вашия регион"
+#: /media/js/apps.js:114
+msgid "not available for your region"
+msgstr ""
 
-#: /media/js/apps.js:99
-msgid "Your browser or device is not web-app compatible."
-msgstr "Вашият браузър или устройство не е съвместим с web-приложения"
+#: /media/js/apps.js:119
+msgid "not available for your platform"
+msgstr ""
 
-#: /media/js/apps.js:101
-msgid "This app is unavailable for your platform."
-msgstr "Това приложение не е достъпно за вашата платформа."
+#: /media/js/apps.js:123 /media/js/apps.js:128
+msgid "not compatible with your device"
+msgstr ""
+
+#: /media/js/buttons.js:92 /media/js/buttons.js:167 /media/js/payments.js:134
+msgid "Payment cancelled."
+msgstr "Плащането отказано."
+
+#. App's install failed, but problem is temporary.
+#: /media/js/buttons.js:250
+msgid "Install failed. Please try again later."
+msgstr "Инсталацията провалена. Моля, опитайте по-късно."
+
+#: /media/js/buttons.js:336 /media/js/buttons.js:341 /media/js/buttons.js:440 /media/js/buttons.js:444
+msgid "Installed"
+msgstr "Инсталирани"
+
+#: /media/js/buttons.js:417
+msgid "free"
+msgstr ""
+
+#: /media/js/buttons.js:417
+msgid "Free"
+msgstr "Безплатно"
+
+#: /media/js/buttons.js:422
+msgid "Unavailable"
+msgstr "Неналично"
+
+#: /media/js/buttons.js:440 /media/js/buttons.js:457 /media/js/buttons.js:467
+msgid "Install"
+msgstr "Инсталиране"
+
+#: /media/js/buttons.js:445
+msgid "Install Add-on"
+msgstr ""
+
+#: /media/js/buttons.js:450
+msgid "Open website"
+msgstr ""
+
+#: /media/js/buttons.js:453
+msgid "Open app"
+msgstr ""
+
+#: /media/js/buttons.js:455
+msgid "Install for free"
+msgstr ""
+
+#: /media/js/buttons.js:459
+msgid "Install for {price}"
+msgstr ""
+
+#: /media/js/buttons.js:465
+msgid "Open"
+msgstr ""
+
+#: /media/js/compat_filter.js:42 /media/js/compat_filter.js:51
+msgid "All Platforms"
+msgstr "Всички платформи"
+
+#: /media/js/compat_filter.js:43 /media/js/compat_filter.js:54
+msgid "Android Mobile"
+msgstr "Android мобилно устройство"
+
+#: /media/js/compat_filter.js:44 /media/js/compat_filter.js:55
+msgid "Android Tablet"
+msgstr "Android таблет"
+
+#: /media/js/compat_filter.js:45 /media/js/compat_filter.js:52
+msgid "Desktop"
+msgstr "Настолно устройство"
+
+#: /media/js/compat_filter.js:46 /media/js/compat_filter.js:53
+msgid "Firefox OS"
+msgstr "Firefox OS"
 
 #. For ages {0} and higher. (de) `ab {0} Jahren`.
-#: /media/js/content-ratings.js:98
+#: /media/js/content-ratings.js:71
 msgid "For ages {0}+"
-msgstr ""
+msgstr "За {0}+ годишни"
 
-#: /media/js/content-ratings.js:104
+#: /media/js/content-ratings.js:77
 msgid "Generic"
-msgstr ""
+msgstr "Общо"
 
-#: /media/js/content-ratings.js:111
+#: /media/js/content-ratings.js:84
 msgid "For all ages"
-msgstr ""
+msgstr "За всички възрасти"
 
-#: /media/js/content-ratings.js:120
+#: /media/js/content-ratings.js:93
 msgid "Rating Pending"
-msgstr ""
+msgstr "Отзивът чака"
 
-#: /media/js/content-ratings.js:121
+#: /media/js/content-ratings.js:94
 msgid "Rating Refused"
-msgstr ""
+msgstr "Отзъвът отказан"
 
-#: /media/js/content-ratings.js:124
+#: /media/js/content-ratings.js:97
 msgid "Everyone"
-msgstr ""
+msgstr "Всички"
 
-#: /media/js/content-ratings.js:125
+#: /media/js/content-ratings.js:98
 msgid "Everyone 10+"
-msgstr ""
+msgstr "Всички 10+"
 
-#: /media/js/content-ratings.js:126
+#: /media/js/content-ratings.js:99
 msgid "Teen"
-msgstr ""
+msgstr "Подрастващ"
 
-#: /media/js/content-ratings.js:127
+#: /media/js/content-ratings.js:100
 msgid "Mature 17+"
-msgstr ""
+msgstr "Възрастни 17+"
 
-#: /media/js/content-ratings.js:128
+#: /media/js/content-ratings.js:101
 msgid "Adults Only 18+"
+msgstr "Само за възрастни 18+"
+
+#: /media/js/feed_websites.js:61
+msgid "{current} of {count}"
 msgstr ""
 
 #: /media/js/edbrands.js:33
 msgid "App for Albania"
 msgid_plural "Apps for Albania"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Албания"
+msgstr[1] "Приложения за Албания"
 
 #: /media/js/edbrands.js:34
 msgid "App for Argentina"
 msgid_plural "Apps for Argentina"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Аржентина"
+msgstr[1] "Приложения за Аржентина"
 
 #: /media/js/edbrands.js:35
 msgid "App for Bangladesh"
 msgid_plural "Apps for Bangladesh"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Бангладеш"
+msgstr[1] "Приложения за Бангладеш"
 
 #: /media/js/edbrands.js:36
 msgid "App for Brazil"
 msgid_plural "Apps for Brazil"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Бразилия"
+msgstr[1] "Приложения за Бразилия"
 
 #: /media/js/edbrands.js:37
 msgid "App for Bulgaria"
 msgid_plural "Apps for Bulgaria"
-msgstr[0] ""
+msgstr[0] "Приложение за България"
 msgstr[1] "Приложения за България"
 
 #: /media/js/edbrands.js:38
 msgid "App for Chile"
 msgid_plural "Apps for Chile"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Чили"
+msgstr[1] "Приложения за Чили"
 
 #: /media/js/edbrands.js:39
 msgid "App for China"
 msgid_plural "Apps for China"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Китай"
+msgstr[1] "Приложения за Китай"
 
 #: /media/js/edbrands.js:40
 msgid "App for Colombia"
 msgid_plural "Apps for Colombia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Колумбия"
+msgstr[1] "Приложения за Колумбия"
 
 #: /media/js/edbrands.js:41
 msgid "App for Costa Rica"
 msgid_plural "Apps for Costa Rica"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Коста Рика"
+msgstr[1] "Приложения за Коста Рика"
 
 #: /media/js/edbrands.js:42
 msgid "App for Croatia"
 msgid_plural "Apps for Croatia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Хърватска"
+msgstr[1] "Приложения за Хърватска"
 
 #: /media/js/edbrands.js:43
 msgid "App for Czech Republic"
 msgid_plural "Apps for Czech Republic"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Чехия"
+msgstr[1] "Приложения за Чехия"
 
 #: /media/js/edbrands.js:44
 msgid "App for Ecuador"
 msgid_plural "Apps for Ecuador"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Еквадор"
+msgstr[1] "Приложения за Еквадор"
 
 #: /media/js/edbrands.js:45
 msgid "App for El Salvador"
 msgid_plural "Apps for El Salvador"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Салвадор"
+msgstr[1] "Приложения за Салвадор"
 
 #: /media/js/edbrands.js:46
 msgid "App for France"
 msgid_plural "Apps for France"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Франция"
+msgstr[1] "Приложения за Франция"
 
 #: /media/js/edbrands.js:47
 msgid "App for Germany"
 msgid_plural "Apps for Germany"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Германия"
+msgstr[1] "Приложения за Германия"
 
 #: /media/js/edbrands.js:48
 msgid "App for Greece"
 msgid_plural "Apps for Greece"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Гърция"
+msgstr[1] "Приложения за Гърция"
 
 #: /media/js/edbrands.js:49
 msgid "App for Hungary"
 msgid_plural "Apps for Hungary"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Унгария"
+msgstr[1] "Приложения за Унгария"
 
 #: /media/js/edbrands.js:50
 msgid "App for India"
 msgid_plural "Apps for India"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Индия"
+msgstr[1] "Приложения за Индия"
 
 #: /media/js/edbrands.js:51
 msgid "App for Italy"
 msgid_plural "Apps for Italy"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Италия"
+msgstr[1] "Приложения за Италия"
 
 #: /media/js/edbrands.js:52
 msgid "App for Japan"
 msgid_plural "Apps for Japan"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Япония"
+msgstr[1] "Приложения за Япония"
 
 #: /media/js/edbrands.js:53
 msgid "App for Macedonia"
 msgid_plural "Apps for Macedonia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Македония"
+msgstr[1] "Приложения за Македония"
 
 #: /media/js/edbrands.js:54
 msgid "App for Mexico"
 msgid_plural "Apps for Mexico"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Мексико"
+msgstr[1] "Приложения за Мексико"
 
 #: /media/js/edbrands.js:55
 msgid "App for Montenegro"
 msgid_plural "Apps for Montenegro"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Черна Гора"
+msgstr[1] "Приложения за Черна Гора"
 
 #: /media/js/edbrands.js:56
 msgid "App for Nicaragua"
 msgid_plural "Apps for Nicaragua"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Никарагуа"
+msgstr[1] "Приложения за Никарагуа"
 
 #: /media/js/edbrands.js:57
 msgid "App for Panama"
 msgid_plural "Apps for Panama"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Панама"
+msgstr[1] "Приложения за Панама"
 
 #: /media/js/edbrands.js:58
 msgid "App for Peru"
 msgid_plural "Apps for Peru"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Перу"
+msgstr[1] "Приложения за Перу"
 
 #: /media/js/edbrands.js:59
 msgid "App for Poland"
 msgid_plural "Apps for Poland"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Полша"
+msgstr[1] "Приложения за Полша"
 
 #: /media/js/edbrands.js:60
 msgid "App for Russia"
 msgid_plural "Apps for Russia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Русия"
+msgstr[1] "Приложения за Русия"
 
 #: /media/js/edbrands.js:61
 msgid "App for Serbia"
 msgid_plural "Apps for Serbia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Сърбия"
+msgstr[1] "Приложения за Сърбия"
 
 #: /media/js/edbrands.js:62
 msgid "App for South Africa"
 msgid_plural "Apps for South Africa"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Южна Африка"
+msgstr[1] "Приложения за Южна Африка"
 
 #: /media/js/edbrands.js:63
 msgid "App for Spain"
 msgid_plural "Apps for Spain"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Испания"
+msgstr[1] "Приложения за Испания"
 
 #: /media/js/edbrands.js:64
 msgid "App for Uruguay"
 msgid_plural "Apps for Uruguay"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Уругвай"
+msgstr[1] "Приложения за Уругвай"
 
 #: /media/js/edbrands.js:65
 msgid "App for Venezuela"
 msgid_plural "Apps for Venezuela"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Приложение за Венецуела"
+msgstr[1] "Приложения за Венецуела"
 
 #: /media/js/edbrands.js:66
 msgid "Arts & Entertainment App"
@@ -1021,8 +1130,8 @@ msgstr[1] "Изкуство и забавление"
 #: /media/js/edbrands.js:67
 msgid "Featured Book App"
 msgid_plural "Featured Book Apps"
-msgstr[0] "Добро за четене"
-msgstr[1] "Добри за четене"
+msgstr[0] "Избрано за четене"
+msgstr[1] "Избрано за четене"
 
 #: /media/js/edbrands.js:68
 msgid "Featured Creativity App"
@@ -1033,14 +1142,14 @@ msgstr[1] "Развихрете въображението си"
 #: /media/js/edbrands.js:69
 msgid "Featured Education App"
 msgid_plural "Featured Education Apps"
-msgstr[0] "Избрани от Образование"
-msgstr[1] "Избрани от Образование"
+msgstr[0] "Избрано от Образование"
+msgstr[1] "Избрано от Образование"
 
 #: /media/js/edbrands.js:70
 msgid "Featured Game"
 msgid_plural "Featured Games"
-msgstr[0] "Играй тази игра сега"
-msgstr[1] "Добри игри"
+msgstr[0] "Избрано от Игри"
+msgstr[1] "Избрано от Игри"
 
 #: /media/js/edbrands.js:71
 msgid "Groundbreaking App"
@@ -1063,14 +1172,14 @@ msgstr[1] "Скрити съкровища"
 #: /media/js/edbrands.js:74
 msgid "Featured Lifestyle App"
 msgid_plural "Featured Lifestyle Apps"
-msgstr[0] "Лайфстайл и култура"
-msgstr[1] "Лайфстайл и култура"
+msgstr[0] "Избрано то Стилен живот"
+msgstr[1] "Избрано то Стилен живот"
 
 #: /media/js/edbrands.js:75
 msgid "Local Favorite App"
 msgid_plural "Local Favorite Apps"
 msgstr[0] "Местен любимец"
-msgstr[1] ""
+msgstr[1] "Местни любимци"
 
 #: /media/js/edbrands.js:76
 msgid "Maps & Navigation App"
@@ -1081,20 +1190,20 @@ msgstr[1] "Опознаване"
 #: /media/js/edbrands.js:77
 msgid "Featured Music App"
 msgid_plural "Featured Music Apps"
-msgstr[0] "За меломани"
-msgstr[1] "За меломани"
+msgstr[0] "Избрано от Меломани"
+msgstr[1] "Избрано от Меломани"
 
 #: /media/js/edbrands.js:78
 msgid "Mystery App!"
 msgid_plural "Mystery Apps!"
-msgstr[0] "Мистериозно приложение"
-msgstr[1] ""
+msgstr[0] "Мистериозно приложение!"
+msgstr[1] "Мистериозни приложения!"
 
 #: /media/js/edbrands.js:79
 msgid "News & Weather App"
 msgid_plural "News & Weather Apps"
 msgstr[0] "Избрани от Новини и Време"
-msgstr[1] "Избрани от Новини и Време"
+msgstr[1] "Избрано от Новини и Време"
 
 #: /media/js/edbrands.js:80
 msgid "Photo & Video App"
@@ -1105,32 +1214,32 @@ msgstr[1] "Препоръчани приложения за камера"
 #: /media/js/edbrands.js:81
 msgid "Featured Shopping App"
 msgid_plural "Featured Shopping Apps"
-msgstr[0] "умно пазаруване"
-msgstr[1] "умно пазаруване"
+msgstr[0] "Избрано от Пазаруване"
+msgstr[1] "Избрано от Пазаруване"
 
 #: /media/js/edbrands.js:82
 msgid "Featured Social App"
 msgid_plural "Featured Social Apps"
-msgstr[0] "Свържете се"
-msgstr[1] "Свържете се"
+msgstr[0] "Избрано то Свържете се"
+msgstr[1] "Избрано от Свържете се"
 
 #: /media/js/edbrands.js:83
 msgid "Featured Sports App"
 msgid_plural "Featured Sports Apps"
-msgstr[0] "Спортен живот"
-msgstr[1] "Спортен живот"
+msgstr[0] "Избрано от Спортен живот"
+msgstr[1] "Избрано от Спортен живот"
 
 #: /media/js/edbrands.js:84
 msgid "Tool & Time Saver"
 msgid_plural "Tools & Time Savers"
-msgstr[0] "Инструменти и пестене на време"
-msgstr[1] "Инструменти и пестене на време"
+msgstr[0] "Инструмент и ефективност"
+msgstr[1] "Инструменти и ефективност"
 
 #: /media/js/edbrands.js:85
 msgid "Featured Travel App"
 msgid_plural "Featured Travel Apps"
-msgstr[0] "За пътешественици"
-msgstr[1] "За пътешественици"
+msgstr[0] "Избрано от Пътуване"
+msgstr[1] "Избрано от Пътуване"
 
 #: /media/js/edbrands.js:86
 msgid "Work & Business App"
@@ -1138,353 +1247,225 @@ msgid_plural "Work & Business Apps"
 msgstr[0] "Свършете нещо"
 msgstr[1] "Свършете нещо"
 
-#: /media/js/feed.js:8
-msgid "Grid Layout"
+#: /media/js/helpers_local.js:137
+msgid "works offline"
 msgstr ""
 
-#: /media/js/feed.js:9
-msgid "List Layout"
-msgstr ""
-
-#: /media/js/feed.js:31
-msgid "Icon"
-msgstr ""
-
-#: /media/js/feed.js:32
-msgid "Background Image"
-msgstr ""
-
-#: /media/js/feed.js:34
-msgid "Quote"
-msgstr ""
-
-#: /media/js/feed.js:35
-msgid "Screenshot"
-msgstr ""
-
-#: /media/js/feed.js:43
-msgid "Promo Collection"
-msgstr ""
-
-#: /media/js/feed.js:44
-msgid "Listing Collection"
-msgstr ""
-
-#: /media/js/installer_direct.js:56
+#: /media/js/installer_direct.js:140
 msgid "Unable to install packaged apps"
-msgstr ""
+msgstr "Пакетираните приложения не могат да бъдат инсталирани"
 
-#: /media/js/installer_direct.js:96 /media/js/installer_iframe.js:72
+#: /media/js/installer_direct.js:178
+msgid "Sorry, we had trouble fetching this app's data. Please try again later."
+msgstr "Извинявайте, имаше трудност при получаването на данни за приложението. Моля, опитайте по-късно."
+
+#: /media/js/installer_direct.js:180 /media/js/installer_iframe.js:111
 msgid "App install error: {error}"
 msgstr "Грешка при инсталацията на приложението: {error}"
 
-#. "Open" as in "Open the app".
-#: /media/js/apps_buttons.js:60 /media/js/apps_buttons.js:120 /media/js/payments/payments.js:91
-msgid "Payment cancelled."
-msgstr "Плащането отказано."
-
-#: /media/js/apps_buttons.js:91
-msgid "Purchasing"
-msgstr "Закупуване"
-
-#. The app's installation has failed, but the problem is temporary.
-#: /media/js/apps_buttons.js:190
-msgid "Install failed. Please try again later."
-msgstr "Инсталацията провалена. Моля, опитайте отново по-късно."
-
-#: /media/js/newsletter.js:65
+#: /media/js/newsletter.js:73
 msgid "There was an error submitting your newsletter sign up request"
-msgstr "Възникна грешка при пращането на заявката ви за бюлетина"
+msgstr "Имаше прешка при изпращане на заявката ви за абонамент"
 
-#: /media/js/settings.js:108
-msgid "Rest of World"
-msgstr ""
+#. This error is raised when we are unable to fetch a JWT from the payments API.
+#: /media/js/payments.js:138
+msgid "Error while communicating with server. Try again later."
+msgstr "Грешка при комуникацията със сървъра. Моля, опитайте по-късно."
 
-#: /media/js/settings.js:109
-msgid "Argentina"
-msgstr "Аржентина"
+#: /media/js/payments.js:141
+msgid "Payment failed. Try again later."
+msgstr "Плащането се провали. Моля, опитайте по-късно."
 
-#: /media/js/settings.js:110
-msgid "Bangladesh"
-msgstr ""
+#. The report is an abuse report for reviews.
+#: /media/js/reviews.js:35
+msgid "Flagging review..."
+msgstr "Докладване на отзив…"
 
-#: /media/js/settings.js:111
-msgid "Brazil"
-msgstr "Бразилия"
+#: /media/js/reviews.js:40
+msgid "This review has been successfully flagged. Thanks!"
+msgstr "Този отзив беше успешно докладван. Благодарим!"
 
-#: /media/js/settings.js:112
-msgid "Chile"
-msgstr ""
+#: /media/js/reviews.js:52
+msgid "Sorry, there was an issue flagging the review. Please try again later."
+msgstr "Извинявайте, имаше грешка при докладване на отзива. Моля, опитайте по-късно."
 
-#: /media/js/settings.js:113
-msgid "China"
-msgstr "Китай"
+#: /media/js/reviews.js:62
+msgid "This review has been successfully deleted"
+msgstr "Отзивът беше успешно изтрит"
 
-#: /media/js/settings.js:114
-msgid "Colombia"
-msgstr "Колумбия"
+#: /media/js/reviews.js:93 /media/js/views/app/ratings/add.js:21
+msgid "Write a Review"
+msgstr "Напишете отзив"
 
-#: /media/js/settings.js:115
-msgid "Costa Rica"
-msgstr ""
+#: /media/js/reviews.js:96
+msgid "Sorry, there was a problem deleting the review"
+msgstr "Извинявайте, имаше проблем при изтриването на отзива"
 
-#: /media/js/settings.js:116
-msgid "Czech Republic"
-msgstr ""
+#: /media/js/reviews.js:157 /media/js/views/addon.js:11 /media/js/views/addon.js:19 /media/js/views/addon.js:21 /media/js/views/app.js:16 /media/js/views/app.js:24 /media/js/views/app.js:25
+#: /media/js/views/app.js:30 /media/js/views/app.js:31 /media/js/views/feed_landing.js:15 /media/js/views/website.js:10 /media/js/views/website.js:16 /media/js/views/website.js:17
+#: /media/js/views/website.js:18
+msgid "Loading..."
+msgstr "Зареждане…"
 
-#: /media/js/settings.js:117
-msgid "Ecuador"
-msgstr ""
+#: /media/js/reviews.js:260
+msgid "Your review was successfully posted. Thanks!"
+msgstr "Отзивът ви беше успешно публикуван. Благодарим!"
 
-#: /media/js/settings.js:118
-msgid "El Salvador"
-msgstr ""
+#: /media/js/reviews.js:265
+msgid "Sorry, there was an error posting your review. Please try again later."
+msgstr "Извинявайте, имаше грешка при изпращане на отзива ви. Моля, опитайте по-късно."
 
-#: /media/js/settings.js:119
-msgid "France"
-msgstr ""
+#: /media/js/reviews.js:293
+msgid "Your review was successfully edited"
+msgstr "Отзивът ви беше успешно редактиран"
 
-#: /media/js/settings.js:120
-msgid "Germany"
-msgstr "Германия"
-
-#: /media/js/settings.js:121
-msgid "Greece"
-msgstr "Гърция"
-
-#: /media/js/settings.js:122
-msgid "Guatemala"
-msgstr ""
-
-#: /media/js/settings.js:123
-msgid "Hungary"
-msgstr "Унгария"
-
-#: /media/js/settings.js:124
-msgid "India"
-msgstr ""
-
-#: /media/js/settings.js:125
-msgid "Italy"
-msgstr "Италия"
-
-#: /media/js/settings.js:126
-msgid "Japan"
-msgstr ""
-
-#: /media/js/settings.js:127
-msgid "Mexico"
-msgstr "Мексико"
-
-#: /media/js/settings.js:128
-msgid "Montenegro"
-msgstr "Монтенегро"
-
-#: /media/js/settings.js:129
-msgid "Nicaragua"
-msgstr ""
-
-#: /media/js/settings.js:130
-msgid "Panama"
-msgstr ""
-
-#: /media/js/settings.js:131
-msgid "Peru"
-msgstr "Перу"
-
-#: /media/js/settings.js:132
-msgid "Poland"
-msgstr "Полша"
-
-#: /media/js/settings.js:133
-msgid "Serbia"
-msgstr "Сърбия"
-
-#: /media/js/settings.js:134
-msgid "Spain"
-msgstr "Испания"
-
-#: /media/js/settings.js:135
-msgid "United Kingdom"
-msgstr "Обединено кралство"
-
-#: /media/js/settings.js:136
-msgid "United States"
-msgstr "Съединени щати"
-
-#: /media/js/settings.js:137
-msgid "Uruguay"
-msgstr "Уругвай"
-
-#: /media/js/settings.js:138
-msgid "Venezuela"
-msgstr "Венецуела"
-
-#: /media/js/settings.js:139
-msgid "No region in search"
-msgstr "Няма регион в търсенето"
-
-#: /media/js/settings.js:165
-msgid "Sorry, you are currently offline. Please try again later."
-msgstr ""
-
-#. The report is an abuse report for reviews
-#: /media/js/ratings.js:40
-msgid "Sending report..."
-msgstr "Изпращане на доклада..."
-
-#: /media/js/ratings.js:45
-msgid "Review flagged"
-msgstr "Прегледай отбелязаните"
-
-#: /media/js/ratings.js:49
-msgid "Report review operation failed"
-msgstr "Докладването на отзив се провали"
-
-#: /media/js/ratings.js:60
-msgid "Review deleted"
-msgstr "Мнението изтрито"
-
-#: /media/js/ratings.js:90
-msgid "There was a problem deleting the review"
-msgstr "Възникна грешка при изтриването на отзива ви"
-
-#: /media/js/ratings.js:238
-msgid "Your review was posted"
-msgstr "Отзивът ви е изпратен"
-
-#: /media/js/ratings.js:252
-msgid "Error while submitting review"
-msgstr "Грешка при пращане на отзива"
+#: /media/js/reviews.js:298
+msgid "Sorry, there was an issue editing your review. Please try again later"
+msgstr "Извинявайте, имаше грешка при редактиране на отзива ви. Моля, опитайте по-късно"
 
 #. {n} is the number of stars
-#: /media/js/common/ratingwidget.js:34
+#: /media/js/ratingwidget.js:44
 msgid "{n} star"
 msgid_plural "{n} stars"
 msgstr[0] "{n} звезда"
 msgstr[1] "{n} звезди"
 
-#: /media/js/commonplace/login.js:20
-msgid "You have been signed out"
-msgstr "Вие излязохте"
+#: /media/js/settings_app.js:96
+msgid "English"
+msgstr "английски"
 
-#: /media/js/commonplace/login.js:24
-msgid "You have been signed in"
-msgstr "Вие влязохте"
+#: /media/js/settings_app.js:97
+msgid "French"
+msgstr "френски"
 
-#: /media/js/commonplace/login.js:209
-msgid "Persona login failed. Maybe you don't have an account under that email address?"
-msgstr "Влизането в Persona се провали. Може би нямате акант с този имейл адрес?"
+#: /media/js/settings_app.js:98
+msgid "German"
+msgstr "немски"
 
-#: /media/js/commonplace/login.js:214
-msgid "Persona login failed. A server error was encountered."
-msgstr "Влизането в Persona се провали. Възникна сървърна грешка"
+#: /media/js/settings_app.js:99
+msgid "Hungarian"
+msgstr "унгарски"
 
-#: /media/js/commonplace/login.js:281
-msgid "Persona cannot be reached. Try again later."
+#: /media/js/settings_app.js:100
+msgid "Indonesian"
+msgstr "индонезийски"
+
+#: /media/js/settings_app.js:101
+msgid "Polish"
+msgstr "полски"
+
+#: /media/js/settings_app.js:102
+msgid "Portuguese"
+msgstr "португалски"
+
+#: /media/js/settings_app.js:103
+msgid "Russian"
+msgstr "руски"
+
+#: /media/js/settings_app.js:104
+msgid "Spanish"
+msgstr "испански"
+
+#: /media/js/settings_app.js:116
+msgid "Sorry, you are currently offline. Please try again later."
+msgstr "Извинявайте, в момента сте извън мрежа. Моля, опитайте по-късно."
+
+#: /media/js/update_banner.js:24
+msgid "The next time you start the Firefox Marketplace app, you’ll see the updated version!"
+msgstr "Следващият път, когато отворите приложението Firefox Marketplace ще видите новата версия!"
+
+#: /media/js/views/addons.js:9 /media/js/views/addons.js:10
+msgid "Firefox OS Add-ons"
 msgstr ""
 
-#: /media/js/commonplace/navigation.js:33
-msgid "No internet connection"
-msgstr "Няма връзка с интернет"
-
-#. {n} is the number of characters left.
-#: /media/js/commonplace/utils.js:28
-msgid "<b>{n}</b> character left."
-msgid_plural "<b>{n}</b> characters left."
-msgstr[0] "остава <b>{n}</b> знак."
-msgstr[1] "остават <b>{n}</b> знака"
-
-#: /media/js/payments/payments.js:94
-msgid "Payment failed. Try again later."
-msgstr "Плащането се провали. Опитайте отново по-късно."
-
-#. This error is raised when we are unable to fetch a JWT from the payments API.
-#: /media/js/payments/payments.js:115
-msgid "Error while communicating with server. Try again later."
-msgstr "Грешка при комуникацията със сървъра. Моля, опитайте отново."
-
-#: /media/js/payments/payments.js:122
-msgid "Your device does not support purchases."
-msgstr "Устройството ви не поддържа покупки."
-
-#: /media/js/views/app.js:64 /media/js/views/feed/feed_app.js:10
-msgid "App Details"
-msgstr "Детайли на приложението"
-
-#: /media/js/views/new.js:12
-msgid "Fresh and New Apps"
+#: /media/js/views/app.js:17
+msgid "App Detail"
 msgstr ""
 
 #: /media/js/views/feedback.js:23
 msgid "Feedback submitted. Thanks!"
-msgstr "Отзивът изпратен. Благодаря!"
+msgstr "Обратната връзка е изпратена. Благодарим!"
 
 #: /media/js/views/feedback.js:27
 msgid "There was a problem submitting your feedback. Try again soon."
-msgstr "Възникна проблем с пращането на вашия отзив. Опитайте отново по-късно"
+msgstr "Възникна проблем с изпращането на вашата обратна връзка. Опитайте отново по-късно."
 
-#: /media/js/views/popular.js:12
-msgid "Popular All Time"
+#: /media/js/views/feed_landing.js:16
+msgid "Collection Detail"
 msgstr ""
 
-#: /media/js/views/search.js:220
+#: /media/js/views/new_apps.js:8
+msgid "New Apps"
+msgstr ""
+
+#: /media/js/views/homescreens.js:8
+msgid "Popular Homescreens"
+msgstr ""
+
+#: /media/js/views/langpacks.js:30
+msgid "Language Packs"
+msgstr "Езикови пакети"
+
+#: /media/js/views/langpacks.js:42
+msgid "Firefox OS {version}"
+msgstr "Firefox OS {version}"
+
+#: /media/js/views/new_websites.js:8
+msgid "New Sites"
+msgstr ""
+
+#: /media/js/views/popular_apps.js:9
+msgid "Popular Apps"
+msgstr ""
+
+#: /media/js/views/popular_websites.js:8
+msgid "Popular Sites"
+msgstr ""
+
+#: /media/js/views/search.js:173
 msgid "Search Results"
 msgstr "Резултати от търсенето"
 
-#: /media/js/views/nominate.js:114
-msgid "Nominate apps"
+#: /media/js/views/search.js:186
+msgid "Developer Listing"
 msgstr ""
 
-#: /media/js/views/settings.js:34
-msgid "Settings saved"
-msgstr "Настройките запазени"
+#: /media/js/views/settings.js:41
+msgid "Your settings have been successfully saved"
+msgstr "Настройките ви бяха запазени"
 
-#: /media/js/views/settings.js:36
+#: /media/js/views/settings.js:47
 msgid "Settings could not be saved"
 msgstr "Настройките не можаха да бъдат запазени"
 
-#: /media/js/views/app/abuse.js:18
-msgid "Abuse reported"
-msgstr "Злоупотребата докладвана"
-
-#: /media/js/views/app/abuse.js:22
-msgid "Error while submitting report"
-msgstr "Грешка при пращането на доклада"
-
-#: /media/js/views/commonplace/hello_world.js:9
-msgid "Hello World!"
+#: /media/js/views/website.js:11
+msgid "Website Detail"
 msgstr ""
 
-#. Page not found (404)
-#: /media/js/views/commonplace/not_found.js:9
-msgid "Not Found"
-msgstr "Не е намерено"
+#: /media/js/lib/marketplace-elements.js:119
+msgid "Close"
+msgstr ""
 
-#: /media/js/views/app/receipt.js:22
+#: /media/js/views/addon/abuse.js:16 /media/js/views/app/abuse.js:18 /media/js/views/website/issue.js:17
+msgid "Report submitted. Thanks!"
+msgstr ""
+
+#: /media/js/views/addon/abuse.js:21 /media/js/views/app/abuse.js:25 /media/js/views/website/issue.js:23
+msgid "There was an issue submitting your report. Please try again later."
+msgstr ""
+
+#: /media/js/views/app/ratings.js:12
+msgid "Read All Reviews"
+msgstr "Четене на рецензиите"
+
+#: /media/js/views/app/receipt.js:14
 msgid "Please sign in to view the receipt"
 msgstr "Моля, влезте, за да видите разписката"
 
-#: /media/js/views/app/receipt.js:40
+#: /media/js/views/app/receipt.js:24
 msgid "Receipt"
 msgstr "Разписка"
 
-#: /media/js/views/feed/feed_collection.js:10
-msgid "Collection Details"
-msgstr "Детайли за колекцията"
-
-#: /media/js/views/feed/feed_brand.js:10
-msgid "Editorial Brand Details"
+#: /media/js/views/website/issue.js:32
+msgid "Report an Issue"
 msgstr ""
-
-#: /media/js/views/feed/feed_shelf.js:10
-msgid "Operator Shelf Details"
-msgstr ""
-
-#: /media/js/views/app/ratings/edit.js:20
-msgid "Review updated successfully"
-msgstr "Отзивът обновен успешно"
-
-#: /media/js/views/app/ratings/edit.js:35
-msgid "There was a problem updating your review"
-msgstr "Възникна грешка при обновяването на отзива ви"

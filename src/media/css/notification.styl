@@ -1,7 +1,8 @@
 @import 'lib';
 
 #notification {
-    background-color: #3b3b3b;
+    background-color: #00a200;
+    background-image: url(../img/grain.png);
     bottom: -62px;
     color: #fff;
     cursor: pointer;
@@ -16,16 +17,20 @@
     right: 0;
     // If this duration is increased update the duration in notification.js
     // to ensure hiding the notification only happens when transition is complete.
-    transition-duration(.3s);
+    transition-duration: .3s;
     // Using bottom here rather than translateY as the latter causes problems
     // on FF b2g (bug 886334)
-    transition-property(bottom);
+    transition-property: bottom;
     width: 100%;
     z-index: 9999;
+
+    &.negative-action {
+        background-color: #a20000;
+    }
     &.show {
         bottom: 0;
-        transition-duration(.3s);
-        transition-property(bottom);
+        transition-duration: .3s;
+        transition-property: bottom;
     }
     &.hidden {
         display: none;

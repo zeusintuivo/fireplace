@@ -1,61 +1,125 @@
-/* This is a shared file between Fireplace and Transonic. */
+/*
+    Helpers for displaying the Feed.
+*/
 define('feed',
-    ['edbrands', 'l10n', 'models', 'nunjucks', 'underscore', 'utils_local'], function(edbrands, l10n, models, nunjucks, _, utils_local) {
+    ['collection_colors', 'edbrands', 'core/l10n', 'core/nunjucks',
+     'core/settings', 'core/urls', 'core/utils',  'core/z', 'feed_websites',
+     'tracking_events', 'underscore', 'utils_local'],
+    function(colors, brands, l10n, nunjucks,
+             settings, urls, utils, z, feedWebsites,
+             trackingEvents, _, utils_local) {
     'use strict';
     var gettext = l10n.gettext;
 
-    var BRAND_LAYOUTS = {
-        'grid': gettext('Grid Layout'),
-        'list': gettext('List Layout'),
-    };
+    function transformer(feedItem) {
+        /* Given a feed item, attach some fields to help presentation logic. */
+        // Attach types.
+        if (feedItem.app) {
+            feedItem.isApp = true;
+            feedItem.itemType = 'app';
+        } else if (feedItem.layout) {
+            feedItem.isBrand = true;
+            feedItem.itemType = 'brand';
+            feedItem.itemTypeSlug = 'editorial';
+        } else if (feedItem.carrier) {
+            feedItem.isShelf = true;
+            feedItem.itemType = 'shelf';
+        } else {
+            feedItem.isCollection = true;
+            feedItem.itemType = 'collection';
+        }
 
-    var BRAND_LAYOUTS_CHOICES = utils_local.items(BRAND_LAYOUTS);
+        // Attach feed item-specific stuff.
+        switch (feedItem.itemType) {
+            case 'app':
+                switch (feedItem.type) {
+                    case 'icon':
+                        feedItem.isIcon = true;
+                        break;
+                    case 'image':
+                        feedItem.isImage = true;
+                        break;
+                    case 'description':
+                        feedItem.isDescription = true;
+                        break;
+                    case 'quote':
+                        feedItem.isQuote = true;
+                        break;
+                    case 'preview':
+                        feedItem.isPreview = true;
+                        break;
+                }
+                feedItem.src = trackingEvents.SRCS.featuredApp;
+                break;
+            case 'brand':
+                feedItem.name = brands.get_brand_type(feedItem.type, feedItem.apps.length);
+                feedItem.src = trackingEvents.SRCS.brand;
+                feedItem.isGridLayout = feedItem.layout == 'grid';
+                feedItem.isListLayout = feedItem.layout == 'listing';
+                feedItem.maxApps = feedItem.isGridLayout ? 6 : 4;
+                feedItem.color = getBrandColorClass(feedItem);
+                break;
+            case 'collection':
+                if (feedItem.type == 'promo') {
+                    feedItem.isCollPromo = true;
+                } else {
+                    feedItem.isCollListing = true;
+                }
+                feedItem.src = trackingEvents.SRCS.collection;
+                feedItem.maxApps = 4;
+                break;
+            case 'shelf':
+                feedItem.src = trackingEvents.SRCS.shelf;
+                break;
+        }
 
-    var BRAND_COLORS = [
-        'ruby',
-        'amber',
-        'emerald',
-        'topaz',
-        'sapphire',
-        'amethyst',
-        'garnet'
-    ];
+        // Some cases, we want to persist the previous src, like Desktop Promo.
+        if (utils.getVars().src in trackingEvents.PERSISTENT_SRCS) {
+            feedItem.src = utils.getVars().src;
+        }
 
-    var FEEDAPP_ICON = 'icon';
-    var FEEDAPP_IMAGE = 'image';
-    var FEEDAPP_DESC = 'description';
-    var FEEDAPP_QUOTE = 'quote';
-    var FEEDAPP_PREVIEW = 'preview';
+        // Get the Feed detail page URL for the item.
+        if (feedItem.isApp) {
+            feedItem.landingUrl = urls.reverse('app', [feedItem.app.slug]);
+        } else {
+            feedItem.landingUrl = urls.reverse('feed_landing', [
+                feedItem.itemTypeSlug || feedItem.itemType,
+                feedItem.slug
+            ]);
+        }
+        feedItem.landingUrl = utils.urlparams(feedItem.landingUrl, {
+            src: feedItem.src
+        });
 
-    var FEEDAPP_TYPES = {
-        'icon': gettext('Icon'),
-        'image': gettext('Background Image'),
-        'description': gettext('Description'),
-        'quote': gettext('Quote'),
-        'preview': gettext('Screenshot'),
-    };
+        // Attach hex color (deprecated).
+        feedItem.color = feedItem.color || 'sapphire';
+        feedItem.inline_color = colors.COLLECTION_COLORS[feedItem.color];
 
-    var COLL_PROMO = 'promo';
-    var COLL_LISTING = 'listing';
-    var COLL_OPERATOR = 'operator';
+        // TODO: deserialize image_url (bug 1148509).
+        if (feedItem.isApp && feedItem.preview) {
+            feedItem.preview.thumbnail_url = feedItem.preview.thumbnail_url
+                                                     .replace(/\/thumbs\//,
+                                                              '/full/');
+        }
 
-    var COLL_TYPES = {
-        'promo': gettext('Promo Collection'),
-        'listing': gettext('Listing Collection'),
-    };
+        return feedItem;
+    }
 
-    function get_brand_color_class(brand) {
+    function getBrandColorClass(brand) {
         /*
         Passed the JSON representation of an editorial brand, returns a random
         CSS class to be used to colorify that brand's display.
         */
-
         function identifier(brand) {
-            // Generate a unique identifier from the brand.
+            // Generate a unique identifier from the brand using its apps.
             var brand_id = brand.type;
-            _.each(brand.apps, function(app) {
-                brand_id += '_' + app.slug;
-            });
+
+            var i = 0;
+            while(i < 4 && i < brand.apps.length - 1) {
+                // Only do 4 apps at most since Feed vs Landing app count.
+                brand_id += '_' + brand.apps[i].slug;
+                i++;
+            }
             return brand_id;
         }
 
@@ -79,7 +143,8 @@ define('feed',
         var seed = charcode_sum(brand_id);
         var random = seeded_random(seed);
 
-        return BRAND_COLORS[Math.floor(random * BRAND_COLORS.length)];
+        var color_names = Object.keys(colors.COLLECTION_COLORS);
+        return color_names[Math.floor(random * color_names.length)];
     }
 
     function group_apps(apps) {
@@ -111,29 +176,22 @@ define('feed',
         return grouped_apps;
     }
 
-    var MAX_BRAND_APPS = 6;
+    // MOW-related feed items.
+    if (settings.meowEnabled && settings.homepageWebsitesEnabled) {
+        z.page.on('loaded reloaded_chrome', function(evt) {
+            feedWebsites.tabs.init(evt);
+            feedWebsites.carousel.init(evt);
+        })
+        .on('click', '.feed-item-website-tabs button', function(evt) {
+            feedWebsites.tabs.change(evt);
+        })
+        .on('click', '.feed-item-website-carousel-next', function(evt) {
+            feedWebsites.carousel.change(evt);
+        });
+    }
 
     return {
-        BRAND_TYPES: edbrands.BRAND_TYPES,
-        BRAND_LAYOUTS: BRAND_LAYOUTS,
-        BRAND_LAYOUTS_CHOICES: BRAND_LAYOUTS_CHOICES,
-        COLL_PROMO: COLL_PROMO,
-        COLL_LISTING: COLL_LISTING,
-        COLL_OPERATOR: COLL_OPERATOR,
-        COLL_TYPES: COLL_TYPES,
-        FEEDAPP_ICON: FEEDAPP_ICON,
-        FEEDAPP_IMAGE: FEEDAPP_IMAGE,
-        FEEDAPP_DESC: FEEDAPP_DESC,
-        FEEDAPP_QUOTE: FEEDAPP_QUOTE,
-        FEEDAPP_PREVIEW: FEEDAPP_PREVIEW,
-        FEEDAPP_TYPES: FEEDAPP_TYPES,
-        cast_feed_app: models('feed-app').cast,
-        cast_brand: models('feed-brand').cast,
-        cast_collection: models('feed-collection').cast,
-        cast_shelf: models('feed-shelf').cast,
-        get_brand_color_class: get_brand_color_class,
-        get_brand_type: edbrands.get_brand_type,
         group_apps: group_apps,
-        MAX_BRAND_APPS: MAX_BRAND_APPS,
+        transformer: transformer,
     };
 });

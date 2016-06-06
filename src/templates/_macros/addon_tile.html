@@ -1,0 +1,38 @@
+{% from "_macros/deferred_icon.html" import deferred_icon %}
+{% from "_macros/market_button.html" import market_button %}
+
+{% macro addon_tile(addon, is_detail=False, src=None) %}
+{% set tag = 'div' if is_detail else 'a' %}
+  <{{ tag }} class="addon-tile"
+             data-content-type="addon"
+             {% if not is_detail %}
+               href="{{ url('addon', [addon.slug])|urlparams(src=src) }}"
+             {% endif %}
+             data-slug="{{ addon.slug }}">
+    <div class="addon-tile-info">
+      {% if not is_detail %}
+        <h3 class="mkt-addon-name" title="{{ addon.name }}" itemprop="name">
+          {{ addon.name }}
+        </h3>
+      {% endif %}
+      {% if addon.author %}
+        <div class="author mkt-product-author"
+             title="{{ addon.author }}" itemprop="creator">
+          {% if is_detail -%}
+            <a href="{{ url('search')|urlparams(author=addon.author) }}">{{ addon.author }}</a>
+          {% else -%}
+            {{ addon.author }}
+          {% endif -%}
+        </div>
+      {% endif %}
+    </div>
+    {{ market_button(addon, data_attrs={
+      'manifest_url': addon.mini_manifest_url,
+      'slug': addon.slug,
+      'source': src
+    }) }}
+    <figure class="addon-icon">
+      {{ deferred_icon(addon.icons[is_detail and '128' or '64'] or addon.icons['64'], addon.name) }}
+    </figure>
+  </{{ tag }}>
+{% endmacro %}

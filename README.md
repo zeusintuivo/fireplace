@@ -1,173 +1,134 @@
-# Fireplace
-
-Fireplace is a packaged version of the Firefox Marketplace's front-end.
+# Marketplace Frontend
 
 [![Build Status](https://travis-ci.org/mozilla/fireplace.svg?branch=master)](https://travis-ci.org/mozilla/fireplace)
 
+The [Firefox Marketplace](https://marketplace.firefox.com) frontend.
 
-## Glossary
+- [Marketplace frontend documentation](https://marketplace-frontend.readthedocs.org)
+- [Marketplace documentation](https://marketplace.readthedocs.org)
+- [Marketplace API documentation](https://firefox-marketplace-api.readthedocs.org)
 
-<dl>
-  <dt><a href="https://github.com/mozilla/ashes">Ashes</a></dt>
-  <dd>A secure debug information collection server</dd>
-
-  <dt>Damper</dt>
-  <dd>A node.js server that serves a browser-friendly version of Fireplace</dd>
-
-  <dt><a href="https://github.com/mozilla/flue">Flue</a></dt>
-  <dd>A mocked-out version of the Marketplace API.</dd>
-
-  <dt>Inferno</dt>
-  <dd>A build server which generates a packaged version of the Marketplace.</dd>
-
-  <dt>Yule Log</dt>
-  <dd>A fake version of Fireplace to provide the Gaia team with a package that can
-  be shipped and later upgraded to the real Fireplace.</dd>
-</dl>
+![screenshot of Marketplace homepage](https://cloud.githubusercontent.com/assets/674727/9073521/e84f9a0a-3ab6-11e5-98e5-f10f23ac2850.png)
 
 
-## Installation
+## Installation and Usage
 
 ```bash
-npm install
-npm install -g commonplace
+make install
+make serve
 ```
 
-### Flue
+This will start a web server on ```http://localhost:8675```.
 
-Comprehensive Flue documentation can be found in
-[Flue's README](https://github.com/mozilla/flue/blob/master/README.md).
+### Building for Production
 
-
-### Yule Log
-
-Docs can be found in
-[Yule Log's README](https://github.com/mozilla/fireplace/blob/master/yulelog/README.md) and in the [Marketplace Documentation](http://marketplace.readthedocs.org/en/latest/topics/package.html).
-
-
-### Packaged App
-
-Docs can be found in the [Marketplace Documentation](http://marketplace.readthedocs.org/en/latest/topics/package.html).
-
-Please note that any file that belongs in the package must get added to `package/files.txt`.
-
-
-## Usage
-
-If you haven't already, run `commonplace init` to install local settings
-files. Some settings in `media/js/settings_local.js` will need to be updated
-if you plan to run a local setup, at minimum you should have something like this:
-
-```js
-define('settings_local', [], function() {
-    return {
-        api_url: 'http://localhost',
-        media_url: 'http://localhost/media'
-    };
-});
-```
-
-**Important**: Do not end the URLs in your settings file with slashes, doing so will lead to subtle and hard-to-debug errors.
-
-Once you have your settings file in place, to run Fireplace from the terminal, run the following command:
+Our build process bundles up our JS, minifies our CSS, compiles our templates,
+and extracts locales into JS modules. To run the build process:
 
 ```bash
-damper
+make build
 ```
 
-This will start a local server and filesystem watcher on http://0.0.0.0:8675 by
-default.
-
-For more options, read the [damper documentation](https://github.com/mozilla/commonplace/wiki/Damper).
-
-For instructions on running Flue (the mock API server), please see the [Flue
-docs](https://github.com/mozilla/flue/blob/master/README.md).
-
-
-### Compiling
-
-To run the compilation process, which compiles templates, CSS, and locale
-files, run the following command:
-
-```bash
-commonplace compile
-```
-
-
-### Compiling Includes
-
-If you need to compile include files (i.e.: for Space Heater or a less HTTP-
-heavy version of the project), run `commonplace includes`. This will generate
-two files:
+This will generate files including:
 
 ```
+src/media/templates.js
 src/media/js/include.js
+src/media/js/include.js.map
 src/media/css/include.css
 ```
 
-The CSS in `include.css` is generated in the order in which CSS files are
-included in `src/index.html`.
+### Developing the Packaged App
 
-`include.js` uses a lightweight AMD loader (rather than require.js). This keeps
-file size down and also makes it possible to name-mangle internal keywords which
-otherwise wouldn't be minifiable. Note that the only safe globals are `require`
-and `define`---using any other non-browser globals will result in errors. I.e.:
-accessing `_` without requiring `'underscore'` will cause the code to fail. Also
-note that all modules must include a name as the first parameter.
+To package the Marketplace frontend, run:
+
+```make package```
+
+This will output a package and output to ```package/archives/```. You can use
+WebIDE to install this package in the device or simulator.
+
+Further details can be found in the
+[Marketplace documentation](http://marketplace.readthedocs.org/en/latest/topics/packaged-apps.html).
+
+### Marketplace Mock API
+
+We have an instance of a mocked version of the Marketplace API at
+```https://flue.paas.allizom.org```. Documentation can be found in
+[marketplace-api-mock's repository](https://github.com/mozilla/marketplace-api-mock/blob/master/README.md).
+
+### iframed Package
+
+We currently ship with an iframed version of the Marketplace frontend. It is
+a package that contains an iframe pointing to the Marketplace website.
+See more details within [the iframe package directory](https://github.com/mozilla/fireplace/blob/master/package/iframe).
 
 
 ## Localizing
 
-A detailed guide to extracting strings and creating JS language packs can be
-found [on the wiki](https://github.com/mozilla/commonplace/wiki/L10n#extracting-strings).
-
-
-## The API
-
-[Read the docs.](http://firefox-marketplace-api.readthedocs.org/)
+A detailed guide to extracting strings and creating JS language packs is
+located
+[on the wiki](https://github.com/mozilla/commonplace/wiki/L10n#extracting-strings).
 
 
 ## Tests
 
-Casper should be installed along with your other npm deps. The tests expect version
-1.1+. You can verify the version with:
+We use CasperJS to write UI tests and mocha, chai and sinon for unit tests.
 
-```
-casperjs --version
-```
-
-### Running unit tests
-
-Load [http://localhost:8675/tests](http://localhost:8675/tests) in your browser.
-
-
-### Running functional tests
-
-Before you run the functional tests, make sure your `settings_local.js` file has
-the subset of keys found in
-[`settings_travis.js`](https://github.com/mozilla/fireplace/blob/master/src/media/js/settings_travis.js).
+### Running Unit Tests
 
 ```bash
-make test
+make unittest
 ```
 
-### Running a single test
+This will launch the [karma test runner](https://karma-runner.github.io/) that
+will run the unit tests in a new instance of Firefox.
+
+### Running Functional and UI Tests
+
+Before running the functional and UI tests, your `settings_local.js` should have
+`api_url` and `media_url` pointing to an instance of
+[marketplace-api-mock](https://github.com/mozilla/marketplace-api-mock). You can
+easily achieve this by setting the `API` environment variable when calling
+`make serve`, this will overwrite your current `api_url` and `media_url` settings.
+
+First, start a server with:
 
 ```bash
-casperjs test tests/ui/<PATH_TO_TEST_FILE>
+API=mock make serve
 ```
 
-## Local Development
+Then, run the tests against it. We support both PhantomJS and SlimerJS to run tests in
+WebKit and Gecko, respectively. To run both use `make uitest`, if you just want to run
+them in one browser `make uitest-phantom` or `make uitest-slimer`.
 
-The packaging section above will explain how to build a package from your local
-source. If you want to install a hosted version of your local Fireplace you
-can do so. It won't have all the same privileges as the packaged app but it
-can let you test device-specific things like payments.
+```bash
+make uitest-phantom
+```
 
-To install as a hosted app, start the damper server (see Usage), and
-use this manifest:
-[http://0.0.0.0:8675/hosted-manifest.webapp](http://0.0.0.0:8675/hosted-manifest.webapp).
+### Running Functional and UI Tests in SlimerJS
 
-### Setting up a virtual host with Nginx
+SlimerJS requires a path to a `firefox` binary. `make uitest-slimer` will try to use
+`/Applications/Firefox.app/Contents/MacOS/firefox` which is the path to your default
+Firefox on Mac. This path might not work for you and best results are achieved by using
+Firefox 30. You can download a copy of Firefox 30 on
+[ftp.mozilla.org](http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/30.0/). To
+set the path to your `firefox` use the `SLIMERJSLAUNCHER` environment variable. You
+might want to call `export SLIMERJSLAUNCHER=/path/to/firefox` in your shell's setup
+script.
 
-See [Using Fireplace with Zamboni](https://github.com/mozilla/fireplace/wiki/Using-Fireplace-with-Zamboni)
+```bash
+SLIMERJSLAUNCHER=/Applications/Firefox-30.app/Contents/MacOS/firefox make uitest-slimer
+```
+
+### Running a Single Functional or UI Test
+
+```bash
+UITEST_FILE=tests/ui/<PATH_TO_TEST_FILE> make uitest
+```
+
+
+## Serving with Nginx
+
+If you wish to serve the Marketplace frontend with nginx, which is often
+useful for keeping all the Marketplace projects on the same domain, read about
+[serving Fireplace with Nginx](https://github.com/mozilla/fireplace/wiki/Using-Fireplace-with-Zamboni).

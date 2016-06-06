@@ -1,4 +1,6 @@
-define('image-deferrer', ['underscore', 'urls', 'z'], function(_, urls, z) {
+define('image-deferrer',
+    ['core/urls', 'core/z', 'underscore'],
+    function(urls, z, _) {
     'use strict';
     /*
        <img class="deferred" data-src="{{ image.src }}" src="{{ placeholderSrc }}">
@@ -90,7 +92,7 @@ define('image-deferrer', ['underscore', 'urls', 'z'], function(_, urls, z) {
         }
 
         // Defer image loading.
-        z.win.on('scroll resize', scrollListener);
+        z.win.on('scroll resize image-deferrer--load', scrollListener);
 
         function loadImages() {
             // Calculate viewport loading boundaries (vertical).

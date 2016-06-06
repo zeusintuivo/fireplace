@@ -1,12 +1,15 @@
+/*
+    Cache rewriters. Mostly used to rewrite the first page of paginated
+    endpoints such that when the user revisits the page, other pages are
+    automatically loaded.
+*/
 define('rewriters',
-    ['log', 'settings', 'underscore', 'urls', 'utils'],
-    function(log, settings, _, urls, utils) {
-
-    var console = log('rewriters');
+    ['core/log', 'core/settings', 'underscore', 'core/urls', 'core/utils', 'routes'],
+    function(log, settings, _, urls, utils, routes) {
+    var logger = log('rewriters');
 
     function pagination(url) {
         return function(new_key, new_value, c) {
-
             var new_base = utils.baseurl(new_key);
             if (new_base !== utils.baseurl(url)) {
                 return;
@@ -20,9 +23,9 @@ define('rewriters',
             delete new_qs.offset;
             delete new_qs._bust;
             var old_url = utils.urlparams(new_base, new_qs);
-            console.log('Attempting to rewrite', old_url);
+            logger.log('Attempting to rewrite', old_url);
             if (!(old_url in c)) {
-                console.error('Could not find cache entry to rewrite');
+                logger.error('Could not find cache entry to rewrite');
                 return;
             }
 
@@ -39,11 +42,25 @@ define('rewriters',
         return [];
     }
 
-    return [
-        // Search pagination rewriter
-        pagination(urls.api.base.url('search')),
-
-        // My Apps pagination rewriter
-        pagination(urls.api.base.url('installed'))
+    // List of URLs to rewrite.
+    var rewriteURLs = [
+        urls.api.base.url('addon_list'),
+        // Do not include category endpoints: they are already covered, because
+        // we are rewriting search a few lines below, which is using the same
+        // base URL.
+        urls.api.base.url('feed'),
+        urls.api.base.url('installed'),
+        urls.api.base.url('langpacks'),
+        urls.api.base.url('late-customization'),
+        urls.api.base.url('recommended'),
+        urls.api.base.url('reviews'),
+        urls.api.base.url('search'),
     ];
+
+    // Return the list of rewriter functions. Caching code will call them all
+    // every time it writes something in the cache, so we filter them to make
+    // sure there are no duplicates.
+    return _.uniq(rewriteURLs).map(function(url) {
+        return pagination(url);
+    });
 });

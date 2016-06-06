@@ -1,7 +1,9 @@
 define('views/search',
-    ['capabilities', 'l10n', 'storage', 'tracking', 'underscore', 'urls', 'utils', 'z'],
-    function(capabilities, l10n, storage, tracking, _, urls, utils, z) {
-
+    ['core/l10n', 'core/navigation', 'core/settings', 'core/urls',
+     'core/utils', 'core/z', 'previews', 'tracking', 'utils_local'],
+    function(l10n, navigation, settings, urls,
+             utils, z, previews, tracking, utilsLocal) {
+    'use strict';
     var _pd = utils._pd;
     var gettext = l10n.gettext;
 
@@ -12,45 +14,9 @@ define('views/search',
         return new_value;
     }
 
-    // Clear search field on 'cancel' search suggestions.
-    $('#site-header').on('click', '.header-button.cancel', _pd(function() {
-        // $('#site-search-suggestions').trigger('dismiss');
-        $('#search-q').val('');
-
-    })).on('click', '.header-button, .search-clear', _pd(function() {
-        if ($(this).hasClass('search-clear')) {
-            $('#search-q').val('').trigger('focus');
-        }
-    }));
-
-    // If we've set this value in localStorage before, then always use it.
-    var expand = !!storage.getItem('expand-listings');
-    if (expand === null) {
-        // Default to the graphical view at desktop widths and traditional
-        // list view at lesser widths.
-        expand = capabilities.widescreen();
-    }
-
-    function setTrays(expanded) {
-        if (expanded !== undefined) {
-            expand = expanded;
-        }
-        $('ol.listing').toggleClass('expanded', expanded);
-        $('.expand-toggle').toggleClass('active', expand);
-        storage.setItem('expand-listings', !!expanded);
-        if (expanded) {
-            z.page.trigger('populatetray');
-            // Set the `src` for hidden images so they get loaded.
-            $('img[data-src]:not([src])').each(function () {
-                this.src = $(this).data('src');
-            });
-        }
-    }
-
     function parsePotatoSearch(query) {
-        // This handles PotatoSearch queries:
-        // https://github.com/mozilla/fireplace/wiki/QuickSearch-(PotatoSearch%E2%84%A2)
-
+        // PotatoSearch queries: github.com/mozilla/fireplace/wiki/
+        // QuickSearch-(PotatoSearch%E2%84%A2)
         query = query || {q: ''};
 
         // We keep track of the full query separately, since we don't want
@@ -68,11 +34,16 @@ define('views/search',
                 } else if (value === 'free' || value === 'free-inapp') {
                     query.premium_types = append(query.premium_types, value);
                 } else if (value === 'premium' || value === 'paid') {
-                    query.premium_types = append(query.premium_types, 'premium');
-                } else if (value === 'premium-inapp' || value === 'paid-inapp') {
-                    query.premium_types = append(query.premium_types, 'premium-inapp');
-                } else if (value === 'premium-other' || value === 'paid-other') {
-                    query.premium_types = append(query.premium_types, 'premium-other');
+                    query.premium_types = append(query.premium_types,
+                                                 'premium');
+                } else if (value === 'premium-inapp' ||
+                           value === 'paid-inapp') {
+                    query.premium_types = append(query.premium_types,
+                                                 'premium-inapp');
+                } else if (value === 'premium-other' ||
+                           value === 'paid-other') {
+                    query.premium_types = append(query.premium_types,
+                                                 'premium-other');
                 } else if (value.indexOf('cat=') === 0) {
                     query.cat = value.split('=')[1];
                 } else if (value === 'desktop' || value === 'firefoxos') {
@@ -97,7 +68,8 @@ define('views/search',
                            value.indexOf('language=') === 0 ||
                            value.indexOf('langs=') === 0 ||
                            value.indexOf('lang=') === 0) {
-                    query.languages = append(query.languages, value.split('=')[1]);
+                    query.languages = append(query.languages,
+                                             value.split('=')[1]);
                 } else if (value.indexOf('region=') === 0) {
                     query.region = value.split('=')[1];
                 } else if (value.indexOf('offline') === 0) {
@@ -108,140 +80,143 @@ define('views/search',
                     query.tag = 'tarako';
                 }
             } else {
-                // Include anything that's not a keyword in the `q` search term.
+                // Include anything not a keyword in the `q` search term.
                 query.q.push(value);
             }
         });
 
-        query.q = query.q.join(' ');  // This is what gets sent to the API.
+        // What gets sent to the API.
+        query.q = query.q.join(' ');
 
-        // There were no keywords, so remove full_q.
         if (query.q === query.full_q) {
+            // No keywords, remove full_q.
             delete query.full_q;
         }
 
         return query;
     }
 
-    function isSearchPage() {
-        return $('#search-results, #account-settings .listing').length;
-    }
-
-    z.body.on('click', '.expand-toggle', _pd(function() {
-        setTrays(expand = !expand);
-
-        tracking.trackEvent(
-            'View type interactions',
-            'click',
-            expand ? 'Expanded view' : 'List view'
-        );
-
-        z.doc.trigger('scroll');  // For defer image loading.
-    })).on('submit', 'form#search', function(e) {
-        e.stopPropagation();
+    function processSearch(e) {
         e.preventDefault();
-        var $q = $('#search-q');
-        var query = $q.val();
-        if (query === 'do a barrel roll') {
-            z.body.toggleClass('roll');
-        } else if (query === ':debug') {
-            z.page.trigger('navigate', urls.reverse('debug'));
-            $q.val('');
+        e.stopPropagation();
+        // A mapping of query => view name that can be used to navigate to a
+        // specific view via search box. Mostly used for automated testing.
+        var potato_views = {
+            ':categories': 'categories',
+            ':debug': 'debug',
+            ':debug_features': 'debug_features',
+            ':feedback': 'feedback',
+            ':homepage': 'homepage',
+            ':new_apps': 'new',
+            ':newsletter': 'newsletter_signup',
+            ':popular_apps': 'popular',
+            ':privacy': 'privacy',
+            ':recommended': 'recommended',
+            ':settings': 'settings',
+            ':terms': 'terms',
+        };
+
+        var query = $('#search-q').val() || $('#search-q-desktop').val();
+        if (Object.keys(potato_views).indexOf(query) > -1) {
+            z.page.trigger('navigate', urls.reverse(potato_views[query]));
+            z.page.trigger('clearsearch');
             return;
         } else if (query === ':' || query === ':help') {
-            window.open('https://github.com/mozilla/fireplace/wiki/QuickSearch-(PotatoSearch™)');
-            $q.val('');
+            z.page.trigger('clearsearch');
+            window.open('https://github.com/mozilla/fireplace/wiki/' +
+                        'QuickSearch-(PotatoSearch™)');
             return;
         }
-        $q.trigger('blur');
         z.page.trigger('search', {q: query});
+        return;
+    }
+
+    z.body.on('submit.mainsearch', '.header--search-form, .desktop--search-form', processSearch)
+          .on('keydown', '#search-q', function(e) {
+        // On FxOS 1.1 the search form did not submit
+        // after hitting enter (so it did not work).
+        if (e.keyCode === 13) { // Enter key
+            processSearch(e);
+        }
     });
 
-    z.page.on('loaded', function() {
-        var $q = $('#search-q');
-        $q.val(z.context.search);
-        // If this is a search results or "my apps" page.
-        if (isSearchPage()) {
-            setTrays(expand);
-        }
-    }).on('reloaded_chrome', function() {
-        if (isSearchPage()) {
-            setTrays(expand);
-        }
-    }).on('loaded_more', function() {
-        z.page.trigger('populatetray');
+    z.page.on('loaded_more', function() {
+        previews.initialize();
         // Update "Showing 1-{total}" text.
         z.page.find('.total-results').text(z.page.find('.item.app').length);
-    }).on('search', function(e, params) {
-        e.preventDefault();
-        return z.page.trigger(
-            'navigate',
-            [
-                utils.urlparams(urls.reverse('search'), params),
-                {search_query: params.q}
-            ]
-        );
-    });
+    })
+
+    .on('search', _pd(function(e, params) {
+        z.page.trigger('clearsearch');
+        return z.page.trigger('navigate', [
+            utils.urlparams(urls.reverse('search'), params),
+            {search_query: params.q}
+        ]);
+    }));
 
     function processor(query) {
+        // Whimsy or extras go here.
         query = query ? query.toLowerCase() : '';
         return function(data) {
-            switch (query) {
-                case 'what does the fox say?':
-                    var base = function(item) {return _.extend(item, {author: 'The Fox', 'previews':[], 'icons': {'64': urls.media('fireplace/img/logos/firefox-256.png')}});};
-                    data.unshift(base({name: 'Joff-tchoff-tchoffo-tchoffo-tchoff!'}));
-                    data.unshift(base({name: 'Hatee-hatee-hatee-ho!'}));
-                    data.unshift(base({name: 'Wa-pa-pa-pa-pa-pa-pow!'}));
-                    data.unshift(base({name: 'Ring-ding-ding-ding-dingeringeding!'}));
-                    break;
-                case 'hampster dance':
-                    data.forEach(function(v, k) {
-                        v.icons['64'] = urls.media('fireplace/img/icons/eggs/h' + (k % 4 + 1) + '.gif');
-                    });
-                    break;
-                case 'rick fant rolled':
-                    data.forEach(function(v) { v.url = 'http://www.youtube.com/watch?v=oHg5SJYRHA0'; });
-                    break;
-            }
             return data;
         };
     }
 
     return function(builder, args, params) {
-        params = parsePotatoSearch(_.extend({q: params.q}, params));
-
+        params = parsePotatoSearch(params);
         if ('sort' in params && params.sort === 'relevancy') {
             delete params.sort;
         }
+        var queryParams = ['full_q', 'q', 'author'];
+        var queryParam;
+        var query;
+        var title = gettext('Search Results');
+        var pageTypes = ['search', 'app-list'];
 
-        builder.z('type', 'search');
-        var query = params.full_q || params.q;
-        builder.z('search', query);
-        builder.z('title', query || gettext('Search Results'));
-
-        if (params.q === 'hampster dance') {
-            params.q = 'dance';
-            (new Audio(urls.media('fireplace/hampster.ogg'))).play();
+        // Get the first valid param and record its type.
+        for (var i = 0; i < queryParams.length; i++) {
+            queryParam = queryParams[i];
+            query = params[queryParam];
+            if (query) break;
         }
 
-        builder.start('search/main.html', {
+        if (query) {
+            switch (queryParam) {
+                case 'author':
+                    utilsLocal.headerTitle(gettext('Developer Listing'));
+                    break;
+                case 'q':
+                    utilsLocal.headerTitle(title);
+            }
+            pageTypes.push('leaf');
+        } else if (!settings.meowEnabled) {
+            pageTypes.push('leaf');
+        }
+
+        builder.z('type', pageTypes.join(' '));
+        builder.z('search', query);
+        builder.z('title', query || title);
+        utilsLocal.headerTitle(title);
+
+        builder.start('search.html', {
             endpoint_name: 'search',
-            params: _.extend({}, params),
-            processor: processor(query)
+            params: params,
+            processor: processor(query),
+            raw_query: query || document.querySelector('[name="q"]').value,
         }).done(function() {
             var results = builder.results.searchresults;
+
             if (params.manifest_url && results.objects.length === 1) {
-                z.page.trigger('divert', [urls.reverse('app', [results.objects[0].slug]) + '?src=' + params.src]);
+                z.page.trigger(
+                    'divert',
+                    [urls.reverse('app', [results.objects[0].slug]) +
+                     '?src=' + params.src]);
             }
-            // When there are no results, tell GA (bug 890314)
+
+            // Tell GA when no results (bug 890314).
             if (!results.objects.length) {
-                tracking.trackEvent(
-                    'No results found',
-                    'Search',
-                    query
-                );
+                tracking.sendEvent('No results found', 'Search', query);
             }
         });
     };
-
 });

@@ -1,65 +1,143 @@
-// styles for the global site header only.
+/*
+    Styles for the global site header.
+*/
 @import 'lib';
 
-// Add the header's height back as padding. This is overriden when the header
-// is not `position: fixed`.
-body {
-    padding-top: $header-height;
+.hamburger {
+    order: 0;
+}
+.wordmark {
+    order: 1;
+}
+mkt-header-nav {
+    order: 2;
+}
+.header--search-toggle {
+    order: 3;
+
+    +media--wide-tablet() {
+        margin: 0 30px;
+    }
+}
+.header--settings-toggle {
+    order: 4;
+
+    +media--wide-tablet() {
+        margin: 0 30px;
+    }
+}
+.mkt-header--register {
+    order: 5;
+}
+.mkt-header--login {
+    order: 6;
+
+    +media--wide-tablet() {
+        margin: 0 30px 0 0;
+    }
 }
 
-// ***************** Wide Mobile (600+ px)
+// We hide the recommendations tab by default and enable it via JS if user is
+// logged in and opted in to recommendations.
+#navigation .nav-menu-recommended,
+.full-screen-overlay.more-menu-overlay .more-menu-recommended {
+    display: none;
+}
+.show-recommendations #navigation .nav-menu-recommended,
+.show-recommendations .more-menu-overlay .more-menu-recommended {
+    display: block;
+}
 
-// usable on any header
+#site-header {
+    align-items: center;
+    background: $color--header--background;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-height: 60px;
+    padding: 0 5px;
+    position: relative;
+
+    +rtl() {
+        // Keep the back and menu button on the left when RTL.
+        flex-direction: row-reverse;
+    }
+
+    h1 {
+        align-items: center;
+        display: flex;
+        height: 50px;
+        line-height: 50px;
+    }
+    .mkt-header--title {
+        ellipsis();
+        flex-grow: 1;
+        padding-right: $header-button-size;
+    }
+
+    // Project name, appearing to the right of the Marketplace logo.
+    .site-name {
+        border-left: 1px solid $color--header--separator;
+        color: $color--header--site-name;
+        display: none;
+        font-size: 16px;
+        font-weight: 300;
+        margin-left: 8px;
+        padding: 4px 0 4px 12px;
+        position: relative;
+        top: 1px;  // Aligns baseline the wordmark's baseline;
+    }
+}
+
+// Banners should cover the header children when above the header.
+body > .banners mkt-banner {
+    z-index: 70;
+}
+
+.hamburger {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    display: inline-block;
+    height: $header-button-size;
+    padding: 0 10px;
+    width: $header-button-size;
+    hambacker();
+    hambacker-menu();
+
+    +media--wide-tablet() {
+        display: none;
+    }
+}
+[data-page-type~=leaf] .hamburger {
+    hambacker-back();
+}
+
+// Usable on any header.
 .header {
-    background: #fff;
-    border-top: 1px solid $salt-flat-white;
-    border-bottom: 1px solid $seavan-salt-white;
-    display-flex();
+    background: $white;
+    display: flex;
     height: $header-height;
     max-height: $header-height;
     position: relative;
     width: 100%;
 
     > * {
-        flex-center();
-    }
-    .flex-shift, .title {
-        flex(1);
-        padding-left: 10px;
-    }
-    .title {
-        color: $castle-skull-gray;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: $header-height;
-        z-index: 10;
+        align-self: center;
     }
 }
 
-// # for the primary site header *only*. If you need to generalize a style in here, move it.
+// # for the primary site header *only*.
+// If you need to generalize a style in here, move it.
 .site-header {
     display: block;
     position: fixed;
     text-align: center;
     top: 0;
-    z-index: 20;
 
     &:before {
         display: none;
-    }
-    > * {
-        display: block;
-    }
-    > nav {
-        height: $header-height;
-        display-flex();
-        position: relative;
-        text-align: left;
-        width: 100%;
-        > * {
-            flex-center();
-            display: block;
-        }
     }
     .site {
         height: $header-height;
@@ -84,106 +162,6 @@ body {
     }
 }
 
-.act-tray {
-    height: 47px;
-    position: relative;
-    width: 34px;  // 24px + 10px margin
-}
-
-.account-links {
-    cursor: pointer;
-    position: absolute;
-    right: -15px;
-    top: 49px;
-    width: 320px;
-    z-index: 21;
-
-    ul {
-        background: $grey-gardens-gray;
-        line-height: 20px;
-        list-style-type: none;
-    }
-    li {
-        position: relative;
-
-        + li {
-            border-top: 1px solid $cloud-gray;
-        }
-        a {
-            color: $cement-gray;
-            display: block;
-            font-size: 15px;
-            font-weight: 400;
-            padding: 10px 15px;
-            text-decoration: none;
-
-            &:hover {
-                background-color: $sailor-blue;
-                color: #fff;
-            }
-        }
-    }
-    a b {
-        display: block;
-        font-weight: 300;
-    }
-}
-
-.site-header .search {
-    margin-right: 10px;
-    position: relative;
-    top: -1px;
-    transition(.3s all);
-    width: 230px;
-    label {
-        display: none;
-    }
-}
-
-#search-q {
-    background: #f4f4f4 url(../img/pretty/search.svg) 8px 50% no-repeat;
-    border: 2px solid $cement-gray;
-    border-radius: 10px;
-    color: $london-fog-gray;
-    font: 300 20px/28px $open-stack;
-    height: 34px;
-    outline: none;
-    padding: 2px 10px 1px 32px;
-    transition(unquote('.18s background-position, .2s border-color, .2s padding'));
-    width: 100%;
-    z-index: 2;
-    &:-moz-placeholder {
-        color: darken($cement-gray, 5%);
-    }
-    &::-moz-placeholder {
-        color: darken($cement-gray, 5%);
-    }
-    &::-webkit-input-placeholder {
-        color: darken($cement-gray, 5%);
-    }
-    ~ .search-clear {
-        transition(unquote('.3s opacity, .3s visibility'));
-    }
-    &:invalid ~ .search-clear {
-        // Hide the X icon when the search field is empty.
-        opacity: 0;
-        visibility: hidden;
-    }
-    &:valid {
-        // Pad for the X icon.
-        padding-right: 34px;
-        ~ .search-clear {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-    &:focus {
-        background-position: -18px 50%;
-        border-color: #72cfff;
-        padding-left: 10px;
-    }
-}
-
 .close {
     background: url(../img/pretty/close.svg) 50% no-repeat;
     background-size: 18px auto;
@@ -192,11 +170,11 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    width: 40px;
-}
+    width: $header-button-size;
 
-.close:active {
-    background: url(../img/pretty/close_active.svg) 50% no-repeat;
+    &:active {
+        background: url(../img/pretty/close_active.svg) 50% no-repeat;
+    }
 }
 
 // Buttons that appear in headers.
@@ -218,63 +196,22 @@ body {
             display: block;
         }
     }
-    &.cancel:after {
-        background-position: 0 -24px;
-        height: 24px;
-        left: 13px;
-        position: absolute;
-        top: 12px;
-        width: 24px;
-    }
-    &.settings {
-        background: url(../img/pretty/settings_gear.svg) 50% 50% no-repeat;
-        background-size: 24px auto;
-        display: block;
-        height: 40px;
-        position: absolute;
-        right: 2px;
-        top: 2px;
-        width: 40px;
-    }
-    &.back {
-        hidetext();
-        background: url(../img/pretty/back_arrow.svg) center no-repeat;
-        background-size: 12px 24px;
-        margin-right: 2px;
-        width: 50px;
-        &:hover {
-            background-image: url(../img/pretty/back_arrow_active.svg);
-        }
-    }
-    // 'Sign In'
-    &.persona {
-        cursor: wait;
-        display: none;
-        margin-left: 15px;
-        word-break: keep-all;
-        word-wrap: normal;
-
-        &.loading-submit {
-            hidetext();
-            outline: 0;
-            spinner('loading');
-            margin-left: 15px;
-            width: 50px;
-            &:after {
-                display: none;
-            }
-        }
-    }
 }
 
 .persona-loaded .header-button.persona {
     cursor: pointer;
 }
 
-// On hover the settings gear icon should turn blue.
-// On the Account Settings page the gear should also turn blue.
-.act-tray.active .header-button.settings {
-    background-image: url(../img/pretty/settings_gear_active.svg);
+.header-button.persona {
+    width: auto;
+}
+
+.subheader {
+    h1,
+    a {
+        line-height: 37px;
+        padding: 20px;
+    }
 }
 
 .secondary-header,
@@ -282,7 +219,7 @@ body {
     position: relative;
 
     h2, h3 {
-        color: $london-fog-gray;
+        color: $greyscale-black;
         font-weight: 300;
         margin-bottom: -3px;
         max-width: calc(unquote('100% - 75px'));
@@ -290,6 +227,11 @@ body {
         padding-bottom: 3px;
         position: absolute;
     }
+}
+
+.subheader-simple h1 {
+    font-weight: 500;
+    text-align: center;
 }
 
 .category.featured {
@@ -307,7 +249,7 @@ body {
         bottom: -2px;
         content: "";
         display: block;
-        gradientLinear(unquote('to top, rgba(15,15,15,0) 0%, rgba(15,15,15,.3) 100%'));
+        background-image: linear-gradient(to top, rgba(15,15,15,0) 0%, rgba(15,15,15,.3) 100%);
         height: 2px;
         position: absolute;
         width: 100%;
@@ -339,11 +281,33 @@ body {
     padding-top: 15px;
 }
 
+.site-header .account-links,  // .site-header for specificity
+.active .account-links {
+    display: none;
+}
+
+#site-header .mkt-header--title {
+    display: none;
+}
+[data-meow--enabled=true][data-page-type~=leaf] {
+    #site-header .site,
+    #site-header .header--search-toggle {
+        display: none;
+
+        +media--wide-tablet() {
+            display: block;
+        }
+    }
+    #site-header .mkt-header--title {
+        display: block;
+
+        +media--wide-tablet() {
+            display: none;
+        }
+    }
+}
 
 @media $narrower-than-desktop {
-    .hide-on-mobile {
-        display: none;
-    }
     .secondary-header {
         height: 40px;
 
@@ -364,150 +328,51 @@ body {
     }
 }
 
-// search results tile expand toggle
-.expand-toggle {
-    display: block;
-    height: 22px;
-    line-height: 22px;
-    position: absolute;
-    right: 10px;
-    top: 9px;
-    width: 69px;
-    &:before,
-    &:after {
-        content: "";
-        display: block;
-        height: 22px;
-        position: absolute;
-    }
-    &:before {
-        background: url(../img/pretty/list_view_active.svg) no-repeat;
-        left: 0;
-        width: 24px;
-    }
-    &:after {
-        background: url(../img/pretty/screenshot_view.svg) 10px 0 no-repeat;
-        border-left: 1px dotted $cement-gray;
-        left: 34px;
-        width: 34px;
-    }
-    &.active {
-        &:before {
-            background-image: url(../img/pretty/list_view.svg);
-        }
-        &:after {
-            background-image: url(../img/pretty/screenshot_view_active.svg);
-        }
-    }
-}
-
-.overlay .expand-toggle,
-.site-header .account-links,  // .site-header for specificity
-.active .account-links {
-    display: none;
-}
-
-// How does the header look for the various page "types"?
-[data-page-type~=root] .header .expand-toggle {
-    display: none;
-}
-
-// When we're holding down on the debug page, don't allow clicking on the logo
-// because that would take us back home.
-[data-page-type~=debug] .header .wordmark {
-    pointer-events: none;
-}
-
-[data-page-type~=search],
-[data-page-type~=leaf] {
-    .back, .expand {
-        display: block;
-    }
-    .site, .flex-shift {
+@media (min-width: 710px) {
+    [data-page-type] main:before {
         display: none;
     }
-    .flex-span {
-        display: block;
-        flex(1);
-    }
-}
-main {
-    &:before {
-        // This makes a sweet gradient below the header
-        // (which will appear when scrolling past the category drop-down menu).
-        content: '';
-        display: block;
-        gradientLinear(unquote('to top, rgba(15,15,15,0) 0%, rgba(15,15,15,.3) 100%'));
-        height: 2px;
-        top: $header-height;
-        position: fixed;
-        width: 100%;
-        z-index: 18;
-    }
 }
 
-@media (max-width: 709px) {
-    [data-page-type~="detail"] .header {
-        // Make the border lighter since there's no secondary header on this page.
-        border-bottom-color: $salt-flat-white;
-    }
-}
-
-@media (min-width: 710px) {
-    .site-header {
-        border-bottom: 1px solid $cloud-gray;
-        border-top: 0;
-
-        &:before, &:after {
-            display: none;
+@media $base-tablet {
+    .subheader {
+        h1,
+        a {
+            line-height: 1;
+            padding: 40px 10px 0;
         }
     }
-    [data-page-type] main {
-        padding: 0 0 $header-height;
+    .secondary-header {
+        background: none;
+        border: 0;
+        height: $header-height;
+        max-height: $header-height;
+        padding: 0;
+        position: relative;
 
         &:before {
             display: none;
         }
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
     }
-}
+    header.secondary-header {
+        margin: 10px auto 20px;
+        width: $max-site-width;
 
-// ***************** Cursor (Desktop) (>= 1024px)
+        h2 {
+            font-size: 30px;
+        }
+    }
+    .featured-header {
+        padding: 15px 15px 5px;
+    }
 
-// This probably shouldn't be media query based.
-@media $wider-desktop {
     body {
       padding-top: 0;
     }
-
-    .header-button.settings {
-        right: 0;
-        top: 0;
-    }
-
-    .act-tray,
-    .act-tray .header-button.settings {
-        height: 40px;
-        width: 40px;
-    }
-    .act-tray {
-        margin-left: 15px;
-
-        &.active .settings {
-            background-position: calc(unquote('50% + 35px')) 8px;
-            height: 70px;
-            margin-left: -60px;
-            width: 110px;
-            &:after {
-                border: 38px solid transparent;
-                border-bottom-color: $grey-gardens-gray;
-                display: block;
-                position: absolute;
-                right: -18px;
-                top: 0;
-            }
-        }
-    }
-
     .site-header {
         height: 60px;
         max-height: 60px;
@@ -517,6 +382,7 @@ main {
             height: 60px;
             margin: 0 auto;
             max-width: $max-site-width;
+            width: 95%;
         }
         .site {
             margin: 0;
@@ -531,14 +397,10 @@ main {
             max-width: 232px;
             width: 232px;
         }
-        .persona {
-            display: block;
-        }
         .act-tray {
             display: none;
         }
     }
-
     .logged-in .site-header {
         .act-tray {
             display: block;
@@ -547,117 +409,41 @@ main {
             display: none;
         }
     }
-
     .active .account-links {
         display: block;
     }
-
-    .site-header .search,
-    #search-q {
-        width: 532px;
-    }
-
-    #search-q {
-        background-position: 10px 50%;
-        border-width: 1px;
-        font-size: 18px;
-        font-weight: 400;
-        height: 40px;
-        line-height: 40px;
-        padding: 6px 15px 4px 34px;
-
-        &:valid {
-            // Adjust width for padding for the X icon.
-            padding-right: 42px;
-        }
-        &:focus {
-            padding-right: 15px;
-        }
-    }
-
-    .search-clear {
-        top: 4px;
-    }
-
     // How does the header look for the various page "types"?
     [data-page-type~=search],
     [data-page-type~=leaf] {
-        .back, .site {
+        .site {
             display: block;
         }
-        .back, .site-header .expand-toggle,
-        .flex-span {
+        .header--back {
             display: none;
         }
-        .flex-shift {
-            display: block;
+    }
+    .desktop .wordmark {
+        background: url(../img/pretty/marketplace-beta-logo.png) no-repeat 0 50% / 231px auto;
+    }
+    #site-header {
+        +rtl() {
+            flex-direction: row;
         }
     }
 }
 
-// ***************** Wide Mobile (> 671px)
-@media $at-least-desktop {
-    .secondary-header {
-        background: none;
-        border: 0;
-        height: $header-height;
-        max-height: $header-height;
-        position: relative;
-
-        &:before {
-            display: none;
-        }
-        h2 {
-            margin: 0;
-        }
-    }
-    .featured-header {
-        padding: 15px 15px 5px;
-    }
-    .expand-toggle {
-        top: 13px;
-        right: 0;
-    }
-    .site-header {
-        z-index: 30;
+@media $retina-tablet {
+    .site-header .wordmark {
+        background: url(../img/pretty/marketplace-beta-logo2X.png) no-repeat 0 50% / 200px auto;
     }
 }
 
-@media (max-width: 540px) {
-    .site-header {
-        .search {
-            flex(1);
-            width: auto;
-        }
-    }
-    [data-page-type~=root] {
-        .site-header {
-            .site, .wordmark {
-                width: 35px;
-            }
-            .flex-shift {
-                display: none;
-            }
-        }
-    }
-    [data-page-type~=search],
-    [data-page-type~=leaf] {
-        .flex-span {
-            display: none;
-        }
-    }
-
-    .site-header.suggestions {
-        nav > *:not(.search) {
-            display: none;
-        }
-        .search {
-            position: relative;
-            width: 100%;
-            left: auto;
-        }
-        .search-clear {
-            display: block;
+@media $base-desktop {
+    .subheader {
+        h1,
+        a {
+            margin: 0 0 20px;
+            padding: 40px 0 0;
         }
     }
 }

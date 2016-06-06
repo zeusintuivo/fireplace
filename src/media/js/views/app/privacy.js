@@ -1,12 +1,20 @@
-define('views/app/privacy', ['l10n', 'urls'], function(l10n, urls) {
-
+define('views/app/privacy',
+    ['core/l10n', 'core/requests', 'core/urls', 'utils_local'],
+    function(l10n, requests, urls, utilsLocal) {
+    'use strict';
     var gettext = l10n.gettext;
 
     return function(builder, args) {
-        builder.start('detail/privacy.html', {slug: args[0]});
-
+        var slug = args[0];
         builder.z('type', 'leaf');
-        builder.z('parent', urls.reverse('app', [args[0]]));
-        builder.z('title', gettext('Privacy Policy'));
+        builder.z('parent', urls.reverse('app', [slug]));
+
+        requests.get(urls.api.url('app', [slug])).done(function(app) {
+            var title = app.name;
+            builder.z('title', title);
+            utilsLocal.headerTitle(title);
+        });
+
+        builder.start('app/privacy.html', {slug: slug});
     };
 });

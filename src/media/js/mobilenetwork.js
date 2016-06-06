@@ -1,350 +1,11 @@
 define('mobilenetwork',
-       ['l10n', 'log', 'settings', 'tracking', 'user', 'utils'],
-       function(l10n, log, settings, tracking, user, utils) {
+    ['carriers', 'core/l10n', 'core/log', 'regions', 'tracking', 'core/user', 'core/utils'],
+    function(carriers, l10n, log, regions, tracking, user, utils) {
     var console = log('mobilenetwork');
     var persistent_console = log.persistent('mobilenetwork', 'change');
     var gettext = l10n.gettext;
 
-    var REGIONS = settings.REGION_CHOICES_SLUG;
-
-    var regions = {
-        // Missing [ "231", "232", "744" ]
-
-        // Greece
-        202: 'gr',
-
-        // France
-        208: 'fr',
-
-        // Spain
-        214: 'es',
-
-        // Hungary
-        216: 'hu',
-
-        // Serbia
-        220: 'rs',
-
-        // Italy
-        222: 'it',
-
-        // Czech Republic
-        230: 'cz',
-
-        // United Kingdom.
-        234: 'uk',
-        235: 'uk',
-
-        // Poland
-        260: 'pl',
-
-        // Germany
-        262: 'de',
-
-        // Montenegro
-        297: 'me',
-
-        // United States
-        310: 'us',
-
-        // Mexico
-        334: 'mx',
-
-        // India
-        404: 'in',
-        405: 'in',
-
-        // Japan
-        440: 'jp',
-
-        // China
-        460: 'cn',
-
-        // Bangladesh
-        470: 'bd',
-
-        // Guatemala
-        704: 'gt',
-
-        // El Salvador
-        706: 'sv',
-
-        // Nicaragua
-        710: 'ni',
-
-        // Costa Rica
-        712: 'cr',
-
-        // Panama
-        714: 'pa',
-
-        // Peru
-        716: 'pe',
-
-        // Argentina
-        722: 'ar',
-
-        // Brazil
-        724: 'br',
-
-        // Chile
-        730: 'cl',
-
-        // Colombia
-        732: 'co',
-
-        // Venezuela
-        734: 've',
-
-        // Ecuador
-        740: 'ec',
-
-        // Uruguay
-        748: 'uy'
-    };
-
-    var carriers = [
-        'america_movil',
-        'carrierless',
-        'china_unicom',
-        'congstar',
-        'deutsche_telekom',
-        'etisalat',
-        'grameenphone',
-        'hutchinson_three_group',
-        'kddi',
-        'kt',
-        'megafon',
-        'qtel',
-        'singtel',
-        'smart',
-        'sprint',
-        'telecom_italia_group',
-        'telefonica',
-        'telenor',
-        'tmn',
-        'vimpelcom'
-    ];
-
-    var carriersRegions = {
-        // Missing [ "208", "222", "234", "404", "405" ]
-
-        // Greece
-        202: {
-            // This actually belongs to Vodafone, which DT owns.
-            5: 'deutsche_telekom'
-        },
-
-        // Spain
-        214: {
-            5: 'telefonica',
-            7: 'telefonica'
-        },
-
-        // Hungary
-        216: {
-            1: 'telenor',
-            20: 'telenor',
-            30: 'deutsche_telekom',
-            // Actually Vodafone but treat like DT.
-            70: 'deutsche_telekom'
-        },
-
-        // Serbia
-        220: {
-            1: 'telenor',
-            2: 'telenor'
-        },
-
-        // Czech Republic
-        230: {
-            1: 'deutsche_telekom',
-            2: 'telefonica',
-            10: 'telefonica'
-        },
-
-        // Slovakia
-        231: {
-            2: 'deutsche_telekom',
-            4: 'deutsche_telekom',
-            6: 'telefonica'
-        },
-
-        // Austria
-        232: {
-            2: 'telefonica',
-            8: 'telefonica'
-        },
-
-        // United Kingdom
-        234: {
-            2: 'telefonica',
-            10: 'telefonica',
-            11: 'telefonica',
-            30: 'deutsche_telekom'
-        },
-
-        // Poland
-        260: {
-            2: 'deutsche_telekom'
-        },
-
-        // Germany
-        262: {
-            1: {
-                // Differentiate congstar using the SPN, everything else with
-                // that MNC is DT.
-                '__default': 'deutsche_telekom',
-                'congstar': 'congstar',
-                'congstar.de': 'congstar'
-            },
-            2: 'deutsche_telekom',
-            7: 'o2'
-        },
-
-        // Montenegro
-        297: {
-            1: 'telenor',
-            2: 'deutsche_telekom',
-            4: 'deutsche_telekom'
-        },
-
-        // United States
-        // T-Mobile has a bunch of other MNCs but they are marked as
-        // 'Not Operational' on http://en.wikipedia.org/wiki/Mobile_country_code
-        310: {
-            26: 'deutsche_telekom',
-            160: 'deutsche_telekom',
-            260: 'deutsche_telekom',
-            490: 'deutsche_telekom'
-        },
-
-        // Mexico
-        334: {
-            2: 'america_movil',
-            3: 'telefonica',
-            20: 'america_movil'
-        },
-
-        // Japan
-        440: {
-            7: 'kddi',
-            8: 'kddi',
-            50: 'kddi',
-            51: 'kddi',
-            52: 'kddi',
-            53: 'kddi',
-            54: 'kddi',
-            55: 'kddi',
-            56: 'kddi',
-            70: 'kddi',
-            71: 'kddi',
-            72: 'kddi',
-            73: 'kddi',
-            74: 'kddi',
-            75: 'kddi',
-            76: 'kddi',
-            77: 'kddi',
-            78: 'kddi',
-            79: 'kddi',
-            88: 'kddi',
-            89: 'kddi'
-        },
-
-        // China
-        460: {
-            1: 'china_unicom'
-        },
-
-        // Bangladesh
-        470: {
-            1: 'grameenphone'
-        },
-
-        // Guatemala
-        704: {
-            3: 'telefonica'
-        },
-
-        // El Salvador
-        706: {
-            4: 'telefonica'
-        },
-
-        // Nicaragua
-        710: {
-            3: 'telefonica'
-        },
-
-        // Costa Rica
-        712: {
-            4: 'telefonica'
-        },
-
-        // Panama
-        714: {
-            2: 'telefonica',
-            3: 'america_movil'
-        },
-
-        // Peru
-        716: {
-            6: 'telefonica',
-            10: 'america_movil'
-        },
-
-        // Argentina
-        722: {
-            10: 'telefonica',
-            70: 'telefonica',
-            // Claro
-            310: 'america_movil',
-            320: 'america_movil',
-            330: 'america_movil'
-        },
-
-        // Brazil
-        724: {
-            6: 'telefonica',
-            10: 'telefonica',
-            11: 'telefonica',
-            23: 'telefonica'
-        },
-
-        // Chile
-        730: {
-            2: 'telefonica'
-        },
-
-        // Colombia
-        732: {
-            102: 'telefonica',
-            123: 'telefonica'
-        },
-
-        // Venezuela
-        734: {
-            4: 'telefonica'
-        },
-
-        // Ecuador
-        740: {
-            1: 'america_movil'
-        },
-
-        // Paraguay
-        744: {
-            2: 'america_movil',
-            4: 'telefonica',
-        },
-
-        // Uruguay
-        748: {
-            7: 'telefonica',
-            // Claro.
-            10: 'america_movil'
-        }
-    };
+    var carriersRegions = carriers.MOBILE_CODES;
 
     function getNetwork(mcc, mnc, spn) {
         console.tagged('getNetwork').log('Trying MCC = ' + mcc + ', MNC = ' + mnc + ', SPN = ' + spn);
@@ -377,10 +38,6 @@ define('mobilenetwork',
             }
         }
 
-        // Make them integers.
-        mcc = +mcc || 0;
-        mnc = +mnc || 0;
-
         var carrier = carriersRegions[mcc];
 
         // If it's a string, the carrier is the same for every MNC.
@@ -396,7 +53,7 @@ define('mobilenetwork',
         }
 
         return {
-            region: regions[mcc] || null,
+            region: regions.MOBILE_CODES[mcc] || null,
             carrier: carrier || null
         };
     }
@@ -482,9 +139,6 @@ define('mobilenetwork',
 
         user.update_settings(newSettings);
 
-        // Send the changed region to GA/UA.
-        tracking.setVar(11, 'region', region);
-
         // Potential sources used by detectMobileNetwork() are defined below:
 
         // Get mobile region and carrier information passed via mcc/mnc/spn
@@ -547,10 +201,10 @@ define('mobilenetwork',
     detectMobileNetwork(navigator);
 
     return {
-        regions: regions,
         carriersRegions: carriersRegions,
-        carriers: carriers,
+        carriers: carriers.CARRIER_SLUGS,
         detectMobileNetwork: detectMobileNetwork,
-        getNetwork: getNetwork
+        getNetwork: getNetwork,
+        regions: regions.MOBILE_CODES,
     };
 });

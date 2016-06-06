@@ -1,18 +1,108 @@
+/*
+    Site-wide or structural styles ONLY. This is not your diaper.
+    section.full - section that visually expands full width, with top
+                   and bottom padding, and margins in between other
+                   full sections.
+*/
 @import 'lib';
 
-// Site-wide or structural styles only in this file.
-// Can't find a better file for your style? Create one!
-// This is not your diaper.
-
 * {
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     //text-rendering: optimizeLegibility;
     word-wrap: break-word;
 }
 
-.js-hidden, .hidden {
+body {
+    background: $tile-border;
+    color: $castle-skull-gray;
+    // min-height needed so ff b2g/android can scroll to 0 (bug 872622).
+    min-height: 300px;
+    overflow-x: hidden;
+    padding-bottom: 60px; // Fixed mobile bottom nav spacing.
+    transform-origin: 50% 400px;
+    transition: transform 1s;
+    // When the mobile nav is open the body width becomes 340px when the screen
+    // is 320px wide. I don't know why that happens. This fixes it. (mstriemer)
+    width: 100%;
+}
+
+#page {
+    position: relative;
+}
+
+#site-header,
+#page {
+    min-width: 320px;
+}
+
+.main {
+    margin: 0 auto;
+
+    .fragment-error {
+        padding: 0;
+    }
+}
+
+.mobile-margined {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+section.main {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+section.full {
+    background: $white;
+    max-width: 100%;
+    width: 100%;
+
+    > div {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 30px 10px;
+    }
+    + section.full,
+    + .placeholder section.full {
+        margin-top: 10px;
+    }
+}
+.placeholder + .placeholder section.full,
+.placeholder + section.full {
+    margin-top: 10px;
+}
+
+section.full + section.full {
+    margin-top: 10px;
+}
+
+// Faster way to toggle show/hide than $.show()/$.hide()
+.js-hidden {
+    display: none !important;
+}
+
+.hidden {
     display: none;
+}
+
+a {
+    text-decoration: none;
+    color: $action-positive;
+
+    &:hover {
+        text-decoration: underline;
+    }
+    &:not([href]) {
+        cursor: pointer;
+    }
 }
 
 .emaillink-wrapper {
@@ -49,57 +139,6 @@ noscript {
     }
 }
 
-a {
-    text-decoration: none;
-    color: $sailor-blue;
-
-    &:hover {
-        text-decoration: underline;
-    }
-    &:not([href]) {
-        cursor: pointer;
-    }
-}
-
-body {
-    background: $seavan-salt-white;
-    color: $castle-skull-gray;
-    // min-height needed so ff b2g/android can scroll to 0 (bug 872622).
-    min-height: 300px;
-    overflow-x: hidden;
-    transform-origin: 50% 400px;
-    transition: transform 1s;
-    -webkit-transition: -webkit-transform 1s;
-}
-
-#site-header, #page {
-    min-width: 320px;
-
-    section.main {
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-
-        &:after {
-            content: '';
-            display: block;
-            clear: both;
-        }
-        &.full {
-            width: 100%;
-
-            > div {
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-    }
-}
-
-#page {
-    position: relative;
-}
-
 .row {
     clear: both;
 }
@@ -121,13 +160,34 @@ body {
     }
 }
 
-.main {
-    margin: 0 auto;
+.error-page {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 85vh;
 
-    .fragment-error {
-        padding: 0;
+    > * {
+        max-width: 70%;
     }
 }
+.error-page-heading {
+    font-weight: 100;
+    margin: 0 0 15px;
+    position: relative;
+
+    &:before {
+        background: url(../img/pretty/alert_triangle.svg) no-repeat 0 0 / 60px 60px;
+        content: "";
+        height: 60px;
+        left: 50%;
+        position: absolute;
+        top: -75px;
+        transform: translate(-50%, 0);
+        width: 60px;
+    }
+}
+
 #page > .overlay {
     max-width: 100%;
 }
@@ -147,7 +207,6 @@ body {
     }
 }
 
-#site-footer,
 .only-logged-in,
 .logged-in .only-logged-out {
     display: none;
@@ -175,282 +234,14 @@ body {
     }
 }
 
-.newsletter {
-    background: #4d4d4d;
-    min-height: 100px;
-    position: relative;
-
-    &.loading {
-        //background-color: rgba(255,255,255,.7);
-        min-height: 100px;
-        * {
-            display: none;
-        }
-        .spinner {
-            margin-bottom: 5px;
-        }
-        .processing {
-            bottom: 10px;
-            position: absolute;
-            text-align: center;
-            width: 100%;
-        }
-    }
-    p {
-        color: #c7c7c7;
-        font-size: 13px;
-
-        &:last-child {
-            margin-top: 11px;
-        }
-    }
-    .processing, .finished {
-        display: none;
-    }
-    > div {
-        float: left;
-        padding: 15px 10px;
-        width: calc(unquote('100% - 35px'));
-    }
-    &.done {
-        margin-top: -11px;
-
-        * {
-            display: none;
-        }
-        .finished, .close {
-            display: block;
-        }
-        .finished {
-            padding: 25px 10px 15px;
-            text-align: center;
-            width: 270px;
-        }
-    }
-    header {
-        background: transparent;
-        border-top: 0;
-        height: inherit;
-        min-height: 25px;
-
-        &:before {
-            display: none;
-        }
-        h3 {
-            color: #c7c7c7;
-            line-height: 22px;
-            margin-bottom: 3px;
-            max-width: 100%;
-            position: static;
-        }
-    }
-    input[type=email], button {
-        border-radius: 5px;
-        font-size: 13px;
-        font-weight: 400;
-    }
-    input[type=email] {
-        color: rgb(95,95,95);
-        height: 27px;
-        margin-right: 5px;
-        min-width: 188px;
-    }
-    button {
-        height: 27px;
-        line-height: 26px;
-        min-width: inherit;
-        padding: 0 10px;
-    }
-    .btn-side-cancel {
-        background-position: right center;
-        border-left: 1px solid #5f5f5f;
-        float: right;
-        height: 75px;
-        margin: 15px 10px 0 0;
-        position: static;
-        width: 25px;
-    }
-}
-
-@-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0turn); }
-    to { -webkit-transform: rotate(1turn); }
-}
 @keyframes spin {
     from { transform: rotate(0turn); }
     to { transform: rotate(1turn); }
 }
 
 .roll {
-    animation(unquote('0.9s spin 1 steps(30)'));
+    animation: 0.9s spin 1 steps(30);
 }
-
-.hampster {
-    background: url(../img/icons/eggs/h1.gif);
-
-    #site-header {
-        background: #fff url(../img/icons/eggs/h4.gif);
-    }
-}
-
-@media $at-least-desktop {
-    html, #footer {
-        background: #fff;
-    }
-    #page {
-        padding-top: 18px;
-    }
-    #footer,
-    #directory-footer {
-        border-top: 1px solid $cloud-gray;
-        padding: 48px 0;
-
-        ul {
-            list-style: none;
-        }
-    }
-
-    #directory-footer {
-        font-size: 15px;
-        font-weight: 300;
-        line-height: 18px;
-
-        .links a {
-            margin-top: 8px;
-            + a {
-                margin-top: 10px;
-            }
-        }
-        .devhub {
-            width: 290px;
-
-            // TODO: Get Michael to vectorize this as an SVG.
-            &:before {
-                background: url(../img/pretty/rocket.png) 0 50% no-repeat;
-                background-size: 20px auto;
-                content: "";
-                display: inline-block;
-                height: 100%;
-                vertical-align: top;
-                width: 28px;
-            }
-        }
-        .group {
-            float: left;
-            min-height: 48px;
-            position: relative;
-
-            a {
-                display: block;
-            }
-            + .group {
-                padding-left: 68px;
-                max-width: 200px;
-            }
-        }
-        .group.language {
-            max-width: 230px;
-            width: 230px;
-        }
-    }
-
-    #page .main,
-    .main {
-        max-width: $desktop-content;
-    }
-
-    .container {
-        &.product-details,
-        &.results {
-            margin: 50px 0;
-        }
-        &.prose,
-        &.form-grid {
-            padding: 25px;
-        }
-    }
-
-    #footzilla {
-        background: url(../img/logos/footzilla.png) 0 3px no-repeat;
-        float: left;
-        width: 100px;
-
-        a {
-            display: block;
-            height: 26px;
-            hidetext();
-            width: 80px;
-        }
-    }
-
-    #footer {
-        color: $note-gray;
-        overflow: hidden;
-        padding: 20px 0;
-        width: 100%;
-
-        .pad {
-            margin: 0 auto;
-            padding: 0;
-            width: 1024px;
-        }
-        p, ul {
-            border-left: 1px dotted $light-gray;
-            font-size: 11px;
-            line-height: 1.3;
-            margin: 0;
-            padding-left: 1em;
-        }
-        p {
-            float: left;
-            width: 60%;
-        }
-        ul {
-            float: right;
-            line-height: 1.2;
-            width: 20%;
-
-            a {
-                display: block;
-            }
-        }
-        li + li {
-            margin-top: 2px;
-        }
-    }
-
-    #site-footer {
-        display: block;
-    }
-
-    .newsletter {
-        display: none;
-    }
-
-    @media $retina {
-        #footzilla {
-            background-image: url(../img/logos/footzilla-2x.png);
-            background-size: 81px auto;
-        }
-    }
-} // End of Desktop.
-
-.region {
-    background-repeat: no-repeat;
-    background-size: 20px auto;
-    color: $medium-gray;
-    display: inline-block;
-    margin-top: 6px;
-    min-height: 20px;
-    overflow: visible;
-    padding: 2px 0 2px 28px;
-    text-overflow: normal;
-}
-
-for region in ar bd br cl cn co cr cz de ec es fr gr gt hu "in" it jp me mx ni pa pe pl rs sv uk us uy ve restofworld
-    .region-{region} {
-        background-image: url(unquote('../img/icons/regions/' + region + '.png'));
-    }
 
 @media $retina {
     .spinner {
@@ -462,14 +253,16 @@ for region in ar bd br cl cn co cr cz de ec es fr gr gt hu "in" it jp me mx ni p
 }
 
 /* For Firefox for Android. */
-button:not([disabled]):active,
-input:not([disabled]):active,
-select:not([disabled]):active,
-textarea:not([disabled]):active,
-option:active,
-label:active,
-a:active {
-    background: transparent;
+button:not([disabled]),
+input:not([disabled]),
+select:not([disabled]),
+textarea:not([disabled]),
+option,
+label,
+a {
+    &:active:not([data-no-transparent]) {
+        background: transparent;
+    }
 }
 
 // Hide the regular UI for standalone pages.
@@ -477,13 +270,86 @@ a:active {
     > * {
         display: none !important;
     }
-
     #splash-overlay {
         display: block !important;
         opacity: 1 !important;
     }
-
     #splash-overlay .throbber {
         display: inline-block !important;
+    }
+}
+
+.hide-on-mobile {
+    display: none;
+}
+
+.hide-on-mobile-tablet {
+    display: none;
+}
+
+@media $base-tablet {
+    .hide-on-mobile {
+        display: block;
+    }
+    .hide-on-tablet {
+        display: none !important;
+    }
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+    html {
+        background: $white;
+    }
+    section.full {
+        padding: 0 0 50px 0;
+    }
+    .mobile-margined {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
+
+@media $base-desktop {
+    .hide-on-desktop {
+        display: none !important;
+    }
+    .hide-on-mobile-tablet {
+        display: block !important;
+    }
+    #page {
+        padding-top: 18px;
+    }
+    .main {
+        max-width: $desktop-content;
+    }
+    section.full > div {
+        padding: 30px 0;
+        width: $max-site-width;
+    }
+    .container {
+        &.product-details {
+            margin: 50px 0;
+        }
+        &.prose,
+        &.form-grid {
+            padding: 25px;
+        }
+    }
+    // Add padding for 1050px to 1100px.
+    section.main > div {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    body {
+        // Remove padding for fixed mobile bottom nav.
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: 1100px) {
+    // Remove the padding that we applied for 1050px to 1100px.
+    section.main > div {
+        padding-left: 0;
+        padding-right: 0;
     }
 }

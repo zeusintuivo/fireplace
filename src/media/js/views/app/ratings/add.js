@@ -1,24 +1,24 @@
 define('views/app/ratings/add',
-    ['capabilities', 'login', 'l10n', 'urls', 'user', 'z'],
-    function(caps, login, l10n, urls, user, z) {
-
+    ['core/capabilities', 'core/login', 'core/l10n', 'core/urls', 'core/user',
+     'core/z', 'utils_local'],
+    function(caps, login, l10n, urls, user,
+             z, utilsLocal) {
+    'use strict';
     var gettext = l10n.gettext;
 
-    z.page.on('click touchend', '.compose-review .rating', function() {
+    z.page.on('click touchend', '.add-review .rating', function() {
         // Scroll the page down to make the send/cancel buttons visible.
-        var textarea = document.querySelector('.compose-review textarea:invalid');
+        var textarea = document.querySelector('.add-review textarea:invalid');
         if (textarea) {
             textarea.focus();
-        }
-
-    }).on('focus', '.compose-review textarea', function() {
-        if (window.scrollTo && !caps.widescreen()) {
-            window.scrollTo(0, 200);
         }
     });
 
     return function(builder, args) {
-        var slug = args[0];
+        var slug = decodeURIComponent(args[0]);
+        builder.z('type', 'leaf reviews spoke-header nav-apps');
+        builder.z('title', gettext('Leave a Review'));
+        utilsLocal.headerTitle(gettext('Write a Review'));
 
         // If the user isn't logged in, redirect them to the detail page.
         if (!user.logged_in()) {
@@ -26,12 +26,6 @@ define('views/app/ratings/add',
             return;
         }
 
-        builder.start('ratings/write.html', {'slug': slug}).done(function() {
-            $('.compose-review').removeClass('modal');
-        });
-
-        builder.z('type', 'leaf');
-        builder.z('parent', urls.reverse('app/ratings', [slug]));
-        builder.z('title', gettext('Write a Review'));
+        builder.start('ratings/add.html', {'slug': slug});
     };
 });

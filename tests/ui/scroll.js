@@ -1,53 +1,91 @@
-var helpers = require('../helpers');
+/*
+    Test scroll states upon navigation.
+*/
+var appList = helpers.load('app_list');
 
-var firstItemSel = '#gallery .listing li:first-child a';
-var scrollPos;
+function getScrollY() {
+    return casper.evaluate(function() {
+        return window.scrollY;
+    });
+}
 
-helpers.startCasper({path: '/category/games'});
+function setScrollY(y) {
+    return casper.evaluate(function(y) {
+        window.scrollTo(0, y);
+        return window.scrollY;
+    }, y);
+}
 
-casper.test.begin('General Scroll tests', {
+function scrollToAndClickApp(n) {
+    // Click an nth app on an app list, returns the Y-position of the app.
+    var appSelector = appList.appNthChild(n) + ' .mkt-tile';
+    var scrollPos = setScrollY(casper.getElementBounds(appSelector).top);
+    casper.click(appSelector);
+    return scrollPos;
+}
 
+casper.test.begin('Test scroll state when hitting back on initial page', {
     test: function(test) {
+        helpers.startCasper({path: '/app/appy'});
 
-        casper.waitForSelector('#gallery .listing', function() {
-            scrollPos = casper.evaluate(function(Y) {
-                window.scrollTo(0, Y);
-                return window.scrollY;
-            }, casper.getElementBounds(firstItemSel).top);
-            casper.click(firstItemSel);
+        helpers.waitForPageLoaded(function() {
+            casper.click('.header-back-btn');
         });
 
-        casper.wait(300, function() {
-            var scrollY = casper.evaluate(function() {
-                return window.scrollY;
-            });
-            test.assertEquals(scrollY, 0, 'Check scroll is 0');
+        casper.waitWhileVisible('[data-page-type~="detail"]', function() {
+            test.assertEquals(getScrollY(), 0, 'Check scroll is 0');
+        });
+
+        helpers.done(test);
+    }
+});
+
+casper.test.begin('Test scroll state set to 0 on navigate', {
+    test: function(test) {
+        helpers.startCasper({path: '/popular'});
+
+        helpers.waitForPageLoaded(function() {
+            scrollToAndClickApp(1);
+        });
+
+        helpers.waitForAppDetail(function() {
+            test.assertEquals(getScrollY(), 0, 'Check scroll is 0');
+        });
+
+        helpers.done(test);
+    }
+});
+
+casper.test.begin('Test scroll state preserved on pop', {
+    test: function(test) {
+        helpers.startCasper({path: '/popular'});
+
+        var scrollPos;
+        helpers.waitForPageLoaded(function() {
+            scrollPos = scrollToAndClickApp(1);
+        });
+
+        helpers.waitForAppDetail(function() {
             casper.back();
         });
 
-        casper.wait(300, function() {
-            var scrollY = casper.evaluate(function() {
-                return window.scrollY;
-            });
-            test.assert(scrollY > 0, 'Check scroll is greater than 0');
-            test.assertEquals(scrollY, scrollPos, "Check scroll hasn't changed");
-            casper.click(firstItemSel);
+        helpers.waitForAppList(function() {
+            test.assertEquals(getScrollY(), scrollPos,
+                             'Check scroll preserved from before navigate');
+            scrollPos = scrollToAndClickApp(15);
         });
 
-        casper.waitForSelector('#nav-back', function() {
-            casper.click('#nav-back');
+        // Go again with another app to be sure.
+        helpers.waitForAppDetail(function() {
+            casper.back();
         });
 
-        casper.wait(300, function() {
-            var scrollY = casper.evaluate(function() {
-                return window.scrollY;
-            });
-            test.assert(scrollY > 0, 'Check scroll is greater than 0');
-            test.assertEquals(scrollY, scrollPos, "Check scroll hasn't changed");
+        helpers.waitForAppList(function() {
+            test.assertEquals(
+                getScrollY(), scrollPos,
+                'Check scroll preserved from before 2nd navigate');
         });
 
-        casper.run(function() {
-            test.done();
-        });
+        helpers.done(test);
     }
 });

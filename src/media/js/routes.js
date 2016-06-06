@@ -1,75 +1,96 @@
-(function() {
+define('routes',
+    ['core/router', 'core/settings', 'settings_app'],
+    function(router, settings, settingsApp) {
 
-var dependencies;
-/* dtrace */
-
-// Please leave quotes around keys! They're needed for Space Heater.
-var routes = [
-    {'pattern': '^/(app.html|index.html|server.html)?$', 'view_name': 'homepage'},
-    {'pattern': '^/app/([^/<>"\']+)/ratings/add$', 'view_name': 'app/ratings/add'},
-    {'pattern': '^/app/([^/<>"\']+)/ratings/edit$', 'view_name': 'app/ratings/edit'},
-    {'pattern': '^/app/([^/<>"\']+)/ratings/([^/<>"\']+)$', 'view_name': 'app/ratings/rating'},
-    {'pattern': '^/app/([^/<>"\']+)/ratings$', 'view_name': 'app/ratings'},
-    {'pattern': '^/app/([^/<>"\']+)/abuse$', 'view_name': 'app/abuse'},
-    {'pattern': '^/app/([^/<>"\']+)/privacy$', 'view_name': 'app/privacy'},
-    {'pattern': '^/app/([^/<>"\']+)/receipt$', 'view_name': 'app/receipt'},
-    {'pattern': '^/app/([^/<>"\']+)/?$', 'view_name': 'app'},
-    {'pattern': '^/search/?$', 'view_name': 'search'},
-    {'pattern': '^/categories$', 'view_name': 'categories'},
-    {'pattern': '^/new$', 'view_name': 'new'},
-    {'pattern': '^/popular$', 'view_name': 'popular'},
-    {'pattern': '^/recommended$', 'view_name': 'recommended'},
-    {'pattern': '^/category/([^/<>"\']+)$', 'view_name': 'category'},
-    {'pattern': '^/nominate$', 'view_name': 'nominate'},
-    {'pattern': '^/settings$', 'view_name': 'settings'},
-    {'pattern': '^/feedback$', 'view_name': 'feedback'},
-    {'pattern': '^/purchases$', 'view_name': 'purchases'},
-
-    {'pattern': '^/privacy-policy$', 'view_name': 'privacy'},
-    {'pattern': '^/terms-of-use$', 'view_name': 'terms'},
-
-    // Feed.
-    {'pattern': '^/feed/app/([^/<>"\']+)/?$', 'view_name': 'feed/feed_app'},
-    {'pattern': '^/feed/editorial/([^/<>"\']+)/?$', 'view_name': 'feed/feed_brand'},
-    {'pattern': '^/feed/collection/([^/<>"\']+)/?$', 'view_name': 'feed/feed_collection'},
-    {'pattern': '^/feed/shelf/([^/<>"\']+)/?$', 'view_name': 'feed/feed_shelf'},
-
-    {'pattern': '^/debug$', 'view_name': 'debug'},
-    {'pattern': '^/debug/features$', 'view_name': 'debug_features'},
-    {'pattern': '^/credits$', 'view_name': 'credits'},
-    {'pattern': '^/fxa-authorize$', 'view_name': 'fxa_authorize'},
-    {'pattern': '^/fxa-migration$', 'view_name': 'fxa_popup'},
-];
-
-// Only `require.js` has `window.require.defined`, so we can use this to
-// sniff for whether we're using the minified bundle or not. (In production
-// we use commonplace's `amd.js`.)
-if (window.require.hasOwnProperty('defined')) {
-    // The minified JS bundle doesn't need some dev-specific JS views.
-    // Those go here.
-    routes = routes.concat([
-        {'pattern': '^/tests$', 'view_name': 'tests'}
+    router.addRoutes([
+        {'pattern': '^/(app.html|index.html)?$', 'view_name': 'homepage'},
+        {'pattern': '^/addon/([^/<>"\']+)/?$', 'view_name': 'addon'},
+        {'pattern': '^/addon/([^/<>"\']+)/abuse$', 'view_name': 'addon/abuse'},
+        {'pattern': '^/addons/?$', 'view_name': 'addons'},
+        {'pattern': '^/app/([^/<>"\']+)/?$', 'view_name': 'app'},
+        {'pattern': '^/app/([^/<>"\']+)/abuse$', 'view_name': 'app/abuse'},
+        {'pattern': '^/app/([^/<>"\']+)/privacy$', 'view_name': 'app/privacy'},
+        {'pattern': '^/app/([^/<>"\']+)/ratings$', 'view_name': 'app/ratings'},
+        {'pattern': '^/app/([^/<>"\']+)/ratings/add$',
+         'view_name': 'app/ratings/add'},
+        {'pattern': '^/app/([^/<>"\']+)/ratings/edit$',
+         'view_name': 'app/ratings/edit'},
+        {'pattern': '^/app/([^/<>"\']+)/ratings/([^/<>"\']+)$',
+         'view_name': 'app/ratings/rating'},
+        {'pattern': '^/app/([^/<>"\']+)/receipt$', 'view_name': 'app/receipt'},
+        {'pattern': '^/category/([^/<>"\']+)$', 'view_name': 'category'},
+        {'pattern': '^/carrier$', 'view_name': 'carrier'},
+        {'pattern': '^/debug$', 'view_name': 'debug'},
+        {'pattern': '^/debug/features$', 'view_name': 'debug_features'},
+        {'pattern': '^/feed/(collection|editorial|shelf)/([^/<>"\']+)/?$',
+         'view_name': 'feed_landing'},
+        {'pattern': '^/feedback$', 'view_name': 'feedback'},
+        {'pattern': '^/homescreens/?$', 'view_name': 'homescreens'},
+        {'pattern': '^/langpacks/([^/<>"\']+)$', 'view_name': 'langpacks'},
+        {'pattern': '^/new$', 'view_name': 'new_apps'},
+        {'pattern': '^/newsletter-signup$', 'view_name': 'newsletter_signup'},
+        {'pattern': '^/popular$', 'view_name': 'popular_apps'},
+        {'pattern': '^/privacy-policy$', 'view_name': 'privacy'},
+        {'pattern': '^/purchases$', 'view_name': 'purchases'},
+        {'pattern': '^/recommended$', 'view_name': 'recommended'},
+        {'pattern': '^/search/?$', 'view_name': 'search'},
+        {'pattern': '^/settings$', 'view_name': 'settings'},
+        {'pattern': '^/terms-of-use$', 'view_name': 'terms'},
+        {'pattern': '^/usage$', 'view_name': 'usage'},
+        {'pattern': '^/website/([^/<>"\']+)/?$', 'view_name': 'website'},
+        {'pattern': '^/website/([^/<>"\']+)/issue/?$',
+         'view_name': 'website/issue'},
+        {'pattern': '^/websites/?$', 'view_name': 'popular_websites'},
+        {'pattern': '^/websites-new/?$', 'view_name': 'new_websites'},
+        {'pattern': '^/websites/category/([^/<>"\']+)$', 'view_name': 'category_websites'}
     ]);
-}
 
-dependencies = routes.map(function(i) {
-    return 'views/' + i.view_name;
-});
-/* /dtrace */
-window.routes = routes;
-
-define(
-    'routes',
-    // Dynamically import all the view modules from the routes
-    dependencies,
-    function() {
-        for (var i = 0; i < routes.length; i++) {
-            var route = routes[i];
-            var view = require('views/' + route.view_name);
-            route.view = view;
-        }
-        return routes;
+    // When this goes away we can remove settings_app from our deps.
+    var baseSearch = '/api/v2/fireplace/multi-search/?cache=1&vary=0';
+    var search = baseSearch;
+    if (settings.addonsEnabled) {
+        search += '&doc_type=webapp,extension,website';
     }
-);
 
-})();
+    router.api.addRoutes({
+        'account_info': '/api/v2/account/info/{0}',
+        'addon': '/api/v2/extensions/extension/{0}/?cache=1&vary=0',
+        'addon_abuse': '/api/v2/abuse/extension/',
+        'addon_list': '/api/v2/extensions/search/',
+        'app': '/api/v2/fireplace/app/{0}/?cache=1&vary=0',
+        'app/privacy': '/api/v2/apps/app/{0}/privacy/?cache=1&vary=0',
+        'app_abuse': '/api/v2/abuse/app/',
+        'category': baseSearch + '&cat={0}&doc_type=webapp',
+        'category_website': baseSearch + '&cat={0}&doc_type=website',
+        // consumer_info should be cached by the browser, never served by the
+        // CDN, we can keep the Vary header.
+        'consumer_info': '/api/v2/fireplace/consumer-info/?cache=1',
+        'features': '/api/v2/apps/features/',
+        'feed': '/api/v2/feed/get/?cache=21600&vary=0',
+        'feed-app': '/api/v2/fireplace/feed/apps/{0}/?cache=1&vary=0',
+        'feed-brand': '/api/v2/fireplace/feed/brands/{0}/?cache=1&vary=0',
+        'feed-collection': '/api/v2/fireplace/feed/collections/{0}/?cache=1&vary=0',
+        'feed-shelf': '/api/v2/fireplace/feed/shelves/{0}/?cache=1&vary=0',
+        'feedback': '/api/v2/account/feedback/',
+        'installed': '/api/v2/account/installed/mine/',
+        'langpacks': '/api/v2/langpacks/?cache=1&vary=0',
+        'late-customization': '/api/v2/late-customization/?cache=1',
+        'login': '/api/v2/account/login/',
+        'logout': '/api/v2/account/logout/',
+        'newsletter': '/api/v2/account/newsletter/',
+        'payments_status': '/api/v2/webpay/status/{0}/',
+        'prepare_nav_pay': '/api/v2/webpay/prepare/',
+        'recommended': '/api/v2/apps/recommend/?cache=1',
+        'record_free': '/api/v2/installs/record/',
+        'record_paid': '/api/v2/receipts/install/',
+        'region': '/api/v2/services/region/{0}/?cache=86400&vary=0',
+        'regions': '/api/v2/services/region/',
+        'review': '/api/v2/apps/rating/{0}/',
+        'reviews': '/api/v2/apps/rating/',
+        'search': search,
+        'settings': '/api/v2/account/settings/mine/',
+        'site-config': '/api/v2/services/config/site/?cache=1&serializer=commonplace&vary=0',
+        'website': '/api/v2/websites/website/{0}/?cache=1&vary=0',
+        'website_issue': '/api/v2/abuse/website/',
+    });
+});

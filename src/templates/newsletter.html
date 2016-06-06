@@ -1,0 +1,48 @@
+<section class="main">
+  <div class="subheader newsletter subheader-simple">
+    {% if standalone_newsletter_signup %}
+      <h1>{{ _('Sign up for our newsletter') }}</h1>
+    {% else %}
+      <h3>{{ _('Get Firefox news! Sign up for our newsletter') }}</h3>
+    {% endif %}
+  </div>
+</section>
+<div class="newsletter{{ ' newsletter-signup-page' if standalone_newsletter_signup }}">
+  <form class="c" method="post" novalidate>
+    <label class="newsletter-email-label">
+      <span>{{ _('Email Address') }}</span>
+      <input type="email" class="email newsletter-email-field" name="email" placeholder="{{ _('Email') }}" value="{{ user_email }}" required>
+    </label>
+    <button class="button s newsletter-signup-button action newsletter-desktop">{{ _('Sign me up') }}</button>
+    <div class="newsletter-details collapsed">
+      <label>
+        <span>{{ _('Preferred Language') }}</span>
+        <select name="lang" class="newsletter-select">
+          {% for code, language in NEWSLETTER_LANGUAGES.items() %}
+            {% if code != 'None' %}
+            {# user_lang is "pt-BR", "en-US", etc. "en-US" and "en-GB" should both be "English". #}
+            <option value="{{ code }}"{{ ' selected' if code == user_lang or code == user_lang.split('-')[0] }}>
+                {{ language }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </label>
+      <div class="privacy">
+          <input type="checkbox" name="privacy" id="id_newsletter_privacy{% if standalone_newsletter_signup %}_standalone{% endif %}" required>
+          <label for="id_newsletter_privacy{% if standalone_newsletter_signup %}_standalone{% endif %}">
+            {{ _("I'm okay with Mozilla handling my info as explained in <a href=\"{privacy_policy_url}\" target=\"_blank\">this Privacy Policy</a>.",
+                 privacy_policy_url='https://www.mozilla.org/privacy/') }}
+          </label>
+      </div>
+    </div>
+    <button class="button newsletter-signup-button action newsletter-mobile{{ ' s' if not standalone_newsletter_signup }}">{{ _('Sign me up') }}</button>
+    <a href="/settings" class="button support newsletter-cancel-button hide-on-desktop{{ ' s' if not standalone_newsletter_signup }}">{{ _('Cancel') }}</a>
+  </form>
+  <div class="processing">
+    <span class="spinner alt"></span>
+  </div>
+  <div class="success">
+    <h3>{{ _('Thanks for signing up!') }}</h3>
+    <p>{{ _("You'll receive an email from mozilla@e.mozilla.org, please check your inbox for your first email from us. If you don’t see it, check your spam filter.") }}</p>
+  </div>
+</div>

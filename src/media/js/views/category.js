@@ -1,38 +1,58 @@
 define('views/category',
-    ['models', 'tracking', 'underscore', 'urls', 'utils', 'z'],
-    function(models, tracking, _, urls, utils, z) {
+    ['categories', 'core/capabilities', 'core/format', 'core/settings',
+     'core/urls', 'core/utils', 'core/z', 'underscore', 'tracking_events'],
+    function(categories, caps, format, settings,
+             urls, utils, z, _, trackingEvents) {
     'use strict';
 
-    var cat_models = models('category');
-    var app_models = models('app');
-
     return function(builder, args, params) {
-        var category = args[0];
         params = params || {};
-
-        var model = cat_models.lookup(category);
-        var name = model && model.name;
+        var slug = decodeURIComponent(args[0]);
+        var category = _.findWhere(categories, {slug: slug});
+        var name = category ? category.name : '';
         if (name) {
             builder.z('title', name);
         }
 
-        builder.z('type', 'leaf');
+        if (params.sort) {
+            builder.z('type', 'root category app-list new nav-apps');
+        } else {
+            builder.z('type', 'root category app-list popular nav-apps');
+        }
         builder.z('show_cats', true);
-        builder.z('cat', category);
+        builder.z('cat', slug);
 
         if ('src' in params) {
             delete params.src;
         }
 
+        var popularSrc = format.format(trackingEvents.SRCS.categoryPopular,
+                                       slug);
+        var newSrc = format.format(trackingEvents.SRCS.categoryNew, slug);
+
+        // Optimistically update the category dropdown.
+        $('.header-categories-btn .cat-trigger').text(name);
+
         builder.start('category.html', {
-            category: category,
+            category: slug,
             category_name: name,
-            endpoint: urls.api.unsigned.url('category_landing', [category], params),
-            endpoint_name: 'category_landing',
+            categories: categories,
+            endpoint: urls.api.unsigned.url('category', [slug], params),
+            popularUrl: utils.urlparams(urls.reverse('category', [slug]), {
+                src: popularSrc
+            }),
+            newUrl: utils.urlparams(urls.reverse('category', [slug]), {
+                sort: 'reviewed',
+                src: newSrc
+            }),
             sort: params.sort,
-            app_cast: app_models.cast
+            source: params.sort ? newSrc: popularSrc,
+        }).done(function() {
+            var $catMenu = $('.cat-menu-overlay');
+            $catMenu.find('li').removeClass('overlay-menu-active');
+            $catMenu.find('[data-cat="' + slug + '"]').addClass('overlay-menu-active');
         });
 
-        tracking.setPageVar(5, 'Category', category, 3);
+        trackingEvents.trackCategoryHit(slug);
     };
 });

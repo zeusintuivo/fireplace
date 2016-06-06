@@ -1,8 +1,42 @@
 define('helpers_local',
-    ['feed', 'compatibility_filtering', 'content-ratings', 'models', 'nunjucks', 'settings', 'urls', 'user_helpers', 'utils_local', 'z'],
-    function(feed, compatibility_filtering, iarc, models, nunjucks, settings, urls, user_helpers, utils_local, z) {
+    ['apps', 'buttons', 'categories', 'compat_filter',
+     'content-ratings', 'core/format', 'core/helpers', 'core/models',
+     'core/nunjucks', 'core/settings', 'core/urls', 'core/utils', 'core/z',
+     'feed', 'regions', 'tracking_events', 'user_helpers', 'utils_local'],
+    function(apps, buttons, categories, compatFilter,
+             iarc, format, base_helpers, models,
+             nunjucks, settings, urls, utils, z,
+             feed, regions, trackingEvents, user_helpers, utils_local) {
     var filters = nunjucks.require('filters');
     var globals = nunjucks.require('globals');
+
+    // developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+    // toLocaleDateString() on FxAndroid and FxOS returns m/d/Y even if passing
+    // custom locale + options! To not ship full re-implementation, use
+    // Intl.DateTimeFormat(), which is equivalent, but only present if
+    // underlying platform has full implementation. Else fall back to Y-m-d.
+    // Pretty date format (e.g. Saturday, February 15, 2014) on desktop
+    // Something more universal (2014-02-15) on phones.
+    var dateFormat;
+    if (typeof Intl !== 'undefined' &&
+        typeof Intl.DateTimeFormat !== 'undefined') {
+        var formatting = Intl.DateTimeFormat(utils.lang(), {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+        dateFormat = formatting.format.bind(formatting);
+    } else {
+        dateFormat = function(date) {
+            return [
+                date.getFullYear(),
+                padDate(date.getMonth() + 1),
+                padDate(date.getDate()),
+            ].join('-');
+        };
+    }
+
+    function padDate(d) {
+        return (d < 10) ? '0' + d : d;
+    }
 
     var rewriteCdnUrlMappings = [
         {
@@ -18,6 +52,10 @@ define('helpers_local',
     ];
 
     /* Register filters. */
+    filters.date = function(date) {
+        return dateFormat(new Date(date));
+    };
+
     filters.json = JSON.stringify;
     if (nunjucks.env) {
         // For damper when rendering templates outside builder.
@@ -25,6 +63,30 @@ define('helpers_local',
     }
 
     filters.items = utils_local.items;
+
+    // Filter to mirror Array.prototype.slice;
+    filters.sliceArray = function sliceArray(array, begin, end) {
+        if (typeof begin === "undefined") {
+            return array.slice();
+        }
+        if (typeof end === "undefined") {
+            return array.slice(begin);
+        }
+        return array.slice(begin, end);
+    };
+
+    filters.fileSize = function(int) {
+        var bytes = parseInt(int, 10);
+        if (bytes === 0) {
+            return '0';
+        } else if (bytes < Math.pow(1024, 2)) {
+            return +(bytes / 1024).toFixed(2) + ' KB';
+        } else if (bytes < Math.pow(1024, 3)) {
+            return +(bytes / Math.pow(1024, 2)).toFixed(2) + ' MB';
+        } else {
+            return +(bytes / Math.pow(1024, 3)).toFixed(2) + ' GB';
+        }
+    };
 
     filters.rewriteCdnUrls = function(text){
         // When we get a page back from legal docs stored on the CDN, we
@@ -48,27 +110,72 @@ define('helpers_local',
         return text;
     };
 
-    function has_installed(manifestURL) {
-        return z.apps.indexOf(manifestURL) !== -1;
-    }
-
     /* Global variables, provided in default context. */
+    globals.buttons = buttons;
+    globals.CATEGORIES = categories;
+    globals.DEVICE_CHOICES = compatFilter.DEVICE_CHOICES;
     globals.feed = feed;
     globals.iarc_names = iarc.names;
-    globals.REGIONS = settings.REGION_CHOICES_SLUG;
+    globals.NEWSLETTER_LANGUAGES = settings.NEWSLETTER_LANGUAGES;
     globals.user_helpers = user_helpers;
-    globals.PLACEHOLDER_ICON = urls.media('fireplace/img/icons/placeholder.png');
-    globals.compatibility_filtering = compatibility_filtering;
+    globals.PLACEHOLDER_ICON = urls.media('fireplace/img/icons/placeholder.svg');
+    globals.PLACEHOLDER_PREVIEW = urls.media('fireplace/img/icons/placeholder_preview.svg');
+    globals.compat_filter = compatFilter;
+    globals.trackingEvents = trackingEvents;
 
     /* Helpers functions, provided in the default context. */
     function indexOf(arr, val) {
         return arr.indexOf(val);
     }
 
+    function app_notices(app) {
+        // App notices for the app detail page (e.g., not available,
+        // works offline). Returns an array of gettext/classes.
+        var notices = [];
+        // Positive notices.
+        if (app.is_offline) {
+            notices.push([gettext('works offline'), 'positive']);
+        }
+        // Negative notices.
+        var incompat_notices = apps.incompat(app) || [];
+        incompat_notices.forEach(function(notice) {
+            notices.push([notice, 'negative']);
+        });
+        return notices;
+    }
+
+    function getReviewId(resourceUri) {
+        // Get review ID from resource URI.
+        return resourceUri.match(/(\d+)\/$/)[1];
+    }
+
+    function htmldir() {
+        return document.documentElement.dir;
+    }
+
+    function getProductType(obj) {
+        switch (obj.doc_type) {
+            case 'website':
+                return 'website';
+            case 'extension':
+                return 'addon';
+            default:
+                return 'app';
+        }
+    }
+
     var helpers = {
+        apps: apps,
+        app_notices: app_notices,
         cast_app: models('app').cast,
-        has_installed: has_installed,
+        fileSize: filters.fileSize,
+        htmldir: htmldir,
+        format: format.format,
+        getProductType: getProductType,
+        getReviewId: getReviewId,
+        numberfmt: nunjucks.require('filters').numberfmt,
         indexOf: indexOf,
+        settings: settings
     };
 
     for (var i in helpers) {

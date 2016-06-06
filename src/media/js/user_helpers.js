@@ -1,14 +1,13 @@
-define('user_helpers', ['settings', 'user', 'utils'],
-       function(settings, user, utils) {
+define('user_helpers',
+    ['regions', 'core/user', 'core/utils'],
+    function(regions, user, utils) {
 
     var initialArgs = utils.getVars();
 
     var region_geoip = null;
 
     function region(default_, ignore_geoip) {
-        if ('region' in initialArgs &&
-            initialArgs.region &&
-            settings.REGION_CHOICES_SLUG[initialArgs.region]) {
+        if ('region' in initialArgs) {
             return initialArgs.region;
         }
         return user.get_setting('region_override') ||

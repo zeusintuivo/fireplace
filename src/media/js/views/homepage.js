@@ -1,43 +1,49 @@
 define('views/homepage',
-    ['require', 'jquery', 'isotope', 'format', 'l10n', 'log', 'newsletter',
-     'nunjucks', 'requests', 'underscore', 'urls', 'utils', 'z'],
-    function(require, $, Isotope, format, l10n, log, newsletter,
-             nunjucks, requests, _, urls, utils, z) {
+    ['core/capabilities', 'core/format', 'core/l10n', 'core/log',
+     'core/nunjucks', 'core/requests', 'core/settings', 'core/z',
+     'jquery', 'salvattore', 'core/urls', 'core/utils', 'utils_local'],
+    function(capabilities, format, l10n, log,
+             nunjucks, requests, settings, z,
+             $, salvattore, urls, utils, utils_local) {
     'use strict';
-    var console = log('homepage');
+    var logger = log('homepage');
     var gettext = l10n.gettext;
 
     z.page.on('click', '.loadmore.feed-item-item button', function() {
-        // Manually handle pagination in order to properly insert elements into
-        // Isotope's layout. Be careful with the selector above it has to target the homepage only!
+        // Manually handle pagination to insert elements into Salvattore.
+        // Be careful with above selector to target the homepage only.
         var $btn = $(this);
         var $loadmore = $btn.parent();
-        var $btn_clone = $loadmore.clone();  // In case we have another page.
-        $btn.remove();
+        var $btn_clone = $loadmore.clone();
+        $loadmore.addClass('loading');
 
         requests.get($btn.data('url')).done(function(data) {
             $loadmore.remove();
 
-            require(['jquery-bridget/jquery.bridget'], function() {
-                // Use bridget to make Isotope a jQuery plugin.
-                // http://isotope.metafizzy.co/appendix.html#requirejs
-                $.bridget('isotope', Isotope);
-
-                // Insert via Isotope.
-                var elements = _.map(data.objects, function(item) {
-                    return $(nunjucks.env.render('feed/feed_item.html', {item: item}))[0];
-                });
-
-                // Render another loadmore button.
-                if (data.meta.next) {
-                    $btn_clone.find('button').attr('data-url',
-                        urls.api.base.host(data.meta.next) + data.meta.next);
-                    elements.push($btn_clone[0]);
-                }
-
-                $('ul.feed').isotope('insert', elements);
-                z.page.trigger('fragment_loaded');
+            // Transform the data into elements.
+            var elements = data.objects.map(function(item) {
+                return $(nunjucks.env.render('feed/feed_item.html',
+                                             {item: item}))[0];
             });
+
+            // Insert elements with Salvattore.
+            var homeFeed = document.querySelector('.feed-home');
+            if (homeFeed) {
+                salvattore.append_elements(homeFeed, elements);
+            }
+
+            // Render another loadmore button.
+            if (data.meta.next) {
+                $btn_clone.find('button').attr('data-url',
+                    urls.api.base.host(data.meta.next) + data.meta.next);
+
+                if (homeFeed) {
+                    homeFeed.parentNode.insertBefore($btn_clone[0],
+                                                     homeFeed.nextSibling);
+                }
+            }
+
+            z.page.trigger('fragment_loaded');
         });
     });
 
@@ -51,28 +57,10 @@ define('views/homepage',
             delete params.src;
         }
 
-        builder.start('feed.html', {});
+        builder.start('homepage.html');
 
-        builder.onload('feed-items', function() {
-            var $feed = $('.feed');
-
-            require(['jquery-bridget/jquery.bridget'], function() {
-                // Use bridget to make Isotope a jQuery plugin.
-                // http://isotope.metafizzy.co/appendix.html#requirejs
-                $.bridget('isotope', Isotope);
-                $feed.isotope({
-                    itemSelector: '.feed-item-item',
-                    layoutMode: 'masonry',
-                    masonry: {
-                        columnWidth: 300,
-                        gutter: 18,
-                        isFitWidth: false
-                    }
-                });
-                z.page.trigger('fragment_loaded');
-
-                $feed.css('opacity', 1);  // Fade-in to hide the Isotope reflow.
-            });
+        builder.onload('feed-items', function(data) {
+            utils_local.initSalvattore(document.querySelector('.feed-home'));
         });
     };
 });

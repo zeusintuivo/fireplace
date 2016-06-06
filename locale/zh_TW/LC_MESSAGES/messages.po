@@ -1,816 +1,927 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01T16:27:09.976Z\n"
-"PO-Revision-Date: 2014-10-02 01:47+0000\n"
-"Last-Translator: Peter <petercpg@mail.moztw.org>\n"
+"POT-Creation-Date: 2016-04-20T17:37:57.000Z\n"
+"PO-Revision-Date: 2016-04-14 10:06+0000\n"
+"Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: MozTW <petercpg@mail.moztw.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.5.0\n"
+"X-Generator: Pontoon\n"
+"X-POOTLE-MTIME: 1444878678.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-POOTLE-MTIME: 1412214442.0\n"
 
-#: /templates/app_list.html:30
-msgid "No apps found"
-msgstr "找不到應用程式"
+#: /templates/carrier.html:6 /media/js/views/carrier.js:14
+msgid "Free Carrier Apps"
+msgstr "電信業者免費應用程式"
 
-#: /templates/app_list.html:35
+#: /templates/carrier.html:8
+msgid "Your carrier offers these free apps. You can download them at no charge."
+msgstr "您的電信業者提供下列應用程式，您可以免費下載。"
+
+#: /templates/carrier.html:30 /templates/carrier.html:35
 msgid "No apps found."
 msgstr "找不到應用程式。"
 
-#: /templates/app_list.html:37 /templates/category.html:63 /templates/user/purchases.html:38
+#: /templates/carrier.html:37 /templates/category.html:49 /templates/langpacks.html:41 /templates/product_list.html:48 /templates/purchases.html:35 /templates/addon/list.html:33
 msgid "An internal server error occurred. Please try again later."
-msgstr "伺服器發生內部錯誤，請稍後再試。"
+msgstr "發生伺服器內部錯誤，請稍後再試。"
 
-#: /templates/compatibility_filtering.html:3
-msgid "Show"
-msgstr "顯示"
-
-#: /templates/compatibility_filtering.html:10
-msgid "All apps"
-msgstr "所有應用程式"
-
-#: /templates/compatibility_filtering.html:13
-msgid "Apps for My Device"
-msgstr "適用我的裝置的應用程式"
-
-#: /templates/compatibility_filtering.html:16
-msgid "Desktop Apps"
-msgstr "桌面應用程式"
-
-#: /templates/compatibility_filtering.html:18
-msgid "Firefox OS Apps"
-msgstr "Firefox OS 應用程式"
-
-#: /templates/compatibility_filtering.html:20
-msgid "Android Mobile Apps"
-msgstr "Android 行動版應用程式"
-
-#: /templates/compatibility_filtering.html:22
-msgid "Android Tablet Apps"
-msgstr "Android 平板應用程式"
-
-#: /templates/category.html:33 /templates/nav.html:17
-msgid "Popular"
-msgstr "知名"
-
-#. "New" should translate to mean "Recent". Choose the shortest (space constraints)
-#: /templates/category.html:35 /templates/nav.html:16
-msgid "New"
-msgstr "新進"
-
-#: /templates/category.html:37
-msgid "View All"
-msgstr "檢視全部"
-
-#: /templates/category.html:56
-msgid "No apps in this category"
-msgstr "此分類中沒有應用程式"
-
-#: /templates/category.html:61
-msgid "The category you requested does not exist."
-msgstr "您所請求的分類不存在。"
-
-#: /templates/confirmation.html:0 /templates/detail/abuse.html:6 /templates/settings/feedback.html:6 /templates/settings/nav.html:12 /media/js/components.js:84 /media/js/components.js:85
-msgid "Close"
-msgstr "關閉"
-
-#: /templates/confirmation.html:3
-msgid "No"
-msgstr "否"
-
-#: /templates/confirmation.html:4
-msgid "Yes"
-msgstr "是"
-
-#: /templates/fx-accounts-banner.html:2
-msgid "Firefox Accounts has arrived"
-msgstr "Firefox 帳號來了"
-
-#: /templates/fx-accounts-banner.html:5
-msgid "Learn how to transfer your account"
-msgstr "了解如何轉移您的帳號"
-
-#: /templates/fx-accounts-banner.html:8
-msgid "It's easy."
-msgstr "很簡單。"
-
-#: /templates/fx_accounts_popup.html:6
-msgid "Firefox Marketplace has transitioned to Firefox Accounts to manage your profile. Continue to complete the simple upgrade process."
-msgstr "Firefox Marketplace 已改用 Firefox 帳號來管理您的個人資料，請繼續完成簡單的升級過程。"
-
-#: /templates/fx_accounts_popup.html:11
-msgid "Continue"
-msgstr "繼續"
-
-#: /templates/fx_accounts_popup.html:15 /templates/fx_accounts_popup.html:34
-msgid "Learn more"
-msgstr "了解更多資訊"
-
-#: /templates/fx_accounts_popup.html:21
-msgid "Enter your email"
-msgstr "輸入您的電子郵件地址"
-
-#: /templates/fx_accounts_popup.html:27
-msgid "Valid email required"
-msgstr "需要輸入有效的電子郵件地址"
-
-#: /templates/fx_accounts_popup.html:30
-msgid "Next"
-msgstr "下一步"
-
-#: /templates/incompatible.html:1
-msgid "You must use Firefox to install Firefox apps."
-msgstr "您必須使用 Firefox 才能安裝 Firefox 應用程式。"
-
-#: /templates/incompatible.html:2
-msgid "Download"
-msgstr "上一步"
-
-#: /templates/nav.html:15
-msgid "Home"
-msgstr "首頁"
-
-#: /templates/nav.html:18 /media/js/views/recommended.js:12
-msgid "Recommended"
-msgstr "推薦"
-
-#: /templates/nav.html:20 /templates/nav.html:21 /media/js/views/categories.js:9
+#: /templates/categories.html:3 /templates/categories.html:13 /templates/header.html:9 /templates/header.html:10 /templates/nav.html:38 /templates/app/index.html:176
 msgid "Categories"
 msgstr "分類"
 
-#: /templates/nav.html:29
-msgid "My Account"
-msgstr "我的帳號"
+#: /templates/category.html:9 /templates/category.html:19 /templates/product_list.html:9 /templates/product_list.html:14 /templates/search.html:9 /templates/search.html:16 /templates/purchases.html:7
+msgid "Expand"
+msgstr "展開"
 
-#: /templates/nav.html:30 /templates/footer.html:16 /templates/_macros/act_tray.html:10 /templates/user/purchases.html:43 /templates/user/purchases.html:10 /templates/user/purchases.html:30
-#: /templates/settings/nav.html:7 /media/js/views/purchases.js:13
-msgid "My Apps"
-msgstr "我的應用程式"
+#: /templates/category.html:42 /templates/search.html:72
+msgid "No results found"
+msgstr "找不到結果"
 
-#: /templates/nav.html:31 /templates/footer.html:6 /templates/_macros/act_tray.html:14 /templates/settings/feedback.html:5 /templates/settings/nav.html:8 /templates/settings/nav.html:11
-#: /media/js/views/feedback.js:61
+#: /templates/category.html:47
+msgid "The category you requested does not exist."
+msgstr "您所請求的分類不存在。"
+
+#: /templates/feedback.html:5
+msgid "We want to hear from you!"
+msgstr "我們想聽聽您的意見！"
+
+#: /templates/feedback.html:6
+msgid "Give us your feedback. Let us know whether we are awesome or buggy."
+msgstr "請留下您的意見，讓我們知道做得好不好。"
+
+#: /templates/feedback.html:7 /templates/addon/abuse.html:15 /templates/app/abuse.html:16
+msgid "Let us know..."
+msgstr "讓我們知道…"
+
+#: /templates/feedback.html:11 /templates/newsletter.html:38 /templates/addon/abuse.html:20 /templates/app/abuse.html:21 /templates/ratings/add.html:35 /templates/ratings/flag.html:17
+#: /templates/website/issue.html:13
+msgid "Cancel"
+msgstr "取消"
+
+#: /templates/feedback.html:12
+msgid "Submit Feedback"
+msgstr "送出意見"
+
+#: /templates/footer.html:6 /templates/header.html:46 /templates/nav.html:93 /media/js/views/feedback.js:50 /media/js/views/feedback.js:53
 msgid "Feedback"
 msgstr "意見回饋"
 
-#: /templates/nav.html:35
-msgid "Back to Marketplace"
-msgstr "回到 Marketplace"
+#: /templates/footer.html:9 /templates/footer.html:13 /templates/footer.html:17 /templates/nav.html:92
+msgid "Support"
+msgstr "技術支援"
 
-#: /templates/footer.html:2
+#: /templates/footer.html:20
 msgid "Develop Apps"
 msgstr "開發應用程式"
 
-#: /templates/footer.html:5
-msgid "Developer Hub"
-msgstr "開發者交流中心"
+#: /templates/footer.html:21
+msgid "Develop Firefox OS Add-ons"
+msgstr "開發 Firefox OS 附加元件"
 
-#: /templates/footer.html:8 /templates/footer.html:10
-msgid "Support"
-msgstr "支援"
-
-#: /templates/footer.html:18 /templates/_macros/act_tray.html:12
+#: /templates/footer.html:23 /templates/nav.html:78
 msgid "My Submissions"
-msgstr "我的提交"
+msgstr "我送出的應用程式"
 
-#: /templates/footer.html:21 /templates/settings/main.html:42
+#: /templates/footer.html:26 /templates/nav.html:81
 msgid "Reviewer Tools"
 msgstr "審核者工具"
 
-#: /templates/footer.html:24
+#: /templates/footer.html:29 /templates/nav.html:84
 msgid "Lookup Tool"
 msgstr "搜尋工具"
 
-#: /templates/footer.html:32
+#: /templates/footer.html:35
 msgid ""
 "Except where otherwise <a href=\"{legal_url}\" target=\"_blank\">noted</a>, content on this site is licensed under the <a href=\"{cc_url}\" target=\"_blank\">Creative Commons Attribution Share-"
 "Alike License v3.0</a> or any later version."
 msgstr "除另有 <a href=\"{legal_url}\" target=\"_blank\">註明</a> 外，本站內容皆採用 <a href=\"{cc_url}\" target=\"_blank\">創用 CC 姓名標示—相同方式分享條款 3.0</a> 或更新版本授權大眾使用。"
 
-#: /templates/footer.html:37 /templates/privacy.html:2 /templates/detail/privacy.html:3 /templates/detail/receipt.html:57 /templates/user/newsletter.html:10 /templates/detail/main.html:188
-#: /templates/settings/feedback.html:30 /media/js/views/privacy.js:10 /media/js/views/app/privacy.js:10
+#: /templates/footer.html:40 /templates/nav.html:101 /templates/privacy.html:2 /templates/app/index.html:74 /templates/app/privacy.html:2 /media/js/views/privacy.js:9
 msgid "Privacy Policy"
 msgstr "隱私權保護政策"
 
-#: /templates/footer.html:38 /templates/terms.html:2 /templates/settings/feedback.html:35 /media/js/views/terms.js:10
+#: /templates/footer.html:41 /templates/nav.html:102 /templates/terms.html:2 /media/js/views/terms.js:12
 msgid "Terms of Use"
 msgstr "使用條款"
 
-#: /templates/footer.html:40
+#: /templates/footer.html:43
 msgid "Report Trademark Abuse"
 msgstr "回報商標濫用"
 
-#: /templates/nominate.html:1
-msgid "Nominate apps to be featured on Firefox Marketplace!"
-msgstr "提名 Firefox Marketplace 精選應用程式！"
+#: /templates/header.html:19 /templates/header.html:34
+msgid "Search Marketplace&hellip;"
+msgstr "搜尋 Marketplace&hellip;"
 
-#: /templates/nominate.html:6
-msgid "Are you the developer or fan of an awesome app or collection of apps on Firefox Marketplace? Submit your nominations, and you may see them in a featured spot."
-msgstr "您是開發者，或 Firefox Marketplace 上某套超棒的應用程式或收藏集的粉絲嗎？送出您想提名的名單，就有機會在精選程式區塊中看到他們。"
-
-#: /templates/nominate.html:9
-msgid "Learn more about <a href=\"{wiki_url}\">how apps are featured</a>."
-msgstr "了解 <a href=\"{wiki_url}\">應用程式如何加入精選名單</a> 的相關資訊。"
-
-#: /templates/nominate.html:15
-msgid "Thanks for submitting your nomination."
-msgstr "感謝您的提名。"
-
-#: /templates/nominate.html:16
-msgid "Tell your friends!"
-msgstr "快告訴朋友！"
-
-#: /templates/nominate.html:17
-msgid "Tweet #FaveApps"
-msgstr "推 #FaveApps"
-
-#: /templates/nominate.html:18
-msgid "Submit another nomination"
-msgstr "提名另一套"
-
-#: /templates/nominate.html:24
-msgid "Tell us which Marketplace apps you'd like to nominate for featuring"
-msgstr "告訴我們您想提名哪些 Marketplace 應用程式"
-
-#: /templates/nominate.html:25
-msgid "Name of apps or Marketplace URLs"
-msgstr "應用程式名稱，或 Marketplace 網址"
-
-#: /templates/nominate.html:29
-msgid "Select a category for these apps"
-msgstr "選擇應用程式分類"
-
-#: /templates/nominate.html:41
-msgid "In which regions would you like to see these apps featured?"
-msgstr "您想在那些地區看到這些應用程式成為精選？"
-
-#: /templates/nominate.html:54
-msgid "Tell us why these apps should be featured"
-msgstr "告訴我們為什麼這些應用程式該成為精選"
-
-#: /templates/nominate.html:60 /templates/nominate.html:61
-msgid "Your name"
-msgstr "您的姓名"
-
-#: /templates/nominate.html:64
-msgid "Your email address"
-msgstr "您的電子郵件地址"
-
-#: /templates/nominate.html:71 /templates/ratings/edit.html:22 /templates/ratings/write.html:20
-msgid "Submit"
-msgstr "送出"
-
-#: /templates/header.html:3
-msgid "Back"
-msgstr "上一頁"
-
-#: /templates/header.html:8 /templates/header.html:11
+#: /templates/header.html:21 /templates/nav.html:40
 msgid "Search"
 msgstr "搜尋"
 
-#: /templates/header.html:13
-msgid "Clear"
-msgstr "清除"
-
-#: /templates/header.html:18
-msgid "Sign In"
-msgstr "登入"
-
-#. Please do your best to capture the essence of Scooby Doo.
-#: /templates/_macros/feed_item.html:20
-msgid "Not yet rated"
-msgstr "未評分"
-
-#: /templates/_macros/feed_item.html:105 /templates/_macros/feed_item.html:192
-msgid "View all apps"
-msgstr "檢視所有應用程式"
-
-#. Please do your best to capture the essence of Scooby Doo.
-#: /templates/_macros/feed_item.html:253 /templates/_macros/feed_item.html:279
-msgid "Ruh roh! No apps here, Shaggy!"
-msgstr "喔喔，這裡沒有應用程式！"
-
-#: /templates/_macros/act_tray.html:2
+#: /templates/header.html:44 /templates/nav.html:43 /templates/nav.html:68 /templates/settings.html:2 /media/js/views/settings.js:9
 msgid "Settings"
-msgstr "選項"
+msgstr "設定"
 
-#: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
-msgstr "編輯帳戶設定"
+#: /templates/header.html:45 /templates/nav.html:74 /templates/purchases.html:6 /media/js/views/purchases.js:9
+msgid "My Apps"
+msgstr "我的應用程式"
 
-#: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
+#: /templates/header.html:47
 msgid "Sign Out"
 msgstr "登出"
 
-#. This app is unavailable for purchase.
-#: /templates/_macros/market_button.html:8
-msgid "Unavailable"
-msgstr "無法購買"
+#: /templates/fxos_only_banner.html:1
+msgid "These applications can only be installed on devices running Firefox OS."
+msgstr "這些應用程式僅能安裝至執行 Firefox OS 的裝置。"
 
-#: /templates/_macros/market_button.html:10 /templates/_macros/market_tile.html:32
-msgid "Free"
-msgstr "免費"
+#: /templates/fxos_only_banner.html:2
+msgid "You may view the catalog but not be able to install or run these apps on your platform."
+msgstr "您可以檢視本目錄，但無法於您的平台上安裝或執行這些應用程式。"
 
-#: /templates/_macros/market_button.html:21 /media/js/apps_buttons.js:252
-msgid "Open"
-msgstr "開啟"
+#: /templates/langpacks.html:34 /templates/langpacks.html:39
+msgid "No language packs found."
+msgstr "找不到語言套件。"
 
-#: /templates/_macros/market_button.html:23 /media/js/apps_buttons.js:96 /media/js/apps_buttons.js:278
-msgid "Install"
-msgstr "安裝"
+#: /templates/newsletter.html:3
+msgid "Sign up for our newsletter"
+msgstr "訂閱我們的電子報"
 
-#: /templates/_macros/more_button.html:2
+#: /templates/newsletter.html:5
+msgid "Get Firefox news! Sign up for our newsletter"
+msgstr "接收 Firefox 最新消息！快訂閱我們的電子報"
+
+#: /templates/newsletter.html:12 /templates/settings.html:13
+msgid "Email Address"
+msgstr "電子郵件地址"
+
+#: /templates/newsletter.html:13
+msgid "Email"
+msgstr "電子郵件"
+
+#: /templates/newsletter.html:15 /templates/newsletter.html:37
+msgid "Sign me up"
+msgstr "我要訂閱"
+
+#: /templates/newsletter.html:18
+msgid "Preferred Language"
+msgstr "偏好語言"
+
+#: /templates/newsletter.html:32
+msgid "I'm okay with Mozilla handling my info as explained in <a href=\"{privacy_policy_url}\" target=\"_blank\">this Privacy Policy</a>."
+msgstr "我允許 Mozilla 依照<a href=\"{privacy_policy_url}\" target=\"_blank\">隱私權保護政策</a> 上描述的方式處理我的資訊。"
+
+#: /templates/newsletter.html:44
+msgid "Thanks for signing up!"
+msgstr "感謝您訂閱！"
+
+#: /templates/newsletter.html:45
+msgid "You'll receive an email from mozilla@e.mozilla.org, please check your inbox for your first email from us. If you don’t see it, check your spam filter."
+msgstr "您將會收到一封來自 mozilla@e.mozilla.org 的信件。如果沒有在收信匣看到的話，請到垃圾信件匣找找。"
+
+#: /templates/marketplace-update.html:2
+msgid "An update to Marketplace is available."
+msgstr "已有 Marketplace 更新。"
+
+#: /templates/marketplace-update.html:4
+msgid "Download"
+msgstr "上一步"
+
+#: /templates/product_list.html:41 /templates/product_list.html:46
+msgid "The list returned no results."
+msgstr "找不到任何結果。"
+
+#: /templates/nav.html:9 /templates/nav.html:51
+msgid "Apps"
+msgstr "應用程式"
+
+#: /templates/nav.html:14 /templates/nav.html:53 /templates/addon/list.html:5
+msgid "Add-ons"
+msgstr "附加元件"
+
+#: /templates/nav.html:20 /templates/nav.html:56
+msgid "Homescreens"
+msgstr "主畫面"
+
+#: /templates/nav.html:23
 msgid "More"
-msgstr "更多資訊"
+msgstr "更多"
 
-#: /templates/credits.html:2 /media/js/views/credits.js:10
-msgid "Credits"
-msgstr "貢獻者"
+#: /templates/nav.html:32 /templates/nav.html:50
+msgid "Home"
+msgstr "首頁"
 
-#: /templates/_macros/rating.html:9
-msgid "by {author}"
-msgstr "由 {author} 製作"
+#: /templates/nav.html:33 /templates/_macros/sort_toggle.html:4 /templates/_macros/sort_toggle.html:11
+msgid "Popular"
+msgstr "熱門"
 
-#: /templates/_macros/rating.html:12
-msgid "for previous version {version}"
-msgstr "針對先前的 {version} 版"
+#: /templates/nav.html:34 /templates/_macros/sort_toggle.html:5 /templates/_macros/sort_toggle.html:12
+msgid "New"
+msgstr "新進"
 
-#: /templates/_macros/rating.html:21
-msgid "Flagged for review"
-msgstr "已標示為需審核"
+#: /templates/nav.html:36 /templates/nav.html:71 /media/js/views/recommended.js:15
+msgid "Recommended Apps"
+msgstr "推薦應用程式"
 
-#: /templates/_macros/rating.html:27
-msgid "Edit"
-msgstr "編輯"
+#: /templates/nav.html:41 /templates/nav.html:62 /templates/purchases.html:42 /templates/settings.html:43
+msgid "Register"
+msgstr "註冊"
 
-#: /templates/_macros/rating.html:30
-msgid "Delete"
-msgstr "刪除"
+#: /templates/nav.html:42 /templates/purchases.html:43 /templates/settings.html:44
+msgid "Sign In"
+msgstr "登入"
 
-#: /templates/_macros/rating.html:33
-msgid "Report"
-msgstr "回報"
+#: /templates/nav.html:65
+msgid "Sign in"
+msgstr "登入"
 
-#: /templates/_macros/market_tile.html:42
-msgid "({n})"
-msgstr "({n})"
+#: /templates/nav.html:76
+msgid "Sign out"
+msgstr "登出"
 
-#: /templates/_macros/market_tile.html:45 /templates/detail/main.html:135
+#: /templates/nav.html:87
+msgid "Add-on Tools"
+msgstr "附加元件工具"
+
+#: /templates/nav.html:95
+msgid "Get Involved"
+msgstr "參與其中"
+
+#: /templates/nav.html:97 /media/js/views/newsletter_signup.js:11
+msgid "Newsletter Signup"
+msgstr "電子報註冊"
+
+#: /templates/search.html:8
+msgid "<b>{n}</b> Result"
+msgid_plural "<b>{n}</b> Results"
+msgstr[0] "<b>{n}</b> 筆結果"
+
+#: /templates/search.html:12
+msgid "<b>\"{search_query}\"</b> returned {n} result"
+msgid_plural "<b>\"{search_query}\"</b> returned {n} results"
+msgstr[0] "<b>「{search_query}」</b>有 {n} 筆結果"
+
+#: /templates/search.html:78
+msgid "No results found, try again later"
+msgstr "找不到結果，請稍後重試"
+
+#: /templates/purchases.html:41
+msgid "You must be signed in to view your apps."
+msgstr "您必須登入才能檢視您的應用程式。"
+
+#: /templates/purchases.html:30
+msgid "You have no apps"
+msgstr "您沒有應用程式"
+
+#: /templates/purchases.html:34 /templates/errors/fragment.html:1 /media/js/views/app.js:47
+msgid "Oh no!"
+msgstr "喔不！"
+
+#: /templates/settings.html:9
+msgid "General settings"
+msgstr "一般設定"
+
+#: /templates/settings.html:18
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#: /templates/settings.html:26
+msgid "Recommendations"
+msgstr "推薦"
+
+#: /templates/settings.html:30
+msgid "Yes, show me recommendations based on my installed apps. <a href=\"{url}\" target=\"_blank\">Learn more</a>"
+msgstr "好，請依照我安裝的應用程式向我推薦。<a href=\"{url}\" target=\"_blank\">了解更多資訊</a>"
+
+#: /templates/settings.html:42
+msgid "Save Changes"
+msgstr "儲存更改"
+
+#: /templates/settings.html:36
+msgid "Region"
+msgstr "區域"
+
+#: /templates/usage.html:3 /media/js/views/usage.js:9
+msgid "App Statistics"
+msgstr "應用程式統計"
+
+#: /templates/usage.html:10
+msgid "App usage statistics"
+msgstr "應用程式用量統計"
+
+#: /templates/usage.html:11
+msgid "Not enough statistics to show."
+msgstr "沒有足夠的統計資料可顯示。"
+
+#: /templates/_includes/carrier_apps_banner.html:2
+msgid "Your carrier offers some free apps."
+msgstr "您的電信業者提供一些免費程式。"
+
+#. This is the link text for the carrier apps banner. "Your carrier offers some free apps. Get them now!"
+#: /templates/_includes/carrier_apps_banner.html:6
+msgid "Get them now!"
+msgstr "立刻下載！"
+
+#. (es) Classificacao Indicativa.
+#: /templates/_includes/content_ratings.html:5
+msgid "Content Rating"
+msgstr "內容評等"
+
+#. (es) Classificacao Indicativa. Rating as in content rating.
+#: /templates/_includes/content_ratings.html:45
+msgid "Rating Details"
+msgstr "評等詳細資訊"
+
+#: /templates/_includes/post_install_message.html:2
+msgid "Installed!"
+msgstr "已安裝！"
+
+#: /templates/_includes/post_install_message.html:5
+msgid "Launch this app from your <b>Applications</b> directory."
+msgstr "自您的 <b>應用程式</b> 資料夾執行此應用程式。"
+
+#: /templates/_includes/post_install_message.html:8
+msgid "Launch this app from your <b>Windows desktop</b> or <b>Start &#9658; All Programs</b>."
+msgstr "自您的 <b>Windows 桌面</b> 或 <b>開始 &#9658; 所有程式</b> 執行此應用程式。"
+
+#: /templates/_includes/post_install_message.html:11
+msgid "Launch this app from your <b>dash</b>, <b>Application picker</b>, or <b>Applications menu</b>."
+msgstr "自您的 <b>Dash</b>、<b>應用程式挑選器</b>，或是<b>應用程式選單</b> 執行此應用程式。"
+
+#: /templates/_includes/reviews_sidebar.html:9
+msgid "Edit your Review"
+msgstr "編輯您的評論"
+
+#: /templates/_includes/reviews_sidebar.html:11
+msgid "Edit your review"
+msgstr "編輯您的評論"
+
+#: /templates/_includes/reviews_sidebar.html:18
+msgid "Write a review"
+msgstr "撰寫評論"
+
+#: /templates/_includes/reviews_sidebar.html:18
+msgid "Sign in to review"
+msgstr "登入評論"
+
+#: /templates/_includes/reviews_sidebar.html:26
+msgid "Read all reviews"
+msgstr "閱讀所有評論"
+
+#: /templates/addon/abuse.html:6
+msgid "Let us know if this add-on is doing something that isn't allowed in the <a href=\"{criteria_url}\" target=\"_blank\">review criteria</a> and should be removed from the Marketplace."
+msgstr "若此附加元件做了一些 <a href=\"{criteria_url}\" target=\"_blank\">審核標準</a> 中不允許的事情，應該要從 Marketplace 下架的話，請讓我們知道。"
+
+#: /templates/addon/abuse.html:11
+msgid "Examples of issues to report here are if the add-on is completely broken, contains mature content, contains malware, etc. The add-on developer will not see your comments."
+msgstr "例如當某套附加元件功能完全失效、有色情或暴力內容、包含惡意程式等等時，請在此回報。附加元件開發者將不會看到您的評論。"
+
+#: /templates/addon/abuse.html:21 /templates/app/abuse.html:22
+msgid "Submit Report"
+msgstr "送出報告"
+
+#: /templates/_includes/reviews_summary.html:9
+msgid "1 Review"
+msgid_plural "{numReviews} Reviews"
+msgstr[0] "{numReviews} 筆評論"
+
+#: /templates/addon/index.html:13 /templates/app/index.html:19 /templates/website/index.html:15
+msgid "Description"
+msgstr "描述"
+
+#: /templates/addon/index.html:20 /templates/app/index.html:25 /templates/app/index.html:39 /templates/website/index.html:21
+msgid "View All"
+msgstr "檢視全部"
+
+#: /templates/addon/index.html:25
+msgid "version: {version}"
+msgstr "版本: {version}"
+
+#: /templates/addon/index.html:26
+msgid "size: {size}"
+msgstr "大小: {size}"
+
+#: /templates/addon/index.html:29
+msgid "last updated: {date}"
+msgstr "最近更新於: {data}"
+
+#: /templates/addon/index.html:36 /media/js/views/addon/abuse.js:36
+msgid "Report to Mozilla"
+msgstr "回報給 Mozilla"
+
+#: /templates/addon/list.html:6
+msgid "Customize your device with powerful features."
+msgstr "用強大的功能來自訂您的裝置。"
+
+#: /templates/addon/list.html:26 /templates/addon/list.html:31
+msgid "No Firefox OS add-ons found."
+msgstr "找不到 Firefox OS 附加元件。"
+
+#: /templates/_macros/app_tile.html:108
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "評論"
 
-#. "(0)" means "0 reviews."
-#: /templates/_macros/market_tile.html:49
-msgid "(0)"
-msgstr "(0)"
-
-#: /templates/_macros/market_tile.html:50
+#: /templates/_macros/app_tile.html:114
 msgid "Not yet reviewed"
 msgstr "尚未評論"
 
-#: /templates/_macros/market_tile.html:62
-msgid "Works offline"
-msgstr "可離線使用"
+#: /templates/_macros/feed_app_tile.html:14
+msgid "&mdash; {attribution}"
+msgstr "&mdash; {attribution}"
 
-#: /templates/_macros/market_tile.html:111 /templates/_macros/market_tile.html:114
+#: /templates/_macros/feed_item.html:82 /templates/_macros/feed_item.html:175
+msgid "View all"
+msgstr "檢視全部"
+
+#: /templates/_macros/feed_websites.html:16
+msgid "Visit this top site!"
+msgstr "前往這個熱門網站！"
+
+#: /templates/_macros/feed_websites.html:50
+msgid "Show me another site"
+msgstr "我要看另一個網站"
+
+#: /templates/_macros/more_button.html:3
+msgid "Load more"
+msgstr "載入更多"
+
+#: /templates/_macros/review.html:14
+msgid "For previous version {version}"
+msgstr "針對先前的 {version} 版"
+
+#: /templates/_macros/review.html:25 /templates/_macros/review.html:29
+msgid "Edit"
+msgstr "編輯"
+
+#: /templates/_macros/review.html:36
+msgid "Delete"
+msgstr "刪除"
+
+#: /templates/_macros/review.html:42
+msgid "Report"
+msgstr "回報"
+
+#: /templates/_macros/review.html:44
+msgid "Flagged for review"
+msgstr "已標示為需審核"
+
+#: /templates/_macros/previews.html:42 /templates/_macros/previews.html:45
 msgid "{app_name} screenshot"
 msgstr "{app_name} 畫面擷圖"
-
-#: /templates/detail/abuse.html:5 /templates/detail/receipt.html:68 /templates/detail/main.html:199 /media/js/views/app/abuse.js:34
-msgid "Report Abuse"
-msgstr "回報不當內容"
-
-#: /templates/detail/abuse.html:15
-msgid "Send Report"
-msgstr "傳送報告"
-
-#. (es) Classificacao Indicativa.
-#: /templates/detail/content_ratings.html:5
-msgid "Content Rating"
-msgstr "內容評等"
-
-#. (es) Classificacao Indicativa.
-#: /templates/detail/content_ratings.html:77
-msgid "Content Rating Details"
-msgstr "內容評等詳情"
 
 #: /templates/_macros/stars.html:5
 msgid "Rated {stars} out of {maxstars} stars"
 msgstr "得到 {stars}／{maxstars} 顆星"
 
-#: /templates/detail/privacy.html:5 /templates/ratings/main.html:8
-msgid "Back to app"
-msgstr "回到應用程式"
+#: /templates/app/abuse.html:5
+msgid "Need to report something?"
+msgstr "要回報什麼嗎？"
 
-#: /templates/detail/privacy.html:11
-msgid "Loading Privacy Policy..."
-msgstr "正在載入隱私權保護政策…"
+#: /templates/app/abuse.html:7
+msgid "Let us know if this app is doing something that isn't allowed in the <a href=\"{criteria_url}\" target=\"_blank\">review criteria</a> and should be removed from the Marketplace."
+msgstr "若此應用程式做了一些 <a href=\"{criteria_url}\" target=\"_blank\">審核標準</a> 中不允許的事情，應該要從 Marketplace 下架的話，請讓我們知道。"
 
-#: /templates/detail/receipt.html:8
-msgid "Thank you for purchasing"
-msgstr "感謝您的購買"
+#: /templates/app/abuse.html:12
+msgid "Examples of issues to report here are if the app is broken, contains mature content, contains malware, etc. The app developer will not see your comments."
+msgstr "舉例來說，若程式壞掉了、包含暴力色情內容、包含惡意程式等等，您都可以回報。應用程式開發者不會看到您的留言。"
 
-#: /templates/detail/receipt.html:18 /templates/detail/receipt.html:19 /templates/detail/main.html:16 /templates/detail/main.html:17 /media/js/views/app.js:63 /media/js/views/feed/feed_app.js:9
-#: /media/js/views/feed/feed_collection.js:9 /media/js/views/feed/feed_brand.js:9 /media/js/views/feed/feed_shelf.js:9
-msgid "Loading..."
-msgstr "載入中…"
+#: /templates/app/index.html:35
+msgid "Updates"
+msgstr "更新"
 
-#: /templates/detail/receipt.html:40 /templates/detail/main.html:171
-msgid "Support Email"
-msgstr "技術支援信箱"
+#: /templates/app/index.html:46
+msgid "Last updated"
+msgstr "最近更新"
 
-#: /templates/detail/receipt.html:46 /templates/detail/main.html:177
+#: /templates/app/index.html:55
+msgid "Email Support"
+msgstr "電子郵件支援"
+
+#: /templates/app/index.html:62
 msgid "Support Site"
 msgstr "技術支援網站"
 
-#: /templates/detail/receipt.html:51 /templates/detail/main.html:182
+#: /templates/app/index.html:68
 msgid "Homepage"
 msgstr "首頁"
 
-#: /templates/detail/receipt.html:63 /templates/detail/main.html:194
+#: /templates/app/index.html:81
 msgid "Statistics"
 msgstr "統計"
 
-#: /templates/errors/404.html:2 /templates/errors/fragment.html:1 /templates/user/purchases.html:37 /media/js/views/app.js:53
-msgid "Oh no!"
-msgstr "喔不！"
+#: /templates/app/index.html:88
+msgid "Edit Listing"
+msgstr "編輯上架資訊"
+
+#: /templates/app/index.html:96
+msgid "Approve / Reject"
+msgstr "通過 / 退回"
+
+#: /templates/app/index.html:97
+msgid "Review History"
+msgstr "審核紀錄"
+
+#: /templates/app/index.html:114 /media/js/views/app/ratings.js:11
+msgid "Reviews"
+msgstr "評論"
+
+#: /templates/app/index.html:125
+msgid "App not yet reviewed"
+msgstr "尚未被評論"
+
+#: /templates/app/index.html:144
+msgid "Premium version available"
+msgstr "有收費版本可購買"
+
+#: /templates/app/index.html:162
+msgid "More Information"
+msgstr "更多資訊"
+
+#: /templates/app/index.html:165
+msgid "Developer"
+msgstr "開發者"
+
+#: /templates/app/index.html:169
+msgid "Compatibility"
+msgstr "相容性"
+
+#. delimiter to separate list of words (e.g., "eggs, ham, cheese").
+#: /templates/app/index.html:172 /templates/app/index.html:179
+msgid ","
+msgstr "、"
+
+#: /templates/app/index.html:184
+msgid "File Size"
+msgstr "檔案大小"
+
+#: /templates/app/index.html:189
+msgid "Most Recent Version"
+msgstr "最新版本"
+
+#: /templates/app/index.html:207 /media/js/views/app/abuse.js:54
+msgid "Report Abuse"
+msgstr "回報不當內容"
+
+#: /templates/app/privacy.html:8
+msgid "Back to app"
+msgstr "回到應用程式"
+
+#: /templates/app/privacy.html:11
+msgid "Loading Privacy Policy..."
+msgstr "正在載入隱私權保護政策…"
+
+#: /templates/app/receipt.html:2
+msgid "Thank you for purchasing"
+msgstr "感謝您的購買"
+
+#: /templates/errors/404.html:2
+msgid "Content Not Found"
+msgstr "找不到內容"
 
 #: /templates/errors/404.html:3
-msgid "The page you were looking for was not found."
-msgstr "找不到您想開啟的頁面。"
-
-#: /templates/_macros/feed_app_tile.html:16
-msgid "&mdash; {attribution}"
-msgstr "&mdash; {attribution}"
-
-#: /templates/search/main.html:15
-msgid "<b>{n}</b> Result"
-msgid_plural "<b>{n}</b> Results"
-msgstr[0] "<b>{n}</b> 筆結果"
-
-#: /templates/search/main.html:16 /templates/user/purchases.html:11
-msgid "Showing <b>1</b>&ndash;<b class=\"total-results\">{total}</b>"
-msgstr "顯示 <b>1</b>&ndash;<b class=\"total-results\">{total}</b> 筆"
-
-#: /templates/search/main.html:19 /templates/user/purchases.html:13
-msgid "Expand"
-msgstr "展開"
-
-#: /templates/search/main.html:37
-msgid "No results found"
-msgstr "找不到結果"
-
-#: /templates/search/main.html:42
-msgid "No results found, try again later"
-msgstr "找不到結果，請稍後重試"
-
-#: /templates/errors/date-error.html:2
-msgid "System Date Incorrect"
-msgstr "系統日期不正確"
-
-#: /templates/errors/date-error.html:3
-msgid "Sorry, your device clock appears to be set incorrectly."
-msgstr "抱歉，您的裝置時間錯誤。"
-
-#: /templates/errors/date-error.html:4
-msgid "Please set today's date and time in your device settings to access the Marketplace."
-msgstr "請將您的裝置時間設定至今天以使用 Marketplace。"
-
-#: /templates/errors/date-error.html:5 /templates/errors/offline-error.html:4
-msgid "Try again"
-msgstr "重試"
-
-#: /templates/errors/offline-error.html:2
-msgid "Currently Offline"
-msgstr "目前不在線上"
-
-#: /templates/errors/offline-error.html:3
-msgid "Sorry, you need to be online to access the Marketplace."
-msgstr "抱歉，您必須連線到網路才能使用 Marketplace。"
-
-#: /templates/errors/pagination.html:1
-msgid "Error loading more"
-msgstr "載入更多資料時發生錯誤"
-
-#: /templates/errors/pagination.html:2
-msgid "Try Again"
-msgstr "重試"
+msgid "Whoops! Something went wrong and you ended up here. Sorry!"
+msgstr "喔喔！有些東西怪怪的，您才會跑到這邊，抱歉！"
 
 #: /templates/errors/fragment.html:2
 msgid "An error occurred."
 msgstr "發生錯誤。"
 
-#: /templates/ratings/edit.html:5 /templates/ratings/main.html:15 /media/js/views/app/ratings/edit.js:86
+#: /templates/errors/pagination.html:2
+msgid "Try Again"
+msgstr "重試"
+
+#: /templates/ratings/main.html:36
+msgid "This app has no reviews."
+msgstr "此程式目前尚無評論。"
+
+#: /templates/ratings/add.html:8 /templates/ratings/edit.html:4 /media/js/views/app/ratings/edit.js:15
 msgid "Edit Review"
 msgstr "編輯評論"
 
-#: /templates/ratings/edit.html:9 /templates/ratings/write.html:7
+#: /templates/ratings/add.html:8 /media/js/views/app/ratings/add.js:20
+msgid "Leave a Review"
+msgstr "留下評論"
+
+#: /templates/ratings/add.html:10
+msgid "Please select a star rating."
+msgstr "請選擇要給的星星數。"
+
+#: /templates/ratings/add.html:12
 msgid "Rate:"
 msgstr "評分:"
 
-#: /templates/ratings/edit.html:21 /templates/ratings/write.html:3 /templates/ratings/write.html:19 /templates/ratings/report.html:3 /templates/ratings/report.html:23
-#: /templates/user/newsletter.html:13
-msgid "Cancel"
-msgstr "取消"
+#: /templates/ratings/add.html:23
+msgid ""
+"Please read the <a href=\"{url}\" target=\"_blank\">Review Guidelines</a> for more details about rating apps. Reviews that do not meet these guidelines may be removed by our moderation team without "
+"notice."
+msgstr "請閱讀 <a href=\"{url}\" target=\"_blank\">評論指南</a> 以取得關於評論應用程式的更多資訊。我們的管理團隊將不會預先通知，直接移除不符合標準的留言。"
 
-#: /templates/ratings/edit.html:25 /templates/ratings/write.html:23
-msgid "Only logged in users may edit reviews."
-msgstr "只有已登入的使用者可以編輯評論。"
+#: /templates/ratings/add.html:28
+msgid "Tell us what you like about this app. Write like you’re telling a friend about your experience with the app. Give specific details, for example, What features did you like or dislike?"
+msgstr "告訴我們您有多喜愛這套應用程式。您會如何與朋友討論此應用程式的使用體驗呢？就用這個語氣來寫吧。請提供詳細資訊，例如您喜歡或不喜歡那些功能？"
 
-#: /templates/ratings/main.html:6 /templates/detail/main.html:124 /media/js/views/app/ratings.js:16
-msgid "Reviews"
-msgstr "評論"
+#: /templates/ratings/add.html:32
+msgid "Only users that are logged in may submit reviews."
+msgstr "使用者須登入後才能發表評論。"
 
-#: /templates/ratings/main.html:19 /templates/ratings/write.html:2 /templates/detail/main.html:154 /media/js/views/app/ratings/add.js:35
-msgid "Write a Review"
-msgstr "留下評論"
+#: /templates/ratings/add.html:36
+msgid "Update Review"
+msgstr "更新評論"
 
-#: /templates/ratings/main.html:19 /templates/detail/main.html:154
-msgid "Sign in to Review"
-msgstr "登入以評論"
+#: /templates/ratings/add.html:36
+msgid "Submit Review"
+msgstr "送出評論"
+
+#: /templates/ratings/flag.html:3 /templates/ratings/flag.html:26
+msgid "Flag Review"
+msgstr "標示評論"
+
+#: /templates/ratings/flag.html:4
+msgid "See an issue with this review? Select a reason below."
+msgstr "此評論有問題嗎？請在下方選擇原因。"
+
+#: /templates/ratings/flag.html:7
+msgid "Spam or otherwise non-review content"
+msgstr "垃圾郵件，或是其他不需審核的內容"
+
+#: /templates/ratings/flag.html:10
+msgid "Inappropriate language/dialog"
+msgstr "不適當的語言或對話"
+
+#: /templates/ratings/flag.html:13
+msgid "Misplaced bug report or support request"
+msgstr "發錯地方的臭蟲回報或技術支援請求"
 
 #: /templates/ratings/rating.html:4 /media/js/views/app/ratings/rating.js:13
 msgid "App Review"
 msgstr "評論應用程式"
 
-#: /templates/ratings/report.html:2
-msgid "Please select a reason:"
-msgstr "請選擇一個原因:"
+#: /templates/website/index.html:34
+msgid "Explore more in {category_one} and {category_two}."
+msgstr "探索 {category_one} 與 {category_two} 當中的更多資訊。"
 
-#: /templates/ratings/report.html:8
-msgid "Spam or otherwise non-review content"
-msgstr "垃圾郵件，或是其他不需審核的內容"
+#: /templates/website/index.html:38
+msgid "Explore more in {category}."
+msgstr "探索 {category} 當中的更多資訊。"
 
-#: /templates/ratings/report.html:13
-msgid "Inappropriate language/dialog"
-msgstr "不適當的語言或對話"
+#: /templates/website/index.html:47
+msgid "Is there something wrong or out-of-date with this website listing?"
+msgstr "網站有點怪怪的，或清單過時了嗎？"
 
-#: /templates/ratings/report.html:18
-msgid "Misplaced bug report or support request"
-msgstr "發錯地方的臭蟲回報或技術支援請求"
+#: /templates/website/index.html:49 /templates/website/issue.html:14
+msgid "Report an issue"
+msgstr "回報問題"
 
-#: /templates/user/newsletter.html:3
-msgid "Get Firefox Marketplace news"
-msgstr "訂閱 Firefox Marketplace 電子報"
+#: /templates/website/issue.html:5
+msgid "Let us know if something is missing from this website listing or its information should be updated."
+msgstr "若這網站缺少了什麼東西，或是有什麼東西該更新時，請讓我們知道。"
 
-#: /templates/user/newsletter.html:8
-msgid "Sign up"
-msgstr "註冊"
+#: /templates/website/issue.html:6
+msgid "For information on show to report a copyright or trademark issue <a href=\"{url}\" target=\"_blank\">see here</a>."
+msgstr "若需關於回報著作權或商標問題的方式，<a href=\"{url}\" target=\"_blank\">請見此處</a>。"
 
-#: /templates/user/newsletter.html:15
-msgid "Signing up..."
-msgstr "正在註冊…"
+#: /templates/website/issue.html:8
+msgid "Describe the issue here. Please be specific."
+msgstr "請在此明確描述您的問題。"
 
-#: /templates/user/newsletter.html:18
-msgid "You were successfully signed up for the Marketplace newsletter!"
-msgstr "您已成功訂閱 Marketplace 電子報！"
-
-#: /templates/detail/main.html:44
-msgid "Installed!"
-msgstr "已安裝！"
-
-#: /templates/detail/main.html:47
-msgid "Launch this app from your <b>Applications</b> directory."
-msgstr "自您的 <b>應用程式</b> 資料夾執行此應用程式。"
-
-#: /templates/detail/main.html:50
-msgid "Launch this app from your <b>Windows desktop</b> or <b>Start &#9658; All Programs</b>."
-msgstr "自您的 <b>Windows 桌面</b> 或 <b>開始 &#9658; 所有程式</b> 執行此應用程式。"
-
-#: /templates/detail/main.html:53
-msgid "Launch this app from your <b>dash</b>, <b>Application picker</b>, or <b>Applications menu</b>."
-msgstr "自您的 <b>Dash</b>、<b>應用程式挑選器</b>，或是<b>應用程式選單</b> 執行此應用程式。"
-
-#: /templates/detail/main.html:68
-msgid "Updates"
-msgstr "更新"
-
-#: /templates/detail/main.html:74 /templates/detail/main.html:91
-msgid "Less&hellip;"
-msgstr "更少&hellip;"
-
-#: /templates/detail/main.html:74 /templates/detail/main.html:91
-msgid "More&hellip;"
-msgstr "更多&hellip;"
-
-#: /templates/detail/main.html:85 /media/js/feed.js:33
-msgid "Description"
-msgstr "描述"
-
-#: /templates/detail/main.html:94
-msgid "Version"
-msgstr "版本"
-
-#: /templates/detail/main.html:96
-msgid "Latest version: {version}"
-msgstr "最新版本: {version}"
-
-#: /templates/detail/main.html:110
-msgid "Edit Listing"
-msgstr "編輯上架資訊"
-
-#: /templates/detail/main.html:113
-msgid "Approve / Reject"
-msgstr "通過 / 退回"
-
-#: /templates/detail/main.html:113
-msgid "Review History"
-msgstr "審核紀錄"
-
-#: /templates/detail/main.html:142
-msgid "App not yet reviewed"
-msgstr "尚未被評論"
-
-#: /templates/detail/main.html:150
-msgid "Edit Your Review"
-msgstr "編輯您的評論內容"
-
-#: /templates/detail/main.html:210
-msgid "Premium version available"
-msgstr "有收費版本可購買"
-
-#: /templates/user/purchases.html:48
-msgid "You must be signed in to view your apps."
-msgstr "您必須登入才能檢視您的應用程式。"
-
-#: /templates/user/purchases.html:49
-msgid "Sign in / Sign up"
-msgstr "登入 / 註冊"
-
-#: /templates/user/purchases.html:33
-msgid "You have no apps"
-msgstr "您沒有應用程式"
-
-#: /templates/settings/feedback.html:16
-msgid "Send"
-msgstr "傳送"
-
-#: /templates/settings/feedback.html:22 /templates/settings/feedback.html:24
-msgid "Get Help"
-msgstr "取得幫助"
-
-#: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
-msgstr "帳戶設定"
-
-#: /templates/settings/main.html:10
-msgid "Email"
-msgstr "電子郵件"
-
-#: /templates/settings/main.html:19
-msgid "Display Name"
-msgstr "顯示名稱"
-
-#: /templates/settings/main.html:28
-msgid "Region"
-msgstr "區域"
-
-#: /templates/settings/main.html:37
-msgid "Save Changes"
-msgstr "儲存更改"
-
-#: /templates/settings/main.html:40
-msgid "Sign In / Sign Up"
-msgstr "登入 / 註冊"
-
-#: /templates/settings/nav.html:6
-msgid "Account"
-msgstr "帳號"
-
-#: /media/js/categories.js:7
+#: /media/js/categories.js:6
 msgid "Games"
 msgstr "遊戲"
 
-#: /media/js/categories.js:8
-msgid "Books"
-msgstr "書籍"
+#: /media/js/categories.js:7
+msgid "Books & Comics"
+msgstr "書籍與漫畫"
 
-#: /media/js/categories.js:9
+#: /media/js/categories.js:8
 msgid "Business"
 msgstr "商業"
 
-#: /media/js/categories.js:10
+#: /media/js/categories.js:9
 msgid "Education"
 msgstr "教育"
 
-#: /media/js/categories.js:11
+#: /media/js/categories.js:10
 msgid "Entertainment"
 msgstr "娛樂"
+
+#: /media/js/categories.js:11
+msgid "Food & Drink"
+msgstr "飲食"
 
 #: /media/js/categories.js:12
 msgid "Health & Fitness"
 msgstr "健康與健身"
 
 #: /media/js/categories.js:13
+msgid "Humor"
+msgstr "幽默"
+
+#: /media/js/categories.js:14
+msgid "Internet"
+msgstr "網路"
+
+#: /media/js/categories.js:15
+msgid "Kids"
+msgstr "兒童"
+
+#: /media/js/categories.js:16
 msgid "Lifestyle"
 msgstr "生活風格"
 
-#: /media/js/categories.js:14
+#: /media/js/categories.js:17
 msgid "Maps & Navigation"
 msgstr "地圖與導航"
 
-#: /media/js/categories.js:15
+#: /media/js/categories.js:18
 msgid "Music"
 msgstr "音樂"
 
-#: /media/js/categories.js:16
-msgid "News & Weather"
-msgstr "新聞與氣象"
+#: /media/js/categories.js:19
+msgid "News"
+msgstr "新聞"
 
-#: /media/js/categories.js:17
+#: /media/js/categories.js:20
+msgid "Personalization"
+msgstr "個人化"
+
+#: /media/js/categories.js:21
 msgid "Photo & Video"
 msgstr "拍照與攝影"
 
-#: /media/js/categories.js:18
+#: /media/js/categories.js:22
 msgid "Productivity"
 msgstr "生產力"
 
-#: /media/js/categories.js:19
+#: /media/js/categories.js:23
 msgid "Reference"
 msgstr "參考資料"
 
-#: /media/js/categories.js:20
+#: /media/js/categories.js:24
+msgid "Science & Tech"
+msgstr "科技"
+
+#: /media/js/categories.js:25
 msgid "Shopping"
 msgstr "購物"
 
-#: /media/js/categories.js:21
+#: /media/js/categories.js:26
 msgid "Social"
 msgstr "社交"
 
-#: /media/js/categories.js:22
+#: /media/js/categories.js:27
 msgid "Sports"
 msgstr "運動"
 
-#: /media/js/categories.js:23
+#: /media/js/categories.js:28
 msgid "Travel"
 msgstr "旅遊"
 
-#: /media/js/categories.js:24
+#: /media/js/categories.js:29
 msgid "Utilities"
 msgstr "工具"
 
-#: /media/js/apps.js:93
-msgid "Your device does not support payments."
-msgstr "您的裝置不支援付款。"
+#: /media/js/categories.js:30
+msgid "Weather"
+msgstr "天氣"
 
-#: /media/js/apps.js:95
-msgid "This app is unavailable for purchase in your region."
-msgstr "在您的地區無法購買此應用程式。"
+#: /media/js/apps.js:114
+msgid "not available for your region"
+msgstr "無法在您的地區使用"
 
-#: /media/js/apps.js:99
-msgid "Your browser or device is not web-app compatible."
-msgstr "您的瀏覽器或裝置與網頁應用程式不相容。"
+#: /media/js/apps.js:119
+msgid "not available for your platform"
+msgstr "無法在您的平台使用"
 
-#: /media/js/apps.js:101
-msgid "This app is unavailable for your platform."
-msgstr "您的平台無法使用此應用程式。"
+#: /media/js/apps.js:123 /media/js/apps.js:128
+msgid "not compatible with your device"
+msgstr "與您的裝置不相容"
+
+#: /media/js/buttons.js:92 /media/js/buttons.js:167 /media/js/payments.js:134
+msgid "Payment cancelled."
+msgstr "付款已取消。"
+
+#. App's install failed, but problem is temporary.
+#: /media/js/buttons.js:250
+msgid "Install failed. Please try again later."
+msgstr "安裝失敗，請稍後再試一次。"
+
+#: /media/js/buttons.js:336 /media/js/buttons.js:341 /media/js/buttons.js:440 /media/js/buttons.js:444
+msgid "Installed"
+msgstr "已安裝"
+
+#: /media/js/buttons.js:417
+msgid "free"
+msgstr "免費"
+
+#: /media/js/buttons.js:417
+msgid "Free"
+msgstr "免費"
+
+#: /media/js/buttons.js:422
+msgid "Unavailable"
+msgstr "無法購買"
+
+#: /media/js/buttons.js:440 /media/js/buttons.js:457 /media/js/buttons.js:467
+msgid "Install"
+msgstr "安裝"
+
+#: /media/js/buttons.js:445
+msgid "Install Add-on"
+msgstr "安裝附加元件"
+
+#: /media/js/buttons.js:450
+msgid "Open website"
+msgstr "開啟網站"
+
+#: /media/js/buttons.js:453
+msgid "Open app"
+msgstr "開啟應用程式"
+
+#: /media/js/buttons.js:455
+msgid "Install for free"
+msgstr "免費安裝"
+
+# 這邊的「{price}」有可能是「免費」字串，或許應該 1) 程式面要把「免費」當成特殊狀況，另外開個字串，或者 2) 把「元」拿掉加上冒號
+# （雖然「售價: 10」其實也很奇怪）
+#
+# 偏好是 1，這要開 bug 給誰啊...
+#: /media/js/buttons.js:459
+msgid "Install for {price}"
+msgstr "售價 {price} 元"
+
+#: /media/js/buttons.js:465
+msgid "Open"
+msgstr "開啟"
+
+#: /media/js/compat_filter.js:42 /media/js/compat_filter.js:51
+msgid "All Platforms"
+msgstr "所有平台"
+
+#: /media/js/compat_filter.js:43 /media/js/compat_filter.js:54
+msgid "Android Mobile"
+msgstr "Android 行動版"
+
+#: /media/js/compat_filter.js:44 /media/js/compat_filter.js:55
+msgid "Android Tablet"
+msgstr "Android 平板電腦"
+
+#: /media/js/compat_filter.js:45 /media/js/compat_filter.js:52
+msgid "Desktop"
+msgstr "桌面版"
+
+#: /media/js/compat_filter.js:46 /media/js/compat_filter.js:53
+msgid "Firefox OS"
+msgstr "Firefox OS"
 
 #. For ages {0} and higher. (de) `ab {0} Jahren`.
-#: /media/js/content-ratings.js:98
+#: /media/js/content-ratings.js:71
 msgid "For ages {0}+"
 msgstr "供 {0} 歲以上使用者使用"
 
-#: /media/js/content-ratings.js:104
+#: /media/js/content-ratings.js:77
 msgid "Generic"
 msgstr "一般"
 
-#: /media/js/content-ratings.js:111
+#: /media/js/content-ratings.js:84
 msgid "For all ages"
 msgstr "針對所有年齡"
 
-#: /media/js/content-ratings.js:120
+#: /media/js/content-ratings.js:93
 msgid "Rating Pending"
 msgstr "等待分級中"
 
-#: /media/js/content-ratings.js:121
+#: /media/js/content-ratings.js:94
 msgid "Rating Refused"
 msgstr "分級被退回"
 
-#: /media/js/content-ratings.js:124
+#: /media/js/content-ratings.js:97
 msgid "Everyone"
 msgstr "所有人"
 
-#: /media/js/content-ratings.js:125
+#: /media/js/content-ratings.js:98
 msgid "Everyone 10+"
 msgstr "所有 10 歲以上的人"
 
-#: /media/js/content-ratings.js:126
+#: /media/js/content-ratings.js:99
 msgid "Teen"
 msgstr "青少年"
 
-#: /media/js/content-ratings.js:127
+#: /media/js/content-ratings.js:100
 msgid "Mature 17+"
 msgstr "17 歲以上"
 
-#: /media/js/content-ratings.js:128
+#: /media/js/content-ratings.js:101
 msgid "Adults Only 18+"
 msgstr "18 歲以上成人"
+
+#: /media/js/feed_websites.js:61
+msgid "{current} of {count}"
+msgstr "第 {current} 個，共 {count} 個"
 
 #: /media/js/edbrands.js:33
 msgid "App for Albania"
@@ -1082,281 +1193,139 @@ msgid "Work & Business App"
 msgid_plural "Work & Business Apps"
 msgstr[0] "工作與商業程式"
 
-#: /media/js/feed.js:8
-msgid "Grid Layout"
-msgstr "格線版面"
+#: /media/js/helpers_local.js:137
+msgid "works offline"
+msgstr "可離線使用"
 
-#: /media/js/feed.js:9
-msgid "List Layout"
-msgstr "清單版面"
-
-#: /media/js/feed.js:31
-msgid "Icon"
-msgstr "圖示"
-
-#: /media/js/feed.js:32
-msgid "Background Image"
-msgstr "背景圖片"
-
-#: /media/js/feed.js:34
-msgid "Quote"
-msgstr "引用"
-
-#: /media/js/feed.js:35
-msgid "Screenshot"
-msgstr "畫面擷圖"
-
-#: /media/js/feed.js:43
-msgid "Promo Collection"
-msgstr "宣傳收藏集"
-
-#: /media/js/feed.js:44
-msgid "Listing Collection"
-msgstr "上架收藏集"
-
-#: /media/js/installer_direct.js:56
+#: /media/js/installer_direct.js:140
 msgid "Unable to install packaged apps"
 msgstr "無法安裝封裝的應用程式"
 
-#: /media/js/installer_direct.js:96 /media/js/installer_iframe.js:72
+#: /media/js/installer_direct.js:178
+msgid "Sorry, we had trouble fetching this app's data. Please try again later."
+msgstr "抱歉，取得此程式資料時發生問題，請稍後再試。"
+
+#: /media/js/installer_direct.js:180 /media/js/installer_iframe.js:111
 msgid "App install error: {error}"
 msgstr "應用程式安裝失敗: {error}"
 
-#. "Open" as in "Open the app".
-#: /media/js/apps_buttons.js:60 /media/js/apps_buttons.js:120 /media/js/payments/payments.js:91
-msgid "Payment cancelled."
-msgstr "付款已取消。"
-
-#: /media/js/apps_buttons.js:91
-msgid "Purchasing"
-msgstr "購買中"
-
-#. The app's installation has failed, but the problem is temporary.
-#: /media/js/apps_buttons.js:190
-msgid "Install failed. Please try again later."
-msgstr "安裝失敗，請稍後再試一次。"
-
-#: /media/js/newsletter.js:65
+#: /media/js/newsletter.js:73
 msgid "There was an error submitting your newsletter sign up request"
 msgstr "送出您的電子報訂閱請求時發生錯誤"
 
-#: /media/js/settings.js:108
-msgid "Rest of World"
-msgstr "其他地區"
+#. This error is raised when we are unable to fetch a JWT from the payments API.
+#: /media/js/payments.js:138
+msgid "Error while communicating with server. Try again later."
+msgstr "與伺服器溝通時發生錯誤，請稍後再試一次。"
 
-#: /media/js/settings.js:109
-msgid "Argentina"
-msgstr "阿根廷"
+#: /media/js/payments.js:141
+msgid "Payment failed. Try again later."
+msgstr "付款失敗，請稍後再試。"
 
-#: /media/js/settings.js:110
-msgid "Bangladesh"
-msgstr "孟加拉"
+#. The report is an abuse report for reviews.
+#: /media/js/reviews.js:35
+msgid "Flagging review..."
+msgstr "正在標示評論…"
 
-#: /media/js/settings.js:111
-msgid "Brazil"
-msgstr "巴西"
+#: /media/js/reviews.js:40
+msgid "This review has been successfully flagged. Thanks!"
+msgstr "謝謝您，已成功標示這則評論！"
 
-#: /media/js/settings.js:112
-msgid "Chile"
-msgstr "智利"
+#: /media/js/reviews.js:52
+msgid "Sorry, there was an issue flagging the review. Please try again later."
+msgstr "抱歉，標示這則評論時遇到問題，請稍後再試。"
 
-#: /media/js/settings.js:113
-msgid "China"
-msgstr "中國"
+#: /media/js/reviews.js:62
+msgid "This review has been successfully deleted"
+msgstr "已成功刪除此評論"
 
-#: /media/js/settings.js:114
-msgid "Colombia"
-msgstr "哥倫比亞"
+#: /media/js/reviews.js:93 /media/js/views/app/ratings/add.js:21
+msgid "Write a Review"
+msgstr "撰寫評論"
 
-#: /media/js/settings.js:115
-msgid "Costa Rica"
-msgstr "哥斯大黎加"
+#: /media/js/reviews.js:96
+msgid "Sorry, there was a problem deleting the review"
+msgstr "抱歉，刪除評論時發生問題"
 
-#: /media/js/settings.js:116
-msgid "Czech Republic"
-msgstr "捷克"
+#: /media/js/reviews.js:157 /media/js/views/addon.js:11 /media/js/views/addon.js:19 /media/js/views/addon.js:21 /media/js/views/app.js:16 /media/js/views/app.js:24 /media/js/views/app.js:25
+#: /media/js/views/app.js:30 /media/js/views/app.js:31 /media/js/views/feed_landing.js:15 /media/js/views/website.js:10 /media/js/views/website.js:16 /media/js/views/website.js:17
+#: /media/js/views/website.js:18
+msgid "Loading..."
+msgstr "載入中…"
 
-#: /media/js/settings.js:117
-msgid "Ecuador"
-msgstr "厄瓜多"
+#: /media/js/reviews.js:260
+msgid "Your review was successfully posted. Thanks!"
+msgstr "已成功張貼您的評論，感謝！"
 
-#: /media/js/settings.js:118
-msgid "El Salvador"
-msgstr "薩爾瓦多"
+#: /media/js/reviews.js:265
+msgid "Sorry, there was an error posting your review. Please try again later."
+msgstr "抱歉，張貼您的評論時遇到問題，請稍後再試。"
 
-#: /media/js/settings.js:119
-msgid "France"
-msgstr "法國"
+#: /media/js/reviews.js:293
+msgid "Your review was successfully edited"
+msgstr "已成功修改您的評論"
 
-#: /media/js/settings.js:120
-msgid "Germany"
-msgstr "德國"
-
-#: /media/js/settings.js:121
-msgid "Greece"
-msgstr "希臘"
-
-#: /media/js/settings.js:122
-msgid "Guatemala"
-msgstr "瓜地馬拉"
-
-#: /media/js/settings.js:123
-msgid "Hungary"
-msgstr "匈牙利"
-
-#: /media/js/settings.js:124
-msgid "India"
-msgstr "印度"
-
-#: /media/js/settings.js:125
-msgid "Italy"
-msgstr "義大利"
-
-#: /media/js/settings.js:126
-msgid "Japan"
-msgstr "日本"
-
-#: /media/js/settings.js:127
-msgid "Mexico"
-msgstr "墨西哥"
-
-#: /media/js/settings.js:128
-msgid "Montenegro"
-msgstr "蒙特尼格羅"
-
-#: /media/js/settings.js:129
-msgid "Nicaragua"
-msgstr "尼加拉瓜"
-
-#: /media/js/settings.js:130
-msgid "Panama"
-msgstr "巴拿馬"
-
-#: /media/js/settings.js:131
-msgid "Peru"
-msgstr "祕魯"
-
-#: /media/js/settings.js:132
-msgid "Poland"
-msgstr "波蘭"
-
-#: /media/js/settings.js:133
-msgid "Serbia"
-msgstr "塞爾維亞"
-
-#: /media/js/settings.js:134
-msgid "Spain"
-msgstr "西班牙"
-
-#: /media/js/settings.js:135
-msgid "United Kingdom"
-msgstr "英國"
-
-#: /media/js/settings.js:136
-msgid "United States"
-msgstr "美國"
-
-#: /media/js/settings.js:137
-msgid "Uruguay"
-msgstr "烏拉圭"
-
-#: /media/js/settings.js:138
-msgid "Venezuela"
-msgstr "委內瑞拉"
-
-#: /media/js/settings.js:139
-msgid "No region in search"
-msgstr "沒有搜尋區域"
-
-#: /media/js/settings.js:165
-msgid "Sorry, you are currently offline. Please try again later."
-msgstr "抱歉，您目前不在線上，請稍後再試。"
-
-#. The report is an abuse report for reviews
-#: /media/js/ratings.js:40
-msgid "Sending report..."
-msgstr "正在傳送報告…"
-
-#: /media/js/ratings.js:45
-msgid "Review flagged"
-msgstr "已標示評論"
-
-#: /media/js/ratings.js:49
-msgid "Report review operation failed"
-msgstr "報告審核操作失敗"
-
-#: /media/js/ratings.js:60
-msgid "Review deleted"
-msgstr "已刪除評論"
-
-#: /media/js/ratings.js:90
-msgid "There was a problem deleting the review"
-msgstr "刪除評論時發生問題"
-
-#: /media/js/ratings.js:238
-msgid "Your review was posted"
-msgstr "已張貼您的評論"
-
-#: /media/js/ratings.js:252
-msgid "Error while submitting review"
-msgstr "送出評論時發生錯誤"
+#: /media/js/reviews.js:298
+msgid "Sorry, there was an issue editing your review. Please try again later"
+msgstr "抱歉，編輯您的評論時遇到問題，請稍後再試。"
 
 #. {n} is the number of stars
-#: /media/js/common/ratingwidget.js:34
+#: /media/js/ratingwidget.js:44
 msgid "{n} star"
 msgid_plural "{n} stars"
 msgstr[0] "{n} 顆星"
 
-#: /media/js/commonplace/login.js:20
-msgid "You have been signed out"
-msgstr "您已經登出。"
+#: /media/js/settings_app.js:96
+msgid "English"
+msgstr "英文"
 
-#: /media/js/commonplace/login.js:24
-msgid "You have been signed in"
-msgstr "您已經登入。"
+#: /media/js/settings_app.js:97
+msgid "French"
+msgstr "法文"
 
-#: /media/js/commonplace/login.js:209
-msgid "Persona login failed. Maybe you don't have an account under that email address?"
-msgstr "Persona 登入失敗，也許您沒有使用該電子郵件地址的帳號？"
+#: /media/js/settings_app.js:98
+msgid "German"
+msgstr "德文"
 
-#: /media/js/commonplace/login.js:214
-msgid "Persona login failed. A server error was encountered."
-msgstr "Persona 登入失敗，伺服器發生錯誤。"
+#: /media/js/settings_app.js:99
+msgid "Hungarian"
+msgstr "匈牙利文"
 
-#: /media/js/commonplace/login.js:281
-msgid "Persona cannot be reached. Try again later."
-msgstr "無法連線至 Persona，請稍候再試。"
+#: /media/js/settings_app.js:100
+msgid "Indonesian"
+msgstr "印尼文"
 
-#: /media/js/commonplace/navigation.js:33
-msgid "No internet connection"
-msgstr "沒有網際網路連線"
+#: /media/js/settings_app.js:101
+msgid "Polish"
+msgstr "波蘭文"
 
-#. {n} is the number of characters left.
-#: /media/js/commonplace/utils.js:28
-msgid "<b>{n}</b> character left."
-msgid_plural "<b>{n}</b> characters left."
-msgstr[0] "剩下 <b>{n}</b> 個字元。"
+#: /media/js/settings_app.js:102
+msgid "Portuguese"
+msgstr "葡萄牙文"
 
-#: /media/js/payments/payments.js:94
-msgid "Payment failed. Try again later."
-msgstr "付款失敗，請稍後再試。"
+#: /media/js/settings_app.js:103
+msgid "Russian"
+msgstr "俄文"
 
-#. This error is raised when we are unable to fetch a JWT from the payments API.
-#: /media/js/payments/payments.js:115
-msgid "Error while communicating with server. Try again later."
-msgstr "與伺服器溝通時發生錯誤，請稍後再試一次。"
+#: /media/js/settings_app.js:104
+msgid "Spanish"
+msgstr "西班牙文"
 
-#: /media/js/payments/payments.js:122
-msgid "Your device does not support purchases."
-msgstr "您的裝置無法購買。"
+#: /media/js/settings_app.js:116
+msgid "Sorry, you are currently offline. Please try again later."
+msgstr "抱歉，您目前不在線上，請稍後再試。"
 
-#: /media/js/views/app.js:64 /media/js/views/feed/feed_app.js:10
-msgid "App Details"
+#: /media/js/update_banner.js:24
+msgid "The next time you start the Firefox Marketplace app, you’ll see the updated version!"
+msgstr "您下次開啟 Firefox Marketplace 應用程式時，就會看到更新版本！"
+
+#: /media/js/views/addons.js:9 /media/js/views/addons.js:10
+msgid "Firefox OS Add-ons"
+msgstr "Firefox OS 附加元件"
+
+#: /media/js/views/app.js:17
+msgid "App Detail"
 msgstr "應用程式詳細資訊"
-
-#: /media/js/views/new.js:12
-msgid "Fresh and New Apps"
-msgstr "全新程式"
 
 #: /media/js/views/feedback.js:23
 msgid "Feedback submitted. Thanks!"
@@ -1366,67 +1335,82 @@ msgstr "已送出您的意見回饋，感謝！"
 msgid "There was a problem submitting your feedback. Try again soon."
 msgstr "送出您的意見回饋時發生問題，請稍後再試。"
 
-#: /media/js/views/popular.js:12
-msgid "Popular All Time"
-msgstr "熱門程式"
+#: /media/js/views/feed_landing.js:16
+msgid "Collection Detail"
+msgstr "收藏集詳細資訊"
 
-#: /media/js/views/search.js:220
+#: /media/js/views/new_apps.js:8
+msgid "New Apps"
+msgstr "新進應用程式"
+
+#: /media/js/views/homescreens.js:8
+msgid "Popular Homescreens"
+msgstr "熱門主畫面"
+
+#: /media/js/views/langpacks.js:30
+msgid "Language Packs"
+msgstr "語言套件"
+
+#: /media/js/views/langpacks.js:42
+msgid "Firefox OS {version}"
+msgstr "Firefox OS {version}"
+
+#: /media/js/views/new_websites.js:8
+msgid "New Sites"
+msgstr "新進網站"
+
+#: /media/js/views/popular_apps.js:9
+msgid "Popular Apps"
+msgstr "熱門應用程式"
+
+#: /media/js/views/popular_websites.js:8
+msgid "Popular Sites"
+msgstr "熱門網站"
+
+#: /media/js/views/search.js:173
 msgid "Search Results"
 msgstr "搜尋結果"
 
-#: /media/js/views/nominate.js:114
-msgid "Nominate apps"
-msgstr "提名應用程式"
+#: /media/js/views/search.js:186
+msgid "Developer Listing"
+msgstr "開發者清單"
 
-#: /media/js/views/settings.js:34
-msgid "Settings saved"
-msgstr "已儲存選項"
+#: /media/js/views/settings.js:41
+msgid "Your settings have been successfully saved"
+msgstr "已成功儲存您的選項"
 
-#: /media/js/views/settings.js:36
+#: /media/js/views/settings.js:47
 msgid "Settings could not be saved"
 msgstr "無法儲存選項"
 
-#: /media/js/views/app/abuse.js:18
-msgid "Abuse reported"
-msgstr "已回報不適當的內容"
+#: /media/js/views/website.js:11
+msgid "Website Detail"
+msgstr "網站詳細資訊"
 
-#: /media/js/views/app/abuse.js:22
-msgid "Error while submitting report"
-msgstr "送出報告時發生錯誤"
+#: /media/js/lib/marketplace-elements.js:119
+msgid "Close"
+msgstr "關閉"
 
-#: /media/js/views/commonplace/hello_world.js:9
-msgid "Hello World!"
-msgstr "Hello World!"
+#: /media/js/views/addon/abuse.js:16 /media/js/views/app/abuse.js:18 /media/js/views/website/issue.js:17
+msgid "Report submitted. Thanks!"
+msgstr "已送出報告，感謝您！"
 
-#. Page not found (404)
-#: /media/js/views/commonplace/not_found.js:9
-msgid "Not Found"
-msgstr "找不到"
+#: /media/js/views/addon/abuse.js:21 /media/js/views/app/abuse.js:25 /media/js/views/website/issue.js:23
+msgid "There was an issue submitting your report. Please try again later."
+msgstr "送出您的報告時遇到問題，請稍後再試。"
 
-#: /media/js/views/app/receipt.js:22
+#: /media/js/views/app/ratings.js:12
+msgid "Read All Reviews"
+msgstr "閱讀所有評論"
+
+#: /media/js/views/app/receipt.js:14
 msgid "Please sign in to view the receipt"
 msgstr "請登入以檢視明細"
 
-#: /media/js/views/app/receipt.js:40
+#: /media/js/views/app/receipt.js:24
 msgid "Receipt"
 msgstr "明細"
 
-#: /media/js/views/feed/feed_collection.js:10
-msgid "Collection Details"
-msgstr "收藏集詳細資訊"
-
-#: /media/js/views/feed/feed_brand.js:10
-msgid "Editorial Brand Details"
-msgstr "編輯品牌詳情"
-
-#: /media/js/views/feed/feed_shelf.js:10
-msgid "Operator Shelf Details"
-msgstr "電信業者展示架詳情"
-
-#: /media/js/views/app/ratings/edit.js:20
-msgid "Review updated successfully"
-msgstr "已成功更新評論"
-
-#: /media/js/views/app/ratings/edit.js:35
-msgid "There was a problem updating your review"
-msgstr "更新您的評論時發生錯誤"
+#: /media/js/views/website/issue.js:32
+msgid "Report an Issue"
+msgstr "回報問題"

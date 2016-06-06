@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01T16:27:09.976Z\n"
-"PO-Revision-Date: 2014-10-05 13:40+0000\n"
-"Last-Translator: archana <archana.changotra@gmail.com>\n"
+"POT-Creation-Date: 2016-04-20T17:37:57.000Z\n"
+"PO-Revision-Date: 2015-08-29 14:29+0000\n"
+"Last-Translator: umesh <umeshsnwl@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hi_IN\n"
 "MIME-Version: 1.0\n"
@@ -12,1408 +12,1377 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1412516405.0\n"
+"X-POOTLE-MTIME: 1440858599.0\n"
 
-#: /templates/app_list.html:30
-msgid "No apps found"
-msgstr "App नहीं मिला"
-
-#: /templates/app_list.html:35
-msgid "No apps found."
+#: /templates/carrier.html:6 /media/js/views/carrier.js:14
+msgid "Free Carrier Apps"
 msgstr ""
 
-#: /templates/app_list.html:37 /templates/category.html:63 /templates/user/purchases.html:38
+#: /templates/carrier.html:8
+msgid "Your carrier offers these free apps. You can download them at no charge."
+msgstr ""
+
+#: /templates/carrier.html:30 /templates/carrier.html:35
+msgid "No apps found."
+msgstr "ऐप नहीं मिला."
+
+#: /templates/carrier.html:37 /templates/category.html:49 /templates/langpacks.html:41 /templates/product_list.html:48 /templates/purchases.html:35 /templates/addon/list.html:33
 msgid "An internal server error occurred. Please try again later."
 msgstr "एक आंतरिक सर्वर त्रुटि हो गई. कृपया बाद में पुनः प्रयास करें."
 
-#: /templates/compatibility_filtering.html:3
-msgid "Show"
-msgstr ""
+#: /templates/categories.html:3 /templates/categories.html:13 /templates/header.html:9 /templates/header.html:10 /templates/nav.html:38 /templates/app/index.html:176
+msgid "Categories"
+msgstr "श्रेणियाँ"
 
-#: /templates/compatibility_filtering.html:10
-msgid "All apps"
-msgstr ""
+#: /templates/category.html:9 /templates/category.html:19 /templates/product_list.html:9 /templates/product_list.html:14 /templates/search.html:9 /templates/search.html:16 /templates/purchases.html:7
+msgid "Expand"
+msgstr "विस्तार करें"
 
-#: /templates/compatibility_filtering.html:13
-msgid "Apps for My Device"
-msgstr ""
+#: /templates/category.html:42 /templates/search.html:72
+msgid "No results found"
+msgstr "कोई परिणाम नहीं मिला"
 
-#: /templates/compatibility_filtering.html:16
-msgid "Desktop Apps"
-msgstr ""
-
-#: /templates/compatibility_filtering.html:18
-msgid "Firefox OS Apps"
-msgstr ""
-
-#: /templates/compatibility_filtering.html:20
-msgid "Android Mobile Apps"
-msgstr ""
-
-#: /templates/compatibility_filtering.html:22
-msgid "Android Tablet Apps"
-msgstr ""
-
-#: /templates/category.html:33 /templates/nav.html:17
-msgid "Popular"
-msgstr "प्रसिद्ध"
-
-#. "New" should translate to mean "Recent". Choose the shortest (space constraints)
-#: /templates/category.html:35 /templates/nav.html:16
-msgid "New"
-msgstr "नया"
-
-#: /templates/category.html:37
-msgid "View All"
-msgstr "सभी देखें"
-
-#: /templates/category.html:56
-msgid "No apps in this category"
-msgstr "इस श्रेणी में कोई एप्प्स नहीं"
-
-#: /templates/category.html:61
+#: /templates/category.html:47
 msgid "The category you requested does not exist."
 msgstr "अनुरोधित श्रेणी मौजूद नहीं है."
 
-#: /templates/confirmation.html:0 /templates/detail/abuse.html:6 /templates/settings/feedback.html:6 /templates/settings/nav.html:12 /media/js/components.js:84 /media/js/components.js:85
-msgid "Close"
-msgstr "बंद करे"
+#: /templates/feedback.html:5
+msgid "We want to hear from you!"
+msgstr "हम आपसे सुनना चाहते हैं !"
 
-#: /templates/confirmation.html:3
-msgid "No"
-msgstr "नहीं"
+#: /templates/feedback.html:6
+msgid "Give us your feedback. Let us know whether we are awesome or buggy."
+msgstr "हमें अपनी प्रतिक्रिया दें.  हमें बतायें कि हम अच्छे हैं या खराब."
 
-#: /templates/confirmation.html:4
-msgid "Yes"
-msgstr "हां"
+#: /templates/feedback.html:7 /templates/addon/abuse.html:15 /templates/app/abuse.html:16
+msgid "Let us know..."
+msgstr "हमें बतायें..."
 
-#: /templates/fx-accounts-banner.html:2
-msgid "Firefox Accounts has arrived"
-msgstr ""
+#: /templates/feedback.html:11 /templates/newsletter.html:38 /templates/addon/abuse.html:20 /templates/app/abuse.html:21 /templates/ratings/add.html:35 /templates/ratings/flag.html:17
+#: /templates/website/issue.html:13
+msgid "Cancel"
+msgstr "रद्द करें"
 
-#: /templates/fx-accounts-banner.html:5
-msgid "Learn how to transfer your account"
-msgstr ""
+#: /templates/feedback.html:12
+msgid "Submit Feedback"
+msgstr "प्रतिक्रिया जमा करें"
 
-#: /templates/fx-accounts-banner.html:8
-msgid "It's easy."
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:6
-msgid "Firefox Marketplace has transitioned to Firefox Accounts to manage your profile. Continue to complete the simple upgrade process."
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:11
-msgid "Continue"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:15 /templates/fx_accounts_popup.html:34
-msgid "Learn more"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:21
-msgid "Enter your email"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:27
-msgid "Valid email required"
-msgstr ""
-
-#: /templates/fx_accounts_popup.html:30
-msgid "Next"
-msgstr ""
-
-#: /templates/incompatible.html:1
-msgid "You must use Firefox to install Firefox apps."
-msgstr "फ़ायरफ़ॉक्स एप्प्स स्थापित करने के लिए फ़ायरफ़ॉक्स का उपयोग करना चाहिए."
-
-#: /templates/incompatible.html:2
-msgid "Download"
-msgstr ""
-
-#: /templates/nav.html:15
-msgid "Home"
-msgstr ""
-
-#: /templates/nav.html:18 /media/js/views/recommended.js:12
-msgid "Recommended"
-msgstr ""
-
-#: /templates/nav.html:20 /templates/nav.html:21 /media/js/views/categories.js:9
-msgid "Categories"
-msgstr ""
-
-#: /templates/nav.html:29
-msgid "My Account"
-msgstr ""
-
-#: /templates/nav.html:30 /templates/footer.html:16 /templates/_macros/act_tray.html:10 /templates/user/purchases.html:43 /templates/user/purchases.html:10 /templates/user/purchases.html:30
-#: /templates/settings/nav.html:7 /media/js/views/purchases.js:13
-msgid "My Apps"
-msgstr "मेरे एप्प्स"
-
-#: /templates/nav.html:31 /templates/footer.html:6 /templates/_macros/act_tray.html:14 /templates/settings/feedback.html:5 /templates/settings/nav.html:8 /templates/settings/nav.html:11
-#: /media/js/views/feedback.js:61
+#: /templates/footer.html:6 /templates/header.html:46 /templates/nav.html:93 /media/js/views/feedback.js:50 /media/js/views/feedback.js:53
 msgid "Feedback"
 msgstr "प्रतिपुष्टि"
 
-#: /templates/nav.html:35
-msgid "Back to Marketplace"
-msgstr ""
-
-#: /templates/footer.html:2
-msgid "Develop Apps"
-msgstr ""
-
-#: /templates/footer.html:5
-msgid "Developer Hub"
-msgstr "विकासकर्ता केंद्र"
-
-#: /templates/footer.html:8 /templates/footer.html:10
+#: /templates/footer.html:9 /templates/footer.html:13 /templates/footer.html:17 /templates/nav.html:92
 msgid "Support"
 msgstr "सहारा"
 
-#: /templates/footer.html:18 /templates/_macros/act_tray.html:12
+#: /templates/footer.html:20
+msgid "Develop Apps"
+msgstr "ऐप्स विकास"
+
+#: /templates/footer.html:21
+msgid "Develop Firefox OS Add-ons"
+msgstr ""
+
+#: /templates/footer.html:23 /templates/nav.html:78
 msgid "My Submissions"
 msgstr "मेरा सबमिशन"
 
-#: /templates/footer.html:21 /templates/settings/main.html:42
+#: /templates/footer.html:26 /templates/nav.html:81
 msgid "Reviewer Tools"
 msgstr "समीक्षक के उपकरण"
 
-#: /templates/footer.html:24
+#: /templates/footer.html:29 /templates/nav.html:84
 msgid "Lookup Tool"
 msgstr "लुकअप के उपकरण"
 
-#: /templates/footer.html:32
+#: /templates/footer.html:35
 msgid ""
 "Except where otherwise <a href=\"{legal_url}\" target=\"_blank\">noted</a>, content on this site is licensed under the <a href=\"{cc_url}\" target=\"_blank\">Creative Commons Attribution Share-"
 "Alike License v3.0</a> or any later version."
 msgstr ""
+"अन्यथा <a href=\"{legal_url}\" target=\"_blank\"> </a> उल्लेख किया जहां, इस साइट पर सामग्री <a href=\"{cc_url}\" target=\"_blank\"> क्रिएटिव कॉमन्स रोपण के तहत लाइसेंस प्राप्त है सिवाय शेयर-अलाइक लाइसेंस v3.0 </a> "
+"या किसी भी बाद के संस्करण."
 
-#: /templates/footer.html:37 /templates/privacy.html:2 /templates/detail/privacy.html:3 /templates/detail/receipt.html:57 /templates/user/newsletter.html:10 /templates/detail/main.html:188
-#: /templates/settings/feedback.html:30 /media/js/views/privacy.js:10 /media/js/views/app/privacy.js:10
+#: /templates/footer.html:40 /templates/nav.html:101 /templates/privacy.html:2 /templates/app/index.html:74 /templates/app/privacy.html:2 /media/js/views/privacy.js:9
 msgid "Privacy Policy"
 msgstr "गुप्त कूटनीती"
 
-#: /templates/footer.html:38 /templates/terms.html:2 /templates/settings/feedback.html:35 /media/js/views/terms.js:10
+#: /templates/footer.html:41 /templates/nav.html:102 /templates/terms.html:2 /media/js/views/terms.js:12
 msgid "Terms of Use"
 msgstr "प्रयोग की शर्तें"
 
-#: /templates/footer.html:40
+#: /templates/footer.html:43
 msgid "Report Trademark Abuse"
 msgstr "ट्रेडमार्क दुरुपयोग की रिपोर्ट करे"
 
-#: /templates/nominate.html:1
-msgid "Nominate apps to be featured on Firefox Marketplace!"
-msgstr "फ़ायरफ़ॉक्स मार्केटप्लेस पर चित्रित करने के लिए एप्प्स नामित करे!"
+#: /templates/header.html:19 /templates/header.html:34
+msgid "Search Marketplace&hellip;"
+msgstr "बाजार को खोजें&hellip;"
 
-#: /templates/nominate.html:6
-msgid "Are you the developer or fan of an awesome app or collection of apps on Firefox Marketplace? Submit your nominations, and you may see them in a featured spot."
-msgstr ""
-
-#: /templates/nominate.html:9
-msgid "Learn more about <a href=\"{wiki_url}\">how apps are featured</a>."
-msgstr "<a href=\"{wiki_url}\">एप्प्स कैसे चित्रित हो रहे हैं </a>के बारे में अधिक जानें."
-
-#: /templates/nominate.html:15
-msgid "Thanks for submitting your nomination."
-msgstr "नामांकन जमा करने के लिए धन्यवाद."
-
-#: /templates/nominate.html:16
-msgid "Tell your friends!"
-msgstr "मित्रों को बताएँ!"
-
-#: /templates/nominate.html:17
-msgid "Tweet #FaveApps"
-msgstr "ट्वीट #FaveApps"
-
-#: /templates/nominate.html:18
-msgid "Submit another nomination"
-msgstr "एक और नामांकन जमा करें"
-
-#: /templates/nominate.html:24
-msgid "Tell us which Marketplace apps you'd like to nominate for featuring"
-msgstr ""
-
-#: /templates/nominate.html:25
-msgid "Name of apps or Marketplace URLs"
-msgstr "एप्प्स का नाम या मार्केटप्लेस URLs"
-
-#: /templates/nominate.html:29
-msgid "Select a category for these apps"
-msgstr "इन एप्प्स के लिए एक श्रेणी का चयन करें"
-
-#: /templates/nominate.html:41
-msgid "In which regions would you like to see these apps featured?"
-msgstr "आप इन एप्प्स को किस क्षेत्रों में चित्रित देखना चाहेंगे?"
-
-#: /templates/nominate.html:54
-msgid "Tell us why these apps should be featured"
-msgstr "हमें बताएँ कि इन एप्प्स को क्यों चित्रित किया जाना चाहिए"
-
-#: /templates/nominate.html:60 /templates/nominate.html:61
-msgid "Your name"
-msgstr "आपका नाम"
-
-#: /templates/nominate.html:64
-msgid "Your email address"
-msgstr "आपका ईमेल पता"
-
-#: /templates/nominate.html:71 /templates/ratings/edit.html:22 /templates/ratings/write.html:20
-msgid "Submit"
-msgstr "जमा करें"
-
-#: /templates/header.html:3
-msgid "Back"
-msgstr "पीछे"
-
-#: /templates/header.html:8 /templates/header.html:11
+#: /templates/header.html:21 /templates/nav.html:40
 msgid "Search"
-msgstr "खोजें"
-
-#: /templates/header.html:13
-msgid "Clear"
-msgstr "साफ़ करें"
-
-#: /templates/header.html:18
-msgid "Sign In"
-msgstr "साइन इन"
-
-#. Please do your best to capture the essence of Scooby Doo.
-#: /templates/_macros/feed_item.html:20
-msgid "Not yet rated"
-msgstr "अभी तक रेटेड नहीं"
-
-#: /templates/_macros/feed_item.html:105 /templates/_macros/feed_item.html:192
-msgid "View all apps"
 msgstr ""
 
-#. Please do your best to capture the essence of Scooby Doo.
-#: /templates/_macros/feed_item.html:253 /templates/_macros/feed_item.html:279
-msgid "Ruh roh! No apps here, Shaggy!"
-msgstr ""
-
-#: /templates/_macros/act_tray.html:2
+#: /templates/header.html:44 /templates/nav.html:43 /templates/nav.html:68 /templates/settings.html:2 /media/js/views/settings.js:9
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: /templates/_macros/act_tray.html:8
-msgid "Edit Account Settings"
-msgstr "अकाउंट सेटिंग संपादित करें"
+#: /templates/header.html:45 /templates/nav.html:74 /templates/purchases.html:6 /media/js/views/purchases.js:9
+msgid "My Apps"
+msgstr "मेरे एप्प्स"
 
-#: /templates/_macros/act_tray.html:15 /templates/settings/main.html:39
+#: /templates/header.html:47
 msgid "Sign Out"
 msgstr "साइन आउट"
 
-#. This app is unavailable for purchase.
-#: /templates/_macros/market_button.html:8
-msgid "Unavailable"
-msgstr "अनुपलब्ध"
-
-#: /templates/_macros/market_button.html:10 /templates/_macros/market_tile.html:32
-msgid "Free"
-msgstr "मुफ्त"
-
-#: /templates/_macros/market_button.html:21 /media/js/apps_buttons.js:252
-msgid "Open"
+#: /templates/fxos_only_banner.html:1
+msgid "These applications can only be installed on devices running Firefox OS."
 msgstr ""
 
-#: /templates/_macros/market_button.html:23 /media/js/apps_buttons.js:96 /media/js/apps_buttons.js:278
-msgid "Install"
-msgstr "स्थापित करें"
+#: /templates/fxos_only_banner.html:2
+msgid "You may view the catalog but not be able to install or run these apps on your platform."
+msgstr ""
 
-#: /templates/_macros/more_button.html:2
+#: /templates/langpacks.html:34 /templates/langpacks.html:39
+msgid "No language packs found."
+msgstr "कोई भाषा पैक नहीं पाया गया."
+
+#: /templates/newsletter.html:3
+msgid "Sign up for our newsletter"
+msgstr "हमारे न्यूज़लेटर के लिए साइन अप करें"
+
+#: /templates/newsletter.html:5
+msgid "Get Firefox news! Sign up for our newsletter"
+msgstr "Firefox समाचार प्राप्त करें! हमारे न्यूज़लेटर के लिए साइन अप करें"
+
+#: /templates/newsletter.html:12 /templates/settings.html:13
+msgid "Email Address"
+msgstr "ईमेल पता"
+
+#: /templates/newsletter.html:13
+msgid "Email"
+msgstr "ईमेल"
+
+#: /templates/newsletter.html:15 /templates/newsletter.html:37
+msgid "Sign me up"
+msgstr "मुझे साइन अप करें"
+
+#: /templates/newsletter.html:18
+msgid "Preferred Language"
+msgstr ""
+
+#: /templates/newsletter.html:32
+msgid "I'm okay with Mozilla handling my info as explained in <a href=\"{privacy_policy_url}\" target=\"_blank\">this Privacy Policy</a>."
+msgstr "मैं <a href=\"{privacy_policy_url}\" target=\"_blank\"> इस गोपनीयता नीति </a> में जैसे समझाया मोज़िला मेरी जानकारी को संभालने के साथ ठीक हूँ."
+
+#: /templates/newsletter.html:44
+msgid "Thanks for signing up!"
+msgstr "साइन अप करने के लिए धन्यवाद!"
+
+#: /templates/newsletter.html:45
+msgid "You'll receive an email from mozilla@e.mozilla.org, please check your inbox for your first email from us. If you don’t see it, check your spam filter."
+msgstr "आपको mozilla@e.mozilla.org से एक ईमेल प्राप्त होगी, हम से अपने पहले ईमेल के लिए अपने इनबॉक्स की जाँच करें. यदि आप इसे देख नही पाते हो, तो अपने स्पैम फिल्टर की जाँच करें."
+
+#: /templates/marketplace-update.html:2
+msgid "An update to Marketplace is available."
+msgstr "बाज़ार के लिए एक अद्यतन उपलब्ध है।"
+
+#: /templates/marketplace-update.html:4
+msgid "Download"
+msgstr "डाउनलोड"
+
+#: /templates/product_list.html:41 /templates/product_list.html:46
+msgid "The list returned no results."
+msgstr ""
+
+#: /templates/nav.html:9 /templates/nav.html:51
+msgid "Apps"
+msgstr ""
+
+#: /templates/nav.html:14 /templates/nav.html:53 /templates/addon/list.html:5
+msgid "Add-ons"
+msgstr ""
+
+#: /templates/nav.html:20 /templates/nav.html:56
+msgid "Homescreens"
+msgstr ""
+
+#: /templates/nav.html:23
 msgid "More"
-msgstr "अधिक"
-
-#: /templates/credits.html:2 /media/js/views/credits.js:10
-msgid "Credits"
-msgstr "क्रेडिट्स"
-
-#: /templates/_macros/rating.html:9
-msgid "by {author}"
-msgstr "{author} के द्वारा"
-
-#: /templates/_macros/rating.html:12
-msgid "for previous version {version}"
-msgstr "पिछले संस्करण {version} के लिए"
-
-#: /templates/_macros/rating.html:21
-msgid "Flagged for review"
 msgstr ""
 
-#: /templates/_macros/rating.html:27
-msgid "Edit"
-msgstr "संपादित करें"
+#: /templates/nav.html:32 /templates/nav.html:50
+msgid "Home"
+msgstr "घर"
 
-#: /templates/_macros/rating.html:30
-msgid "Delete"
-msgstr "हटाएँ"
+#: /templates/nav.html:33 /templates/_macros/sort_toggle.html:4 /templates/_macros/sort_toggle.html:11
+msgid "Popular"
+msgstr "प्रसिद्ध"
 
-#: /templates/_macros/rating.html:33
-msgid "Report"
-msgstr "रिपोर्ट"
+#: /templates/nav.html:34 /templates/_macros/sort_toggle.html:5 /templates/_macros/sort_toggle.html:12
+msgid "New"
+msgstr "नया"
 
-#: /templates/_macros/market_tile.html:42
-msgid "({n})"
+#: /templates/nav.html:36 /templates/nav.html:71 /media/js/views/recommended.js:15
+msgid "Recommended Apps"
 msgstr ""
 
-#: /templates/_macros/market_tile.html:45 /templates/detail/main.html:135
-msgid "Review"
-msgid_plural "Reviews"
-msgstr[0] ""
-msgstr[1] ""
+#: /templates/nav.html:41 /templates/nav.html:62 /templates/purchases.html:42 /templates/settings.html:43
+msgid "Register"
+msgstr "रजिस्टर"
 
-#. "(0)" means "0 reviews."
-#: /templates/_macros/market_tile.html:49
-msgid "(0)"
-msgstr "(0)"
+#: /templates/nav.html:42 /templates/purchases.html:43 /templates/settings.html:44
+msgid "Sign In"
+msgstr "साइन इन"
 
-#: /templates/_macros/market_tile.html:50
-msgid "Not yet reviewed"
+#: /templates/nav.html:65
+msgid "Sign in"
 msgstr ""
 
-#: /templates/_macros/market_tile.html:62
-msgid "Works offline"
+#: /templates/nav.html:76
+msgid "Sign out"
 msgstr ""
 
-#: /templates/_macros/market_tile.html:111 /templates/_macros/market_tile.html:114
-msgid "{app_name} screenshot"
-msgstr "{app_name} स्क्रीनशॉट"
-
-#: /templates/detail/abuse.html:5 /templates/detail/receipt.html:68 /templates/detail/main.html:199 /media/js/views/app/abuse.js:34
-msgid "Report Abuse"
-msgstr "दुर्व्यवहार की रिपोर्ट करें"
-
-#: /templates/detail/abuse.html:15
-msgid "Send Report"
-msgstr "रिपोर्ट भेजें"
-
-#. (es) Classificacao Indicativa.
-#: /templates/detail/content_ratings.html:5
-msgid "Content Rating"
-msgstr "विषय सूची रेटिंग"
-
-#. (es) Classificacao Indicativa.
-#: /templates/detail/content_ratings.html:77
-msgid "Content Rating Details"
-msgstr "विषय सूची रेटिंग विवरण"
-
-#: /templates/_macros/stars.html:5
-msgid "Rated {stars} out of {maxstars} stars"
-msgstr "रेटेड {stars} में से {maxstars} सितारे"
-
-#: /templates/detail/privacy.html:5 /templates/ratings/main.html:8
-msgid "Back to app"
-msgstr "एप्प्स पर वापस जाएँ"
-
-#: /templates/detail/privacy.html:11
-msgid "Loading Privacy Policy..."
-msgstr "गुप्त कूटनीती लोड हो रहा है..."
-
-#: /templates/detail/receipt.html:8
-msgid "Thank you for purchasing"
-msgstr "खरीदने के लिये शुक्रिया"
-
-#: /templates/detail/receipt.html:18 /templates/detail/receipt.html:19 /templates/detail/main.html:16 /templates/detail/main.html:17 /media/js/views/app.js:63 /media/js/views/feed/feed_app.js:9
-#: /media/js/views/feed/feed_collection.js:9 /media/js/views/feed/feed_brand.js:9 /media/js/views/feed/feed_shelf.js:9
-msgid "Loading..."
-msgstr "लोड हो रहा है..."
-
-#: /templates/detail/receipt.html:40 /templates/detail/main.html:171
-msgid "Support Email"
-msgstr "ईमेल सहायता"
-
-#: /templates/detail/receipt.html:46 /templates/detail/main.html:177
-msgid "Support Site"
-msgstr "सहायता की साइट"
-
-#: /templates/detail/receipt.html:51 /templates/detail/main.html:182
-msgid "Homepage"
-msgstr "मुखपृष्ठ"
-
-#: /templates/detail/receipt.html:63 /templates/detail/main.html:194
-msgid "Statistics"
-msgstr "आंकड़े"
-
-#: /templates/errors/404.html:2 /templates/errors/fragment.html:1 /templates/user/purchases.html:37 /media/js/views/app.js:53
-msgid "Oh no!"
-msgstr "अरे नहीं!"
-
-#: /templates/errors/404.html:3
-msgid "The page you were looking for was not found."
-msgstr "जिस पृष्ठ को खोज रहे थे वह नहीं मिला."
-
-#: /templates/_macros/feed_app_tile.html:16
-msgid "&mdash; {attribution}"
+#: /templates/nav.html:87
+msgid "Add-on Tools"
 msgstr ""
 
-#: /templates/search/main.html:15
+#: /templates/nav.html:95
+msgid "Get Involved"
+msgstr "इसमें शामिल हों"
+
+#: /templates/nav.html:97 /media/js/views/newsletter_signup.js:11
+msgid "Newsletter Signup"
+msgstr "न्यूज़लेटर साइन अप"
+
+#: /templates/search.html:8
 msgid "<b>{n}</b> Result"
 msgid_plural "<b>{n}</b> Results"
 msgstr[0] "<b>{n}</b> परिणाम"
 msgstr[1] "<b>{n}</b> परिणाम"
 
-#: /templates/search/main.html:16 /templates/user/purchases.html:11
-msgid "Showing <b>1</b>&ndash;<b class=\"total-results\">{total}</b>"
-msgstr "दिखा रहे हैं<b>1</b>&ndash;<b class=\"total-results\">{total}</b>"
+#: /templates/search.html:12
+msgid "<b>\"{search_query}\"</b> returned {n} result"
+msgid_plural "<b>\"{search_query}\"</b> returned {n} results"
+msgstr[0] "<b>\"{search_query}\"</b> वापस किए {n} परिणाम"
+msgstr[1] "<b>\"{search_query}\"</b> वापस किए {n} परिणाम"
 
-#: /templates/search/main.html:19 /templates/user/purchases.html:13
-msgid "Expand"
-msgstr "विस्तृत करें"
-
-#: /templates/search/main.html:37
-msgid "No results found"
-msgstr "कोई परिणाम नहीं मिला"
-
-#: /templates/search/main.html:42
+#: /templates/search.html:78
 msgid "No results found, try again later"
 msgstr "कोई परिणाम नहीं मिला, बाद में पुन: प्रयास करें"
 
-#: /templates/errors/date-error.html:2
-msgid "System Date Incorrect"
+#: /templates/purchases.html:41
+msgid "You must be signed in to view your apps."
+msgstr "आप अपनी एप्स को देखने के लिए हस्ताक्षर किया जाना चाहिए."
+
+#: /templates/purchases.html:30
+msgid "You have no apps"
+msgstr "आपके पास कोई एप्स नही हैं"
+
+#: /templates/purchases.html:34 /templates/errors/fragment.html:1 /media/js/views/app.js:47
+msgid "Oh no!"
+msgstr "अरे नहीं!"
+
+#: /templates/settings.html:9
+msgid "General settings"
+msgstr "सामान्य सेटिंग्स"
+
+#: /templates/settings.html:18
+msgid "Display Name"
+msgstr "नाम प्रदर्शन करें"
+
+#: /templates/settings.html:26
+msgid "Recommendations"
+msgstr "सिफ़ारिश"
+
+#: /templates/settings.html:30
+msgid "Yes, show me recommendations based on my installed apps. <a href=\"{url}\" target=\"_blank\">Learn more</a>"
+msgstr "हाँ, मेरे इंस्टॉल किए गए एप्लिकेशन के आधार पर मुझे सिफारिशों को दिखाये. <a href=\"{url}\" target=\"_blank\">और अधिक जानें</a>"
+
+#: /templates/settings.html:42
+msgid "Save Changes"
+msgstr "परिवर्तन सहेजें"
+
+#: /templates/settings.html:36
+msgid "Region"
+msgstr "क्षेत्र"
+
+#: /templates/usage.html:3 /media/js/views/usage.js:9
+msgid "App Statistics"
+msgstr "ऐप आँकड़े"
+
+#: /templates/usage.html:10
+msgid "App usage statistics"
+msgstr "ऐप के उपयोग के आँकड़े"
+
+#: /templates/usage.html:11
+msgid "Not enough statistics to show."
+msgstr "पर्याप्त आँकड़े नही है दिखाने के लिए."
+
+#: /templates/_includes/carrier_apps_banner.html:2
+msgid "Your carrier offers some free apps."
 msgstr ""
 
-#: /templates/errors/date-error.html:3
-msgid "Sorry, your device clock appears to be set incorrectly."
+#. This is the link text for the carrier apps banner. "Your carrier offers some free apps. Get them now!"
+#: /templates/_includes/carrier_apps_banner.html:6
+msgid "Get them now!"
 msgstr ""
 
-#: /templates/errors/date-error.html:4
-msgid "Please set today's date and time in your device settings to access the Marketplace."
+#. (es) Classificacao Indicativa.
+#: /templates/_includes/content_ratings.html:5
+msgid "Content Rating"
+msgstr "विषय सूची रेटिंग"
+
+#. (es) Classificacao Indicativa. Rating as in content rating.
+#: /templates/_includes/content_ratings.html:45
+msgid "Rating Details"
+msgstr "रेटिंग विवरण"
+
+#: /templates/_includes/post_install_message.html:2
+msgid "Installed!"
+msgstr "स्थापित!"
+
+#: /templates/_includes/post_install_message.html:5
+msgid "Launch this app from your <b>Applications</b> directory."
+msgstr "अपने <b> एप्लीकेशन</b> निर्देशिका से इस एप्स को लॉन्च करें."
+
+#: /templates/_includes/post_install_message.html:8
+msgid "Launch this app from your <b>Windows desktop</b> or <b>Start &#9658; All Programs</b>."
+msgstr "अपने <b> विंडोज डेस्कटॉप </b> से इस एप्स को लॉन्च करें या <b>शुरू करें &#9658; सभी प्रोग्राम्स</b>."
+
+#: /templates/_includes/post_install_message.html:11
+msgid "Launch this app from your <b>dash</b>, <b>Application picker</b>, or <b>Applications menu</b>."
+msgstr "अपने <b>डैश</b>, <b>एप्लीकेशन पिकर</b> या <b>एप्लीकेशन मेनू</b> से इस एप्स को लॉन्च करें."
+
+#: /templates/_includes/reviews_sidebar.html:9
+msgid "Edit your Review"
+msgstr "अपनी समीक्षा संपादित करें"
+
+#: /templates/_includes/reviews_sidebar.html:11
+msgid "Edit your review"
+msgstr "अपनी समीक्षा संपादित करें"
+
+#: /templates/_includes/reviews_sidebar.html:18
+msgid "Write a review"
+msgstr "एक समीक्षा लिखे"
+
+#: /templates/_includes/reviews_sidebar.html:18
+msgid "Sign in to review"
+msgstr "समीक्षा के लिए साइन इन करें"
+
+#: /templates/_includes/reviews_sidebar.html:26
+msgid "Read all reviews"
+msgstr "सभी समीक्षाएँ पढ़ें"
+
+#: /templates/addon/abuse.html:6
+msgid "Let us know if this add-on is doing something that isn't allowed in the <a href=\"{criteria_url}\" target=\"_blank\">review criteria</a> and should be removed from the Marketplace."
 msgstr ""
 
-#: /templates/errors/date-error.html:5 /templates/errors/offline-error.html:4
-msgid "Try again"
+#: /templates/addon/abuse.html:11
+msgid "Examples of issues to report here are if the add-on is completely broken, contains mature content, contains malware, etc. The add-on developer will not see your comments."
 msgstr ""
 
-#: /templates/errors/offline-error.html:2
-msgid "Currently Offline"
+#: /templates/addon/abuse.html:21 /templates/app/abuse.html:22
+msgid "Submit Report"
+msgstr "रिपोर्ट सबमिट करें"
+
+#: /templates/_includes/reviews_summary.html:9
+msgid "1 Review"
+msgid_plural "{numReviews} Reviews"
+msgstr[0] "1 समीक्षा"
+msgstr[1] "{numReviews} समीक्षाएँ"
+
+#: /templates/addon/index.html:13 /templates/app/index.html:19 /templates/website/index.html:15
+msgid "Description"
+msgstr "विवरण"
+
+#: /templates/addon/index.html:20 /templates/app/index.html:25 /templates/app/index.html:39 /templates/website/index.html:21
+msgid "View All"
+msgstr "सभी देखें"
+
+#: /templates/addon/index.html:25
+msgid "version: {version}"
 msgstr ""
 
-#: /templates/errors/offline-error.html:3
-msgid "Sorry, you need to be online to access the Marketplace."
+#: /templates/addon/index.html:26
+msgid "size: {size}"
 msgstr ""
 
-#: /templates/errors/pagination.html:1
-msgid "Error loading more"
-msgstr "अधिक लोड करने में त्रुटि"
+#: /templates/addon/index.html:29
+msgid "last updated: {date}"
+msgstr ""
 
-#: /templates/errors/pagination.html:2
-msgid "Try Again"
-msgstr "पुन: प्रयास करें"
+#: /templates/addon/index.html:36 /media/js/views/addon/abuse.js:36
+msgid "Report to Mozilla"
+msgstr ""
+
+#: /templates/addon/list.html:6
+msgid "Customize your device with powerful features."
+msgstr ""
+
+#: /templates/addon/list.html:26 /templates/addon/list.html:31
+msgid "No Firefox OS add-ons found."
+msgstr ""
+
+#: /templates/_macros/app_tile.html:108
+msgid "Review"
+msgid_plural "Reviews"
+msgstr[0] "समीक्षा"
+msgstr[1] "समीक्षासमीक्षाएँ"
+
+#: /templates/_macros/app_tile.html:114
+msgid "Not yet reviewed"
+msgstr "अभी तक समीक्षा नहीं की गयी"
+
+#: /templates/_macros/feed_app_tile.html:14
+msgid "&mdash; {attribution}"
+msgstr "&mdash; {रोपण}"
+
+#: /templates/_macros/feed_item.html:82 /templates/_macros/feed_item.html:175
+msgid "View all"
+msgstr "सभी कुछ देखें"
+
+#: /templates/_macros/feed_websites.html:16
+msgid "Visit this top site!"
+msgstr "इस शीर्ष साइट पर जाइये!"
+
+#: /templates/_macros/feed_websites.html:50
+msgid "Show me another site"
+msgstr "मुझे दूसरी साइट दिखाइए"
+
+#: /templates/_macros/more_button.html:3
+msgid "Load more"
+msgstr "और लोड करें"
+
+#: /templates/_macros/review.html:14
+msgid "For previous version {version}"
+msgstr "पुराने संस्करण के लिए {version}"
+
+#: /templates/_macros/review.html:25 /templates/_macros/review.html:29
+msgid "Edit"
+msgstr "संपादित करें"
+
+#: /templates/_macros/review.html:36
+msgid "Delete"
+msgstr "हटाएँ"
+
+#: /templates/_macros/review.html:42
+msgid "Report"
+msgstr "रिपोर्ट"
+
+#: /templates/_macros/review.html:44
+msgid "Flagged for review"
+msgstr "समीक्षा के लिए चिह्नित"
+
+#: /templates/_macros/previews.html:42 /templates/_macros/previews.html:45
+msgid "{app_name} screenshot"
+msgstr "{app_name} स्क्रीनशॉट"
+
+#: /templates/_macros/stars.html:5
+msgid "Rated {stars} out of {maxstars} stars"
+msgstr "रेटेड {stars} में से {maxstars} सितारे"
+
+#: /templates/app/abuse.html:5
+msgid "Need to report something?"
+msgstr "कुछ रिपोर्ट करने की आवश्यकता है?"
+
+#: /templates/app/abuse.html:7
+msgid "Let us know if this app is doing something that isn't allowed in the <a href=\"{criteria_url}\" target=\"_blank\">review criteria</a> and should be removed from the Marketplace."
+msgstr ""
+
+#: /templates/app/abuse.html:12
+msgid "Examples of issues to report here are if the app is broken, contains mature content, contains malware, etc. The app developer will not see your comments."
+msgstr ""
+
+#: /templates/app/index.html:35
+msgid "Updates"
+msgstr "अपडेट"
+
+#: /templates/app/index.html:46
+msgid "Last updated"
+msgstr "आखरी अपडेट"
+
+#: /templates/app/index.html:55
+msgid "Email Support"
+msgstr "ई - मेल समर्थन"
+
+#: /templates/app/index.html:62
+msgid "Support Site"
+msgstr "सहायता की साइट"
+
+#: /templates/app/index.html:68
+msgid "Homepage"
+msgstr "मुखपृष्ठ"
+
+#: /templates/app/index.html:81
+msgid "Statistics"
+msgstr "आंकड़े"
+
+#: /templates/app/index.html:88
+msgid "Edit Listing"
+msgstr "लिस्टिंग संपादित करें"
+
+#: /templates/app/index.html:96
+msgid "Approve / Reject"
+msgstr "स्वीकृत करें / अस्वीकृत करें"
+
+#: /templates/app/index.html:97
+msgid "Review History"
+msgstr "इतिहास की समीक्षा करें"
+
+#: /templates/app/index.html:114 /media/js/views/app/ratings.js:11
+msgid "Reviews"
+msgstr "समीक्षायें"
+
+#: /templates/app/index.html:125
+msgid "App not yet reviewed"
+msgstr "एप अभी तक समीक्षा नहीं की गयी"
+
+#: /templates/app/index.html:144
+msgid "Premium version available"
+msgstr "प्रीमियम संस्करण उपलब्ध है"
+
+#: /templates/app/index.html:162
+msgid "More Information"
+msgstr "अधिक जानकारी"
+
+#: /templates/app/index.html:165
+msgid "Developer"
+msgstr "डेवलपर"
+
+#: /templates/app/index.html:169
+msgid "Compatibility"
+msgstr ""
+
+#. delimiter to separate list of words (e.g., "eggs, ham, cheese").
+#: /templates/app/index.html:172 /templates/app/index.html:179
+msgid ","
+msgstr ","
+
+#: /templates/app/index.html:184
+msgid "File Size"
+msgstr "फ़ाइल का साइज़"
+
+#: /templates/app/index.html:189
+msgid "Most Recent Version"
+msgstr "सबसे हाल के संस्करण"
+
+#: /templates/app/index.html:207 /media/js/views/app/abuse.js:54
+msgid "Report Abuse"
+msgstr "दुर्व्यवहार की रिपोर्ट करें"
+
+#: /templates/app/privacy.html:8
+msgid "Back to app"
+msgstr "एप्प्स पर वापस जाएँ"
+
+#: /templates/app/privacy.html:11
+msgid "Loading Privacy Policy..."
+msgstr "गुप्त कूटनीती लोड हो रहा है..."
+
+#: /templates/app/receipt.html:2
+msgid "Thank you for purchasing"
+msgstr "खरीदने के लिये शुक्रिया"
+
+#: /templates/errors/404.html:2
+msgid "Content Not Found"
+msgstr "सामग्री नहीं मिली"
+
+#: /templates/errors/404.html:3
+msgid "Whoops! Something went wrong and you ended up here. Sorry!"
+msgstr "ओह! कुछ गलत हो गया है और आपका कार्य समाप्त हो गया है. क्षमा करें!"
 
 #: /templates/errors/fragment.html:2
 msgid "An error occurred."
 msgstr "एक त्रुटि हो गई."
 
-#: /templates/ratings/edit.html:5 /templates/ratings/main.html:15 /media/js/views/app/ratings/edit.js:86
+#: /templates/errors/pagination.html:2
+msgid "Try Again"
+msgstr "पुन: प्रयास करें"
+
+#: /templates/ratings/main.html:36
+msgid "This app has no reviews."
+msgstr "इस एप्प की समीक्षा उपलब्ध नहीं है."
+
+#: /templates/ratings/add.html:8 /templates/ratings/edit.html:4 /media/js/views/app/ratings/edit.js:15
 msgid "Edit Review"
 msgstr "समीक्षा संपादित करें"
 
-#: /templates/ratings/edit.html:9 /templates/ratings/write.html:7
+#: /templates/ratings/add.html:8 /media/js/views/app/ratings/add.js:20
+msgid "Leave a Review"
+msgstr "समीक्षा लिखें"
+
+#: /templates/ratings/add.html:10
+msgid "Please select a star rating."
+msgstr "कृपया एक स्टार रेटिंग का चयन करें."
+
+#: /templates/ratings/add.html:12
 msgid "Rate:"
+msgstr "दर:"
+
+#: /templates/ratings/add.html:23
+msgid ""
+"Please read the <a href=\"{url}\" target=\"_blank\">Review Guidelines</a> for more details about rating apps. Reviews that do not meet these guidelines may be removed by our moderation team without "
+"notice."
 msgstr ""
+"एप्प्स के मूल्यांकन के बारे में अधिक जानकारी के लिए कृपया <a href=\"{url}\" target=\"_blank\"> समीक्षा दिशानिर्देश को पढ़ें.</a>समीक्षाएँ जो कि दिशा-निर्देशों को पूरा नहीं करते को बिना सुचना दिए हमारी संयम टीम द्वारा हटाया जा "
+"सकता है."
 
-#: /templates/ratings/edit.html:21 /templates/ratings/write.html:3 /templates/ratings/write.html:19 /templates/ratings/report.html:3 /templates/ratings/report.html:23
-#: /templates/user/newsletter.html:13
-msgid "Cancel"
-msgstr "रद्द करें"
+#: /templates/ratings/add.html:28
+msgid "Tell us what you like about this app. Write like you’re telling a friend about your experience with the app. Give specific details, for example, What features did you like or dislike?"
+msgstr "आपको इस एप्लिकेशन के बारे में क्या पसंद है, हमें बताएँ. आप इस प्रकार लिखें जैसे कि आप अनुप्रयोग के साथ अपने अनुभव के बारे में एक मित्र को बता रहे हैं. विशिष्ट जानकारी दें, उदाहरण के लिए, तुमने कौन सी विशेषताएं पसंद या नापसंद की?"
 
-#: /templates/ratings/edit.html:25 /templates/ratings/write.html:23
-msgid "Only logged in users may edit reviews."
-msgstr "केवल लॉग इन उपयोगकर्ता समीक्षा संपादित कर सकते हैं."
+#: /templates/ratings/add.html:32
+msgid "Only users that are logged in may submit reviews."
+msgstr "सिर्फ यूजर जो लोगिन है समीक्षा जमा कर सकते हैं."
 
-#: /templates/ratings/main.html:6 /templates/detail/main.html:124 /media/js/views/app/ratings.js:16
-msgid "Reviews"
-msgstr "समीक्षायें"
+#: /templates/ratings/add.html:36
+msgid "Update Review"
+msgstr "समीक्षा अपडेट करें"
 
-#: /templates/ratings/main.html:19 /templates/ratings/write.html:2 /templates/detail/main.html:154 /media/js/views/app/ratings/add.js:35
-msgid "Write a Review"
-msgstr "एक समीक्षा लिखें"
+#: /templates/ratings/add.html:36
+msgid "Submit Review"
+msgstr "समीक्षा जमा करें"
 
-#: /templates/ratings/main.html:19 /templates/detail/main.html:154
-msgid "Sign in to Review"
-msgstr "समीक्षा के लिए साइन इन करें"
+#: /templates/ratings/flag.html:3 /templates/ratings/flag.html:26
+msgid "Flag Review"
+msgstr "फ्लैग की समीक्षा"
+
+#: /templates/ratings/flag.html:4
+msgid "See an issue with this review? Select a reason below."
+msgstr "इस समीक्षा के साथ एक मुद्दा देखें? नीचे एक कारण का चयन करें."
+
+#: /templates/ratings/flag.html:7
+msgid "Spam or otherwise non-review content"
+msgstr "स्पैम या फिर गैर-समीक्षा सामग्री"
+
+#: /templates/ratings/flag.html:10
+msgid "Inappropriate language/dialog"
+msgstr "अनुचित भाषा/संवाद"
+
+#: /templates/ratings/flag.html:13
+msgid "Misplaced bug report or support request"
+msgstr "अनुपयुक्त बग रिपोर्ट या समर्थन का अनुरोध"
 
 #: /templates/ratings/rating.html:4 /media/js/views/app/ratings/rating.js:13
 msgid "App Review"
-msgstr ""
+msgstr "एप्प की समीक्षा"
 
-#: /templates/ratings/report.html:2
-msgid "Please select a reason:"
-msgstr "एक कारण का चयन करें:"
+#: /templates/website/index.html:34
+msgid "Explore more in {category_one} and {category_two}."
+msgstr "अधिक खोजें {category_one} एवं {category_two}."
 
-#: /templates/ratings/report.html:8
-msgid "Spam or otherwise non-review content"
-msgstr ""
+#: /templates/website/index.html:38
+msgid "Explore more in {category}."
+msgstr "अधिक खोजें {category}."
 
-#: /templates/ratings/report.html:13
-msgid "Inappropriate language/dialog"
-msgstr ""
+#: /templates/website/index.html:47
+msgid "Is there something wrong or out-of-date with this website listing?"
+msgstr "इस वेबसाइट लिस्टिंग के साथ कुछ गलत है या अप्रचलित है?"
 
-#: /templates/ratings/report.html:18
-msgid "Misplaced bug report or support request"
-msgstr ""
+#: /templates/website/index.html:49 /templates/website/issue.html:14
+msgid "Report an issue"
+msgstr "Report an issue"
 
-#: /templates/user/newsletter.html:3
-msgid "Get Firefox Marketplace news"
-msgstr ""
+#: /templates/website/issue.html:5
+msgid "Let us know if something is missing from this website listing or its information should be updated."
+msgstr "हमको ज्ञान करायें यदि आप इस वेबसाइट मैं कुछ कमी पाते हैं या जानकारी मैं कुछ सुधार की आवश्यकता है."
 
-#: /templates/user/newsletter.html:8
-msgid "Sign up"
-msgstr ""
+#: /templates/website/issue.html:6
+msgid "For information on show to report a copyright or trademark issue <a href=\"{url}\" target=\"_blank\">see here</a>."
+msgstr "जानकारी देखने के लिए कापीराइट अथवा ट्रेडमार्क विवाद सूचित करें <a href=\"{url}\" target=\"_blank\">यहाँ देखें</a>."
 
-#: /templates/user/newsletter.html:15
-msgid "Signing up..."
-msgstr ""
+#: /templates/website/issue.html:8
+msgid "Describe the issue here. Please be specific."
+msgstr "यहाँ समस्या का वर्णन करें. कृपया विशिष्ट रहें."
 
-#: /templates/user/newsletter.html:18
-msgid "You were successfully signed up for the Marketplace newsletter!"
-msgstr "आप सफलतापूर्वक मार्केटप्लेस न्यूजलेटर के लिए साइन पर किए गए!"
-
-#: /templates/detail/main.html:44
-msgid "Installed!"
-msgstr ""
-
-#: /templates/detail/main.html:47
-msgid "Launch this app from your <b>Applications</b> directory."
-msgstr ""
-
-#: /templates/detail/main.html:50
-msgid "Launch this app from your <b>Windows desktop</b> or <b>Start &#9658; All Programs</b>."
-msgstr ""
-
-#: /templates/detail/main.html:53
-msgid "Launch this app from your <b>dash</b>, <b>Application picker</b>, or <b>Applications menu</b>."
-msgstr ""
-
-#: /templates/detail/main.html:68
-msgid "Updates"
-msgstr "अपडेट"
-
-#: /templates/detail/main.html:74 /templates/detail/main.html:91
-msgid "Less&hellip;"
-msgstr ""
-
-#: /templates/detail/main.html:74 /templates/detail/main.html:91
-msgid "More&hellip;"
-msgstr ""
-
-#: /templates/detail/main.html:85 /media/js/feed.js:33
-msgid "Description"
-msgstr "विवरण"
-
-#: /templates/detail/main.html:94
-msgid "Version"
-msgstr "संस्करण"
-
-#: /templates/detail/main.html:96
-msgid "Latest version: {version}"
-msgstr "नवीनतम संस्करण: {version}"
-
-#: /templates/detail/main.html:110
-msgid "Edit Listing"
-msgstr "लिस्टिंग संपादित करें"
-
-#: /templates/detail/main.html:113
-msgid "Approve / Reject"
-msgstr "स्वीकृत करें / अस्वीकृत करें"
-
-#: /templates/detail/main.html:113
-msgid "Review History"
-msgstr "इतिहास की समीक्षा करें"
-
-#: /templates/detail/main.html:142
-msgid "App not yet reviewed"
-msgstr ""
-
-#: /templates/detail/main.html:150
-msgid "Edit Your Review"
-msgstr "समीक्षा संपादित करें"
-
-#: /templates/detail/main.html:210
-msgid "Premium version available"
-msgstr "प्रीमियम संस्करण उपलब्ध है"
-
-#: /templates/user/purchases.html:48
-msgid "You must be signed in to view your apps."
-msgstr ""
-
-#: /templates/user/purchases.html:49
-msgid "Sign in / Sign up"
-msgstr "साइन इन / साइन अप"
-
-#: /templates/user/purchases.html:33
-msgid "You have no apps"
-msgstr ""
-
-#: /templates/settings/feedback.html:16
-msgid "Send"
-msgstr "भेजें"
-
-#: /templates/settings/feedback.html:22 /templates/settings/feedback.html:24
-msgid "Get Help"
-msgstr "सहायता प्राप्त करें"
-
-#: /templates/settings/main.html:2 /media/js/views/settings.js:47
-msgid "Account Settings"
-msgstr "अकाउंट सेटिंग्स"
-
-#: /templates/settings/main.html:10
-msgid "Email"
-msgstr "ईमेल"
-
-#: /templates/settings/main.html:19
-msgid "Display Name"
-msgstr "नाम प्रदर्शन करें"
-
-#: /templates/settings/main.html:28
-msgid "Region"
-msgstr "क्षेत्र"
-
-#: /templates/settings/main.html:37
-msgid "Save Changes"
-msgstr "परिवर्तन सहेजें"
-
-#: /templates/settings/main.html:40
-msgid "Sign In / Sign Up"
-msgstr "साइन इन / साइन अप"
-
-#: /templates/settings/nav.html:6
-msgid "Account"
-msgstr ""
-
-#: /media/js/categories.js:7
+#: /media/js/categories.js:6
 msgid "Games"
 msgstr "खेल"
 
-#: /media/js/categories.js:8
-msgid "Books"
-msgstr ""
+#: /media/js/categories.js:7
+msgid "Books & Comics"
+msgstr "पुस्तकें और हास्य"
 
-#: /media/js/categories.js:9
+#: /media/js/categories.js:8
 msgid "Business"
 msgstr "व्यापार"
 
-#: /media/js/categories.js:10
+#: /media/js/categories.js:9
 msgid "Education"
 msgstr "शिक्षा"
 
-#: /media/js/categories.js:11
+#: /media/js/categories.js:10
 msgid "Entertainment"
 msgstr "मनोरंजन"
+
+#: /media/js/categories.js:11
+msgid "Food & Drink"
+msgstr "भोजन और जाम"
 
 #: /media/js/categories.js:12
 msgid "Health & Fitness"
 msgstr "स्वास्थ्य और फ़िटनेस"
 
 #: /media/js/categories.js:13
+msgid "Humor"
+msgstr "हास्य"
+
+#: /media/js/categories.js:14
+msgid "Internet"
+msgstr "इंटरनेट"
+
+#: /media/js/categories.js:15
+msgid "Kids"
+msgstr "बच्चे"
+
+#: /media/js/categories.js:16
 msgid "Lifestyle"
 msgstr "जीवन शैली"
 
-#: /media/js/categories.js:14
+#: /media/js/categories.js:17
 msgid "Maps & Navigation"
 msgstr "मैप्स और नेविगेशन"
 
-#: /media/js/categories.js:15
+#: /media/js/categories.js:18
 msgid "Music"
 msgstr "संगीत"
 
-#: /media/js/categories.js:16
-msgid "News & Weather"
-msgstr "समाचार और मौसम"
+#: /media/js/categories.js:19
+msgid "News"
+msgstr "समाचार"
 
-#: /media/js/categories.js:17
+#: /media/js/categories.js:20
+msgid "Personalization"
+msgstr "निजीकरण"
+
+#: /media/js/categories.js:21
 msgid "Photo & Video"
 msgstr "फोटो और वीडियो"
 
-#: /media/js/categories.js:18
+#: /media/js/categories.js:22
 msgid "Productivity"
 msgstr "उत्पादकता"
 
-#: /media/js/categories.js:19
+#: /media/js/categories.js:23
 msgid "Reference"
 msgstr "संदर्भ"
 
-#: /media/js/categories.js:20
+#: /media/js/categories.js:24
+msgid "Science & Tech"
+msgstr "विज्ञान एवं तकनीकी"
+
+#: /media/js/categories.js:25
 msgid "Shopping"
 msgstr "खरीदारी"
 
-#: /media/js/categories.js:21
+#: /media/js/categories.js:26
 msgid "Social"
 msgstr "सामाजिक"
 
-#: /media/js/categories.js:22
+#: /media/js/categories.js:27
 msgid "Sports"
 msgstr "खेल"
 
-#: /media/js/categories.js:23
+#: /media/js/categories.js:28
 msgid "Travel"
 msgstr "यात्रा"
 
-#: /media/js/categories.js:24
+#: /media/js/categories.js:29
 msgid "Utilities"
+msgstr "यूटिलिटीज"
+
+#: /media/js/categories.js:30
+msgid "Weather"
+msgstr "मौसम"
+
+#: /media/js/apps.js:114
+msgid "not available for your region"
+msgstr "आपके क्षेत्र के लिए उपलब्ध नहीं"
+
+#: /media/js/apps.js:119
+msgid "not available for your platform"
+msgstr "अपने प्लेटफार्म के लिए उपलब्ध नहीं"
+
+#: /media/js/apps.js:123 /media/js/apps.js:128
+msgid "not compatible with your device"
 msgstr ""
 
-#: /media/js/apps.js:93
-msgid "Your device does not support payments."
-msgstr "आपका उपकरण भुगतान समर्थन नहीं करता है."
+#: /media/js/buttons.js:92 /media/js/buttons.js:167 /media/js/payments.js:134
+msgid "Payment cancelled."
+msgstr "भुगतान रद्द किया गया."
 
-#: /media/js/apps.js:95
-msgid "This app is unavailable for purchase in your region."
-msgstr "यह एप्लिकेशन आपके क्षेत्र में खरीद के लिए उपलब्ध नहीं है."
+#. App's install failed, but problem is temporary.
+#: /media/js/buttons.js:250
+msgid "Install failed. Please try again later."
+msgstr "स्थापित करने में विफल. बाद में पुन: प्रयास करें."
 
-#: /media/js/apps.js:99
-msgid "Your browser or device is not web-app compatible."
-msgstr "आपका ब्राउज़र या उपकरण वेब-एप्लिकेशन अनुकूल नहीं है."
+#: /media/js/buttons.js:336 /media/js/buttons.js:341 /media/js/buttons.js:440 /media/js/buttons.js:444
+msgid "Installed"
+msgstr "स्थापित"
 
-#: /media/js/apps.js:101
-msgid "This app is unavailable for your platform."
-msgstr "यह एप्लिकेशन आपके प्लेटफ़ॉर्म के लिए उपलब्ध नहीं है."
+#: /media/js/buttons.js:417
+msgid "free"
+msgstr "मुफ्त"
+
+#: /media/js/buttons.js:417
+msgid "Free"
+msgstr "मुफ्त"
+
+#: /media/js/buttons.js:422
+msgid "Unavailable"
+msgstr "अनुपलब्ध"
+
+#: /media/js/buttons.js:440 /media/js/buttons.js:457 /media/js/buttons.js:467
+msgid "Install"
+msgstr "स्थापित करें"
+
+#: /media/js/buttons.js:445
+msgid "Install Add-on"
+msgstr ""
+
+#: /media/js/buttons.js:450
+msgid "Open website"
+msgstr "वेबसाइट को खोलिए"
+
+#: /media/js/buttons.js:453
+msgid "Open app"
+msgstr "एप्प को खोलिए"
+
+#: /media/js/buttons.js:455
+msgid "Install for free"
+msgstr "मुफ्त मैं इनस्टॉल करें"
+
+#: /media/js/buttons.js:459
+msgid "Install for {price}"
+msgstr "{price} के लिए स्थापित करें"
+
+#: /media/js/buttons.js:465
+msgid "Open"
+msgstr "खोलिए"
+
+#: /media/js/compat_filter.js:42 /media/js/compat_filter.js:51
+msgid "All Platforms"
+msgstr "सभी प्लेटफार्म"
+
+#: /media/js/compat_filter.js:43 /media/js/compat_filter.js:54
+msgid "Android Mobile"
+msgstr "Android मोबाइल"
+
+#: /media/js/compat_filter.js:44 /media/js/compat_filter.js:55
+msgid "Android Tablet"
+msgstr "Android टेबलेट"
+
+#: /media/js/compat_filter.js:45 /media/js/compat_filter.js:52
+msgid "Desktop"
+msgstr "डेस्कटॉप"
+
+#: /media/js/compat_filter.js:46 /media/js/compat_filter.js:53
+msgid "Firefox OS"
+msgstr "Firefox OS"
 
 #. For ages {0} and higher. (de) `ab {0} Jahren`.
-#: /media/js/content-ratings.js:98
+#: /media/js/content-ratings.js:71
 msgid "For ages {0}+"
 msgstr "उम्र के लिए {0}+"
 
-#: /media/js/content-ratings.js:104
+#: /media/js/content-ratings.js:77
 msgid "Generic"
 msgstr "जातिगत"
 
-#: /media/js/content-ratings.js:111
+#: /media/js/content-ratings.js:84
 msgid "For all ages"
 msgstr "सभी उम्र के लिए"
 
-#: /media/js/content-ratings.js:120
+#: /media/js/content-ratings.js:93
 msgid "Rating Pending"
 msgstr "रेटिंग लम्बित"
 
-#: /media/js/content-ratings.js:121
+#: /media/js/content-ratings.js:94
 msgid "Rating Refused"
 msgstr "रेटिंग अस्वीकृत"
 
-#: /media/js/content-ratings.js:124
+#: /media/js/content-ratings.js:97
 msgid "Everyone"
 msgstr "सब लोग"
 
-#: /media/js/content-ratings.js:125
+#: /media/js/content-ratings.js:98
 msgid "Everyone 10+"
 msgstr "सब लोग10+"
 
-#: /media/js/content-ratings.js:126
+#: /media/js/content-ratings.js:99
 msgid "Teen"
 msgstr "किशोर"
 
-#: /media/js/content-ratings.js:127
+#: /media/js/content-ratings.js:100
 msgid "Mature 17+"
 msgstr "परिपक्व17+"
 
-#: /media/js/content-ratings.js:128
+#: /media/js/content-ratings.js:101
 msgid "Adults Only 18+"
 msgstr "केवल वयस्क18+"
+
+#: /media/js/feed_websites.js:61
+msgid "{current} of {count}"
+msgstr "{वर्तमान} की {गिनती}"
 
 #: /media/js/edbrands.js:33
 msgid "App for Albania"
 msgid_plural "Apps for Albania"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "अल्बानिया के लिए एप"
+msgstr[1] "अल्बानिया के लिए एप्स"
 
 #: /media/js/edbrands.js:34
 msgid "App for Argentina"
 msgid_plural "Apps for Argentina"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "अर्जेंटीना के लिए एप"
+msgstr[1] "अर्जेंटीना के लिए एप्स"
 
 #: /media/js/edbrands.js:35
 msgid "App for Bangladesh"
 msgid_plural "Apps for Bangladesh"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "बांगलादेश के लिए एप"
+msgstr[1] "बांगलादेश के लिए एप्स"
 
 #: /media/js/edbrands.js:36
 msgid "App for Brazil"
 msgid_plural "Apps for Brazil"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ब्राज़ील के लिए एप"
+msgstr[1] "ब्राज़ील के लिए एप्स"
 
 #: /media/js/edbrands.js:37
 msgid "App for Bulgaria"
 msgid_plural "Apps for Bulgaria"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "बुल्गारिया के लिए एप"
+msgstr[1] "बुल्गारिया के लिए एप्स"
 
 #: /media/js/edbrands.js:38
 msgid "App for Chile"
 msgid_plural "Apps for Chile"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "चिली के लिए एप"
+msgstr[1] "चिली के लिए एप्स"
 
 #: /media/js/edbrands.js:39
 msgid "App for China"
 msgid_plural "Apps for China"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "चीन के लिए एप"
+msgstr[1] "चीन के लिए एप्स"
 
 #: /media/js/edbrands.js:40
 msgid "App for Colombia"
 msgid_plural "Apps for Colombia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "कोलंबिया के लिए एप"
+msgstr[1] "कोलंबिया के लिए एप्स"
 
 #: /media/js/edbrands.js:41
 msgid "App for Costa Rica"
 msgid_plural "Apps for Costa Rica"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "कोस्टा रिका के लिए एप्लिकेशन"
+msgstr[1] "कोस्टा रिका के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:42
 msgid "App for Croatia"
 msgid_plural "Apps for Croatia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "क्रोएशिया के लिए ऐप"
+msgstr[1] "क्रोएशिया के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:43
 msgid "App for Czech Republic"
 msgid_plural "Apps for Czech Republic"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "चेक गणराज्य के लिए एप्लिकेशन"
+msgstr[1] "चेक गणराज्य के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:44
 msgid "App for Ecuador"
 msgid_plural "Apps for Ecuador"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "इक्वाडोर के लिए एप्लिकेशन"
+msgstr[1] "इक्वाडोर के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:45
 msgid "App for El Salvador"
 msgid_plural "Apps for El Salvador"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "अल सल्वाडोर के लिए एप्लिकेशन"
+msgstr[1] "अल सल्वाडोर के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:46
 msgid "App for France"
 msgid_plural "Apps for France"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "फ्रांस के लिए एप्लिकेशन"
+msgstr[1] "फ्रांस के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:47
 msgid "App for Germany"
 msgid_plural "Apps for Germany"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "जर्मनी के लिए एप्लिकेशन"
+msgstr[1] "जर्मनी के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:48
 msgid "App for Greece"
 msgid_plural "Apps for Greece"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ग्रीस के लिए एप्लिकेशन"
+msgstr[1] "ग्रीस के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:49
 msgid "App for Hungary"
 msgid_plural "Apps for Hungary"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "हंगरी के लिए एप्लिकेशन"
+msgstr[1] "हंगरी के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:50
 msgid "App for India"
 msgid_plural "Apps for India"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "इंडिया के लिए एप"
+msgstr[1] "इंडिया के लिए एप्स"
 
 #: /media/js/edbrands.js:51
 msgid "App for Italy"
 msgid_plural "Apps for Italy"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "इटली के लिए एप"
+msgstr[1] "इटली के लिए एप्स"
 
 #: /media/js/edbrands.js:52
 msgid "App for Japan"
 msgid_plural "Apps for Japan"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "जापान के लिए एप"
+msgstr[1] "जापान के लिए एप्स"
 
 #: /media/js/edbrands.js:53
 msgid "App for Macedonia"
 msgid_plural "Apps for Macedonia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "मकदूनिया के लिए एप"
+msgstr[1] "मकदूनिया के लिए एप्स"
 
 #: /media/js/edbrands.js:54
 msgid "App for Mexico"
 msgid_plural "Apps for Mexico"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "मेक्सिको के लिए एप"
+msgstr[1] "मेक्सिको के लिए एप्स"
 
 #: /media/js/edbrands.js:55
 msgid "App for Montenegro"
 msgid_plural "Apps for Montenegro"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "मॉन्टेंगरो के लिए एप"
+msgstr[1] "मॉन्टेंगरो के लिए एप्स"
 
 #: /media/js/edbrands.js:56
 msgid "App for Nicaragua"
 msgid_plural "Apps for Nicaragua"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "निकारागुआ के लिए एप्लिकेशन"
+msgstr[1] "निकारागुआ के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:57
 msgid "App for Panama"
 msgid_plural "Apps for Panama"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "पनामा के लिए एप्लिकेशन"
+msgstr[1] "पनामा के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:58
 msgid "App for Peru"
 msgid_plural "Apps for Peru"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "पेरू के लिए एप्लिकेशन"
+msgstr[1] "पेरू के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:59
 msgid "App for Poland"
 msgid_plural "Apps for Poland"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "पोलैंड के लिए एप्लिकेशन"
+msgstr[1] "पोलैंड के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:60
 msgid "App for Russia"
 msgid_plural "Apps for Russia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "रूस के लिए एप्लिकेशन"
+msgstr[1] "रूस के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:61
 msgid "App for Serbia"
 msgid_plural "Apps for Serbia"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "सर्बिया के लिए एप्लिकेशन"
+msgstr[1] "सर्बिया के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:62
 msgid "App for South Africa"
 msgid_plural "Apps for South Africa"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "दक्षिण अफ्रीका के लिए एप्लिकेशन"
+msgstr[1] "दक्षिण अफ्रीका के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:63
 msgid "App for Spain"
 msgid_plural "Apps for Spain"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "स्पेन के लिए एप्लिकेशन"
+msgstr[1] "स्पेन के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:64
 msgid "App for Uruguay"
 msgid_plural "Apps for Uruguay"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "उरुग्वे के लिए एप्लिकेशन"
+msgstr[1] "उरुग्वे के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:65
 msgid "App for Venezuela"
 msgid_plural "Apps for Venezuela"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "वेनेजुएला के लिए एप्लिकेशन"
+msgstr[1] "वेनेजुएला के लिए एप्लिकेशन"
 
 #: /media/js/edbrands.js:66
 msgid "Arts & Entertainment App"
 msgid_plural "Arts & Entertainment Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "कला और मनोरंजन ऐप"
+msgstr[1] "कला और मनोरंजन एप्प्स"
 
 #: /media/js/edbrands.js:67
 msgid "Featured Book App"
 msgid_plural "Featured Book Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशिष्ठ बुक एप्लीकेशन"
+msgstr[1] "विशिष्ठ बुक एप्लीकेशन"
 
 #: /media/js/edbrands.js:68
 msgid "Featured Creativity App"
 msgid_plural "Featured Creativity Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशेष रुप से प्रदर्शित रचनात्मक एप्लिकेशन"
+msgstr[1] "विशेष रुप से प्रदर्शित रचनात्मक एप्लिकेशन"
 
 #: /media/js/edbrands.js:69
 msgid "Featured Education App"
 msgid_plural "Featured Education Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "प्रमुख शिक्षा ऐप"
+msgstr[1] "प्रमुख शिक्षा एप्प्स"
 
 #: /media/js/edbrands.js:70
 msgid "Featured Game"
 msgid_plural "Featured Games"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "चित्रित खेल"
+msgstr[1] "चित्रित खेल"
 
 #: /media/js/edbrands.js:71
 msgid "Groundbreaking App"
 msgid_plural "Groundbreaking Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "बेहतरीन एप्लीकेशन"
+msgstr[1] "बेहतरीन एप्लीकेशन"
 
 #: /media/js/edbrands.js:72
 msgid "Health & Fitness App"
 msgid_plural "Health & Fitness Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "स्वास्थ्य और उसका रखरखाव एप्लिकेशन"
+msgstr[1] "स्वास्थ्य और उसका रखरखाव एप्लिकेशन"
 
 #: /media/js/edbrands.js:73
 msgid "Hidden Gem"
 msgid_plural "Hidden Gems"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "छिपे हुए रत्न"
+msgstr[1] "छिपे हुए रत्न"
 
 #: /media/js/edbrands.js:74
 msgid "Featured Lifestyle App"
 msgid_plural "Featured Lifestyle Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशेष रुप से जीवन शैली ऐप"
+msgstr[1] "विशेष रुप से जीवन शैली एप्प्स"
 
 #: /media/js/edbrands.js:75
 msgid "Local Favorite App"
 msgid_plural "Local Favorite Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "स्थानीय पसंदीदा ऐप"
+msgstr[1] "स्थानीय पसंदीदा एप्प्स"
 
 #: /media/js/edbrands.js:76
 msgid "Maps & Navigation App"
 msgid_plural "Maps & Navigation Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "मैप्स और नेविगेशन एप्लीकेशन"
+msgstr[1] "मैप्स और नेविगेशन एप्लीकेशन"
 
 #: /media/js/edbrands.js:77
 msgid "Featured Music App"
 msgid_plural "Featured Music Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशेष रुप से संगीत एप्लिकेशन"
+msgstr[1] "विशेष रुप से संगीत एप्प्स"
 
 #: /media/js/edbrands.js:78
 msgid "Mystery App!"
 msgid_plural "Mystery Apps!"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "रहस्य एप्प्स!"
+msgstr[1] "रहस्य एप्प्स!"
 
 #: /media/js/edbrands.js:79
 msgid "News & Weather App"
 msgid_plural "News & Weather Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "समाचार एवं मौसम एप्लिकेशन"
+msgstr[1] "समाचार एवं मौसम एप्लिकेशन"
 
 #: /media/js/edbrands.js:80
 msgid "Photo & Video App"
 msgid_plural "Photo & Video Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "फोटो और वीडियो एप्लीकेशन"
+msgstr[1] "फोटो और वीडियो एप्लीकेशन"
 
 #: /media/js/edbrands.js:81
 msgid "Featured Shopping App"
 msgid_plural "Featured Shopping Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशेष रुप से प्रदर्शित खरीदारी एप्लिकेशन"
+msgstr[1] "विशेष रुप से प्रदर्शित खरीदारी एप्लिकेशन"
 
 #: /media/js/edbrands.js:82
 msgid "Featured Social App"
 msgid_plural "Featured Social Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशेष रुप से प्रदर्शित सामाजिक एप्लिकेशन"
+msgstr[1] "विशेष रुप से प्रदर्शित सामाजिक एप्लिकेशन"
 
 #: /media/js/edbrands.js:83
 msgid "Featured Sports App"
 msgid_plural "Featured Sports Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशेष रुप से प्रदर्शित खेल एप्लिकेशन"
+msgstr[1] "विशेष रुप से प्रदर्शित खेल एप्लिकेशन"
 
 #: /media/js/edbrands.js:84
 msgid "Tool & Time Saver"
 msgid_plural "Tools & Time Savers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "उपकरण और समय बचानेवाला"
+msgstr[1] "उपकरण और समय बचानेवाले"
 
 #: /media/js/edbrands.js:85
 msgid "Featured Travel App"
 msgid_plural "Featured Travel Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "विशेष रुप से प्रदर्शित यात्रा एप्लिकेशन"
+msgstr[1] "विशेष रुप से प्रदर्शित यात्रा एप्लिकेशन"
 
 #: /media/js/edbrands.js:86
 msgid "Work & Business App"
 msgid_plural "Work & Business Apps"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "कार्य व व्यापार एप्लिकेशन"
+msgstr[1] "कार्य व व्यापार एप्लिकेशन"
 
-#: /media/js/feed.js:8
-msgid "Grid Layout"
-msgstr ""
+#: /media/js/helpers_local.js:137
+msgid "works offline"
+msgstr "ऑफ़लाइन काम करता है"
 
-#: /media/js/feed.js:9
-msgid "List Layout"
-msgstr ""
-
-#: /media/js/feed.js:31
-msgid "Icon"
-msgstr ""
-
-#: /media/js/feed.js:32
-msgid "Background Image"
-msgstr ""
-
-#: /media/js/feed.js:34
-msgid "Quote"
-msgstr ""
-
-#: /media/js/feed.js:35
-msgid "Screenshot"
-msgstr ""
-
-#: /media/js/feed.js:43
-msgid "Promo Collection"
-msgstr ""
-
-#: /media/js/feed.js:44
-msgid "Listing Collection"
-msgstr ""
-
-#: /media/js/installer_direct.js:56
+#: /media/js/installer_direct.js:140
 msgid "Unable to install packaged apps"
-msgstr ""
+msgstr "पैकेज्ड एप्स स्थापित करने में असमर्थ"
 
-#: /media/js/installer_direct.js:96 /media/js/installer_iframe.js:72
+#: /media/js/installer_direct.js:178
+msgid "Sorry, we had trouble fetching this app's data. Please try again later."
+msgstr "क्षमा करें, हमें इस एप्स के डेटा को पाने में मुसीबत थी. कृप्या थोड़ी देर बाद कोशिश करें."
+
+#: /media/js/installer_direct.js:180 /media/js/installer_iframe.js:111
 msgid "App install error: {error}"
 msgstr "एप्प्स की स्थापित त्रुटि: {error}"
 
-#. "Open" as in "Open the app".
-#: /media/js/apps_buttons.js:60 /media/js/apps_buttons.js:120 /media/js/payments/payments.js:91
-msgid "Payment cancelled."
-msgstr "भुगतान रद्द किया गया."
-
-#: /media/js/apps_buttons.js:91
-msgid "Purchasing"
-msgstr ""
-
-#. The app's installation has failed, but the problem is temporary.
-#: /media/js/apps_buttons.js:190
-msgid "Install failed. Please try again later."
-msgstr "स्थापित करने में विफल. बाद में पुन: प्रयास करें."
-
-#: /media/js/newsletter.js:65
+#: /media/js/newsletter.js:73
 msgid "There was an error submitting your newsletter sign up request"
-msgstr ""
-
-#: /media/js/settings.js:108
-msgid "Rest of World"
-msgstr "बाकी की दुनिया"
-
-#: /media/js/settings.js:109
-msgid "Argentina"
-msgstr "अर्जेंटीना"
-
-#: /media/js/settings.js:110
-msgid "Bangladesh"
-msgstr ""
-
-#: /media/js/settings.js:111
-msgid "Brazil"
-msgstr "ब्राज़िल"
-
-#: /media/js/settings.js:112
-msgid "Chile"
-msgstr "चिली"
-
-#: /media/js/settings.js:113
-msgid "China"
-msgstr "चीन"
-
-#: /media/js/settings.js:114
-msgid "Colombia"
-msgstr "कोलंबिया"
-
-#: /media/js/settings.js:115
-msgid "Costa Rica"
-msgstr "कोस्टा रिका"
-
-#: /media/js/settings.js:116
-msgid "Czech Republic"
-msgstr ""
-
-#: /media/js/settings.js:117
-msgid "Ecuador"
-msgstr "इक्वेडोर"
-
-#: /media/js/settings.js:118
-msgid "El Salvador"
-msgstr "अल सल्वाडोर"
-
-#: /media/js/settings.js:119
-msgid "France"
-msgstr ""
-
-#: /media/js/settings.js:120
-msgid "Germany"
-msgstr "जर्मनी"
-
-#: /media/js/settings.js:121
-msgid "Greece"
-msgstr "ग्रीस"
-
-#: /media/js/settings.js:122
-msgid "Guatemala"
-msgstr "ग्वाटेमाला"
-
-#: /media/js/settings.js:123
-msgid "Hungary"
-msgstr "हंगरी"
-
-#: /media/js/settings.js:124
-msgid "India"
-msgstr ""
-
-#: /media/js/settings.js:125
-msgid "Italy"
-msgstr "इटली"
-
-#: /media/js/settings.js:126
-msgid "Japan"
-msgstr ""
-
-#: /media/js/settings.js:127
-msgid "Mexico"
-msgstr "मेक्सिको"
-
-#: /media/js/settings.js:128
-msgid "Montenegro"
-msgstr "मॉन्टेंगरो"
-
-#: /media/js/settings.js:129
-msgid "Nicaragua"
-msgstr "निकारागुआ"
-
-#: /media/js/settings.js:130
-msgid "Panama"
-msgstr "पनामा"
-
-#: /media/js/settings.js:131
-msgid "Peru"
-msgstr "पेरू"
-
-#: /media/js/settings.js:132
-msgid "Poland"
-msgstr "पोलैंड"
-
-#: /media/js/settings.js:133
-msgid "Serbia"
-msgstr "सर्बिया"
-
-#: /media/js/settings.js:134
-msgid "Spain"
-msgstr "स्पेन"
-
-#: /media/js/settings.js:135
-msgid "United Kingdom"
-msgstr "यूनाइटेड किंगडम"
-
-#: /media/js/settings.js:136
-msgid "United States"
-msgstr "संयुक्त राज्य"
-
-#: /media/js/settings.js:137
-msgid "Uruguay"
-msgstr "उरुग्वे"
-
-#: /media/js/settings.js:138
-msgid "Venezuela"
-msgstr "वेनेज़ुएला"
-
-#: /media/js/settings.js:139
-msgid "No region in search"
-msgstr "खोज में कोई क्षेत्र नहीं"
-
-#: /media/js/settings.js:165
-msgid "Sorry, you are currently offline. Please try again later."
-msgstr ""
-
-#. The report is an abuse report for reviews
-#: /media/js/ratings.js:40
-msgid "Sending report..."
-msgstr ""
-
-#: /media/js/ratings.js:45
-msgid "Review flagged"
-msgstr ""
-
-#: /media/js/ratings.js:49
-msgid "Report review operation failed"
-msgstr ""
-
-#: /media/js/ratings.js:60
-msgid "Review deleted"
-msgstr ""
-
-#: /media/js/ratings.js:90
-msgid "There was a problem deleting the review"
-msgstr ""
-
-#: /media/js/ratings.js:238
-msgid "Your review was posted"
-msgstr ""
-
-#: /media/js/ratings.js:252
-msgid "Error while submitting review"
-msgstr ""
-
-#. {n} is the number of stars
-#: /media/js/common/ratingwidget.js:34
-msgid "{n} star"
-msgid_plural "{n} stars"
-msgstr[0] ""
-msgstr[1] ""
-
-#: /media/js/commonplace/login.js:20
-msgid "You have been signed out"
-msgstr "आपको साइन आउट कर दिया गया है"
-
-#: /media/js/commonplace/login.js:24
-msgid "You have been signed in"
-msgstr "आपको साइन इन कर दिया गया है"
-
-#: /media/js/commonplace/login.js:209
-msgid "Persona login failed. Maybe you don't have an account under that email address?"
-msgstr "व्यक्तित्व लॉगिन विफल. हो सकता है कि उउस ईमेल पते के अंतर्गत एक खाता नहीं है?"
-
-#: /media/js/commonplace/login.js:214
-msgid "Persona login failed. A server error was encountered."
-msgstr "व्यक्तित्व लॉगिन विफल. एक सर्वर त्रुटि का सामना हुआ."
-
-#: /media/js/commonplace/login.js:281
-msgid "Persona cannot be reached. Try again later."
-msgstr "परसोना तक पहुँचा नहीं जा सकता. बाद में पुन: प्रयास करें."
-
-#: /media/js/commonplace/navigation.js:33
-msgid "No internet connection"
-msgstr ""
-
-#. {n} is the number of characters left.
-#: /media/js/commonplace/utils.js:28
-msgid "<b>{n}</b> character left."
-msgid_plural "<b>{n}</b> characters left."
-msgstr[0] "<b>{n}</b> बचे हुए अक्षर."
-msgstr[1] "<b>{n}</b> बचे हुए अक्षर."
-
-#: /media/js/payments/payments.js:94
-msgid "Payment failed. Try again later."
-msgstr ""
+msgstr "आपका समाचार पत्र साइन अप अनुरोध को प्रस्तुत करने में एक त्रुटि था"
 
 #. This error is raised when we are unable to fetch a JWT from the payments API.
-#: /media/js/payments/payments.js:115
+#: /media/js/payments.js:138
 msgid "Error while communicating with server. Try again later."
+msgstr "सर्वर के साथ संवाद स्थापित करते समय त्रुटि. दुवारा कोशिश करें."
+
+#: /media/js/payments.js:141
+msgid "Payment failed. Try again later."
+msgstr "भुगतान असफल हुआ. पुनः कोशिश करें."
+
+#. The report is an abuse report for reviews.
+#: /media/js/reviews.js:35
+msgid "Flagging review..."
+msgstr "फ्लैगिंग समीक्षा..."
+
+#: /media/js/reviews.js:40
+msgid "This review has been successfully flagged. Thanks!"
+msgstr "इस समीक्षा को सफलतापूर्वक फ्लैग कर दिया गया है.धन्यवाद!"
+
+#: /media/js/reviews.js:52
+msgid "Sorry, there was an issue flagging the review. Please try again later."
+msgstr "क्षमा करें,इस समीक्षा को फ्लैग करने मैं समस्या है. कृपया बाद में पुन: प्रयास करें."
+
+#: /media/js/reviews.js:62
+msgid "This review has been successfully deleted"
+msgstr "इस समीक्षा को सफलतापूर्वक मिटा दिया गया है"
+
+#: /media/js/reviews.js:93 /media/js/views/app/ratings/add.js:21
+msgid "Write a Review"
+msgstr "एक समीक्षा लिखे"
+
+#: /media/js/reviews.js:96
+msgid "Sorry, there was a problem deleting the review"
+msgstr "सॉरी, समीक्षा को हटाने में समस्या थी"
+
+#: /media/js/reviews.js:157 /media/js/views/addon.js:11 /media/js/views/addon.js:19 /media/js/views/addon.js:21 /media/js/views/app.js:16 /media/js/views/app.js:24 /media/js/views/app.js:25
+#: /media/js/views/app.js:30 /media/js/views/app.js:31 /media/js/views/feed_landing.js:15 /media/js/views/website.js:10 /media/js/views/website.js:16 /media/js/views/website.js:17
+#: /media/js/views/website.js:18
+msgid "Loading..."
+msgstr "लोड हो रहा है..."
+
+#: /media/js/reviews.js:260
+msgid "Your review was successfully posted. Thanks!"
+msgstr "आपकी समीक्षा सफलतापूर्वक पोस्ट किया गया. धन्यवाद!"
+
+#: /media/js/reviews.js:265
+msgid "Sorry, there was an error posting your review. Please try again later."
+msgstr "सॉरी, आपकी समीक्षा पोस्टिंग एक त्रुटि थी. कृप्या पुनः कोशिश करें."
+
+#: /media/js/reviews.js:293
+msgid "Your review was successfully edited"
+msgstr "आपकी समीक्षा सफलतापूर्वक संपादित किया गया"
+
+#: /media/js/reviews.js:298
+msgid "Sorry, there was an issue editing your review. Please try again later"
+msgstr "सॉरी, आपकी समीक्षा संपादन करना एक मुद्दा था. कृप्या पुनः कोशिश करें"
+
+#. {n} is the number of stars
+#: /media/js/ratingwidget.js:44
+msgid "{n} star"
+msgid_plural "{n} stars"
+msgstr[0] "{n} स्टार"
+msgstr[1] "{n} स्टार्स"
+
+#: /media/js/settings_app.js:96
+msgid "English"
+msgstr "इंग्लिश"
+
+#: /media/js/settings_app.js:97
+msgid "French"
+msgstr "फ्रेंच"
+
+#: /media/js/settings_app.js:98
+msgid "German"
+msgstr "जर्मन"
+
+#: /media/js/settings_app.js:99
+msgid "Hungarian"
+msgstr "हंगेरियन"
+
+#: /media/js/settings_app.js:100
+msgid "Indonesian"
+msgstr "इंडोनेशियन"
+
+#: /media/js/settings_app.js:101
+msgid "Polish"
+msgstr "पॉलिश"
+
+#: /media/js/settings_app.js:102
+msgid "Portuguese"
+msgstr "पोर्तुगेसे"
+
+#: /media/js/settings_app.js:103
+msgid "Russian"
+msgstr "रशियन"
+
+#: /media/js/settings_app.js:104
+msgid "Spanish"
+msgstr "स्पेनिश"
+
+#: /media/js/settings_app.js:116
+msgid "Sorry, you are currently offline. Please try again later."
+msgstr "सॉरी, आप वर्तमान में ऑफ़लाइन हैं. कृप्या पुनः कोशिश करें."
+
+#: /media/js/update_banner.js:24
+msgid "The next time you start the Firefox Marketplace app, you’ll see the updated version!"
+msgstr "जब आप अगली बार Firefox बाज़ार अनुप्रयोग शुरू करेंगे, आप अद्यतन संस्करण देख लेंगे!"
+
+#: /media/js/views/addons.js:9 /media/js/views/addons.js:10
+msgid "Firefox OS Add-ons"
 msgstr ""
 
-#: /media/js/payments/payments.js:122
-msgid "Your device does not support purchases."
-msgstr ""
-
-#: /media/js/views/app.js:64 /media/js/views/feed/feed_app.js:10
-msgid "App Details"
-msgstr "एप्लिकेशन के विवरण"
-
-#: /media/js/views/new.js:12
-msgid "Fresh and New Apps"
-msgstr ""
+#: /media/js/views/app.js:17
+msgid "App Detail"
+msgstr "एप्प की जानकारी"
 
 #: /media/js/views/feedback.js:23
 msgid "Feedback submitted. Thanks!"
@@ -1423,67 +1392,82 @@ msgstr "प्रतिक्रिया प्रस्तुत की. ध�
 msgid "There was a problem submitting your feedback. Try again soon."
 msgstr "आपकी प्रतिक्रिया प्रस्तुत करने में समस्या थी. जल्द ही पुन: प्रयास करें."
 
-#: /media/js/views/popular.js:12
-msgid "Popular All Time"
+#: /media/js/views/feed_landing.js:16
+msgid "Collection Detail"
+msgstr "संग्रह की विस्तार से जानकारी"
+
+#: /media/js/views/new_apps.js:8
+msgid "New Apps"
 msgstr ""
 
-#: /media/js/views/search.js:220
+#: /media/js/views/homescreens.js:8
+msgid "Popular Homescreens"
+msgstr ""
+
+#: /media/js/views/langpacks.js:30
+msgid "Language Packs"
+msgstr "भाषा पैक"
+
+#: /media/js/views/langpacks.js:42
+msgid "Firefox OS {version}"
+msgstr "Firefox OS {संस्करण}"
+
+#: /media/js/views/new_websites.js:8
+msgid "New Sites"
+msgstr ""
+
+#: /media/js/views/popular_apps.js:9
+msgid "Popular Apps"
+msgstr ""
+
+#: /media/js/views/popular_websites.js:8
+msgid "Popular Sites"
+msgstr ""
+
+#: /media/js/views/search.js:173
 msgid "Search Results"
 msgstr "खोज के परिणाम"
 
-#: /media/js/views/nominate.js:114
-msgid "Nominate apps"
-msgstr ""
+#: /media/js/views/search.js:186
+msgid "Developer Listing"
+msgstr "डेवलपर लिस्ट"
 
-#: /media/js/views/settings.js:34
-msgid "Settings saved"
-msgstr ""
+#: /media/js/views/settings.js:41
+msgid "Your settings have been successfully saved"
+msgstr "आपकी सेटिंग सफलतापूर्वक सहेजा गया है"
 
-#: /media/js/views/settings.js:36
+#: /media/js/views/settings.js:47
 msgid "Settings could not be saved"
+msgstr "सेटिंग को सहेजा नही किया जा सका"
+
+#: /media/js/views/website.js:11
+msgid "Website Detail"
+msgstr "वेबसाइट की जानकारी"
+
+#: /media/js/lib/marketplace-elements.js:119
+msgid "Close"
 msgstr ""
 
-#: /media/js/views/app/abuse.js:18
-msgid "Abuse reported"
-msgstr "दुर्व्यवहार की सूचना"
+#: /media/js/views/addon/abuse.js:16 /media/js/views/app/abuse.js:18 /media/js/views/website/issue.js:17
+msgid "Report submitted. Thanks!"
+msgstr "रिपोर्ट प्रस्तुत कर दी गए है. धन्यवाद!"
 
-#: /media/js/views/app/abuse.js:22
-msgid "Error while submitting report"
-msgstr "रिपोर्ट प्रस्तुत करते करने में त्रुटि"
+#: /media/js/views/addon/abuse.js:21 /media/js/views/app/abuse.js:25 /media/js/views/website/issue.js:23
+msgid "There was an issue submitting your report. Please try again later."
+msgstr "अपनी रिपोर्ट प्रस्तुत करने के एक मुद्दा था. कृपया बाद में पुन: प्रयास करें."
 
-#: /media/js/views/commonplace/hello_world.js:9
-msgid "Hello World!"
-msgstr ""
+#: /media/js/views/app/ratings.js:12
+msgid "Read All Reviews"
+msgstr "सभी समीक्षाएँ पढ़ें"
 
-#. Page not found (404)
-#: /media/js/views/commonplace/not_found.js:9
-msgid "Not Found"
-msgstr "नहीं मिला"
-
-#: /media/js/views/app/receipt.js:22
+#: /media/js/views/app/receipt.js:14
 msgid "Please sign in to view the receipt"
-msgstr ""
+msgstr "रसीद देखने के लिए साइन इन करें"
 
-#: /media/js/views/app/receipt.js:40
+#: /media/js/views/app/receipt.js:24
 msgid "Receipt"
-msgstr ""
+msgstr "रसीद"
 
-#: /media/js/views/feed/feed_collection.js:10
-msgid "Collection Details"
-msgstr ""
-
-#: /media/js/views/feed/feed_brand.js:10
-msgid "Editorial Brand Details"
-msgstr ""
-
-#: /media/js/views/feed/feed_shelf.js:10
-msgid "Operator Shelf Details"
-msgstr ""
-
-#: /media/js/views/app/ratings/edit.js:20
-msgid "Review updated successfully"
-msgstr ""
-
-#: /media/js/views/app/ratings/edit.js:35
-msgid "There was a problem updating your review"
-msgstr ""
+#: /media/js/views/website/issue.js:32
+msgid "Report an Issue"
+msgstr "मामले की रिपोर्ट करें"
